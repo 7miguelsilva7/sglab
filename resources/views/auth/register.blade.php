@@ -10,15 +10,13 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
+                       
+  
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Selecione uma Escola</label>
+                            <label for="name" class="col-md-4 control-label">Escola</label>
 
                             <div class="col-md-6">
-                            <select name = 'name' id = "name" class = 'form-control'>
-                                <option value=""></option>
-                                <option value="213">Educandário joão XXIII</option>
-                                <option value="Admin">Administrador</option>
-                             </select>
+                                {!! Form::select('name', Config::get('enums.usuario')) !!}
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -26,7 +24,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div>  
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>

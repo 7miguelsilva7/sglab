@@ -1,53 +1,94 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Create Siem</title>
-    </head>
-    <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Siem</div>
-                <div class="panel-body">            <h1>Create Siem</h1>
+                <div class="panel-heading">Adicionar Siem</div>
+                <div class="panel-body">
+                
+
             <form method = 'get' action = '{{url("siem")}}'>
                 <button class = 'btn btn-danger'>Voltar</button>
             </form>
             <br>
-            <form method = 'POST' action = '{{url("siem")}}'>
-                <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+           <form class="form-horizontal" role="form" method="POST" action="{{ url('/siem') }}">
+                        {{ csrf_field() }}
+        <div class="form-group{{ $errors->has('siem') ? ' has-error' : '' }}">
+                            <label for="siem" class="col-md-4 control-label">Número siem</label>
+
+                            <div class="col-md-6">
+                                <input id="siem" type="number_format" class="form-control" name="siem" required>
+
+                                @if ($errors->has('siem'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('siem') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                 
-                <div class="form-group">
-                    <label for="siem">siem</label>
-                    <input id="siem" name = "siem" type="text" class="form-control">
-                </div>
+                        <div class="form-group{{ $errors->has('escola_nome') ? ' has-error' : '' }}">
+                            <label for="escola_nome" class="col-md-4 control-label">Nome da Escola</label>
+
+                            <div class="col-md-6">
+                                <input id="escola_nome" class="form-control" name="escola_nome" required>
+
+                                @if ($errors->has('escola_nome'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('escola_nome') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+  
+                        <div class="form-group{{ $errors->has('escola_tipo') ? ' has-error' : '' }}">
+                            <label for="escola_tipo" class="col-md-4 control-label">Tipo</label>
+
+                            <div class="col-md-6">
+                                {!! Form::select('escola_tipo', Config::get('enums.escola_tipo')) !!}
+
+                                @if ($errors->has('escola_tipo'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('escola_tipo') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>  
+
+
+                        <div class="form-group{{ $errors->has('cod_ext') ? ' has-error' : '' }}">
+                            <label for="cod_ext" class="col-md-4 control-label">Tipo</label>
+
+                            <div class="col-md-6">
+                                {!! Form::number('cod_ext', '0') !!}
+
+                                @if ($errors->has('cod_ext'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cod_ext') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>  
+
+                 </p>
                 
-                <div class="form-group">
-                    <label for="escola_nome">escola_nome</label>
-                    <input id="escola_nome" name = "escola_nome" type="text" class="form-control">
-                </div>
-                
-                <div class="form-group">
-                    <label for="escola_tipo">escola_tipo</label>
-                    <input id="escola_tipo" name = "escola_tipo" type="text" class="form-control">
-                </div>
-                
-                <div class="form-group">
-                    <label for="cod_ext">cod_ext</label>
-                    <input id="cod_ext" name = "cod_ext" type="text" class="form-control">
-                </div>
-                
-                
-                <button class = 'btn btn-primary' type ='submit'>Create</button>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Adicionar
+                                </button>
+                            </div>
+                        </div>
+
             </form>
+
+                   
  </div>
             </div>
         </div>

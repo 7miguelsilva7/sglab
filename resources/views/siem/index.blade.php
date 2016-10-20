@@ -20,14 +20,14 @@
                 <div class="panel-heading">Siem-Escolas</div>
 
                 <div class="panel-body">
-            <h1>Siem-Escolas</h1>
+            <h2>Siem-Escolas</h2>
 
                         <?php
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>
 
             <form class = 'col s3' method = 'get' action = '{{url("siem")}}/create'>
-                <button class = 'btn btn-primary' type = 'submit'>Cadastrar Siem-Escolas</button>
+                <button class = 'btn btn-primary' type = 'submit'>Novo <b>+</b></button>
             </form>
                         <?php } ?>
 
@@ -65,6 +65,7 @@
                         <td>
                               
                         <?php
+                        
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>
                                 <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/siem/{{$Siem->id}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
