@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 20/10/2016 às 14:48
+-- Tempo de geração: 20/10/2016 às 17:00
 -- Versão do servidor: 5.7.15-0ubuntu0.16.04.1
 -- Versão do PHP: 7.0.8-0ubuntu0.16.04.3
 
@@ -75,8 +75,7 @@ CREATE TABLE `escolas` (
 --
 
 INSERT INTO `escolas` (`id`, `usuario`, `inep`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `email`, `cel1`, `cel2`, `sigla`, `possui_internet_escola`, `tipo_internet_escola`, `status_escola`, `possui_lab`, `possui_analista`, `pessoa_id_analista`, `tipo_sala`, `pregao1`, `pregao2`, `pregao3`, `pregao4`, `possui_internet_lab`, `tipo_internet_lab`, `lab_montado`, `qt_computadores_lab`, `qt_monitorelab`, `status_lab`, `ar_condicionado_lab`, `impressora_lab`, `qt_notebook_lab`, `roteador_lab`, `switch_lab`, `qt_cadeiras_lab`, `siem_id`, `pessoa_id`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '29401610', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 2, 1, '2016-10-20 18:42:58', '2016-10-20 18:42:58'),
-(4, 'Admin', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 4, 2, '2016-10-20 19:01:47', '2016-10-20 19:01:47');
+(1, 'Admin', '29401610', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 2, 1, '2016-10-20 18:42:58', '2016-10-20 18:42:58');
 
 -- --------------------------------------------------------
 
@@ -95,6 +94,13 @@ CREATE TABLE `funcionarios` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Fazendo dump de dados para tabela `funcionarios`
+--
+
+INSERT INTO `funcionarios` (`id`, `usuario`, `vinculo`, `status_funcionario`, `siem_id`, `ocupacao_id`, `pessoa_id`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'Efetivo', 'Ativo', 2, 1, 1, '2016-10-20 21:09:06', '2016-10-20 21:09:06');
 
 -- --------------------------------------------------------
 
@@ -135,6 +141,13 @@ CREATE TABLE `ocupacaos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Fazendo dump de dados para tabela `ocupacaos`
+--
+
+INSERT INTO `ocupacaos` (`id`, `nome`, `created_at`, `updated_at`) VALUES
+(1, 'Analista em Educação', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -458,12 +471,12 @@ ALTER TABLE `user_has_roles`
 -- AUTO_INCREMENT de tabela `escolas`
 --
 ALTER TABLE `escolas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de tabela `funcionarios`
 --
 ALTER TABLE `funcionarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de tabela `migrations`
 --
@@ -473,7 +486,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de tabela `ocupacaos`
 --
 ALTER TABLE `ocupacaos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de tabela `permissions`
 --
