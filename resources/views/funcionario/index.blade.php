@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,20 +10,29 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Index Funcionario</title>
+ 
+        <title>Funcionários</title>
     </head>
     <body>
-        <div class = 'container'>
-            <h1>Funcionario Index</h1>
+        <div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Funcionários</div>
+
+                <div class="panel-body">
+            <h2>Funcionários </h2>
             <form class = 'col s3' method = 'get' action = '{{url("funcionario")}}/create'>
-                <button class = 'btn btn-primary' type = 'submit'>Create New Funcionario</button>
+                <button class = 'btn btn-primary' type = 'submit'>Novo <b>+</b></button>
             </form>
             <br>
+
             
             <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Associate
+                Associar
                 <span class="caret"></span>
+ 
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     
@@ -37,6 +49,14 @@
             <table class = "table table-striped table-bordered">
                 <thead>
                     
+
+                    <th>Funcionário</th>
+                    <th>Ocupação</th>
+                    <th>Escola</th>
+
+
+<!--
+
                     <th>usuario</th>
                     
                     <th>vinculo</th>
@@ -48,7 +68,6 @@
                     
                     <th>siem</th>
                     
-                    <th>escola_nome</th>
                     
                     <th>escola_tipo</th>
                     
@@ -60,7 +79,6 @@
                     
                     
                     
-                    <th>nome</th>
                     
                     <th>created_at</th>
                     
@@ -106,25 +124,32 @@
                     
                     <th>updated_at</th>
                     
-                    
+
+-->                    
                     
                     <th>actions</th>
                 </thead>
                 <tbody>
                     @foreach($funcionarios as $Funcionario)
                     <tr>
+
+                    <td>{{$Funcionario->pessoa->nome}}</td>
+                    <td>{{$Funcionario->ocupacao->nome}}</td>
+                    <td>{{$Funcionario->siem->escola_nome}}</td>
+
+<!--
+
                         
-                        <td>{{$Funcionario->usuario}}</td>
-                        
-                        <td>{{$Funcionario->vinculo}}</td>
-                        
-                        <td>{{$Funcionario->status_funcionario}}</td>
+                                                <td>{{$Funcionario->usuario}}</td>
+                                                
+                                                <td>{{$Funcionario->vinculo}}</td>
+                                                
+                                                <td>{{$Funcionario->status_funcionario}}</td>
                         
                         
                         
                                                 <td>{{$Funcionario->siem->siem}}</td>
 
-                                                <td>{{$Funcionario->siem->escola_nome}}</td>
 
                                                 <td>{{$Funcionario->siem->escola_tipo}}</td>
 
@@ -136,7 +161,6 @@
 
                         
                         
-                                                <td>{{$Funcionario->ocupacao->nome}}</td>
 
                                                 <td>{{$Funcionario->ocupacao->created_at}}</td>
 
@@ -144,7 +168,6 @@
 
                         
                         
-                                                <td>{{$Funcionario->pessoa->nome}}</td>
 
                                                 <td>{{$Funcionario->pessoa->cep}}</td>
 
@@ -182,7 +205,7 @@
 
                                                 <td>{{$Funcionario->pessoa->updated_at}}</td>
 
-                        
+                        -->
                         
                         
                         <td>
@@ -201,9 +224,9 @@
         </div>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script> var baseURL = "{{URL::to('/')}}"</script>
 <script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
 <script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
 </html>
+@endsection

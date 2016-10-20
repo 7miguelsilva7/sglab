@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,25 +10,40 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Index Pessoa</title>
+ 
+        <title>Pessoa</title>
     </head>
     <body>
-        <div class = 'container'>
-            <h1>Pessoa Index</h1>
+        <div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Pessoa</div>
+
+                <div class="panel-body">
+            <h2>Pessoa </h2>
             <form class = 'col s3' method = 'get' action = '{{url("pessoa")}}/create'>
-                <button class = 'btn btn-primary' type = 'submit'>Create New Pessoa</button>
+                <button class = 'btn btn-primary' type = 'submit'>Novo <b>+</b></button>
             </form>
             <br>
-            
-            <br>
+
             <table class = "table table-striped table-bordered">
                 <thead>
                     
-                    <th>nome</th>
+ 
+                    <th>Nome</th>
+
+                    
+                    <th>Contato</th>
+                    
+                    
+                    <th>E-mail</th>
+
+                    
+<!--
                     
                     <th>cep</th>
                     
-                    <th>distrito</th>
                     
                     <th>bairro</th>
                     
@@ -35,14 +53,12 @@
                     
                     <th>complemento</th>
                     
-                    <th>fone</th>
-                    
-                    <th>cel1</th>
-                    
-                    <th>cel2</th>
-                    
-                    <th>email</th>
-                    
+                                      <th>Distrito</th>
+                    <th>Cel 2</th>
+
+                                        <th>Telefone</th>
+
+
                     <th>cpf</th>
                     
                     <th>rg</th>
@@ -61,14 +77,25 @@
                     
                     <th>nome_pai</th>
                     
+                    -->
                     
-                    <th>actions</th>
+                    <th>Ações</th>
                 </thead>
                 <tbody>
                     @foreach($pessoas as $Pessoa)
                     <tr>
                         
                         <td>{{$Pessoa->nome}}</td>
+
+                        
+                        <td>{{$Pessoa->cel1}}</td>
+                        
+                        
+                        <td>{{$Pessoa->email}}</td>
+
+
+
+<!--
                         
                         <td>{{$Pessoa->cep}}</td>
                         
@@ -82,14 +109,14 @@
                         
                         <td>{{$Pessoa->complemento}}</td>
                         
-                        <td>{{$Pessoa->fone}}</td>
-                        
-                        <td>{{$Pessoa->cel1}}</td>
-                        
-                        <td>{{$Pessoa->cel2}}</td>
-                        
-                        <td>{{$Pessoa->email}}</td>
-                        
+                                               <td>{{$Pessoa->distrito}}</td>
+                                        
+                                        
+                                         <td>{{$Pessoa->fone}}</td>
+
+
+                                                <td>{{$Pessoa->cel2}}</td>
+
                         <td>{{$Pessoa->cpf}}</td>
                         
                         <td>{{$Pessoa->rg}}</td>
@@ -108,7 +135,8 @@
                         
                         <td>{{$Pessoa->nome_pai}}</td>
                         
-                        
+                        -->
+
                         <td>
                                 <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/pessoa/{{$Pessoa->id}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
                                 <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/pessoa/{{$Pessoa->id}}/edit'><i class = 'material-icons'>edit</i></a>
@@ -125,9 +153,9 @@
         </div>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script> var baseURL = "{{URL::to('/')}}"</script>
 <script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
 <script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
 </html>
+@endsection

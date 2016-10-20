@@ -65,6 +65,9 @@
                                     
                                     <li><a href="{{ url('/siem') }}">Siem</a></li>
                                     <li><a href="{{ url('/escola') }}">Escola</a></li>
+                                    <li><a href="{{ url('/funcionario') }}">Funcionário</a></li>
+                                    <li><a href="{{ url('/ocupacao') }}">Ocupação</a></li>
+                                    <li><a href="{{ url('/pessoa') }}">Pessoa</a></li>
 
                                     </li>
                                 </ul>

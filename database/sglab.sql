@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 20/10/2016 às 13:06
+-- Tempo de geração: 20/10/2016 às 14:48
 -- Versão do servidor: 5.7.15-0ubuntu0.16.04.1
 -- Versão do PHP: 7.0.8-0ubuntu0.16.04.3
 
@@ -34,7 +34,7 @@ CREATE TABLE `escolas` (
   `distrito` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `bairro` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `logradouro` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `numero` int(11) NOT NULL,
+  `numero` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `complemento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -69,6 +69,14 @@ CREATE TABLE `escolas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Fazendo dump de dados para tabela `escolas`
+--
+
+INSERT INTO `escolas` (`id`, `usuario`, `inep`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `email`, `cel1`, `cel2`, `sigla`, `possui_internet_escola`, `tipo_internet_escola`, `status_escola`, `possui_lab`, `possui_analista`, `pessoa_id_analista`, `tipo_sala`, `pregao1`, `pregao2`, `pregao3`, `pregao4`, `possui_internet_lab`, `tipo_internet_lab`, `lab_montado`, `qt_computadores_lab`, `qt_monitorelab`, `status_lab`, `ar_condicionado_lab`, `impressora_lab`, `qt_notebook_lab`, `roteador_lab`, `switch_lab`, `qt_cadeiras_lab`, `siem_id`, `pessoa_id`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', '29401610', '', '', '', '', '1', '', '', '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 2, 1, '2016-10-20 18:42:58', '2016-10-20 18:42:58'),
+(4, 'Admin', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 4, 2, '2016-10-20 19:01:47', '2016-10-20 19:01:47');
 
 -- --------------------------------------------------------
 
@@ -199,6 +207,14 @@ CREATE TABLE `pessoas` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Fazendo dump de dados para tabela `pessoas`
+--
+
+INSERT INTO `pessoas` (`id`, `nome`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `cel1`, `cel2`, `email`, `cpf`, `rg`, `expedicao_rg`, `naturalidade`, `nascionalidade`, `escolaridade`, `data_nascimento`, `nome_mae`, `nome_pai`, `created_at`, `updated_at`) VALUES
+(1, 'Miguel dos Santos Silva', '', '', 'Piranga', '', '', '', '', '74 988116127', '', '', '', '', '', '', '', '', '', '', '', '2016-10-20 18:31:40', '2016-10-20 18:31:40'),
+(2, 'NÃO POSSUI', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-10-20 18:57:39', '2016-10-20 18:57:39');
+
 -- --------------------------------------------------------
 
 --
@@ -306,10 +322,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$N18x0Ls7n3Z3vr8J3FZGDOirz8hEpPkgbKI2TUBQGxUyEj8NHBXty', 'ONMXoAgktJgd2VqOgSyMeSt7grMTMtIm9q9h2V8jboOJgSPYSMP3d8vOZFL4', '2016-10-17 17:19:43', '2016-10-20 17:29:50'),
+(1, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$N18x0Ls7n3Z3vr8J3FZGDOirz8hEpPkgbKI2TUBQGxUyEj8NHBXty', 'YaYjuViXGYcpH00RzsOsaAO7AQzJO4mz1wRE8d91sWJq4TWSkjGgF47fTTtf', '2016-10-17 17:19:43', '2016-10-20 19:07:59'),
 (2, 'Editor', 'editor@gmail.com', '$2y$10$8ALtTfyyLKuSQG7WZI6Yl.FDAV8vKyL3bY1ctrbJ4XyBICy1i3/Vu', 'Ougm5IZvFWOgnqiUeiFHgOFgDkpjiqRAjEsDW3R5M1osixkMVW5tOsPjyPYm', '2016-10-18 17:21:36', '2016-10-18 20:17:43'),
-(3, 'Admin', 'ntm@juazeiro.ba.gov.br', '$2y$10$9zJcmims6tKYNVh6wGocK.Wyi6MSgImEIt4AUzZvKmGvjcJziVmo2', '0t9LI2CGvMuT61JkrYvivXYbNPnrKO9PI22zM5YC2JdhCHLb0xydkw3RkNoz', '2016-10-18 18:17:36', '2016-10-20 17:29:36'),
-(4, '213', 'educandariojoao23@gmail.com', '$2y$10$N.Gdj.Houz8dy.XknunvIOtGMivyPs0BR/LKfZda7vSRYMRqQAVgq', 'PH7gxUQBDiI9wEycujcDrWubrSWK5cAm0GKFFbmjlwbWDeAojrFaI330VtHi', '2016-10-18 20:12:46', '2016-10-20 17:48:05'),
+(3, 'Admin', 'ntm@juazeiro.ba.gov.br', '$2y$10$9zJcmims6tKYNVh6wGocK.Wyi6MSgImEIt4AUzZvKmGvjcJziVmo2', 'DD5vbP3UnQZWeTJF8pDzwUIoTwVDCFW7YOk5iV5E17YqrmZGC5m4ToDk4dxf', '2016-10-18 18:17:36', '2016-10-20 18:38:56'),
+(4, '213', 'educandariojoao23@gmail.com', '$2y$10$N.Gdj.Houz8dy.XknunvIOtGMivyPs0BR/LKfZda7vSRYMRqQAVgq', 'fwl5JQEdrY1g1dqbLS5jPAGtQImo1wPM0BR3PLkYpRVeIOSJm4pfFeRXdQ7e', '2016-10-18 20:12:46', '2016-10-20 19:16:01'),
 (5, '148', 'joca@gmail.com', '$2y$10$rSFRY3kVX8JIprFtLXfMXOOKJ333MVCKohVbV2aod98Z7H9ITmbmy', '1dUTzFlCYU9MBvo4tYD9SRwonRrKPEbOIJemorRu18pTp84OeKRpVmSl7Ymd', '2016-10-20 15:46:20', '2016-10-20 15:51:58');
 
 -- --------------------------------------------------------
@@ -442,7 +458,7 @@ ALTER TABLE `user_has_roles`
 -- AUTO_INCREMENT de tabela `escolas`
 --
 ALTER TABLE `escolas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de tabela `funcionarios`
 --
@@ -467,7 +483,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT de tabela `pessoas`
 --
 ALTER TABLE `pessoas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de tabela `roles`
 --

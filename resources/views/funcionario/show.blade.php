@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Show Funcionario</title>
-    </head>
-    <body>
-        <div class = 'container'>
-            <h1>Show Funcionario</h1>
-            <br>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div align="center" class="panel-heading">{{$funcionario->pessoa->nome}}  </br>
+  Última Edição: {{$funcionario->pessoa->updated_at}}</div>
+                <div class="panel-body">
+
+    
             <form method = 'get' action = '{{url("funcionario")}}'>
-                <button class = 'btn btn-primary'>Funcionario Index</button>
+                <button class = 'btn btn-primary'>Voltar</button>
             </form>
             <br>
             <table class = 'table table-bordered'>
@@ -21,12 +19,13 @@
                     <th>Key</th>
                     <th>Value</th>
                 </thead>
+          
                 <tbody>
 
                     
                     <tr>
                         <td>
-                            <b><i>usuario : </i></b>
+                            <b><i>Adicionado por : </i></b>
                         </td>
                         <td>{{$funcionario->usuario}}</td>
                     </tr>
@@ -62,56 +61,17 @@
                         <td>{{$funcionario->siem->escola_nome}}</td>
                         </tr>
                         
-                        <tr>
-                        <td>
-                            <b><i>escola_tipo : </i><b>
-                        </td>
-                        <td>{{$funcionario->siem->escola_tipo}}</td>
-                        </tr>
-                        
-                        <tr>
-                        <td>
-                            <b><i>cod_ext : </i><b>
-                        </td>
-                        <td>{{$funcionario->siem->cod_ext}}</td>
-                        </tr>
-                        
-                        <tr>
-                        <td>
-                            <b><i>created_at : </i><b>
-                        </td>
-                        <td>{{$funcionario->siem->created_at}}</td>
-                        </tr>
-                        
-                        <tr>
-                        <td>
-                            <b><i>updated_at : </i><b>
-                        </td>
-                        <td>{{$funcionario->siem->updated_at}}</td>
-                        </tr>
-                        
+                                                
                         
                         
                         <tr>
                         <td>
-                            <b><i>nome : </i><b>
+                            <b><i>Cargo/Função : </i><b>
                         </td>
                         <td>{{$funcionario->ocupacao->nome}}</td>
                         </tr>
                         
-                        <tr>
-                        <td>
-                            <b><i>created_at : </i><b>
-                        </td>
-                        <td>{{$funcionario->ocupacao->created_at}}</td>
-                        </tr>
-                        
-                        <tr>
-                        <td>
-                            <b><i>updated_at : </i><b>
-                        </td>
-                        <td>{{$funcionario->ocupacao->updated_at}}</td>
-                        </tr>
+                    
                         
                         
                         
@@ -254,6 +214,6 @@
             </table>
         </div>
     </body>
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </html>
+@endsection

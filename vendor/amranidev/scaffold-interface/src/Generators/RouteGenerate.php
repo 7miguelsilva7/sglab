@@ -10,18 +10,20 @@ namespace Amranidev\ScaffoldInterface\Generators;
 class RouteGenerate
 {
     /**
-     * @var NamesGenerate
+     * The NamesGenerate instance.
+     *
+     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
     private $names;
 
     /**
      * Create new RouteGenerate instance.
      *
-     * @param NamesGenerate
+     * @return void
      */
-    public function __construct(NamesGenerate $names)
+    public function __construct()
     {
-        $this->names = $names;
+        $this->names = app()->make('NamesGenerate');
     }
 
     /**

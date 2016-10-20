@@ -19,6 +19,7 @@
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
                 
                 <div class="form-group">
+      
                     <label for="nome">nome</label>
                     <input id="nome" name = "nome" type="text" class="form-control">
                 </div>

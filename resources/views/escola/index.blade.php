@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
         <title>Siem-Escolas</title>
     </head>
     <body>
@@ -59,11 +60,11 @@
                                             <th>inep</th>
                                             <th>escola_nome</th>
                                             <th>distrito</th>
-                                            <th>fone</th>
 
                    
                   <!--   
-                   
+                     <th>fone</th>
+
                     <th>usuario</th>
                                        
                     <th>cep</th>
@@ -198,10 +199,10 @@
 
                                                 <td>{{$Escola->siem->escola_nome}}</td>
                                                 <td>{{$Escola->distrito}}</td>
-                                                <td>{{$Escola->fone}}</td>
 
 
 <!--
+                        <td>{{$Escola->fone}}</td>
 
                         
                         <td>{{$Escola->usuario}}</td>

@@ -16,6 +16,7 @@
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
                 
 
+
 <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
 <?php
                         $usuario_logado = Auth::user()->name;
@@ -39,17 +40,6 @@
                         @endforeach
                     </select>
                 </div>
-                
-                <div class="form-group">
-                    <label>pessoas Select</label>
-                    <select name = 'pessoa_id' style="no" class = 'form-control'>
-                        <option value=""></option>
-                        @foreach($pessoas as $key => $value)
-                        <option value="{{$key}}">{{$value}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                
                 
                 <div class="form-group">
                     <label for="inep">inep</label>
@@ -136,11 +126,23 @@
                     <input id="possui_analista" name = "possui_analista" type="text" class="form-control">
                 </div>
                 
-                <div class="form-group">
-                    <label for="pessoa_id_analista">pessoa_id_analista</label>
-                    <input id="pessoa_id_analista" name = "pessoa_id_analista" type="text" class="form-control">
-                </div>
                 
+                <div class="form-group">
+                    <label>pessoas Select</label>
+                    <select name = 'pessoa_id' style="no" class = 'form-control'>
+                        <option value="2">NÃO POSSUI</option>
+                        @foreach($pessoas as $key => $value)
+                        <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!--Campo desnecessário-->
+                <div class="form-group">
+                    <input id="pessoa_id_analista" name = "pessoa_id_analista" type="hidden" value="0" class="form-control">
+                </div>
+                <!--FIM Campo desnecessário-->
+
                 <div class="form-group">
                     <label for="tipo_sala">tipo_sala</label>
                     <input id="tipo_sala" name = "tipo_sala" type="text" class="form-control">

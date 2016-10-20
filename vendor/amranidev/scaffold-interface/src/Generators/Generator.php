@@ -2,9 +2,7 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
-use Amranidev\ScaffoldInterface\Datasystem\Datasystem;
 use Amranidev\ScaffoldInterface\Filesystem\Filesystem;
-use Amranidev\ScaffoldInterface\Filesystem\Path;
 
 /**
  * Class     Generator.
@@ -14,54 +12,66 @@ use Amranidev\ScaffoldInterface\Filesystem\Path;
 class Generator extends Filesystem
 {
     /**
-     * @var ViewGenerate
+     * The ViewGenerate instance.
+     *
+     * @var \Amranidev\ScaffoldInterface\Generators\ViewGenerate
      */
     private $view;
 
     /**
-     * @var ModelGenerate
+     * The ViewGenerate instance.
+     *
+     * @var \Amranidev\ScaffoldInterface\Generators\ModelGenerate
      */
     private $model;
 
     /**
-     * @var MigrationGenerate
+     * The ViewGenerate instance.
+     *
+     * @var \Amranidev\ScaffoldInterface\Generators\MigrationGenerate
      */
     private $migration;
 
     /**
-     * @var ControllerGenerate
+     * The ViewGenerate instance.
+     *
+     * @var \Amranidev\ScaffoldInterface\Generators\ControllerGenerate
      */
     private $controller;
 
     /**
-     * @var RouteGenerate
+     * The ViewGenerate instance.
+     *
+     * @var \Amranidev\ScaffoldInterface\Generators\RouteGenerate
      */
     private $route;
 
     /**
-     * @var Path
+     * The ViewGenerate instance.
+     *
+     * @var \Amranidev\ScaffoldInterface\Filesystem\Path
      */
     private $paths;
 
     /**
      * Create new Generator instance.
      *
-     * @param DataSystem $dataSystem
-     * @param NamesGenerate
-     * @param PathsGenerate
+     * @return void
      */
-    public function __construct(Datasystem $dataSystem, NamesGenerate $names, Path $paths)
+    public function __construct()
     {
-        $this->view = new ViewGenerate($dataSystem, $names);
-        $this->model = new ModelGenerate($names, $dataSystem);
-        $this->migration = new MigrationGenerate($dataSystem, $names);
-        $this->controller = new ControllerGenerate($names, $dataSystem);
-        $this->route = new RouteGenerate($names);
-        $this->paths = $paths;
+        $this->view = app()->make('ViewGenerate');
+        $this->model = app()->make('ModelGenerate');
+        $this->migration = app()->make('MigrationGenerate');
+        $this->controller = app()->make('ControllerGenerate');
+        $this->route = app()->make('RouteGenerate');
+        $this->paths = app()->make('Path');
     }
 
     /**
      * Generate index.
+     *
+     * @return mixed
      */
     public function index()
     {
@@ -70,6 +80,8 @@ class Generator extends Filesystem
 
     /**
      * Generate create.
+     *
+     * @return mixed
      */
     public function create()
     {
@@ -78,6 +90,8 @@ class Generator extends Filesystem
 
     /**
      * Generate show.
+     *
+     * @return mixed
      */
     public function show()
     {
@@ -86,6 +100,8 @@ class Generator extends Filesystem
 
     /**
      * Generate edit.
+     *
+     * @return mixed
      */
     public function edit()
     {
@@ -94,6 +110,8 @@ class Generator extends Filesystem
 
     /**
      * Generate views directory.
+     *
+     * @return mixed
      */
     public function dir()
     {
@@ -102,6 +120,8 @@ class Generator extends Filesystem
 
     /**
      * Generate Model.
+     *
+     * @return mixed
      */
     public function model()
     {
@@ -110,6 +130,8 @@ class Generator extends Filesystem
 
     /**
      * Generate Migration.
+     *
+     * @return mixed
      */
     public function migration()
     {
@@ -118,6 +140,8 @@ class Generator extends Filesystem
 
     /**
      * Generate Controller.
+     *
+     * @return mixed
      */
     public function controller()
     {
@@ -126,6 +150,8 @@ class Generator extends Filesystem
 
     /**
      * Generate route.
+     *
+     * @return mixed
      */
     public function route()
     {
@@ -134,6 +160,8 @@ class Generator extends Filesystem
 
     /**
      * get model generator.
+     *
+     * @return \Amranidev\ScaffoldInterface\Generators\ModelGenerate
      */
     public function getModel()
     {
@@ -150,6 +178,8 @@ class Generator extends Filesystem
 
     /**
      * get view generator.
+     *
+     * @return \Amranidev\ScaffoldInterface\Generators\ViewGenerate
      */
     public function getView()
     {
@@ -158,6 +188,8 @@ class Generator extends Filesystem
 
     /**
      * get controller generator.
+     *
+     * @return \Amranidev\ScaffoldInterface\Generators\ControllerGenerate
      */
     public function getController()
     {
@@ -165,7 +197,9 @@ class Generator extends Filesystem
     }
 
     /**
-     * get route generator.
+     * get route.
+     *
+     * @return \Amranidev\ScaffoldInterface\Generators\RouteGenerate
      */
     public function getRoute()
     {

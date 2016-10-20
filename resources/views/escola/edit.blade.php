@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Edit Escola</title>
-    </head>
-    <body>
-        <div class = 'container'>
-            <h1>Edit Escola</h1>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Editar Escola</div>
+                <div class="panel-body">
             <form method = 'get' action = '{{url("escola")}}'>
-                <button class = 'btn btn-danger'>Escola Index</button>
+                <button class = 'btn btn-danger'>Voltar</button>
             </form>
             <br>
             <form method = 'POST' action = '{{url("escola")}}/{{$escola->id}}/update'>
@@ -20,8 +16,20 @@
                 
                 <div class="form-group">
                     <label for="usuario">usuario</label>
-                    <input id="usuario" name = "usuario" type="text" class="form-control" value="{{$escola->usuario}}">
+                    <input type = 'hidden' id="usuario" name = "usuario" type="text" class="form-control" value="{{$escola->usuario}}">
                 </div>
+
+
+                
+                <div class="form-group">
+                    <label>siems Select</label>
+                    <select name = 'siem_id' class = "form-control">
+                        @foreach($siems as $key => $value)
+                        <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                
                 
                 <div class="form-group">
                     <label for="inep">inep</label>
@@ -187,7 +195,8 @@
                     <label for="roteador_lab">roteador_lab</label>
                     <input id="roteador_lab" name = "roteador_lab" type="text" class="form-control" value="{{$escola->roteador_lab}}">
                 </div>
-                
+
+
                 <div class="form-group">
                     <label for="switch_lab">switch_lab</label>
                     <input id="switch_lab" name = "switch_lab" type="text" class="form-control" value="{{$escola->switch_lab}}">
@@ -196,16 +205,6 @@
                 <div class="form-group">
                     <label for="qt_cadeiras_lab">qt_cadeiras_lab</label>
                     <input id="qt_cadeiras_lab" name = "qt_cadeiras_lab" type="text" class="form-control" value="{{$escola->qt_cadeiras_lab}}">
-                </div>
-                
-                
-                <div class="form-group">
-                    <label>siems Select</label>
-                    <select name = 'siem_id' class = "form-control">
-                        @foreach($siems as $key => $value)
-                        <option value="{{$key}}">{{$value}}</option>
-                        @endforeach
-                    </select>
                 </div>
                 
                 <div class="form-group">
@@ -221,6 +220,6 @@
             </form>
         </div>
     </body>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </html>
+@endsection

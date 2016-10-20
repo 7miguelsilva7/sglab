@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,17 +10,24 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Index Ocupacao</title>
+ 
+        <title>Ocupação</title>
     </head>
     <body>
-        <div class = 'container'>
-            <h1>Ocupacao Index</h1>
+        <div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Ocupação</div>
+
+                <div class="panel-body">
+            <h2>Ocupação </h2>
             <form class = 'col s3' method = 'get' action = '{{url("ocupacao")}}/create'>
-                <button class = 'btn btn-primary' type = 'submit'>Create New Ocupacao</button>
+                <button class = 'btn btn-primary' type = 'submit'>Novo <b>+</b></button>
             </form>
             <br>
-            
-            <br>
+
+          
             <table class = "table table-striped table-bordered">
                 <thead>
                     
@@ -49,9 +59,9 @@
         </div>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script> var baseURL = "{{URL::to('/')}}"</script>
 <script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
 <script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
 </html>
+@endsection

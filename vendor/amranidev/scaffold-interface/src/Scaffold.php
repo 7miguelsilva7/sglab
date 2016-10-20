@@ -2,11 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface;
 
-use Amranidev\ScaffoldInterface\Datasystem\Datasystem;
-use Amranidev\ScaffoldInterface\Filesystem\Path;
-use Amranidev\ScaffoldInterface\Generators\Generator;
-use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
-
 /**
  * Class     Scaffold.
  *
@@ -16,51 +11,26 @@ use Amranidev\ScaffoldInterface\Generators\NamesGenerate;
 class Scaffold
 {
     /**
-     * DataSystem instance.
-     */
-    public $dataS;
-
-    /**
-     * Path instance.
-     *
-     * @var paths
-     */
-    public $paths;
-
-    /**
-     * Names instance.
-     *
-     * @var names
-     */
-    public $names;
-
-    /**
      * Generator instance.
      *
-     * @var generator
+     * @var \Amranidev\ScaffoldInterface\Generators\Generator
      */
     public $generator;
 
     /**
      * Create new scaffold instance.
      *
-     * @param array $request
+     * @return void
      */
-    public function __construct($request)
+    public function __construct()
     {
-        $this->dataS = new Datasystem($request);
-
-        $this->names = new NamesGenerate($request);
-
-        $this->paths = new Path($this->names);
-
-        $this->generator = new Generator($this->dataS, $this->names, $this->paths);
+        $this->generator = app()->make('Generator');
     }
 
     /**
      * Scaffold Migration.
      *
-     * @return Scaffold
+     * @return \Amranidev\ScaffoldInterface\Scaffold
      */
     public function migration()
     {
@@ -72,7 +42,7 @@ class Scaffold
     /**
      * Scaffold Model.
      *
-     * @return Scaffold
+     * @return \Amranidev\ScaffoldInterface\Scaffold
      */
     public function model()
     {
@@ -84,7 +54,7 @@ class Scaffold
     /**
      * Scaffold Views.
      *
-     * @return Scaffold
+     * @return \Amranidev\ScaffoldInterface\Scaffold
      */
     public function views()
     {
@@ -100,7 +70,7 @@ class Scaffold
     /**
      * Scaffold Controller.
      *
-     * @return Scaffold
+     * @return \Amranidev\ScaffoldInterface\Scaffold
      */
     public function controller()
     {
@@ -112,7 +82,7 @@ class Scaffold
     /**
      * Scaffold Route.
      *
-     * @return Scaffold
+     * @return \Amranidev\ScaffoldInterface\Scaffold
      */
     public function route()
     {

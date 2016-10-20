@@ -38,20 +38,30 @@ Route::get('escola/{id}/deleteMsg','\App\Http\Controllers\EscolaController@Delet
 /********************* escola ***********************************************/
 
 
-//teste Resources
-/********************* teste ***********************************************/
-Route::resource('teste','\App\Http\Controllers\TesteController');
-Route::post('teste/{id}/update','\App\Http\Controllers\TesteController@update');
-Route::get('teste/{id}/delete','\App\Http\Controllers\TesteController@destroy');
-Route::get('teste/{id}/deleteMsg','\App\Http\Controllers\TesteController@DeleteMsg');
-/********************* teste ***********************************************/
+//ocupacao Resources
+/********************* ocupacao ***********************************************/
+Route::resource('ocupacao','\App\Http\Controllers\OcupacaoController');
+Route::post('ocupacao/{id}/update','\App\Http\Controllers\OcupacaoController@update');
+Route::get('ocupacao/{id}/delete','\App\Http\Controllers\OcupacaoController@destroy');
+Route::get('ocupacao/{id}/deleteMsg','\App\Http\Controllers\OcupacaoController@DeleteMsg');
+/********************* ocupacao ***********************************************/
 
 
-//testis Resources
-/********************* testis ***********************************************/
-Route::resource('testis','\App\Http\Controllers\TestisController');
-Route::post('testis/{id}/update','\App\Http\Controllers\TestisController@update');
-Route::get('testis/{id}/delete','\App\Http\Controllers\TestisController@destroy');
-Route::get('testis/{id}/deleteMsg','\App\Http\Controllers\TestisController@DeleteMsg');
-/********************* testis ***********************************************/
+//pessoa Resources
+/********************* pessoa ***********************************************/
+Route::resource('pessoa','\App\Http\Controllers\PessoaController');
+Route::post('pessoa/{id}/update','\App\Http\Controllers\PessoaController@update');
+Route::get('pessoa/{id}/delete','\App\Http\Controllers\PessoaController@destroy');
+Route::get('pessoa/{id}/deleteMsg','\App\Http\Controllers\PessoaController@DeleteMsg');
+/********************* pessoa ***********************************************/
+
+
+//funcionario Resources
+/********************* funcionario ***********************************************/
+Route::resource('funcionario','\App\Http\Controllers\FuncionarioController');
+Route::post('funcionario/{id}/update','\App\Http\Controllers\FuncionarioController@update');
+Route::get('funcionario/{id}/delete','\App\Http\Controllers\FuncionarioController@destroy');
+Route::get('funcionario/{id}/deleteMsg','\App\Http\Controllers\FuncionarioController@DeleteMsg');
+/********************* funcionario ***********************************************/
+
 

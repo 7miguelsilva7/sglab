@@ -2,8 +2,6 @@
 
 namespace Amranidev\ScaffoldInterface\Generators;
 
-use Amranidev\ScaffoldInterface\DataSystem\Datasystem;
-
 /**
  * Class ModelGenerate.
  *
@@ -12,30 +10,32 @@ use Amranidev\ScaffoldInterface\DataSystem\Datasystem;
 class ModelGenerate
 {
     /**
-     * DataSystem.
+     * The DataSystem instance.
      *
-     * @var
+     * @var \Amranidev\ScaffoldInterface\Datasystem\Datasystem
      */
     private $dataSystem;
 
     /**
-     * @var NamesGenerate
+     * The NamesGenerate instance.
+     *
+     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
      */
     private $names;
 
     /**
      * Create new ModelGenerate instance.
      *
-     * @param NameGenerate
+     * @return void
      */
-    public function __construct(NamesGenerate $names, Datasystem $dataSystem)
+    public function __construct()
     {
-        $this->names = $names;
-        $this->dataSystem = $dataSystem;
+        $this->names = app()->make('NamesGenerate');
+        $this->dataSystem = app()->make('Datasystem');
     }
 
     /**
-     * Compile Model template.
+     * Compile model template.
      *
      * @return string
      */
