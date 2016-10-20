@@ -25,6 +25,9 @@
                 <button class = 'btn btn-primary' type = 'submit'>Novo <b>+</b></button>
             </form>
             <br>
+
+<!-- Verifica usuário logado, Apenas usuário Admin pode ver este campo -->
+            
                 <?php
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>
@@ -34,6 +37,9 @@
                 <span class="caret"></span>
                 </button>
                 <?php } ?>
+
+<!-- FIM Verifica usuário logado, Apenas usuário Admin pode ver este campo. FIM -->
+                
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     
