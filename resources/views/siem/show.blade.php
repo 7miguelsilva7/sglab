@@ -5,13 +5,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Siem</div>
+                <div align="center" class="panel-heading">Escola Municipal {{$siem->escola_nome}}  </br>
+  Última Edição: {{$siem->updated_at}}</div>
                 <div class="panel-body">
-                
-                        <h3>{{$siem->siem}} - Escola Municipal {{$siem->escola_nome}}</h3>
-            <form method = 'get' action = '{{url("siem")}}'>
+
+    
+                <form method = 'get' action = '{{url("escola")}}'>
                 <button class = 'btn btn-primary'>Voltar</button>
-            </form>
+                </form>
             <br>
             <table class = 'table table-bordered'>
                 <thead>

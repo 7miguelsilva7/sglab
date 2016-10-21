@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Adicionar Escola</div>
+                <div class="panel-heading">Adicionar Ocupação</div>
                 <div class="panel-body">
             <form method = 'get' action = '{{url("ocupacao")}}'>
                 <button class = 'btn btn-danger'>Voltar</button>
@@ -16,6 +16,7 @@
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
                 
                 <div class="form-group">
+  
                     <label for="nome">nome</label>
                     <input id="nome" name = "nome" type="text" class="form-control">
                 </div>

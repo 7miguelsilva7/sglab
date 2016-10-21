@@ -14,6 +14,7 @@
      
             <form method = 'POST' action = '{{url("ocupacao")}}/{{$ocupacao->id}}/update'>
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+   
                 
                 <div class="form-group">
                     <label for="nome">nome</label>

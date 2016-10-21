@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div align="center" class="panel-heading">Escola Municipal {{$escola->siem->escola_nome}}  </br>
-  Última Edição: {{$escola->siem->updated_at}}</div>
+  Última Edição: {{$escola->updated_at}}</div>
                 <div class="panel-body">
 
     
