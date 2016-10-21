@@ -131,13 +131,13 @@ class FuncionarioController extends Controller
         }
 
         
-        $siems = Siem::all()->lists('escola_nome','id');
+        $siems = Siem::all()->pluck('escola_nome','id');
 
         
-        $ocupacaos = Ocupacao::all()->lists('nome','id');
+        $ocupacaos = Ocupacao::all()->pluck('nome','id');
 
         
-        $pessoas = Pessoa::all()->lists('nome','id');
+        $pessoas = Pessoa::all()->pluck('nome','id');
 
         
         $funcionario = Funcionario::findOrfail($id);
