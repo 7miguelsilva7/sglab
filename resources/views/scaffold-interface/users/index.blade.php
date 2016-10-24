@@ -1,12 +1,39 @@
-@extends('scaffold-interface.layouts.app')
+@extends('layouts.app')
+
 @section('content')
-<section class="content">
-<div class="box box-primary">
-<div class="box-header">
-	<h3>All Users</h3>
-</div>
-	<div class="box-body">
-		<a href="{{url('/users/create')}}" class = "btn btn-success"><i class="fa fa-plus fa-md" aria-hidden="true"></i> New</a>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Usuários</title>
+    </head>
+    <body>
+        <div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Usuários</div>
+
+                <div class="panel-body">
+            <h2><i class="fa glyphicon glyphicon-th-list"></i> Usuários</h2>
+
+                        <?php
+                        $usuario_logado = Auth::user()->name;
+                        if ($usuario_logado == "Admin") { ?>
+
+            <form class = 'col s3' method = 'get'                             
+			<li><a href="{{ url('users/create') }}"><i class="fa glyphicon glyphicon-plus"></i> Novo</a></li>
+
+            </form>
+			</br>
+                        <?php } ?>
+
+
 		<table class = "table table-hover">
 		<thead>
 			<th>Name</th>

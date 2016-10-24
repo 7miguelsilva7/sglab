@@ -11,7 +11,7 @@
 
     
             <form method = 'get' action = '{{url("funcionario")}}'>
-                <button class = 'btn btn-primary'>Voltar</button>
+                <button class = 'btn btn-primary'><i class="fa glyphicon glyphicon-arrow-left"></i> Voltar</button>
             </form>
             <br>
             <table class = 'table table-bordered'>

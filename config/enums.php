@@ -24,7 +24,124 @@ return [
         'EXTENSÃO' => "EXTENSÃO",
     ],
 
-  /*exemplo de enum */
+    'sim_nao' => [
+        
+        '' => "",
+        'SIM' => "SIM",
+        'NÃO' => "NÃO",
+    ],
+
+    'distrito' => [
+        
+        '' => "",
+    'ABÓBORA' => "ABÓBORA",
+ 	'ITAMOTINGA' => "ITAMOTINGA",
+ 	'JUNCO' => "JUNCO",
+ 	'JUREMAL' => "JUREMAL",
+ 	'MANDACARU' => "MANDACARU",
+ 	'MANIÇOBA' => "MANIÇOBA",
+ 	'MASSAROCA' => "MASSAROCA",
+ 	'PINHÕES' => "PINHÕES",
+ 	'SEDE' => "SEDE",
+
+
+
+    ],
+
+
+    'tipo_internet' => [
+        
+        '' => "",
+
+    'NENHUMA' => "NENHUMA",
+    'CLARO' => "CLARO",
+    'PROJETO BANDA LARGA NAS ESCOLAS' => "PROJETO BANDA LARGA NAS ESCOLAS",
+ 	'GSAT' => "GSAT",
+ 	'OUTRO' => "OUTRO",
+ 	'RÁDIO' => "RÁDIO",
+ 	'TIM' => "TIM",
+    'VELOX' => "VELOX",
+ 	'VIVO' => "VIVO",
+
+    ],
+
+
+ 'status_ativo' => [
+        
+        'ATIVO' => "ATIVO",
+
+    'INATIVO' => "INATIVO",
+ 	
+    ],
+
+
+ 'tipo_sala' => [
+        
+        '' => "",
+
+    'NÃO POSSUI' => "NÃO POSSUI",
+ 	'SALA PRÓPRIA' => "SALA PRÓPRIA",
+ 	'SALA DE AULA COMPARTILHADA' => "SALA DE AULA COMPARTILHADA",
+ 	
+
+    ],    
+
+
+ 'switch' => [
+        
+    '' => "",
+
+    'NÃO POSSUI' => "NÃO POSSUI",
+    '8 PORTAS' => "8 PORTAS",
+ 	'16 PORTAS' => "16 PORTAS",
+ 	'24 PORTAS' => "24 PORTAS",
+ 	'32 PORTAS' => "32 PORTAS",
+ 	'48 PORTAS' => "48 PORTAS",
+    '+48 PORTAS' => "+48 PORTAS",
+
+    ],
+
+
+    'pregao' => [
+        
+        '' => "",
+
+    '38.2006' => "38.2006",
+ 	'25.2007' => "25.2007",
+ 	'45.2007' => "45.2007",
+ 	'83.2008' => "83.2008",
+ 	'69.2008' => "69.2008",
+    '68.2009' => "68.2009",
+ 	'71.2010' => "71.2010",
+ 	'OUTRO' => "OUTRO",
+
+    ],    
+
+
+    'status_vazio' => [
+        
+        '' => "",
+
+    'ATIVO' => "ATIVO",
+    'INATIVO' => "INATIVO",
+ 	
+    ],
+
+
+
+    'vinculo' => [
+        
+        '' => "",
+
+    'CONTRATO' => "CONTRATO",
+    'EFETIVO' => "EFETIVO",
+    'ESTÁGIO' => "ESTÁGIO",
+ 	'CONCURSADO' => "CONCURSADO",
+ 	'TEMPORÁRIO' => "TEMPORÁRIO",
+ 	
+
+    ],
+
 
     'usuario' => [
 

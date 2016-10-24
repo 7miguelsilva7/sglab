@@ -215,7 +215,7 @@
                     </select>
                 </div>
                 
-                <button class = 'btn btn-primary' type ='submit'>Update</button>
+                <button class = 'btn btn-primary' type ='submit'>Atualizar</button>
             </form>
         </div>
     </body>

@@ -17,6 +17,7 @@
                 
 
 
+
 <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
 <?php
                         $usuario_logado = Auth::user()->name;
@@ -32,8 +33,8 @@
 
 
                 <div class="form-group">
-                    <label>siems Select</label>
-                    <select name = 'siem_id' class = 'form-control'>
+                    <label>Selecione a Escola</label>
+                    <select required type="search" name = 'siem_id' class = 'form-control' >
                         <option value=""></option>
                         @foreach($siems as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>
@@ -42,93 +43,93 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="inep">inep</label>
-                    <input id="inep" name = "inep" type="text" class="form-control">
+                    <label for="inep">Inep</label>
+                    <input required id="inep" name = "inep" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="cep">cep</label>
+                    <label for="cep">Cep</label>
                     <input id="cep" name = "cep" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="distrito">distrito</label>
-                    <input id="distrito" name = "distrito" type="text" class="form-control">
+                    <label for="distrito">Distrito</label>
+                    </br>{!! Form::select('distrito', Config::get('enums.distrito')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="bairro">bairro</label>
-                    <input id="bairro" name = "bairro" type="text" class="form-control">
+                    <label for="bairro">Bairro</label>
+                    <input required id="bairro" name = "bairro" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="logradouro">logradouro</label>
+                    <label for="logradouro">Logradouro</label>
                     <input id="logradouro" name = "logradouro" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="numero">numero</label>
+                    <label for="numero">Numero</label>
                     <input id="numero" name = "numero" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="complemento">complemento</label>
+                    <label for="complemento">Complemento</label>
                     <input id="complemento" name = "complemento" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="fone">fone</label>
+                    <label for="fone">Fone</label>
                     <input id="fone" name = "fone" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">email</label>
+                    <label for="email">Email</label>
                     <input id="email" name = "email" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="cel1">cel1</label>
+                    <label for="cel1">Cel1</label>
                     <input id="cel1" name = "cel1" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="cel2">cel2</label>
+                    <label for="cel2">Cel2</label>
                     <input id="cel2" name = "cel2" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="sigla">sigla</label>
+                    <label for="sigla">Sigla</label>
                     <input id="sigla" name = "sigla" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="possui_internet_escola">possui_internet_escola</label>
-                    <input id="possui_internet_escola" name = "possui_internet_escola" type="text" class="form-control">
+                    <label for="possui_internet_escola">Possui internet na Escola</label>
+                    </br>{!! Form::select('possui_internet_escola', Config::get('enums.sim_nao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="tipo_internet_escola">tipo_internet_escola</label>
-                    <input id="tipo_internet_escola" name = "tipo_internet_escola" type="text" class="form-control">
+                    <label for="tipo_internet_escola">Tipo Internet da Escola</label>
+                    </br>{!! Form::select('tipo_internet_escola', Config::get('enums.tipo_internet')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="status_escola">status_escola</label>
-                    <input id="status_escola" name = "status_escola" type="text" class="form-control">
+                    <label for="status_escola">Status Escola</label>
+                    </br>{!! Form::select('status_escola', Config::get('enums.status_ativo')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="possui_lab">possui_lab</label>
-                    <input id="possui_lab" name = "possui_lab" type="text" class="form-control">
+                    <label for="possui_lab">Possui Lab</label>
+                    </br>{!! Form::select('possui_lab', Config::get('enums.sim_nao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="possui_analista">possui_analista</label>
-                    <input id="possui_analista" name = "possui_analista" type="text" class="form-control">
+                    <label for="possui_analista">Possui Analista</label>
+                    </br>{!! Form::select('possui_analista', Config::get('enums.sim_nao')) !!}
                 </div>
                 
                 
                 <div class="form-group">
-                    <label>pessoas Select</label>
+                    <label>Analista em Educação</label>
                     <select name = 'pessoa_id' style="no" class = 'form-control'>
                         <option value="2">NÃO POSSUI</option>
                         @foreach($pessoas as $key => $value)
@@ -144,91 +145,91 @@
                 <!--FIM Campo desnecessário-->
 
                 <div class="form-group">
-                    <label for="tipo_sala">tipo_sala</label>
-                    <input id="tipo_sala" name = "tipo_sala" type="text" class="form-control">
+                    <label for="tipo_sala">Tipo Sala</label>
+                    </br>{!! Form::select('tipo_sala', Config::get('enums.tipo_sala')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="pregao1">pregao1</label>
-                    <input id="pregao1" name = "pregao1" type="text" class="form-control">
+                    <label for="pregao1">Pregao1</label>
+                    </br>{!! Form::select('pregao1', Config::get('enums.pregao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="pregao2">pregao2</label>
-                    <input id="pregao2" name = "pregao2" type="text" class="form-control">
+                    <label for="pregao2">Pregao2</label>
+                    </br>{!! Form::select('pregao2', Config::get('enums.pregao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="pregao3">pregao3</label>
-                    <input id="pregao3" name = "pregao3" type="text" class="form-control">
+                    <label for="pregao3">Pregao3</label>
+                    </br>{!! Form::select('pregao3', Config::get('enums.pregao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="pregao4">pregao4</label>
-                    <input id="pregao4" name = "pregao4" type="text" class="form-control">
+                    <label for="pregao4">Pregao4</label>
+                    </br>{!! Form::select('pregao4', Config::get('enums.pregao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="possui_internet_lab">possui_internet_lab</label>
-                    <input id="possui_internet_lab" name = "possui_internet_lab" type="text" class="form-control">
+                    <label for="possui_internet_lab">Possui Internet no lab</label>
+                    </br>{!! Form::select('possui_internet_lab', Config::get('enums.sim_nao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="tipo_internet_lab">tipo_internet_lab</label>
-                    <input id="tipo_internet_lab" name = "tipo_internet_lab" type="text" class="form-control">
+                    <label for="tipo_internet_lab">Tipo Internet Lab</label>
+                    </br>{!! Form::select('tipo_internet_lab', Config::get('enums.tipo_internet')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="lab_montado">lab_montado</label>
-                    <input id="lab_montado" name = "lab_montado" type="text" class="form-control">
+                    <label for="lab_montado">Lab Montado</label>
+                    </br>{!! Form::select('lab_montado', Config::get('enums.sim_nao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="qt_computadores_lab">qt_computadores_lab</label>
+                    <label for="qt_computadores_lab">Qt. computadores Lab</label>
                     <input id="qt_computadores_lab" name = "qt_computadores_lab" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="qt_monitorelab">qt_monitorelab</label>
+                    <label for="qt_monitorelab">Qt. Monitores Lab</label>
                     <input id="qt_monitorelab" name = "qt_monitorelab" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="status_lab">status_lab</label>
-                    <input id="status_lab" name = "status_lab" type="text" class="form-control">
+                    <label for="status_lab">Status Lab</label>
+                    </br>{!! Form::select('status_lab', Config::get('enums.status_vazio')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="ar_condicionado_lab">ar_condicionado_lab</label>
-                    <input id="ar_condicionado_lab" name = "ar_condicionado_lab" type="text" class="form-control">
+                    <label for="ar_condicionado_lab">Ar Condicionado Lab</label>
+                    </br>{!! Form::select('ar_condicionado_lab', Config::get('enums.sim_nao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="impressora_lab">impressora_lab</label>
-                    <input id="impressora_lab" name = "impressora_lab" type="text" class="form-control">
+                    <label for="impressora_lab">Impressora Lab</label>
+                    </br>{!! Form::select('impressora_lab', Config::get('enums.sim_nao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="qt_notebook_lab">qt_notebook_lab</label>
+                    <label for="qt_notebook_lab">Qt. Notebook Lab</label>
                     <input id="qt_notebook_lab" name = "qt_notebook_lab" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="roteador_lab">roteador_lab</label>
-                    <input id="roteador_lab" name = "roteador_lab" type="text" class="form-control">
+                    <label for="roteador_lab">Roteador Lab</label>
+                    </br>{!! Form::select('roteador_lab', Config::get('enums.sim_nao')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="switch_lab">switch_lab</label>
-                    <input id="switch_lab" name = "switch_lab" type="text" class="form-control">
+                    <label for="switch_lab">Switch Lab</label>
+                    </br>{!! Form::select('switch_lab', Config::get('enums.switch')) !!}
                 </div>
                 
                 <div class="form-group">
-                    <label for="qt_cadeiras_lab">qt_cadeiras_lab</label>
+                    <label for="qt_cadeiras_lab">Qt. Cadeiras Lab</label>
                     <input id="qt_cadeiras_lab" name = "qt_cadeiras_lab" type="text" class="form-control">
                 </div>
               
-                <button class = 'btn btn-primary' type ='submit'>Adicionar</button>
+                <button class = 'btn btn-primary' type ='submit'>Salvar</button>
             </form>
         </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

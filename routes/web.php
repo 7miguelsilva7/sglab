@@ -64,4 +64,3 @@ Route::get('funcionario/{id}/delete','\App\Http\Controllers\FuncionarioControlle
 Route::get('funcionario/{id}/deleteMsg','\App\Http\Controllers\FuncionarioController@DeleteMsg');
 /********************* funcionario ***********************************************/
 
-

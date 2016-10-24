@@ -21,9 +21,9 @@
                 <div class="panel-heading">Funcionários</div>
 
                 <div class="panel-body">
-            <h2>Funcionários </h2>
+            <h2><i class="fa glyphicon glyphicon-th-list"></i> Funcionários </h2>
             <form class = 'col s3' method = 'get' action = '{{url("funcionario")}}/create'>
-                <button class = 'btn btn-primary' type = 'submit'>Novo <b>+</b></button>
+                <button class = 'btn btn-primary' type = 'submit'><i class="fa glyphicon glyphicon-plus"></i> Novo </button>
             </form>
             <br>
 

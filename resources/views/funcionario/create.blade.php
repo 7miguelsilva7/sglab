@@ -27,21 +27,13 @@
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
 
 
+             
                 
                 <div class="form-group">
-                    <label for="vinculo">vinculo</label>
-                    <input id="vinculo" name = "vinculo" type="text" class="form-control">
-                </div>
-                
-                <div class="form-group">
-                    <label for="status_funcionario">status_funcionario</label>
-                    <input id="status_funcionario" name = "status_funcionario" type="text" class="form-control">
-                </div>
-                
-                
-                <div class="form-group">
-                    <label>siems Select</label>
-                    <select name = 'siem_id' class = 'form-control'>
+                    <label>Selecione uma Escola</label>
+                    <select required name = 'siem_id' class = 'form-control'>
+                        <option value=""></option>
+          
                         @foreach($siems as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>
                         @endforeach
@@ -49,8 +41,9 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>ocupacaos Select</label>
-                    <select name = 'ocupacao_id' class = 'form-control'>
+                    <label>Ocupacão</label>
+                    <select required name = 'ocupacao_id' class = 'form-control'>
+                        <option value=""></option>
                         @foreach($ocupacaos as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>
                         @endforeach
@@ -58,19 +51,31 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>pessoas Select</label>
-                    <select name = 'pessoa_id' class = 'form-control'>
+                    <label>Funcionário</label>
+                    <select required name = 'pessoa_id' class = 'form-control'>
+                        <option value=""></option>
                         @foreach($pessoas as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>
                         @endforeach
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label for="vinculo">Vínculo</label>
+                     </br>{!! Form::select('vinculo', Config::get('enums.vinculo')) !!}
+                </div>
                 
-                <button class = 'btn btn-primary' type ='submit'>Create</button>
+                <div class="form-group">
+                    <label for="status_funcionario">status_funcionario</label>
+                     </br>{!! Form::select('status_funcionario', Config::get('enums.status_ativo')) !!}
+                </div>
+                
+
+                
+                <button class = 'btn btn-primary' type ='submit'>Salvar</button>
             </form>
         </div>
     </body>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </html>
 @endsection

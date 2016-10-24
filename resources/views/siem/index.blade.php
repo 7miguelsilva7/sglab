@@ -20,14 +20,14 @@
                 <div class="panel-heading">Siem-Escolas</div>
 
                 <div class="panel-body">
-            <h2>Siem-Escolas</h2>
+            <h2><i class="fa glyphicon glyphicon-th-list"></i> Siem-Escolas</h2>
 
                         <?php
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>
 
             <form class = 'col s3' method = 'get' action = '{{url("siem")}}/create'>
-                <button class = 'btn btn-primary' type = 'submit'>Novo <b>+</b></button>
+                <button class = 'btn btn-primary' type = 'submit'><i class="fa glyphicon glyphicon-plus"></i> Novo </button>
             </form>
                         <?php } ?>
 
