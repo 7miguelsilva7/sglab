@@ -18,6 +18,17 @@ $.getScript('http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.8/select2.min.js'
   var select = $('#select3').select2();
   var select = $('#select4').select2();
   var select = $('#select5').select2();
+  var select = $('#select6').select2();
+  var select = $('#select7').select2();
+  var select = $('#select8').select2();
+  var select = $('#select9').select2();
+  var select = $('#select10').select2();
+  var select = $('#select11').select2();
+  var select = $('#select12').select2();
+  var select = $('#select13').select2();
+  var select = $('#select14').select2();
+  var select = $('#select15').select2();
+  var select = $('#select16').select2();
   
   /* Select2 plugin as tagpicker */
   $("#tagPicker").select2({

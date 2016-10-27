@@ -32,8 +32,8 @@
                         <div class="form-group">
                         <div class="row">
                             <div class="col-md-12">
-                            <label for="escola_tipo">Selecione a Escola</label>
-                                <select class="form-control" name="escola_tipo" id="select1" required>
+                            <label for="siem_id">Selecione a Escola</label>
+                                <select class="form-control" name="siem_id" id="select1" required>
                                 <option value=""></option>
                                 @foreach($siems as $key => $value)
                                 <option value="{{$key}}">{{$value}}</option>
@@ -169,21 +169,17 @@
                                 <option value=""></option>
                                 <option value="SIM">SIM</option>
                                 <option value="NÃO">NÃO</option>
-                               
-
-                               
+                                                             
                     </select>
                     </div>
                     </div>
                     </div>
                     </div>
-                
-
                             <div class="form-group">
                             <div class="row">
                             <div class="col-md-6">   
                             <label for="tipo_internet_escola">Tipo Internet da Escola</label>
-<select class="form-control" name="possui_internet_escola" id="select2" required>
+<select class="form-control" name="tipo_internet_escola" id="select11" required>
                                 <option value=""></option>
                                 <option value="NENHUMA">NENHUMA</option>
                                 <option value="CLARO">CLARO</option>
@@ -202,7 +198,7 @@
                 <div class="col-md-6">   
 
                     <label for="status_escola">Status Escola</label>
-<select class="form-control" name="possui_internet_escola" id="select2" required>
+                    <select class="form-control" name="status_escola" id="select2" required>
                                 <option value="ATIVO">ATIVO</option>
                                 <option value="INATIVO">INATIVO</option>
                                
@@ -219,22 +215,21 @@
                             <div class="row">
                             <div class="col-md-6"> 
                                                 <label for="possui_lab">Possui Lab</label>
-                    <select class="form-control" name="possui_internet_escola" id="select2" required>
+                    <select class="form-control" name="possui_lab" id="select2" required>
                                 <option value=""></option>
                                 <option value="SIM">SIM</option>
                                 <option value="NÃO">NÃO</option>
                                
 
-                               
                     </select> 
                                    </div>
-                
+
+
                             <div class="form-group">
                             <div class="col-md-6"> 
                 
                     <label for="possui_analista">Possui Analista</label>
-                             <label for="possui_lab">Possui Lab</label>
-                    <select class="form-control" name="possui_internet_escola" id="select2" required>
+                    <select class="form-control" name="possui_analista" id="select2" required>
                                 <option value=""></option>
                                 <option value="SIM">SIM</option>
                                 <option value="NÃO">NÃO</option>
@@ -248,7 +243,7 @@
                                     </div>
                 
                 
-                <div class="form-group">
+                    <div class="form-group">
                     <label>Analista em Educação</label>
                     <select name = 'pessoa_id' style="no" class = 'form-control' id="select3" required>
                         <option value="2">NÃO POSSUI</option>
@@ -258,99 +253,287 @@
                     </select>
                 </div>
 
-                
+                            <!--Informações do laboratório-->
+                                         <!--Informações do laboratório-->
+                            <!--Informações do laboratório-->
+                            <!--Informações do laboratório-->
+                            <!--Informações do laboratório-->
+                            <!--Informações do laboratório-->
+                            <!--Informações do laboratório-->
 
+    
+                                <hr>
+                <h3>Informações do Laboratório de Informática </br> <h5>(<i>Preencher apenas se possuir Laboratório</i>)</h5></h3>
+                                <hr>  
+                
+                
+                
+                <!--Campo desnecessário-->
+                <!--Campo desnecessário-->
                 <!--Campo desnecessário-->
                 <div class="form-group">
                     <input id="pessoa_id_analista" name = "pessoa_id_analista" type="hidden" value="0" class="form-control">
                 </div>
                 <!--FIM Campo desnecessário-->
+                <!--Campo desnecessário-->
+                <!--Campo desnecessário-->
+                <!--Campo desnecessário-->
+
 
                 <div class="form-group">
                     <label for="tipo_sala">Tipo Sala</label>
-                    </br>{!! Form::select('tipo_sala', Config::get('enums.tipo_sala')) !!}
+                    <select name = 'tipo_sala' style="no" class = 'form-control' id="select5" >
+                        <option value="NÃO POSSUI">NÃO POSSUI</option>
+                        <option value="SALA PRÓPRIA">SALA PRÓPRIA</option>
+                        <option value="SALA DE AULA COMPARTILHADA">SALA DE AULA COMPARTILHADA</option>
+                    </select>
+
+
                 </div>
                 
-                <div class="form-group">
-                    <label for="pregao1">Pregao1</label>
-                    </br>{!! Form::select('pregao1', Config::get('enums.pregao')) !!}
-                </div>
                 
                 <div class="form-group">
-                    <label for="pregao2">Pregao2</label>
-                    </br>{!! Form::select('pregao2', Config::get('enums.pregao')) !!}
+                            <div class="row">
+                            <div class="col-md-6">                     
+                            <label for="pregao1">Pregao 1</label>
+                    <select name = 'pregao1' style="no" class = 'form-control' id="select6" >
+                        <option value=""></option>
+                        <option value="NÃO POSSUI">NÃO POSSUI</option>
+                        <option value="38.2006">38.2006</option>
+                        <option value="25.2007">25.2007</option>
+                        <option value="45.2007">45.2007</option>
+                        <option value="83.2008">83.2008</option>
+                        <option value="69.2008">69.2008</option>
+                        <option value="68.2009">68.2009</option>
+                        <option value="71.2010">71.2010</option>
+                        <option value="OUTRO">OUTRO</option>
+                        
+                    </select>                
                 </div>
+
+           
+                <div class="form-group">
+                            <div class="col-md-6">                     
+
+                    <label for="pregao2">Pregao 2</label>
+                    <select name = 'pregao2' style="no" class = 'form-control' id="select7" >
+                        <option value=""></option>
+                        <option value="NÃO POSSUI">NÃO POSSUI</option>
+                        <option value="38.2006">38.2006</option>
+                        <option value="25.2007">25.2007</option>
+                        <option value="45.2007">45.2007</option>
+                        <option value="83.2008">83.2008</option>
+                        <option value="69.2008">69.2008</option>
+                        <option value="68.2009">68.2009</option>
+                        <option value="71.2010">71.2010</option>
+                        <option value="OUTRO">OUTRO</option>
+                        
+                    </select>                    
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+                <div class="form-group">
+                <div class="row">
+                <div class="col-md-6">                     
+
+
+                    <label for="pregao3">Pregao 3</label>
+                    <select name = 'pregao3' style="no" class = 'form-control' id="select8" >
+                        <option value=""></option>
+                        <option value="NÃO POSSUI">NÃO POSSUI</option>
+                        <option value="38.2006">38.2006</option>
+                        <option value="25.2007">25.2007</option>
+                        <option value="45.2007">45.2007</option>
+                        <option value="83.2008">83.2008</option>
+                        <option value="69.2008">69.2008</option>
+                        <option value="68.2009">68.2009</option>
+                        <option value="71.2010">71.2010</option>
+                        <option value="OUTRO">OUTRO</option>
+                        
+                    </select>                    
+                    </div>
                 
                 <div class="form-group">
-                    <label for="pregao3">Pregao3</label>
-                    </br>{!! Form::select('pregao3', Config::get('enums.pregao')) !!}
-                </div>
-                
+                <div class="col-md-6">                     
+
+                    <label for="pregao4">Pregao 4</label>
+                    <select name = 'pregao4' style="no" class = 'form-control' id="select9" >
+                        <option value=""></option>
+                        <option value="NÃO POSSUI">NÃO POSSUI</option>
+                        <option value="38.2006">38.2006</option>
+                        <option value="25.2007">25.2007</option>
+                        <option value="45.2007">45.2007</option>
+                        <option value="83.2008">83.2008</option>
+                        <option value="69.2008">69.2008</option>
+                        <option value="68.2009">68.2009</option>
+                        <option value="71.2010">71.2010</option>
+                        <option value="OUTRO">OUTRO</option>
+                        
+                    </select>                    
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
                 <div class="form-group">
-                    <label for="pregao4">Pregao4</label>
-                    </br>{!! Form::select('pregao4', Config::get('enums.pregao')) !!}
-                </div>
-                
-                <div class="form-group">
+                <div class="row">
+                <div class="col-md-6"> 
+
                     <label for="possui_internet_lab">Possui Internet no lab</label>
-                    </br>{!! Form::select('possui_internet_lab', Config::get('enums.sim_nao')) !!}
-                </div>
+                    <select class="form-control" name="possui_internet_lab" id="select2" >
+                                <option value=""></option>
+                                <option value="SIM">SIM</option>
+                                <option value="NÃO">NÃO</option>
+                               
+
+                               
+                    </select>               
+                    </div>
                 
                 <div class="form-group">
+                <div class="col-md-6"> 
+
                     <label for="tipo_internet_lab">Tipo Internet Lab</label>
-                    </br>{!! Form::select('tipo_internet_lab', Config::get('enums.tipo_internet')) !!}
+                    <select class="form-control" name="tipo_internet_lab" id="select10" >
+                                <option value=""></option>
+                                <option value="NENHUMA">NENHUMA</option>
+                                <option value="CLARO">CLARO</option>
+                                <option value="PROJETO BANDA LARGA NAS ESCOLAS">PROJETO BANDA LARGA NAS ESCOLAS</option>
+                                <option value="GSAT">GSAT</option>
+                                <option value="OUTRO">OUTRO</option>
+                                <option value="RÁDIO">RÁDIO</option>
+                                <option value="TIM">TIM</option>
+                                <option value="VELOX">VELOX</option>
+                                <option value="VIVO">VIVO</option>
+                                                  
+                    </select>                        </div>
+                </div>
+                </div>
                 </div>
                 
                 <div class="form-group">
+                <div class="row">
+                <div class="col-md-6">   
                     <label for="lab_montado">Lab Montado</label>
-                    </br>{!! Form::select('lab_montado', Config::get('enums.sim_nao')) !!}
-                </div>
+                    <select class="form-control" name="lab_montado" id="select2" >
+                                <option value=""></option>
+                                <option value="SIM">SIM</option>
+                                <option value="NÃO">NÃO</option>
+                               
+
+                               
+                    </select>          
+                                    </div>
                 
                 <div class="form-group">
+                <div class="col-md-6">   
+
                     <label for="qt_computadores_lab">Qt. computadores Lab</label>
-                    <input id="qt_computadores_lab" name = "qt_computadores_lab" type="text" class="form-control">
+                    <input id="qt_computadores_lab" name = "qt_computadores_lab" type="number" class="form-control">
+                </div>
+                </div>
+                </div>
                 </div>
                 
-                <div class="form-group">
+ <div class="form-group">
+                <div class="row">
+                <div class="col-md-6">   
                     <label for="qt_monitorelab">Qt. Monitores Lab</label>
-                    <input id="qt_monitorelab" name = "qt_monitorelab" type="text" class="form-control">
+                    <input id="qt_monitorelab" name = "qt_monitorelab" type="number" class="form-control">
                 </div>
                 
-                <div class="form-group">
-                    <label for="status_lab">Status Lab</label>
-                    </br>{!! Form::select('status_lab', Config::get('enums.status_vazio')) !!}
+ <div class="form-group">
+                <div class="col-md-6">   
+                                    <label for="status_lab">Status Lab</label>
+                <select class="form-control" name="status_lab" id="select2" >
+                                <option value=""></option>
+                                <option value="ATIVO">ATIVO</option>
+                                <option value="INATIVO">INATIVO</option>
+                </select> 
+                                    </div>
+                </div>
+                </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="ar_condicionado_lab">Ar Condicionado Lab</label>
-                    </br>{!! Form::select('ar_condicionado_lab', Config::get('enums.sim_nao')) !!}
+<div class="form-group">
+                <div class="row">
+                <div class="col-md-6">   
+                                    <label for="ar_condicionado_lab">Ar Condicionado Lab</label>
+                    <select class="form-control" name="ar_condicionado_lab" id="select2" >
+                                <option value=""></option>
+                                <option value="SIM">SIM</option>
+                                <option value="NÃO">NÃO</option>
+                               
+
+                               
+                    </select>          
+                                    </div>
+                
+<div class="form-group">
+                <div class="col-md-6">   
+                                    <label for="impressora_lab">Impressora Lab</label>
+                    <select class="form-control" name="impressora_lab" id="select2" >
+                                <option value=""></option>
+                                <option value="SIM">SIM</option>
+                                <option value="NÃO">NÃO</option>
+                               
+
+                               
+                    </select>          
+                                    </div>
+                </div>
+                </div>
+                </div>                
+<div class="form-group">
+                <div class="row">
+                <div class="col-md-6">   
+                                    <label for="qt_notebook_lab">Qt. Notebook Lab</label>
+                    <input id="qt_notebook_lab" name = "qt_notebook_lab" type="number" class="form-control">
                 </div>
                 
-                <div class="form-group">
-                    <label for="impressora_lab">Impressora Lab</label>
-                    </br>{!! Form::select('impressora_lab', Config::get('enums.sim_nao')) !!}
+<div class="form-group">
+                <div class="col-md-6">   
+                                    <label for="roteador_lab">Roteador Lab</label>
+                    <select class="form-control" name="roteador_lab" id="select2" >
+                                <option value=""></option>
+                                <option value="SIM">SIM</option>
+                                <option value="NÃO">NÃO</option>
+                               
+
+                               
+                    </select>          
+                                    </div>
                 </div>
+                </div>
+                </div>                
+<div class="form-group">
+                <div class="row">
+                <div class="col-md-6">   
+                                    <label for="switch_lab">Switch Lab</label>
+                    <select class="form-control" name="switch_lab" id="select12" >
+                                <option value=""></option>
+                                <option value="NÃO POSSUI">NÃO POSSUI</option>
+                                <option value="8 PORTAS">8 PORTAS</option>
+                                <option value="16 PORTAS">16 PORTAS</option>
+                                <option value="24 PORTAS">24 PORTAS</option>
+                                <option value="32 PORTAS">32 PORTAS</option>
+                                <option value="48 PORTAS">48 PORTAS</option>
+                                <option value="+48 PORTAS">+48 PORTAS</option>
+                                
+                                 
+                    </select>          
+                                    </div>
                 
-                <div class="form-group">
-                    <label for="qt_notebook_lab">Qt. Notebook Lab</label>
-                    <input id="qt_notebook_lab" name = "qt_notebook_lab" type="text" class="form-control">
+<div class="form-group">
+                <div class="col-md-6">   
+                                    <label for="qt_cadeiras_lab">Qt. Cadeiras Lab</label>
+                    <input id="qt_cadeiras_lab" name = "qt_cadeiras_lab" type="number" class="form-control">
                 </div>
-                
-                <div class="form-group">
-                    <label for="roteador_lab">Roteador Lab</label>
-                    </br>{!! Form::select('roteador_lab', Config::get('enums.sim_nao')) !!}
                 </div>
-                
-                <div class="form-group">
-                    <label for="switch_lab">Switch Lab</label>
-                    </br>{!! Form::select('switch_lab', Config::get('enums.switch')) !!}
                 </div>
-                
-                <div class="form-group">
-                    <label for="qt_cadeiras_lab">Qt. Cadeiras Lab</label>
-                    <input id="qt_cadeiras_lab" name = "qt_cadeiras_lab" type="text" class="form-control">
-                </div>
-              
+                </div>              
                 <button class = 'btn btn-primary' type ='submit'>Salvar</button>
             </form>
         </div>
