@@ -84,9 +84,7 @@ class SiemController extends Controller
 
         
         $siem->cod_ext = $request->cod_ext;
-
-        
-        
+                
         $siem->save();
 
         $pusher = App::make('pusher');

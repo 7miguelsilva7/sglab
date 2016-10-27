@@ -10,6 +10,7 @@
             <form method = 'get' action = '{{url("ocupacao")}}'>
                 <button class = 'btn btn-danger'>Voltar</button>
             </form>
+            
             <br>
   
             <form method = 'POST' action = '{{url("ocupacao")}}'>

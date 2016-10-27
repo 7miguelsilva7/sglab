@@ -16,8 +16,6 @@
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
                 
 
-
-
 <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
 <?php
                         $usuario_logado = Auth::user()->name;
@@ -31,45 +29,90 @@
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
 
 
+                        <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                            <label for="escola_tipo">Selecione a Escola</label>
+                                <select class="form-control" name="escola_tipo" id="select1" required>
+                                <option value=""></option>
+                                @foreach($siems as $key => $value)
+                                <option value="{{$key}}">{{$value}}</option>
+                                @endforeach
+                                    
+                                </select>
+                            </div> 
+                           
+                        </div><!--/row-->
+                      
+                        </div>
+<hr>
+                        <h3>Dados da Escola</h3>
+<hr>                
+                <div class="form-group">
 
-                <div class="form-group">
-                    <label>Selecione a Escola</label>
-                    <select required type="search" name = 'siem_id' class = 'form-control' >
-                        <option value=""></option>
-                        @foreach($siems as $key => $value)
-                        <option value="{{$key}}">{{$value}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                
-                <div class="form-group">
+                <div class="row">
+                <div class="col-md-6">
+
                     <label for="inep">Inep</label>
-                    <input required id="inep" name = "inep" type="text" class="form-control">
+                    <input required id="inep" name = "inep" type="number" class="form-control">
                 </div>
                 
                 <div class="form-group">
+                <div class="col-md-6">
+
                     <label for="cep">Cep</label>
-                    <input id="cep" name = "cep" type="text" class="form-control">
-                </div>
+                    <input id="cep" name = "cep" type="number" class="form-control">
                 
-                <div class="form-group">
-                    <label for="distrito">Distrito</label>
-                    </br>{!! Form::select('distrito', Config::get('enums.distrito')) !!}
-                </div>
+                </div> 
+                </div> 
+                           
+                        </div><!--/row-->
+                      
+                        </div>                
                 
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6">
+                            <label for="distrito">Distrito</label>
+                                <select class="form-control" name="distrito" id="select2" required>
+                                <option value=""></option>
+                                <option value="ABÓBORA">ABÓBORA</option>
+                                <option value="ITAMOTINGA">ITAMOTINGA</option>
+                                <option value="JUNCO">JUNCO</option>
+                                <option value="JUREMAL">JUREMAL</option>
+                                <option value="MANDACARU">MANDACARU</option>
+                                <option value="MANIÇOBA">MANIÇOBA</option>
+                                <option value="MASSAROCA">MASSAROCA</option>
+                                <option value="PINHÕES">PINHÕES</option>
+                                <option value="SEDE">SEDE</option>
+
+                               
+                                </select>
+                            </div> 
+                           
                 <div class="form-group">
-                    <label for="bairro">Bairro</label>
+                <div class="col-md-6">                   
+                <label for="bairro">Bairro</label>
                     <input required id="bairro" name = "bairro" type="text" class="form-control">
                 </div>
+                </div>
+                </div>
+                </div>
                 
-                <div class="form-group">
-                    <label for="logradouro">Logradouro</label>
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6">                    
+                            <label for="logradouro">Logradouro</label>
                     <input id="logradouro" name = "logradouro" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="numero">Numero</label>
-                    <input id="numero" name = "numero" type="text" class="form-control">
+                <div class="col-md-6">    
+                                    <label for="numero">Numero</label>
+                    <input id="numero" name = "numero" type="number" class="form-control">
+                </div>
+                </div>
+                </div>
                 </div>
                 
                 <div class="form-group">
@@ -77,66 +120,145 @@
                     <input id="complemento" name = "complemento" type="text" class="form-control">
                 </div>
                 
-                <div class="form-group">
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6">    
+
                     <label for="fone">Fone</label>
                     <input id="fone" name = "fone" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
+                <div class="col-md-6">                
                     <label for="email">Email</label>
-                    <input id="email" name = "email" type="text" class="form-control">
+                    <input id="email" name = "email" type="email" class="form-control">
+                </div>
+                </div>
+                </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="cel1">Cel1</label>
+
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6">    
+                            <label for="cel1">Cel1</label>
                     <input id="cel1" name = "cel1" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="cel2">Cel2</label>
+                <div class="col-md-6">    
+                <label for="cel2">Cel2</label>
                     <input id="cel2" name = "cel2" type="text" class="form-control">
                 </div>
+                </div>
+                </div>
+                </div>
                 
-                <div class="form-group">
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6">                 
                     <label for="sigla">Sigla</label>
                     <input id="sigla" name = "sigla" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
+                <div class="col-md-6">                 
+                
                     <label for="possui_internet_escola">Possui internet na Escola</label>
-                    </br>{!! Form::select('possui_internet_escola', Config::get('enums.sim_nao')) !!}
-                </div>
+                    <select class="form-control" name="possui_internet_escola" id="select2" required>
+                                <option value=""></option>
+                                <option value="SIM">SIM</option>
+                                <option value="NÃO">NÃO</option>
+                               
+
+                               
+                    </select>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                
+
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6">   
+                            <label for="tipo_internet_escola">Tipo Internet da Escola</label>
+<select class="form-control" name="possui_internet_escola" id="select2" required>
+                                <option value=""></option>
+                                <option value="NENHUMA">NENHUMA</option>
+                                <option value="CLARO">CLARO</option>
+                                <option value="PROJETO BANDA LARGA NAS ESCOLAS">PROJETO BANDA LARGA NAS ESCOLAS</option>
+                                <option value="GSAT">GSAT</option>
+                                <option value="OUTRO">OUTRO</option>
+                                <option value="RÁDIO">RÁDIO</option>
+                                <option value="TIM">TIM</option>
+                                <option value="VELOX">VELOX</option>
+                                <option value="VIVO">VIVO</option>
+                                                  
+                    </select>                
+                    </div>
                 
                 <div class="form-group">
-                    <label for="tipo_internet_escola">Tipo Internet da Escola</label>
-                    </br>{!! Form::select('tipo_internet_escola', Config::get('enums.tipo_internet')) !!}
-                </div>
-                
-                <div class="form-group">
+                <div class="col-md-6">   
+
                     <label for="status_escola">Status Escola</label>
-                    </br>{!! Form::select('status_escola', Config::get('enums.status_ativo')) !!}
-                </div>
+<select class="form-control" name="possui_internet_escola" id="select2" required>
+                                <option value="ATIVO">ATIVO</option>
+                                <option value="INATIVO">INATIVO</option>
+                               
+
+                               
+                    </select>                
+                    </div>
+                    </div>
+                    </div>
+                    </div>
                 
-                <div class="form-group">
-                    <label for="possui_lab">Possui Lab</label>
-                    </br>{!! Form::select('possui_lab', Config::get('enums.sim_nao')) !!}
-                </div>
+
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                                                <label for="possui_lab">Possui Lab</label>
+                    <select class="form-control" name="possui_internet_escola" id="select2" required>
+                                <option value=""></option>
+                                <option value="SIM">SIM</option>
+                                <option value="NÃO">NÃO</option>
+                               
+
+                               
+                    </select> 
+                                   </div>
                 
-                <div class="form-group">
+                            <div class="form-group">
+                            <div class="col-md-6"> 
+                
                     <label for="possui_analista">Possui Analista</label>
-                    </br>{!! Form::select('possui_analista', Config::get('enums.sim_nao')) !!}
-                </div>
+                             <label for="possui_lab">Possui Lab</label>
+                    <select class="form-control" name="possui_internet_escola" id="select2" required>
+                                <option value=""></option>
+                                <option value="SIM">SIM</option>
+                                <option value="NÃO">NÃO</option>
+                               
+
+                               
+                    </select> 
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
                 
                 
                 <div class="form-group">
                     <label>Analista em Educação</label>
-                    <select name = 'pessoa_id' style="no" class = 'form-control'>
+                    <select name = 'pessoa_id' style="no" class = 'form-control' id="select3" required>
                         <option value="2">NÃO POSSUI</option>
-                        @foreach($pessoas as $key => $value)
+                        @foreach($pessoas->except($pessoas->id=2) as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>
                         @endforeach
                     </select>
                 </div>
+
+                
 
                 <!--Campo desnecessário-->
                 <div class="form-group">

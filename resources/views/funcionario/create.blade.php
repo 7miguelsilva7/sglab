@@ -13,6 +13,7 @@
             <br>
             <form method = 'POST' action = '{{url("funcionario")}}'>
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+   
               
 <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
 <?php

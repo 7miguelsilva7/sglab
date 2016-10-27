@@ -19,7 +19,7 @@
                 
                 <div class="form-group">
                     <label for="siem">siem</label>
-                    <input id="siem" name = "siem" type="text" class="form-control" value="{{$siem->siem}}">
+                    <input id="siem" name = "siem" type="number" class="form-control" value="{{$siem->siem}}" required>
                 </div>
                 
                 <div class="form-group">
@@ -39,7 +39,7 @@
                 </div>
                 
                 
-                <button class = 'btn btn-primary' type ='submit'>Update</button>
+                <button class = 'btn btn-primary' type ='submit'>Atualizar</button>
             </form>
 </div>
             </div>

@@ -3088,90 +3088,6 @@
         ]
     },
     {
-        "name": "phpunit/phpunit",
-        "version": "5.6.1",
-        "version_normalized": "5.6.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sebastianbergmann/phpunit.git",
-            "reference": "60c32c5b5e79c2248001efa2560f831da11cc2d7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/60c32c5b5e79c2248001efa2560f831da11cc2d7",
-            "reference": "60c32c5b5e79c2248001efa2560f831da11cc2d7",
-            "shasum": ""
-        },
-        "require": {
-            "ext-dom": "*",
-            "ext-json": "*",
-            "ext-libxml": "*",
-            "ext-mbstring": "*",
-            "ext-xml": "*",
-            "myclabs/deep-copy": "~1.3",
-            "php": "^5.6 || ^7.0",
-            "phpspec/prophecy": "^1.3.1",
-            "phpunit/php-code-coverage": "^4.0.1",
-            "phpunit/php-file-iterator": "~1.4",
-            "phpunit/php-text-template": "~1.2",
-            "phpunit/php-timer": "^1.0.6",
-            "phpunit/phpunit-mock-objects": "^3.2",
-            "sebastian/comparator": "~1.1",
-            "sebastian/diff": "~1.2",
-            "sebastian/environment": "^1.3 || ^2.0",
-            "sebastian/exporter": "~1.2",
-            "sebastian/global-state": "~1.0",
-            "sebastian/object-enumerator": "~1.0",
-            "sebastian/resource-operations": "~1.0",
-            "sebastian/version": "~1.0|~2.0",
-            "symfony/yaml": "~2.1|~3.0"
-        },
-        "conflict": {
-            "phpdocumentor/reflection-docblock": "3.0.2"
-        },
-        "require-dev": {
-            "ext-pdo": "*"
-        },
-        "suggest": {
-            "ext-xdebug": "*",
-            "phpunit/php-invoker": "~1.1"
-        },
-        "time": "2016-10-07 13:03:26",
-        "bin": [
-            "phpunit"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.6.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Sebastian Bergmann",
-                "email": "sebastian@phpunit.de",
-                "role": "lead"
-            }
-        ],
-        "description": "The PHP Unit Testing framework.",
-        "homepage": "https://phpunit.de/",
-        "keywords": [
-            "phpunit",
-            "testing",
-            "xunit"
-        ]
-    },
-    {
         "name": "symfony/css-selector",
         "version": "v3.1.5",
         "version_normalized": "3.1.5.0",
@@ -3577,78 +3493,6 @@
         ]
     },
     {
-        "name": "amranidev/scaffold-interface",
-        "version": "v1.6.9",
-        "version_normalized": "1.6.9.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/amranidev/scaffold-interface.git",
-            "reference": "2eba24f5676e824c39a8ab37895e5660d7b5e562"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/amranidev/scaffold-interface/zipball/2eba24f5676e824c39a8ab37895e5660d7b5e562",
-            "reference": "2eba24f5676e824c39a8ab37895e5660d7b5e562",
-            "shasum": ""
-        },
-        "require": {
-            "amranidev/ajaxis": "3.0.*",
-            "php": ">=5.5.9",
-            "spatie/laravel-permission": "^1.5",
-            "vinkla/pusher": "^2.4"
-        },
-        "require-dev": {
-            "orchestra/testbench": "~3.0",
-            "phpunit/phpunit": "~4.0|~5.0"
-        },
-        "time": "2016-10-16 15:49:05",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.6.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Amranidev\\ScaffoldInterface\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Amrani Houssain",
-                "email": "amranidev@gmail.com"
-            }
-        ],
-        "description": "A Smart CRUD Generator For Laravel",
-        "homepage": "http://github.com/amranidev/scaffold-interface",
-        "keywords": [
-            "Amrani Houssain",
-            "Laravel 5.1",
-            "Laravel 5.2",
-            "amranidev",
-            "amrnaihoussain",
-            "crud",
-            "crud generator",
-            "crud generators",
-            "files",
-            "framework",
-            "laravel",
-            "laravel bootstrap",
-            "laravel materialize",
-            "scaffod",
-            "scaffold",
-            "scaffolding",
-            "scaffoldinterface",
-            "smart crud generator",
-            "smart generator"
-        ]
-    },
-    {
         "name": "paragonie/random_compat",
         "version": "v2.0.3",
         "version_normalized": "2.0.3.0",
@@ -3696,136 +3540,6 @@
             "csprng",
             "pseudorandom",
             "random"
-        ]
-    },
-    {
-        "name": "laravel/framework",
-        "version": "v5.3.19",
-        "version_normalized": "5.3.19.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/laravel/framework.git",
-            "reference": "f1a5bb417b3e0d1949fe84617eacd1a14d75d7f1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/f1a5bb417b3e0d1949fe84617eacd1a14d75d7f1",
-            "reference": "f1a5bb417b3e0d1949fe84617eacd1a14d75d7f1",
-            "shasum": ""
-        },
-        "require": {
-            "classpreloader/classpreloader": "~3.0",
-            "doctrine/inflector": "~1.0",
-            "ext-mbstring": "*",
-            "ext-openssl": "*",
-            "jeremeamia/superclosure": "~2.2",
-            "league/flysystem": "~1.0",
-            "monolog/monolog": "~1.11",
-            "mtdowling/cron-expression": "~1.0",
-            "nesbot/carbon": "~1.20",
-            "paragonie/random_compat": "~1.4|~2.0",
-            "php": ">=5.6.4",
-            "psy/psysh": "0.7.*",
-            "ramsey/uuid": "~3.0",
-            "swiftmailer/swiftmailer": "~5.1",
-            "symfony/console": "3.1.*",
-            "symfony/debug": "3.1.*",
-            "symfony/finder": "3.1.*",
-            "symfony/http-foundation": "3.1.*",
-            "symfony/http-kernel": "3.1.*",
-            "symfony/process": "3.1.*",
-            "symfony/routing": "3.1.*",
-            "symfony/translation": "3.1.*",
-            "symfony/var-dumper": "3.1.*",
-            "vlucas/phpdotenv": "~2.2"
-        },
-        "replace": {
-            "illuminate/auth": "self.version",
-            "illuminate/broadcasting": "self.version",
-            "illuminate/bus": "self.version",
-            "illuminate/cache": "self.version",
-            "illuminate/config": "self.version",
-            "illuminate/console": "self.version",
-            "illuminate/container": "self.version",
-            "illuminate/contracts": "self.version",
-            "illuminate/cookie": "self.version",
-            "illuminate/database": "self.version",
-            "illuminate/encryption": "self.version",
-            "illuminate/events": "self.version",
-            "illuminate/exception": "self.version",
-            "illuminate/filesystem": "self.version",
-            "illuminate/hashing": "self.version",
-            "illuminate/http": "self.version",
-            "illuminate/log": "self.version",
-            "illuminate/mail": "self.version",
-            "illuminate/notifications": "self.version",
-            "illuminate/pagination": "self.version",
-            "illuminate/pipeline": "self.version",
-            "illuminate/queue": "self.version",
-            "illuminate/redis": "self.version",
-            "illuminate/routing": "self.version",
-            "illuminate/session": "self.version",
-            "illuminate/support": "self.version",
-            "illuminate/translation": "self.version",
-            "illuminate/validation": "self.version",
-            "illuminate/view": "self.version",
-            "tightenco/collect": "self.version"
-        },
-        "require-dev": {
-            "aws/aws-sdk-php": "~3.0",
-            "mockery/mockery": "~0.9.4",
-            "pda/pheanstalk": "~3.0",
-            "phpunit/phpunit": "~5.4",
-            "predis/predis": "~1.0",
-            "symfony/css-selector": "3.1.*",
-            "symfony/dom-crawler": "3.1.*"
-        },
-        "suggest": {
-            "aws/aws-sdk-php": "Required to use the SQS queue driver and SES mail driver (~3.0).",
-            "doctrine/dbal": "Required to rename columns and drop SQLite columns (~2.4).",
-            "fzaninotto/faker": "Required to use the eloquent factory builder (~1.4).",
-            "guzzlehttp/guzzle": "Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~5.3|~6.0).",
-            "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
-            "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0).",
-            "pda/pheanstalk": "Required to use the beanstalk queue driver (~3.0).",
-            "predis/predis": "Required to use the redis cache and queue drivers (~1.0).",
-            "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
-            "symfony/css-selector": "Required to use some of the crawler integration testing tools (3.1.*).",
-            "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (3.1.*).",
-            "symfony/psr-http-message-bridge": "Required to use psr7 bridging features (0.2.*)."
-        },
-        "time": "2016-10-17 19:35:14",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "src/Illuminate/Foundation/helpers.php",
-                "src/Illuminate/Support/helpers.php"
-            ],
-            "psr-4": {
-                "Illuminate\\": "src/Illuminate/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Taylor Otwell",
-                "email": "taylor@laravel.com"
-            }
-        ],
-        "description": "The Laravel Framework.",
-        "homepage": "https://laravel.com",
-        "keywords": [
-            "framework",
-            "laravel"
         ]
     },
     {
@@ -3967,6 +3681,292 @@
             "s3",
             "sftp",
             "storage"
+        ]
+    },
+    {
+        "name": "laravel/framework",
+        "version": "v5.3.21",
+        "version_normalized": "5.3.21.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laravel/framework.git",
+            "reference": "140ad823863d5cc6f4580f1cdf9b18b9a6a457f4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/140ad823863d5cc6f4580f1cdf9b18b9a6a457f4",
+            "reference": "140ad823863d5cc6f4580f1cdf9b18b9a6a457f4",
+            "shasum": ""
+        },
+        "require": {
+            "classpreloader/classpreloader": "~3.0",
+            "doctrine/inflector": "~1.0",
+            "ext-mbstring": "*",
+            "ext-openssl": "*",
+            "jeremeamia/superclosure": "~2.2",
+            "league/flysystem": "~1.0",
+            "monolog/monolog": "~1.11",
+            "mtdowling/cron-expression": "~1.0",
+            "nesbot/carbon": "~1.20",
+            "paragonie/random_compat": "~1.4|~2.0",
+            "php": ">=5.6.4",
+            "psy/psysh": "0.7.*",
+            "ramsey/uuid": "~3.0",
+            "swiftmailer/swiftmailer": "~5.1",
+            "symfony/console": "3.1.*",
+            "symfony/debug": "3.1.*",
+            "symfony/finder": "3.1.*",
+            "symfony/http-foundation": "3.1.*",
+            "symfony/http-kernel": "3.1.*",
+            "symfony/process": "3.1.*",
+            "symfony/routing": "3.1.*",
+            "symfony/translation": "3.1.*",
+            "symfony/var-dumper": "3.1.*",
+            "vlucas/phpdotenv": "~2.2"
+        },
+        "replace": {
+            "illuminate/auth": "self.version",
+            "illuminate/broadcasting": "self.version",
+            "illuminate/bus": "self.version",
+            "illuminate/cache": "self.version",
+            "illuminate/config": "self.version",
+            "illuminate/console": "self.version",
+            "illuminate/container": "self.version",
+            "illuminate/contracts": "self.version",
+            "illuminate/cookie": "self.version",
+            "illuminate/database": "self.version",
+            "illuminate/encryption": "self.version",
+            "illuminate/events": "self.version",
+            "illuminate/exception": "self.version",
+            "illuminate/filesystem": "self.version",
+            "illuminate/hashing": "self.version",
+            "illuminate/http": "self.version",
+            "illuminate/log": "self.version",
+            "illuminate/mail": "self.version",
+            "illuminate/notifications": "self.version",
+            "illuminate/pagination": "self.version",
+            "illuminate/pipeline": "self.version",
+            "illuminate/queue": "self.version",
+            "illuminate/redis": "self.version",
+            "illuminate/routing": "self.version",
+            "illuminate/session": "self.version",
+            "illuminate/support": "self.version",
+            "illuminate/translation": "self.version",
+            "illuminate/validation": "self.version",
+            "illuminate/view": "self.version",
+            "tightenco/collect": "self.version"
+        },
+        "require-dev": {
+            "aws/aws-sdk-php": "~3.0",
+            "mockery/mockery": "~0.9.4",
+            "pda/pheanstalk": "~3.0",
+            "phpunit/phpunit": "~5.4",
+            "predis/predis": "~1.0",
+            "symfony/css-selector": "3.1.*",
+            "symfony/dom-crawler": "3.1.*"
+        },
+        "suggest": {
+            "aws/aws-sdk-php": "Required to use the SQS queue driver and SES mail driver (~3.0).",
+            "doctrine/dbal": "Required to rename columns and drop SQLite columns (~2.4).",
+            "fzaninotto/faker": "Required to use the eloquent factory builder (~1.4).",
+            "guzzlehttp/guzzle": "Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~5.3|~6.0).",
+            "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
+            "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0).",
+            "pda/pheanstalk": "Required to use the beanstalk queue driver (~3.0).",
+            "predis/predis": "Required to use the redis cache and queue drivers (~1.0).",
+            "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
+            "symfony/css-selector": "Required to use some of the crawler integration testing tools (3.1.*).",
+            "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (3.1.*).",
+            "symfony/psr-http-message-bridge": "Required to use psr7 bridging features (0.2.*)."
+        },
+        "time": "2016-10-26 13:27:05",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/Illuminate/Foundation/helpers.php",
+                "src/Illuminate/Support/helpers.php"
+            ],
+            "psr-4": {
+                "Illuminate\\": "src/Illuminate/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Laravel Framework.",
+        "homepage": "https://laravel.com",
+        "keywords": [
+            "framework",
+            "laravel"
+        ]
+    },
+    {
+        "name": "amranidev/scaffold-interface",
+        "version": "v1.6.12",
+        "version_normalized": "1.6.12.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/amranidev/scaffold-interface.git",
+            "reference": "c745aeca3a823aca01c3976c2e62b65a8d73e8ef"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/amranidev/scaffold-interface/zipball/c745aeca3a823aca01c3976c2e62b65a8d73e8ef",
+            "reference": "c745aeca3a823aca01c3976c2e62b65a8d73e8ef",
+            "shasum": ""
+        },
+        "require": {
+            "amranidev/ajaxis": "3.0.*",
+            "php": ">=5.5.9",
+            "spatie/laravel-permission": "^1.5",
+            "vinkla/pusher": "^2.4"
+        },
+        "require-dev": {
+            "orchestra/testbench": "~3.0",
+            "phpunit/phpunit": "~4.0|~5.0"
+        },
+        "time": "2016-10-26 14:44:46",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.7.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Amranidev\\ScaffoldInterface\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Amrani Houssain",
+                "email": "amranidev@gmail.com"
+            }
+        ],
+        "description": "A Smart CRUD Generator For Laravel",
+        "homepage": "http://github.com/amranidev/scaffold-interface",
+        "keywords": [
+            "Amrani Houssain",
+            "Laravel 5.1",
+            "Laravel 5.2",
+            "amranidev",
+            "amrnaihoussain",
+            "crud",
+            "crud generator",
+            "crud generators",
+            "files",
+            "framework",
+            "laravel",
+            "laravel bootstrap",
+            "laravel materialize",
+            "scaffod",
+            "scaffold",
+            "scaffolding",
+            "scaffoldinterface",
+            "smart crud generator",
+            "smart generator"
+        ]
+    },
+    {
+        "name": "phpunit/phpunit",
+        "version": "5.6.2",
+        "version_normalized": "5.6.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sebastianbergmann/phpunit.git",
+            "reference": "cd13b23ac5a519a4708e00736c26ee0bb28b2e01"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/cd13b23ac5a519a4708e00736c26ee0bb28b2e01",
+            "reference": "cd13b23ac5a519a4708e00736c26ee0bb28b2e01",
+            "shasum": ""
+        },
+        "require": {
+            "ext-dom": "*",
+            "ext-json": "*",
+            "ext-libxml": "*",
+            "ext-mbstring": "*",
+            "ext-xml": "*",
+            "myclabs/deep-copy": "~1.3",
+            "php": "^5.6 || ^7.0",
+            "phpspec/prophecy": "^1.3.1",
+            "phpunit/php-code-coverage": "^4.0.1",
+            "phpunit/php-file-iterator": "~1.4",
+            "phpunit/php-text-template": "~1.2",
+            "phpunit/php-timer": "^1.0.6",
+            "phpunit/phpunit-mock-objects": "^3.2",
+            "sebastian/comparator": "~1.1",
+            "sebastian/diff": "~1.2",
+            "sebastian/environment": "^1.3 || ^2.0",
+            "sebastian/exporter": "~1.2",
+            "sebastian/global-state": "~1.0",
+            "sebastian/object-enumerator": "~1.0",
+            "sebastian/resource-operations": "~1.0",
+            "sebastian/version": "~1.0|~2.0",
+            "symfony/yaml": "~2.1|~3.0"
+        },
+        "conflict": {
+            "phpdocumentor/reflection-docblock": "3.0.2"
+        },
+        "require-dev": {
+            "ext-pdo": "*"
+        },
+        "suggest": {
+            "ext-xdebug": "*",
+            "phpunit/php-invoker": "~1.1"
+        },
+        "time": "2016-10-25 07:40:25",
+        "bin": [
+            "phpunit"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.6.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Sebastian Bergmann",
+                "email": "sebastian@phpunit.de",
+                "role": "lead"
+            }
+        ],
+        "description": "The PHP Unit Testing framework.",
+        "homepage": "https://phpunit.de/",
+        "keywords": [
+            "phpunit",
+            "testing",
+            "xunit"
         ]
     }
 ]

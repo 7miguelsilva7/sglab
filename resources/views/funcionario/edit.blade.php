@@ -56,14 +56,14 @@
 </div>
 
                 
-                <div class="form-group">
+    <div class="form-group">
     <label>Vínculo</label>
     <select name = 'vinculo' class = "form-control">
         <option value="{{$funcionario->vinculo}}">{{$funcionario->vinculo}}</option>
         <option value="CONTRATO">CONTRATO</option>
         <option value="EFETIVO">EFETIVO</option>
-        </select>
-</div>
+    </select>
+    </div>
                 
                 <div class="form-group">
                     <label for="status_funcionario">status_funcionario</label>

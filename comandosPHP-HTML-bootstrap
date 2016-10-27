@@ -1,0 +1,36 @@
+##########   Ocultar um capo de um formulário em PHP
+style="display:none"
+
+##########   Select com filtro
+
+<div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Bootstrap Select2</h4>
+                                <select class="form-control" id="select2">
+                                <option value="1">Cats</option>
+                                <option value="2">Dogs</option>
+                                <option value="3">Fish</option>
+                                <option value="4">Reptiles</option>
+                                <option value="5">Equine</option>
+                                <option value="6">Aviary</option>
+                                <option value="7">Insects</option>
+                                </select>
+                            </div> 
+                            <div class="col-md-6">
+                                <h4>Tag Picker</h4>
+                                <select class="form-control" id="tagPicker" multiple="multiple">
+                                <option value="1">Cats</option>
+                                <option value="2">Dogs</option>
+                                <option selected="selected" value="3">Fish</option>
+                                <option value="4">Reptiles</option>
+                                <option selected="selected" value="5">Equine</option>
+                                <option value="6">Aviary</option>
+                                <option value="7">Insects</option>
+                                </select>
+                            </div> 
+                        </div><!--/row-->
+                        <hr>
+                        </div>
+
+##########   Select com filtro

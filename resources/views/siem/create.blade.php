@@ -13,73 +13,61 @@
                 <button class = 'btn btn-danger'>Voltar</button>
             </form>
             <br>
-           <form class="form-horizontal" role="form" method="POST" action="{{ url('/siem') }}">
+           <form  role="form" method="POST" action="{{ url('/siem') }}">
                         {{ csrf_field() }}
-        <div class="form-group{{ $errors->has('siem') ? ' has-error' : '' }}">
-                            <label for="siem" class="col-md-4 control-label">Número siem</label>
+                        
+                       <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-5">
+                            <label for="escola_tipo">Número Siem</label>
 
-                            <div class="col-md-6">
-                                <input id="siem" type="number_format" class="form-control" name="siem" required>
-
-                                @if ($errors->has('siem'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('siem') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                                <input type="number" id="siem" type="number_format" class="form-control" name="siem"  unique>
+                            </div> 
+                           
+                        </div><!--/row-->
                         </div>
 
                 
-                        <div class="form-group{{ $errors->has('escola_nome') ? ' has-error' : '' }}">
-                            <label for="escola_nome" class="col-md-4 control-label">Nome da Escola</label>
+                        <div class="form-group">
+                            <label for="escola_tipo">Nome da Escola</label>
 
-                            <div class="col-md-6">
                                 <input id="escola_nome" class="form-control" name="escola_nome" required>
 
-                                @if ($errors->has('escola_nome'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('escola_nome') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
                         </div>
 
+                        <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-5">
+                            <label for="escola_tipo">Tipo de Escola</label>
+                                <select class="form-control" name="escola_tipo" id="select2" required>
+                                <option value="ESCOLA">ESCOLA</option>
+                                <option value="EMEI">EMEI</option>
+                                <option value="EXTENSÃO">EXTENSÃO</option>
+                               
+                                </select>
+                            </div> 
+                           
+                        </div><!--/row-->
+                      
+                        </div>
 
-  
-                        <div class="form-group{{ $errors->has('escola_tipo') ? ' has-error' : '' }}">
-                            <label for="escola_tipo" class="col-md-4 control-label">Tipo</label>
+                        <div class="form-group">
+                        <div class="row">
+                       
+                        <div class="col-md-5">
+                        
+                        <label for="escola_tipo">Cod. da Matriz </br> <i>(Preencher apenas se extensão)</i></label>
 
-                            <div class="col-md-6">
-                                {!! Form::select('escola_tipo', Config::get('enums.escola_tipo')) !!}
-
-                                @if ($errors->has('escola_tipo'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('escola_tipo') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                               <input type="number" id="cod_ext" type="number_format" class="form-control"  name="cod_ext">
                         </div>  
-
-
-                        <div class="form-group{{ $errors->has('cod_ext') ? ' has-error' : '' }}">
-                            <label for="cod_ext" class="col-md-4 control-label">Tipo</label>
-
-                            <div class="col-md-6">
-                                {!! Form::number('cod_ext', '0') !!}
-
-                                @if ($errors->has('cod_ext'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('cod_ext') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        </div>  
                         </div>  
 
                  </p>
                 
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div>
                                 <button type="submit" class="btn btn-primary">
                                     Adicionar
                                 </button>
