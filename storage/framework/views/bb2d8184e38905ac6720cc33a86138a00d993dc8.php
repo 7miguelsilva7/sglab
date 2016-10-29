@@ -34,7 +34,7 @@
                             <div class="col-md-6">
                             <label for="siem">Número Siem</label>
 
-                                <input type="number" id="siem" type="number_format" class="form-control" name="siem"  unique>
+                                <input type="number" id="siem" type="number_format" class="form-control" name="siem"  required>
                             </div> 
                            
                             <div class="form-group">

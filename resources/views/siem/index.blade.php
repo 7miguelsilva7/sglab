@@ -41,7 +41,7 @@
                     
                     <th>Nome da Escola</th>
                     
-                    <th>Tipo de Escola</th>
+                    <th>Tipo</th>
                               
 
                <!--     <th>cod_ext</th>  -->

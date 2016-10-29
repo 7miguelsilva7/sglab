@@ -16,36 +16,36 @@
             <br>
             <table class = 'table table-bordered'>
                 <thead>
-                    <th>Key</th>
-                    <th>Value</th>
+                    <th>Campo</th>
+                    <th>Nome</th>
                 </thead>
                 <tbody>
 
                     
                     <tr>
                         <td>
-                            <b><i>siem : </i></b>
+                            <b><i>Siem : </i></b>
                         </td>
                         <td>{{$siem->siem}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>escola_nome : </i></b>
+                            <b><i>Escola : </i></b>
                         </td>
                         <td>{{$siem->nome}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>escola_tipo : </i></b>
+                            <b><i>Tipo : </i></b>
                         </td>
                         <td>{{$siem->tipo_escola}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>cod_ext : </i></b>
+                            <b><i>Cod. Extensão : </i></b>
                         </td>
                         <td>{{$siem->cod_ext}}</td>
                     </tr>
