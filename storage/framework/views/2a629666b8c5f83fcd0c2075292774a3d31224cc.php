@@ -41,6 +41,7 @@
                     
                     <th>Tipo</th>
                               
+                              
 
                <!--     <th>cod_ext</th>  -->
                     
