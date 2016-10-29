@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   
-<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>SGLAB</title>
-		<!-- Tell the browser to be responsive to screen width -->
+<!-- Tell the browser to be responsive to screen width -->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<!-- Bootstrap 3.3.7 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -29,10 +22,11 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title><?php echo e(config('app.name', 'SGLAB')); ?></title>
+    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -59,8 +53,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="<?php echo e(url('/login')); ?>">
-                        <?php echo e(config('app.name', 'SGLAB')); ?>
+                    <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
+                        <?php echo e(config('app.name', 'Laravel')); ?>
 
                     </a>
                 </div>
@@ -71,7 +65,7 @@
                         &nbsp;
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+
                     <ul class="nav navbar-nav ">
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>
@@ -98,16 +92,12 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>
                             <li><a href="<?php echo e(url('/login')); ?>">Login</a></li>
-
-                                                    <!-- Authentication Links 
-
                             <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
-
-                                                    -->
                         <?php else: ?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -118,7 +108,6 @@
                                     <li>
                                         <a href="<?php echo e(url('/logout')); ?>"
                                             onclick="event.preventDefault();
-       
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
@@ -130,11 +119,10 @@
                                     </li>
                                 </ul>
                             </li>
+
+                            
                         <?php endif; ?>
                     </ul>
-
-                    
-                    
                 </div>
             </div>
         </nav>
