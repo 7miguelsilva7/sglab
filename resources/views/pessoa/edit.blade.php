@@ -16,116 +16,210 @@
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 
 
+                <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
+<?php
+                        $usuario_logado = Auth::user()->name;
+                        { ?>       
+
                 <div class="form-group">
-  
-                    <input type = 'hidden' id="usuario" name = "usuario" type="text" class="form-control" value="{{$pessoa->usuario}}">
+                    <input type = 'hidden' value= "{{$usuario_logado}}" id="usuario" name = "usuario" type="text" class="form-control">
+                </div>
+
+<?php } ?>
+                <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
+
+
+
+                <div class="form-group">
+               
+                    <label for="nome">Nome</label>
+                    <input required id="nome" name = "nome" type="text" value= "{{$pessoa->nome}}" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                <div class="row">
+                <div class="col-md-6">
+                    <label for="cep">Cep</label>
+                    <input id="cep" name = "cep" type="number" value= "{{$pessoa->cep}}" class="form-control">
+                
+                </div> 
+                          
+               
+                            <div class="form-group">
+                            <div class="col-md-6">
+                            <label for="distrito">Distrito</label>
+                                <select class="form-control" name="distrito" id="select2" required>
+                                <option value="{{$pessoa->distrito}}">{{$pessoa->distrito}}</option>
+                                <option value="ABÓBORA">ABÓBORA</option>
+                                <option value="ITAMOTINGA">ITAMOTINGA</option>
+                                <option value="JUNCO">JUNCO</option>
+                                <option value="JUREMAL">JUREMAL</option>
+                                <option value="MANDACARU">MANDACARU</option>
+                                <option value="MANIÇOBA">MANIÇOBA</option>
+                                <option value="MASSAROCA">MASSAROCA</option>
+                                <option value="PINHÕES">PINHÕES</option>
+                                <option value="SEDE">SEDE</option>
+                               
+                                </select>
+                            </div> 
+                            </div> 
+                            </div><!--/row-->
+                            </div> 
+                           
+                <div class="form-group">
+                <div class="row">
+                <div class="col-md-6">              
+                <label for="bairro">Bairro</label>
+                    <input required id="bairro" name = "bairro" type="text" value= "{{$pessoa->bairro}}" class="form-control">
                 </div>
                
                 
-                <div class="form-group">
-    
-                    <label for="nome">nome</label>
-                    <input id="nome" name = "nome" type="text" class="form-control" value="{{$pessoa->nome}}">
+                            <div class="form-group">
+                            <div class="col-md-6">                    
+                            <label for="logradouro">Logradouro</label>
+                    <input id="logradouro" name = "logradouro" type="text" value= "{{$pessoa->logradouro}}" class="form-control">
+                </div>
+                </div>
+                </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="cep">cep</label>
-                    <input id="cep" name = "cep" type="text" class="form-control" value="{{$pessoa->cep}}">
+                <div class="row">
+                <div class="col-md-6">    
+                                    <label for="numero">Numero</label>
+                    <input id="numero" name = "numero" type="text" value= "{{$pessoa->numero}}" class="form-control">
+                </div>
+               
+                 
+                <div class="form-group">
+                <div class="col-md-6">    
+                <label for="complemento">Complemento</label>
+                    <input id="complemento" name = "complemento" type="text" value= "{{$pessoa->complemento}}" class="form-control">
+                </div>
+                </div>
+                </div>
+                </div>
+                
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6">    
+
+                    <label for="fone">Fone</label>
+                    <input id="fone" name = "fone" type="text" value= "{{$pessoa->fone}}" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="distrito">distrito</label>
-                    <input id="distrito" name = "distrito" type="text" class="form-control" value="{{$pessoa->distrito}}">
+                <div class="col-md-6">                
+                    <label for="email">Email</label>
+                    <input id="email" name = "email" type="email" value= "{{$pessoa->email}}" class="form-control">
+                </div>
+                </div>
+                </div>
+                </div>
+                
+
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6">    
+                            <label for="cel1">Cel1</label>
+                    <input id="cel1" name = "cel1" type="text" value= "{{$pessoa->cel1}}" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="bairro">bairro</label>
-                    <input id="bairro" name = "bairro" type="text" class="form-control" value="{{$pessoa->bairro}}">
+                <div class="col-md-6">    
+                <label for="cel2">Cel2</label>
+                    <input id="cel2" name = "cel2" type="text" value= "{{$pessoa->cel2}}" class="form-control">
                 </div>
-                
-                <div class="form-group">
-                    <label for="logradouro">logradouro</label>
-                    <input id="logradouro" name = "logradouro" type="text" class="form-control" value="{{$pessoa->logradouro}}">
                 </div>
-                
-                <div class="form-group">
-                    <label for="numero">numero</label>
-                    <input id="numero" name = "numero" type="text" class="form-control" value="{{$pessoa->numero}}">
                 </div>
-                
-                <div class="form-group">
-                    <label for="complemento">complemento</label>
-                    <input id="complemento" name = "complemento" type="text" class="form-control" value="{{$pessoa->complemento}}">
-                </div>
-                
-                <div class="form-group">
-                    <label for="fone">fone</label>
-                    <input id="fone" name = "fone" type="text" class="form-control" value="{{$pessoa->fone}}">
-                </div>
-                
-                <div class="form-group">
-                    <label for="cel1">cel1</label>
-                    <input id="cel1" name = "cel1" type="text" class="form-control" value="{{$pessoa->cel1}}">
-                </div>
-                
-                <div class="form-group">
-                    <label for="cel2">cel2</label>
-                    <input id="cel2" name = "cel2" type="text" class="form-control" value="{{$pessoa->cel2}}">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">email</label>
-                    <input id="email" name = "email" type="text" class="form-control" value="{{$pessoa->email}}">
-                </div>
-                
-                <div class="form-group">
-                    <label for="cpf">cpf</label>
-                    <input id="cpf" name = "cpf" type="text" class="form-control" value="{{$pessoa->cpf}}">
-                </div>
-                
-                <div class="form-group">
-                    <label for="rg">rg</label>
-                    <input id="rg" name = "rg" type="text" class="form-control" value="{{$pessoa->rg}}">
-                </div>
-                
-                <div class="form-group">
-                    <label for="nis">nis</label>
-                    <input id="nis" name = "nis" type="text" class="form-control">
                 </div>
 
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                
+                    <label for="cpf">cpf</label>
+                    <input id="cpf" name = "cpf" type="text" value= "{{$pessoa->cpf}}" class="form-control">
+                </div>
+                
                 <div class="form-group">
+                <div class="col-md-6"> 
+                <label for="rg">rg</label>
+                    <input id="rg" name = "rg" type="text" value= "{{$pessoa->rg}}" class="form-control">
+                </div>
+                </div>
+                </div>
+                </div>
+
+                  
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                                                <label for="nis">nis</label>
+                    <input id="nis" name = "nis" type="text" value= "{{$pessoa->nis}}" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                <div class="col-md-6"> 
+                
                     <label for="expedicao_rg">expedicao_rg</label>
-                    <input id="expedicao_rg" name = "expedicao_rg" type="text" class="form-control" value="{{$pessoa->expedicao_rg}}">
+                    <input id="expedicao_rg" name = "expedicao_rg" type="text" value= "{{$pessoa->expedicao_rg}}" class="form-control">
+                </div>
+                </div>
+                </div>
+                </div>
+                
+
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                                                <label for="naturalidade">naturalidade</label>
+                    <input id="naturalidade" name = "naturalidade" type="text"  value= "{{$pessoa->naturalidade}}"  class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="naturalidade">naturalidade</label>
-                    <input id="naturalidade" name = "naturalidade" type="text" class="form-control" value="{{$pessoa->naturalidade}}">
-                </div>
-                
-                <div class="form-group">
+                <div class="col-md-6"> 
+
                     <label for="nascionalidade">nascionalidade</label>
-                    <input id="nascionalidade" name = "nascionalidade" type="text" class="form-control" value="{{$pessoa->nascionalidade}}">
+                    <input id="nascionalidade" name = "nascionalidade" type="text" value= "{{$pessoa->nascionalidade}}" class="form-control">
+                </div>
+                </div>
+                </div>
                 </div>
                 
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                                                <label for="escolaridade">escolaridade</label>
+                                <select class="form-control" name="escolaridade" id="select2" required>
+                                <option value="{{$pessoa->escolaridade}}">{{$pessoa->escolaridade}}</option>
+                                <option value="DOUTORADO">DOUTORADO</option>
+                                <option value="MESTRADO">MESTRADO</option>
+                                <option value="SUPERIOR">SUPERIOR</option>
+                                <option value="MÉDIO">MÉDIO</option>
+                                <option value="FUNDAMENTAL">FUNDAMENTAL</option>
+                                                              
+                                </select>                      
+                                </div>
+                            
                 <div class="form-group">
-                    <label for="escolaridade">escolaridade</label>
-                    <input id="escolaridade" name = "escolaridade" type="text" class="form-control" value="{{$pessoa->escolaridade}}">
-                </div>
+                <div class="col-md-6"> 
                 
-                <div class="form-group">
                     <label for="data_nascimento">data_nascimento</label>
-                    <input id="data_nascimento" name = "data_nascimento" type="text" class="form-control" value="{{$pessoa->data_nascimento}}">
+                    <input id="data_nascimento" name = "data_nascimento" type="text" value= "{{$pessoa->data_nascimento}}" class="form-control">
+                </div>
+                </div>
+                </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="nome_mae">nome_mae</label>
-                    <input id="nome_mae" name = "nome_mae" type="text" class="form-control" value="{{$pessoa->nome_mae}}">
+                    <input id="nome_mae" name = "nome_mae" type="text"  value= "{{$pessoa->nome_mae}}"  class="form-control">
                 </div>
                 
                 <div class="form-group">
                     <label for="nome_pai">nome_pai</label>
-                    <input id="nome_pai" name = "nome_pai" type="text" class="form-control" value="{{$pessoa->nome_pai}}">
+                    <input id="nome_pai" name = "nome_pai" type="text" value= "{{$pessoa->nome_pai}}" class="form-control">
                 </div>
                 
                 

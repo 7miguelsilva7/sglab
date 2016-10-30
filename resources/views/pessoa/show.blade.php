@@ -16,8 +16,8 @@
      
             <table class = 'table table-bordered'>
                 <thead>
-                    <th>Key</th>
-                    <th>Value</th>
+                    <th>Campo</th>
+                    <th>Nome</th>
                 </thead>
                 <tbody>
 

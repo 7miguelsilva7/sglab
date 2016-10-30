@@ -27,102 +27,188 @@
 
 
 
+
                 <div class="form-group">
-      
-                    <label for="nome">nome</label>
-                    <input id="nome" name = "nome" type="text" class="form-control">
+               
+                    <label for="nome">Nome</label>
+                    <input required id="nome" name = "nome" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="cep">cep</label>
-                    <input id="cep" name = "cep" type="text" class="form-control">
+                <div class="row">
+                <div class="col-md-6">
+                    <label for="cep">Cep</label>
+                    <input id="cep" name = "cep" type="number" class="form-control">
+                
+                </div> 
+                          
+               
+                            <div class="form-group">
+                            <div class="col-md-6">
+                            <label for="distrito">Distrito</label>
+                                <select class="form-control" name="distrito" id="select2" required>
+                                <option value=""></option>
+                                <option value="ABÓBORA">ABÓBORA</option>
+                                <option value="ITAMOTINGA">ITAMOTINGA</option>
+                                <option value="JUNCO">JUNCO</option>
+                                <option value="JUREMAL">JUREMAL</option>
+                                <option value="MANDACARU">MANDACARU</option>
+                                <option value="MANIÇOBA">MANIÇOBA</option>
+                                <option value="MASSAROCA">MASSAROCA</option>
+                                <option value="PINHÕES">PINHÕES</option>
+                                <option value="SEDE">SEDE</option>
+                               
+                                </select>
+                            </div> 
+                            </div> 
+                            </div><!--/row-->
+                            </div> 
+                           
+                <div class="form-group">
+                <div class="row">
+                <div class="col-md-6">              
+                <label for="bairro">Bairro</label>
+                    <input required id="bairro" name = "bairro" type="text" class="form-control">
+                </div>
+               
+                
+                            <div class="form-group">
+                            <div class="col-md-6">                    
+                            <label for="logradouro">Logradouro</label>
+                    <input id="logradouro" name = "logradouro" type="text"  class="form-control">
+                </div>
+                </div>
+                </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="distrito">distrito</label>
-                    <input id="distrito" name = "distrito" type="text" class="form-control">
-                </div>
-                
-                <div class="form-group">
-                    <label for="bairro">bairro</label>
-                    <input id="bairro" name = "bairro" type="text" class="form-control">
-                </div>
-                
-                <div class="form-group">
-                    <label for="logradouro">logradouro</label>
-                    <input id="logradouro" name = "logradouro" type="text" class="form-control">
-                </div>
-                
-                <div class="form-group">
-                    <label for="numero">numero</label>
+                <div class="row">
+                <div class="col-md-6">    
+                                    <label for="numero">Numero</label>
                     <input id="numero" name = "numero" type="text" class="form-control">
                 </div>
-                
+               
+                 
                 <div class="form-group">
-                    <label for="complemento">complemento</label>
+                <div class="col-md-6">    
+                <label for="complemento">Complemento</label>
                     <input id="complemento" name = "complemento" type="text" class="form-control">
                 </div>
+                </div>
+                </div>
+                </div>
                 
-                <div class="form-group">
-                    <label for="fone">fone</label>
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6">    
+
+                    <label for="fone">Fone</label>
                     <input id="fone" name = "fone" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="cel1">cel1</label>
+                <div class="col-md-6">                
+                    <label for="email">Email</label>
+                    <input id="email" name = "email" type="email" class="form-control">
+                </div>
+                </div>
+                </div>
+                </div>
+                
+
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6">    
+                            <label for="cel1">Cel1</label>
                     <input id="cel1" name = "cel1" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="cel2">cel2</label>
+                <div class="col-md-6">    
+                <label for="cel2">Cel2</label>
                     <input id="cel2" name = "cel2" type="text" class="form-control">
                 </div>
-                
-                <div class="form-group">
-                    <label for="email">email</label>
-                    <input id="email" name = "email" type="text" class="form-control">
                 </div>
+                </div>
+                </div>
+
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
                 
-                <div class="form-group">
                     <label for="cpf">cpf</label>
                     <input id="cpf" name = "cpf" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="rg">rg</label>
+                <div class="col-md-6"> 
+                <label for="rg">rg</label>
                     <input id="rg" name = "rg" type="text" class="form-control">
+                </div>
+                </div>
+                </div>
                 </div>
 
                   
-                <div class="form-group">
-                    <label for="nis">nis</label>
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                                                <label for="nis">nis</label>
                     <input id="nis" name = "nis" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
+                <div class="col-md-6"> 
+                
                     <label for="expedicao_rg">expedicao_rg</label>
                     <input id="expedicao_rg" name = "expedicao_rg" type="text" class="form-control">
                 </div>
+                </div>
+                </div>
+                </div>
                 
-                <div class="form-group">
-                    <label for="naturalidade">naturalidade</label>
+
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                                                <label for="naturalidade">naturalidade</label>
                     <input id="naturalidade" name = "naturalidade" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
+                <div class="col-md-6"> 
+
                     <label for="nascionalidade">nascionalidade</label>
                     <input id="nascionalidade" name = "nascionalidade" type="text" class="form-control">
                 </div>
-                
-                <div class="form-group">
-                    <label for="escolaridade">escolaridade</label>
-                    <input id="escolaridade" name = "escolaridade" type="text" class="form-control">
+                </div>
+                </div>
                 </div>
                 
-            
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                                                <label for="escolaridade">escolaridade</label>
+                                <select class="form-control" name="escolaridade" id="select2" required>
+                                <option value=""></option>
+                                <option value="DOUTORADO">DOUTORADO</option>
+                                <option value="MESTRADO">MESTRADO</option>
+                                <option value="SUPERIOR">SUPERIOR</option>
+                                <option value="MÉDIO">MÉDIO</option>
+                                <option value="FUNDAMENTAL">FUNDAMENTAL</option>
+                                                              
+                                </select>               
+                                
+                                </div>
+                            
                 <div class="form-group">
+                <div class="col-md-6"> 
+                
                     <label for="data_nascimento">data_nascimento</label>
                     <input id="data_nascimento" name = "data_nascimento" type="text" class="form-control">
+                </div>
+                </div>
+                </div>
                 </div>
                 
                 <div class="form-group">
@@ -136,7 +222,7 @@
                 </div>
                 
                 
-                <button class = 'btn btn-primary' type ='submit'>Create</button>
+                <button class = 'btn btn-primary' type ='submit'>Adicionar</button>
             </form>
         </div>
     </body>
