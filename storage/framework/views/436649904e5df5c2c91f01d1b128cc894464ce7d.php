@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Adicionar Escola</div>
+                <div class="panel-heading">Adicionar Funcionário</div>
                 <div class="panel-body">
             <form method = 'get' action = '<?php echo e(url("funcionario")); ?>'>
                 <button class = 'btn btn-danger'>Voltar</button>
@@ -24,12 +24,11 @@
 <?php } ?>
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
 
-
              
                 
                 <div class="form-group">
                     <label>Selecione uma Escola</label>
-                    <select required name = 'siem_id' class = 'form-control'>
+                    <select required name = 'siem_id' class = 'form-control' id="select1">
                         <option value=""></option>
           
                         <?php $__currentLoopData = $siems; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
@@ -40,7 +39,7 @@
                 
                 <div class="form-group">
                     <label>Ocupacão</label>
-                    <select required name = 'ocupacao_id' class = 'form-control'>
+                    <select required name = 'ocupacao_id' class = 'form-control' id="select2">
                         <option value=""></option>
                         <?php $__currentLoopData = $ocupacaos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                         <option value="<?php echo e($key); ?>"><?php echo e($value); ?></option>
@@ -50,7 +49,7 @@
                 
                 <div class="form-group">
                     <label>Funcionário</label>
-                    <select required name = 'pessoa_id' class = 'form-control'>
+                    <select required name = 'pessoa_id' class = 'form-control' id="select3">
                         <option value=""></option>
                         <?php $__currentLoopData = $pessoas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                         <option value="<?php echo e($key); ?>"><?php echo e($value); ?></option>
@@ -58,8 +57,10 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="vinculo">Vínculo</label>
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                            <label for="vinculo">Vínculo</label>
                     <select name = 'vinculo' class = 'form-control' required>
                         <option value=""></option>
                         <option value="CONTRATADO">CONTRATADO</option>
@@ -71,12 +72,18 @@
                 </div>
            
                 <div class="form-group">
+                <div class="col-md-6"> 
+                
                     <label for="status_funcionario">status_funcionario</label>
                     <select name = 'status_funcionario' class = 'form-control' required>
                         <option value="ATIVO">ATIVO</option>
                         <option value="INATIVO">INATIVO</option>
                     </select>
                     </div>
+                    </div>
+                    </div>
+                    </div>
+           
                 
 
                 

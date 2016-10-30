@@ -477,8 +477,8 @@
 <div class="form-group">
                 <div class="col-md-6">   
                                     <label for="roteador_lab">Roteador Lab</label>
-                    <select class="form-control" name="roteador_lab" id="select2" value="<?php echo e($escola->roteador_lab); ?>" >
-                                <option value=""></option>
+                    <select class="form-control" name="roteador_lab" id="select2" >
+                                <option value="<?php echo e($escola->roteador_lab); ?>"><?php echo e($escola->roteador_lab); ?></option>
                                 <option value="SIM">SIM</option>
                                 <option value="NÃO">NÃO</option>
                                

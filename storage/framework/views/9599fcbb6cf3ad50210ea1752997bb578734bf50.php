@@ -14,15 +14,15 @@
      
             <table class = 'table table-bordered'>
                 <thead>
-                    <th>Key</th>
-                    <th>Value</th>
+                    <th>Campo</th>
+                    <th>Nome</th>
                 </thead>
                 <tbody>
 
                     
                     <tr>
                         <td>
-                            <b><i>nome : </i></b>
+                            <b><i>Ocupação : </i></b>
                         </td>
                         <td><?php echo e($ocupacao->nome); ?></td>
                     </tr>

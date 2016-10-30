@@ -17,8 +17,8 @@
             <br>
             <table class = 'table table-bordered'>
                 <thead>
-                    <th>Key</th>
-                    <th>Value</th>
+                    <th>Campo</th>
+                    <th>Nome</th>
                 </thead>
                 <tbody>
 
@@ -32,7 +32,7 @@
                     
  <tr>
                         <td>
-                            <b><i>siem : </i><b>
+                            <b><i>Siem : </i><b>
                         </td>
                         <td>{{$escola->siem->siem}}</td>
                         </tr>
@@ -40,7 +40,7 @@
 
                     <tr>
                         <td>
-                            <b><i>inep : </i></b>
+                            <b><i>Inep : </i></b>
                         </td>
                         <td>{{$escola->inep}}</td>
                     </tr>
@@ -48,7 +48,7 @@
                        
                         <tr>
                         <td>
-                            <b><i>escola_nome : </i><b>
+                            <b><i>Escola : </i><b>
                         </td>
                         <td>{{$escola->siem->nome}}</td>
                         </tr>

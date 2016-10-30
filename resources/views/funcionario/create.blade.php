@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Adicionar Escola</div>
+                <div class="panel-heading">Adicionar Funcionário</div>
                 <div class="panel-body">
             <form method = 'get' action = '{{url("funcionario")}}'>
                 <button class = 'btn btn-danger'>Voltar</button>
@@ -26,12 +26,11 @@
 <?php } ?>
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
 
-
              
                 
                 <div class="form-group">
                     <label>Selecione uma Escola</label>
-                    <select required name = 'siem_id' class = 'form-control'>
+                    <select required name = 'siem_id' class = 'form-control' id="select1">
                         <option value=""></option>
           
                         @foreach($siems as $key => $value)
@@ -42,7 +41,7 @@
                 
                 <div class="form-group">
                     <label>Ocupacão</label>
-                    <select required name = 'ocupacao_id' class = 'form-control'>
+                    <select required name = 'ocupacao_id' class = 'form-control' id="select2">
                         <option value=""></option>
                         @foreach($ocupacaos as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>
@@ -52,7 +51,7 @@
                 
                 <div class="form-group">
                     <label>Funcionário</label>
-                    <select required name = 'pessoa_id' class = 'form-control'>
+                    <select required name = 'pessoa_id' class = 'form-control' id="select3">
                         <option value=""></option>
                         @foreach($pessoas as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>
@@ -60,8 +59,10 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="vinculo">Vínculo</label>
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                            <label for="vinculo">Vínculo</label>
                     <select name = 'vinculo' class = 'form-control' required>
                         <option value=""></option>
                         <option value="CONTRATADO">CONTRATADO</option>
@@ -73,11 +74,16 @@
                 </div>
            
                 <div class="form-group">
+                <div class="col-md-6"> 
+                
                     <label for="status_funcionario">status_funcionario</label>
                     <select name = 'status_funcionario' class = 'form-control' required>
                         <option value="ATIVO">ATIVO</option>
                         <option value="INATIVO">INATIVO</option>
                     </select>
+                    </div>
+                    </div>
+                    </div>
                     </div>
            
                 

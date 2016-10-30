@@ -15,16 +15,23 @@
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
                 
              
+              <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
+<?php
+                        $usuario_logado = Auth::user()->name;
+                        { ?>       
+
                 <div class="form-group">
-  
-                    <input type = 'hidden' id="usuario" name = "usuario" type="text" class="form-control" value="{{$funcionario->usuario}}">
+                    <input type = 'hidden' value= "{{$usuario_logado}}" id="usuario" name = "usuario" type="text" class="form-control">
                 </div>
+
+<?php } ?>
+<!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
                
              
                 
 <div class="form-group">
     <label>Selecione uma Escola</label>
-    <select name = 'siem_id' class = "form-control">
+    <select name = 'siem_id' class = "form-control" id="select1" >
         <option value="{{$funcionario->siem_id}}">{{$funcionario->siem->nome}}</option>
         @foreach($siems->except($funcionario->siem_id) as $key => $value)
         <option value="{{$key}}">{{$value}}</option>
@@ -35,7 +42,7 @@
                
 <div class="form-group">
     <label>Selecione uma Ocupação</label>
-    <select name = 'ocupacao_id' class = "form-control">
+    <select name = 'ocupacao_id' class = "form-control" id="select2">
         <option value="{{$funcionario->ocupacao_id}}">{{$funcionario->ocupacao->nome}}</option>
         @foreach($ocupacaos->except($funcionario->ocupacao_id) as $key => $value)
         <option value="{{$key}}">{{$value}}</option>
@@ -45,7 +52,7 @@
 
 <div class="form-group">
     <label>Selecione uma Ocupação</label>
-    <select name = 'pessoa_id' class = "form-control">
+    <select name = 'pessoa_id' class = "form-control" id="select3">
         <option value="{{$funcionario->pessoa_id}}">{{$funcionario->pessoa->nome}}</option>
         @foreach($pessoas->except($funcionario->pessoa_id) as $key => $value)
         <option value="{{$key}}">{{$value}}</option>
@@ -56,22 +63,33 @@
 </div>
 
                 
-    <div class="form-group">
-    <label>Vínculo</label>
-    <select name = 'vinculo' class = "form-control">
-        <option value="{{$funcionario->vinculo}}">{{$funcionario->vinculo}}</option>
-        <option value="CONTRATO">CONTRATO</option>
-        <option value="EFETIVO">EFETIVO</option>
-    </select>
-    </div>
+                            <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
+                            <label for="vinculo">Vínculo</label>
+                    <select name = 'vinculo' class = 'form-control' required>
+                        <option value="{{$funcionario->vinculo}}">{{$funcionario->vinculo}}</option>
+                        <option value="CONTRATADO">CONTRATADO</option>
+                        <option value="EFETIVO">EFETIVO</option>
+                        <option value="ESTAGIÁRIO">ESTAGIÁRIO</option>
+                        <option value="CONCURSADO">CONCURSADO</option>
+                        <option value="TEMPORÁRIO">TEMPORÁRIO</option>
+                    </select>
+                </div>
+           
+                <div class="form-group">
+                <div class="col-md-6"> 
                 
-                <div class="form-group">
                     <label for="status_funcionario">status_funcionario</label>
-
-                <div class="form-group">
-                    <input value= "{{$funcionario->status_funcionario}}" id="status_funcionario" name = "status_funcionario" type="text" class="form-control">
-                </div>
-                </div>
+                    <select name = 'status_funcionario' class = 'form-control' required>
+                        <option value="{{$funcionario->status_funcionario}}">{{$funcionario->status_funcionario}}</option>
+                        <option value="ATIVO">ATIVO</option>
+                        <option value="INATIVO">INATIVO</option>
+                    </select>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
                 
                 
                 <button class = 'btn btn-primary' type ='submit'>Atualizar</button>
