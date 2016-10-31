@@ -33,14 +33,14 @@
                 <div class="form-group">
                
                     <label for="nome">Nome</label>
-                    <input required id="nome" name = "nome" type="text" class="form-control">
+                    <input required id="nome" name = "nome" type="text" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
                 <div class="row">
                 <div class="col-md-6">
                     <label for="cep">Cep</label>
-                    <input id="cep" name = "cep" type="number" class="form-control">
+                    <input id="cep" name = "cep" type="text" class="form-control">
                 
                 </div> 
                           
@@ -48,7 +48,7 @@
                             <div class="form-group">
                             <div class="col-md-6">
                             <label for="distrito">Distrito</label>
-                                <select class="form-control" name="distrito" id="select2" required>
+                                <select class="form-control" name="distrito" id="select2" >
                                 <option value=""></option>
                                 <option value="ABÓBORA">ABÓBORA</option>
                                 <option value="ITAMOTINGA">ITAMOTINGA</option>
@@ -163,7 +163,7 @@
                 <div class="col-md-6"> 
                 
                     <label for="expedicao_rg">expedicao_rg</label>
-                    <input id="expedicao_rg" name = "expedicao_rg" type="text" class="form-control">
+                    <input id="expedicao_rg" name = "expedicao_rg" type="date" class="form-control">
                 </div>
                 </div>
                 </div>
@@ -191,7 +191,7 @@
                             <div class="row">
                             <div class="col-md-6"> 
                                                 <label for="escolaridade">escolaridade</label>
-                                <select class="form-control" name="escolaridade" id="select2" required>
+                                <select class="form-control" name="escolaridade" id="select2">
                                 <option value=""></option>
                                 <option value="DOUTORADO">DOUTORADO</option>
                                 <option value="MESTRADO">MESTRADO</option>
@@ -207,7 +207,7 @@
                 <div class="col-md-6"> 
                 
                     <label for="data_nascimento">data_nascimento</label>
-                    <input id="data_nascimento" name = "data_nascimento" type="text" class="form-control">
+                    <input id="data_nascimento" name = "data_nascimento" type="date" class="form-control">
                 </div>
                 </div>
                 </div>
@@ -230,4 +230,20 @@
     </body>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </html>
+
+
+
+<script type="text/javascript">
+  jQuery(function($) {
+    $("#inep").mask("00000000");
+    $("#numero").mask("999999999");
+    $("#cep").mask("00.000-000");
+    $("#cpf").mask("000.000.000-00");
+    $("#rg").mask("00.000.000-00");
+    $("#fone").mask("(00) 0000-0000");
+    $("#cel1").mask("(00) 00000-0000");
+    $("#cel2").mask("(00) 00000-0000");
+    
+  });
+</script>   
 @endsection

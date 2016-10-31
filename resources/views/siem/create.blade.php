@@ -35,7 +35,7 @@
                             <div class="col-md-6">
                             <label for="siem">Número Siem</label>
 
-                                <input type="number" id="siem" type="number_format" class="form-control" name="siem"  required>
+                                <input id="siem" type="text" class="form-control" name="siem"  required>
                             </div> 
                            
                             <div class="form-group">
@@ -93,5 +93,20 @@
     </div>
 </div>    </body>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   
 </html>
+
+<script type="text/javascript">
+  jQuery(function($) {
+    $("#siem").mask("000");
+    $("#cod_ext").mask("000");
+    $("#cep").mask("00.000-000");
+    $("#cpf").mask("000.000.000-00");
+    $("#rg").mask("00.000.000-00");
+    $("#cel1").mask("(00) 00000-0000");
+    $("#cel2").mask("(00) 00000-0000");
+    
+  });
+</script>
+
 @endsection

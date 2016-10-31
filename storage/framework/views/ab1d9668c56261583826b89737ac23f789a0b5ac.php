@@ -32,6 +32,10 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.mask.min.js"></script>
+
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -137,4 +141,8 @@
 <script> var baseURL = "<?php echo e(URL::to('/')); ?>"</script>
 <script src = "<?php echo e(URL::asset('js/AjaxisBootstrap.js')); ?>"></script>
 <script src = "<?php echo e(URL::asset('js/scaffold-interface-js/customA.js')); ?>"></script>
+
+
+
 </html>
+
