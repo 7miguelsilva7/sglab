@@ -9,11 +9,7 @@
 
 ## Dependêcias PHP 7.0
 
-php7
-php7.0-mbstring
-php7.0-ext-dom
-php-curl
-php7.0-mysql
+sudo apt-get install php7 php7.0-mbstring php7.0-ext-dom php-curl php7.0-mysql 
 
 ## Atualizar composer
 
