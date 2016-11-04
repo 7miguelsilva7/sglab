@@ -20,10 +20,27 @@
 
                 <div class="panel-body">
             <h2><i class="fa glyphicon glyphicon-th-list"></i> Pessoa </h2>
-            <form class = 'col s3' method = 'get' action = '<?php echo e(url("pessoa")); ?>/create'>
-                <button class = 'btn btn-primary' type = 'submit'><i class="fa glyphicon glyphicon-plus"></i> Novo </button>
-            </form>
-            <br>
+            
+
+<?php echo Form::open(['method'=>'GET','url'=>'pessoa','class'=>'navbar-form navbar-right','role'=>'search']); ?>
+
+
+<?php
+                        $usuario_logado = Auth::user()->name;
+                        if ($usuario_logado == "Admin") { ?>
+<a href="<?php echo e(url('pessoa/create')); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+<?php } ?>
+
+<div class="input-group custom-search-form">
+    <input type="text" class="form-control" name="search" placeholder="Busca...">
+    <span class="input-group-btn">
+        <button class="btn btn-default-sm" type="submit">
+            <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
+        </button>
+    </span>
+</div>
+<?php echo Form::close(); ?>
+
 
             <table class = "table table-striped table-bordered">
                 <thead>

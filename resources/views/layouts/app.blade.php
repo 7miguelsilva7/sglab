@@ -94,13 +94,78 @@
                         @endif
                     </ul>
 
+
+ <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+
+                    <ul class="nav navbar-nav ">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                           
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                   Listas <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                    
+                                    <li><a href="{{ url('/siem') }}">Lista Escolas</a></li>
+                                    <li><a href="{{ url('/escola') }}">Lista Funcionários</a></li>
+                                    <li><a href="{{ url('/funcionario') }}">Lista Laboratórios</a></li>
+                                    
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>                    
+
+
+<div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+
+                    <ul class="nav navbar-nav ">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                           
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                   Perfis <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                    
+                                    <li><a href="{{ url('/siem') }}">Perfil Escolas</a></li>
+                                    <li><a href="{{ url('/escola') }}">Perfil Funcionários</a></li>
+                                    <li><a href="{{ url('/funcionario') }}">Perfil Laboratórios</a></li>
+                                   
+
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
+
                     <!-- Right Side Of Navbar -->
 
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
+
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
+
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -129,7 +194,7 @@
             </div>
         </nav>
 
-        @yield('content')
+                        @yield('content')
     </div>
 
     <!-- Scripts -->

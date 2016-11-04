@@ -3,9 +3,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-include_once ('../../../class/tcpdf/tcpdf.php');
-include_once ("../../../class/PHPJasperXML.inc.php");
-include_once ('../../../class/setting.php');
+include_once ('../../class/tcpdf/tcpdf.php');
+include_once ("../../class/PHPJasperXML.inc.php");
+include_once ('../../class/conect.php');
 
 $PHPJasperXML = new PHPJasperXML();
 //$PHPJasperXML->debugsql=true;

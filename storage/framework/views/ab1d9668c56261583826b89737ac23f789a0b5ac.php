@@ -95,6 +95,69 @@
                         <?php endif; ?>
                     </ul>
 
+
+ <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+
+                    <ul class="nav navbar-nav ">
+                        <!-- Authentication Links -->
+                        <?php if(Auth::guest()): ?>
+                           
+                        <?php else: ?>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                   Listas <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                    
+                                    <li><a href="<?php echo e(url('/siem')); ?>">Lista Escolas</a></li>
+                                    <li><a href="<?php echo e(url('/escola')); ?>">Lista Funcionários</a></li>
+                                    <li><a href="<?php echo e(url('/funcionario')); ?>">Lista Laboratórios</a></li>
+                                    
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
+                    </ul>                    
+
+
+<div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+
+                    <ul class="nav navbar-nav ">
+                        <!-- Authentication Links -->
+                        <?php if(Auth::guest()): ?>
+                           
+                        <?php else: ?>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                   Perfis <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                    
+                                    <li><a href="<?php echo e(url('/siem')); ?>">Perfil Escolas</a></li>
+                                    <li><a href="<?php echo e(url('/escola')); ?>">Perfil Funcionários</a></li>
+                                    <li><a href="<?php echo e(url('/funcionario')); ?>">Perfil Laboratórios</a></li>
+                                   
+
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+
                     <!-- Right Side Of Navbar -->
 
                     <ul class="nav navbar-nav navbar-right">

@@ -24,7 +24,6 @@
 <?php } ?>
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
 
-             
                 
                 <div class="form-group">
                     <label>Selecione uma Escola</label>
