@@ -43,7 +43,7 @@ class FuncionarioController extends Controller
 
             $funcionarios = Funcionario::where('pessoa_id','like','%'.$search.'%')
                 ->orderBy('pessoa_id')
-                ->paginate(20);
+                ->paginate(5);
 
         return view('funcionario.index',compact('funcionarios','pessoas','escolas'));
     }

@@ -49,7 +49,7 @@ class EscolaController extends Controller
 
             $escolas = Escola::where('siem_id','like','%'.$search.'%')
                 ->orderBy('siem_id')
-                ->paginate(20);
+                ->paginate(5);
 
             return view('escola.index',compact('escolas','siems'));
         }

@@ -22,7 +22,7 @@ class OcupacaoController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
-    public function index()
+   /* public function index()
     {
         $ocupacaos = Ocupacao::paginate(6);
         return view('ocupacao.index',compact('ocupacaos'));
@@ -33,6 +33,18 @@ class OcupacaoController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
+
+    public function index()
+        {
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            $ocupacaos = Ocupacao::where('nome','like','%'.$search.'%')
+                ->orderBy('nome')
+                ->paginate(5);
+
+            return view('ocupacao.index',compact('ocupacaos'));
+        }
+
     public function create()
     {
         

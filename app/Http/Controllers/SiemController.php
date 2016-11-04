@@ -40,7 +40,7 @@ class SiemController extends Controller
 
             $siems = Siem::where('nome','like','%'.$search.'%')
                 ->orderBy('nome')
-                ->paginate(6);
+                ->paginate(5);
 
             return view('siem.index',compact('siems'));
         }

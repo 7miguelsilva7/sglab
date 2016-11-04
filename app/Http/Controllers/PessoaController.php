@@ -40,7 +40,7 @@ class PessoaController extends Controller
 
             $pessoas = Pessoa::where('nome','like','%'.$search.'%')
                 ->orderBy('nome')
-                ->paginate(6);
+                ->paginate(5);
 
             return view('pessoa.index',compact('pessoas'));
         }
