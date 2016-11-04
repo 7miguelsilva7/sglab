@@ -20,36 +20,38 @@
 
                 <div class="panel-body">
             <h2><i class="fa glyphicon glyphicon-th-list"></i> Escola </h2>
-            <form class = 'col s3' method = 'get' action = '<?php echo e(url("escola")); ?>/create'>
-                <button class = 'btn btn-primary' type = 'submit'><i class="fa glyphicon glyphicon-plus"></i> Novo </button>
-            </form>
-            <br>
-
-<!-- Verifica usuário logado, Apenas usuário Admin pode ver este campo -->
             
-                <?php
+
+
+<?php echo Form::open(['method'=>'GET','url'=>'escola','class'=>'navbar-form navbar-right','role'=>'search']); ?>
+
+
+<?php
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Associar
-                <span class="caret"></span>
-                </button>
-                <?php } ?>
+<a href="<?php echo e(url('escola/create')); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+<?php } ?>
 
-<!-- FIM Verifica usuário logado, Apenas usuário Admin pode ver este campo. FIM -->
-                
+<div class="input-group custom-search-form">
 
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    
-                    <li><a href="http://localhost:8000/siem">Siem</a></li>
-                    
-                    <li><a href="http://localhost:8000/pessoa">Pessoa</a></li>
-                    
-                </ul>
-            </div>
-            
-            <br>
+                                <select class="form-control" name="search" id="select1">
+                                
+                                <option value="">Mostrar Todas Escolas Cadastras</option>
+                                <?php $__currentLoopData = $siems; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+                                <option value="<?php echo e($value->id); ?>"><?php echo e($value->nome); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+                                    
+                                </select>    <span class="input-group-btn">
+        <button class="btn btn-default-sm" type="submit">
+            <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
+        </button>
+    </span>
+</div>
+<?php echo Form::close(); ?>
+
+
+                              
+           
             <table class = "table table-striped table-bordered">
                 <thead>
              

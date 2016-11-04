@@ -21,7 +21,6 @@
             <h2><i class="fa glyphicon glyphicon-th-list"></i> Siem-Escolas</h2>
 
 
-
 <?php echo Form::open(['method'=>'GET','url'=>'siem','class'=>'navbar-form navbar-right','role'=>'search']); ?>
 
 
@@ -32,7 +31,7 @@
 <?php } ?>
 
 <div class="input-group custom-search-form">
-    <input type="text" class="form-control" name="search" placeholder="Search...">
+    <input type="text" class="form-control" name="search" placeholder="Busca...">
     <span class="input-group-btn">
         <button class="btn btn-default-sm" type="submit">
             <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
@@ -41,12 +40,7 @@
 </div>
 <?php echo Form::close(); ?>
 
-
-                        
-
-
-            
-            <br>
+         
             <table class = "table table-striped table-bordered">
                 <thead>
                     

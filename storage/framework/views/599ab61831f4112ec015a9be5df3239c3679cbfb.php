@@ -529,7 +529,6 @@
 <script type="text/javascript">
   jQuery(function($) {
     $("#inep").mask("00000000");
-    $("#numero").mask("999999999");
     $("#cep").mask("00.000-000");
     $("#cpf").mask("000.000.000-00");
     $("#rg").mask("00.000.000-00");
