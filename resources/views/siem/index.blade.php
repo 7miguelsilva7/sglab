@@ -24,12 +24,12 @@
 
 
 
-{!! Form::open(['method'=>'GET','url'=>'siems','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+{!! Form::open(['method'=>'GET','url'=>'siem','class'=>'navbar-form navbar-right','role'=>'search'])  !!}
 
 <?php
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>
-<a href="{{ url('siem/create') }}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add</a>
+<a href="{{ url('siem/create') }}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo</a>
 <?php } ?>
 
 <div class="input-group custom-search-form">
