@@ -19,33 +19,37 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Funcionários</div>
+                                <div class="panel-body">
 
-                <div class="panel-body">
             <h2><i class="fa glyphicon glyphicon-th-list"></i> Funcionários </h2>
-            <form class = 'col s3' method = 'get' action = '{{url("funcionario")}}/create'>
-                <button class = 'btn btn-primary' type = 'submit'><i class="fa glyphicon glyphicon-plus"></i> Novo </button>
-            </form>
-            <br>
 
-            
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Associar
-                <span class="caret"></span>
- 
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    
-                    <li><a href="http://localhost:8000/siem">Siem</a></li>
-                    
-                    <li><a href="http://localhost:8000/ocupacao">Ocupacao</a></li>
-                    
-                    <li><a href="http://localhost:8000/pessoa">Pessoa</a></li>
-                    
-                </ul>
-            </div>
-            
-            <br>
+
+{!! Form::open(['method'=>'GET','url'=>'funcionario','class'=>'navbar-form navbar-right','role'=>'search'])  !!}
+
+<?php
+                        $usuario_logado = Auth::user()->name;
+                        if ($usuario_logado == "Admin") { ?>
+<a href="{{ url('funcionario/create') }}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+<?php } ?>
+
+<div class="input-group custom-search-form">
+
+                                <select class="form-control" name="search" id="select1">
+                                
+                                <option value="">Mostrar Todos Funcionários Cadastras</option>
+                                @foreach($pessoas as $key => $value)
+                                <option value="{{$value->id}}">{{$value->nome}}</option>
+                                @endforeach
+                                    
+                                </select>    <span class="input-group-btn">
+        <button class="btn btn-default-sm" type="submit">
+            <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
+        </button>
+    </span>
+</div>
+{!! Form::close() !!}
+
+          
             <table class = "table table-striped table-bordered">
                 <thead>
                     

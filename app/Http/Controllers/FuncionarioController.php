@@ -33,8 +33,19 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-        $funcionarios = Funcionario::paginate(6);
-        return view('funcionario.index',compact('funcionarios'));
+       //$funcionarios = Funcionario::paginate(6);
+
+            $pessoas = Pessoa::all();
+
+            $siems = Siem::all();
+
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            $funcionarios = Funcionario::where('pessoa_id','like','%'.$search.'%')
+                ->orderBy('pessoa_id')
+                ->paginate(20);
+
+        return view('funcionario.index',compact('funcionarios','pessoas','escolas'));
     }
 
     /**

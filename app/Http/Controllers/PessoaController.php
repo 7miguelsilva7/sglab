@@ -22,7 +22,7 @@ class PessoaController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
-    public function index()
+    /*public function index()
     {
         $pessoas = Pessoa::paginate(6);
         return view('pessoa.index',compact('pessoas'));
@@ -33,6 +33,18 @@ class PessoaController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
+
+    public function index()
+        {
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            $pessoas = Pessoa::where('nome','like','%'.$search.'%')
+                ->orderBy('nome')
+                ->paginate(6);
+
+            return view('pessoa.index',compact('pessoas'));
+        }
+
     public function create()
     {
         

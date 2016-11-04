@@ -28,7 +28,7 @@ class EscolaController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
-    public function index()
+    /*public function index()
     {
         $escolas = Escola::paginate(6);
         return view('escola.index',compact('escolas'));
@@ -39,6 +39,21 @@ class EscolaController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
+
+      public function index()
+        {
+            $siems = Siem::all();
+            $escolas = Escola::all();
+
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            $escolas = Escola::where('siem_id','like','%'.$search.'%')
+                ->orderBy('siem_id')
+                ->paginate(20);
+
+            return view('escola.index',compact('escolas','siems'));
+        }
+
     public function create()
     {
         

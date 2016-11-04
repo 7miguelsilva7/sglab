@@ -22,7 +22,7 @@ class SiemController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
-    public function index()
+   /* public function index()
     {
         $siems = Siem::paginate(6);
         return view('siem.index',compact('siems'));
@@ -33,6 +33,18 @@ class SiemController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
+
+        public function index()
+        {
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            $siems = Siem::where('nome','like','%'.$search.'%')
+                ->orderBy('nome')
+                ->paginate(6);
+
+            return view('siem.index',compact('siems'));
+        }
+
     public function create()
     {
         
