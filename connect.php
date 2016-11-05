@@ -8,7 +8,7 @@ $mysqlport=3306;
 $pchartfolder="class/pchart2";
 
 
-$conn=new PDO("mysql:host=localhost;dbname=$db", '$user', '$pass', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+$conn=new PDO("mysql:host=localhost;dbname=sglab", 'root', 'root', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
 
 
