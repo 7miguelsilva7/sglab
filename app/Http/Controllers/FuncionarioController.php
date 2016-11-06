@@ -48,11 +48,22 @@ class FuncionarioController extends Controller
         return view('funcionario.index',compact('funcionarios','pessoas','escolas'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
      * @return  \Illuminate\Http\Response
      */
+
+        public function reportfuncionario()
+{
+
+        return view('phpreport.ReportFuncionarios');
+
+
+}
+
+
     public function create()
     {
         

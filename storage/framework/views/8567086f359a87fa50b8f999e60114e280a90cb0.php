@@ -4,7 +4,6 @@
     <head>
         <meta charset="UTF-8">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,12 +19,29 @@
 
                 <div class="panel-body">
             <h2><i class="fa glyphicon glyphicon-th-list"></i> Ocupação </h2>
-            <form class = 'col s3' method = 'get' action = '<?php echo e(url("ocupacao")); ?>/create'>
-                <button class = 'btn btn-primary' type = 'submit'><i class="fa glyphicon glyphicon-plus"></i> Novo </button>
-            </form>
-            <br>
+            
+            
+<?php echo Form::open(['method'=>'GET','url'=>'ocupacao','class'=>'navbar-form navbar-right','role'=>'search']); ?>
 
-          
+
+<?php
+                        $usuario_logado = Auth::user()->name;
+                        if ($usuario_logado == "Admin") { ?>
+<a href="<?php echo e(url('ocupacao/create')); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+<?php } ?>
+
+<div class="input-group custom-search-form">
+    <input type="text" class="form-control" name="search" placeholder="Busca...">
+    <span class="input-group-btn">
+        <button class="btn btn-default-sm" type="submit">
+            <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
+        </button>
+    </span>
+</div>
+<?php echo Form::close(); ?>
+
+   
+        
             <table class = "table table-striped table-bordered">
                 <thead>
                     

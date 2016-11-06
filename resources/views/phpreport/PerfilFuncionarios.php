@@ -19,7 +19,7 @@ $PHPJasperXML->arrayParameter=  ["funcionario"=>$funcionario];
 
 
 
-$PHPJasperXML->load_xml_file("../../../libs/Reporter/jrxmlreport/PerfilFuncionarios.jrxml");
+$PHPJasperXML->load_xml_file("../../Reporter/jrxmlreport/PerfilFuncionarios.jrxml");
 
 $PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);
 $PHPJasperXML->outpage("D");    //page output method I:standard output  D:Download file

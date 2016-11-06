@@ -18,7 +18,7 @@ $PHPJasperXML->arrayParameter=  ["escola"=>$escola];
 
 
 
-$PHPJasperXML->load_xml_file("../../../libs/Reporter/jrxmlreport/PerfilEscolas.jrxml");
+$PHPJasperXML->load_xml_file("../../Reporter/jrxmlreport/PerfilEscolas.jrxml");
 
 $PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);
 $PHPJasperXML->outpage("D");    //page output method I:standard output  D:Download file

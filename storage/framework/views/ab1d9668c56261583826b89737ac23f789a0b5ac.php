@@ -1,5 +1,6 @@
 
 <?php
+
 #chama o arquivo de configuração com o banco
 
 require_once '../connect.php';
@@ -72,6 +73,7 @@ require_once '../connect.php';
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                   
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
@@ -91,11 +93,11 @@ require_once '../connect.php';
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                     
-                                    <li><a href="<?php echo e(url('/siem')); ?>">Siem</a></li>
-                                    <li><a href="<?php echo e(url('/escola')); ?>">Escola</a></li>
-                                    <li><a href="<?php echo e(url('/funcionario')); ?>">Funcionário</a></li>
-                                    <li><a href="<?php echo e(url('/ocupacao')); ?>">Ocupação</a></li>
-                                    <li><a href="<?php echo e(url('/pessoa')); ?>">Pessoa</a></li>
+                                    <li><a href="<?php echo e(url('/siem')); ?>"><i class="fa glyphicon glyphicon-modal-window"></i>Siem</a></li>
+                                    <li><a href="<?php echo e(url('/escola')); ?>"><i class="fa glyphicon glyphicon-home"></i>Escola</a></li>
+                                    <li><a href="<?php echo e(url('/funcionario')); ?>"><i class="fa glyphicon glyphicon-user"></i>Funcionário</a></li>
+                                    <li><a href="<?php echo e(url('/ocupacao')); ?>"><i class="fa glyphicon glyphicon-cog"></i>Ocupação</a></li>
+                                    <li><a href="<?php echo e(url('/pessoa')); ?>"><i class="fa glyphicon glyphicon-user"></i>Pessoa</a></li>
 
                                     </li>
                                 </ul>
@@ -125,7 +127,7 @@ require_once '../connect.php';
                                     <li>
                                     
 									<li><a data-toggle="modal" href="#"><i class="fa glyphicon glyphicon-home"></i>Lista Escolas</a></li>
-									<li><a data-toggle="modal" href="#myModal"><i class="fa glyphicon glyphicon-home"></i>Lista Funcionários</a></li>
+									<li><a data-toggle="modal" href="#funcionario"><i class="fa glyphicon glyphicon-user"></i>Lista Funcionários</a></li>
                                     <li><a href="<?php echo e(url('/funcionario')); ?>"><i class="fa glyphicon glyphicon-hdd"></i>Lista Laboratórios</a></li>
                                     
                                     </li>
@@ -155,9 +157,9 @@ require_once '../connect.php';
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                     
-                                    <li><a href="<?php echo e(url('/siem')); ?>">Perfil Escolas</a></li>
-                                    <li><a href="<?php echo e(url('/escola')); ?>">Perfil Funcionários</a></li>
-                                    <li><a href="<?php echo e(url('/funcionario')); ?>">Perfil Laboratórios</a></li>
+                                    <li><a href="<?php echo e(url('/siem')); ?>"><i class="fa glyphicon glyphicon-home"></i>Perfil Escolas</a></li>
+                                    <li><a href="<?php echo e(url('/escola')); ?>"><i class="fa glyphicon glyphicon-user"></i>Perfil Funcionários</a></li>
+                                    <li><a href="<?php echo e(url('/funcionario')); ?>"><i class="fa glyphicon glyphicon-hdd"></i>Perfil Laboratórios</a></li>
                                    
 
                                     </li>
@@ -186,7 +188,7 @@ require_once '../connect.php';
                                         <a href="<?php echo e(url('/logout')); ?>"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            <i class="fa glyphicon glyphicon-log-out"></i>Logout
                                         </a>
 
                                         <form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
@@ -210,14 +212,13 @@ require_once '../connect.php';
     <!-- Scripts -->
 <script src="/js/app.js"></script>
 
-
 <!-- Funcionário -->
 <!-- Funcionário -->
 <!-- Funcionário -->
 <!-- Funcionário -->
 <!-- Funcionário -->
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -257,7 +258,9 @@ require_once '../connect.php';
 
 
 
-<form name="ocupacao" method="post" action="../Reporter/phpreport/ReportFuncionarios.php">
+<form name="ocupacao" method='POST' action='<?php echo e(url("funcionario/reportfuncionario")); ?>'>
+      <input type = 'hidden' name = '_token' value = '<?php echo e(Session::token()); ?>'>
+
 <table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding=5>
 
 <tr>
@@ -320,6 +323,14 @@ require_once '../connect.php';
     </div>
   </div>
 </div>
+
+
+<!-- FIM Funcionário -->
+<!-- FIM Funcionário -->
+<!-- FIM Funcionário -->
+<!-- FIM Funcionário -->
+<!-- FIM Funcionário -->
+
 
 
 
