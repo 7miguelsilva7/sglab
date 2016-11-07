@@ -67,7 +67,7 @@ Route::get('funcionario/{id}/deleteMsg','\App\Http\Controllers\FuncionarioContro
 
 //Relatorios Resources
 /********************* Relatórios ***********************************************/
-Route::resource('funcionario/reportfuncionario','\App\Http\Controllers\FuncionarioController@reportfuncionario');
+Route::post('funcionario/reportfuncionario','\App\Http\Controllers\FuncionarioController@reportfuncionario');
 
 
 
