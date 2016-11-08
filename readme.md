@@ -12,7 +12,7 @@
 
 ## Instalação de Dependências
 
-sudo apt-get install git 
+sudo apt-get install git
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
 sudo apt-get install python-software-properties
@@ -33,11 +33,11 @@ git clone https://github.com/7miguelsilva7/sglab.git
 
 composer update
 
-#praa rodar a aplicação executar
+# Para rodar a aplicação executar
 
 php artisan serve
 
-#No navegador usar o endereço:
+# No navegador usar o endereço:
 
 http://localhost:8000/
 
