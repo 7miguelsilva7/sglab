@@ -221,7 +221,7 @@ require_once '../connect.php';
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Listar Funcionários</h4>
+        <h4 class="modal-title" id="myModalLabel"> <i class="fa glyphicon glyphicon-th-list"></i>   Listar Funcionários</h4>
       </div>
       <div class="modal-body">
         <?php
@@ -478,7 +478,7 @@ require_once '../connect.php';
 		<div class="modal-body">
 
 <form name="escola" method="post" action="../Reporter/phpreport/ReportEscolas.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding=5>
+<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
 <tr>
 
 <td align="center">
