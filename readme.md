@@ -9,6 +9,10 @@
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
 
+## Dependêcias PHP 5.6
+
+sudo apt-get install php5-mysqlnd php5.6-mysql
+
 ## Dependêcias PHP 7.0
 
 sudo apt-get install php7 php7.0-mbstring php7.0-ext-dom php-curl php7.0-mysql 
