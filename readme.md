@@ -15,7 +15,7 @@ Execute os seguintes comandos no terminal
 
 ## 2 - Instalar Dependências PHP < 5.6
 
-* sudo apt-get install php5 php5-mysqlnd php5.6-mysql php5.6-mbstring php5.6-ext-dom php-curl php5.6-xml
+* sudo apt-get install php5 php5-mysqlnd php5.6-mysql php5.6-mbstring php5.6-ext-dom php-curl php5.6-xml phpmyadmin
 
 * cd /var/www/html/
 * git clone https://github.com/7miguelsilva7/sglab.git
