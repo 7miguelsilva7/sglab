@@ -5,10 +5,10 @@
  */
 include_once ('../class/tcpdf/tcpdf.php');
 include_once ("../class/PHPJasperXML.inc.php");
-include_once ('../connect.php');
+include_once ('../class/setting.php');
 
 $PHPJasperXML = new PHPJasperXML();
-$PHPJasperXML->debugsql=true;
+//$PHPJasperXML->debugsql=true;
 
 //Verificao de campo
 $ocupacao=$_POST["ocupacao"]; //recebendo o parâmetro descrição

@@ -37,9 +37,9 @@ FROM
      INNER JOIN `siems` siems ON funcionarios.`siem_id` = siems.`id`
 WHERE
      status_funcionario = "ATIVO"
-     and ocupacao_id = $P{ocupacao}
-     and vinculo = $P{vinculo}
-     and siem_id = $P{escola}
+     and funcionarios.`ocupacao_id` = $P{ocupacao}
+     and funcionarios.`vinculo` = $P{vinculo}
+     and funcionarios.`siem_id` = $P{escola}
 
 ORDER BY
      ocupacaos.`nome` ASC,

@@ -54,8 +54,19 @@ class PHPJasperXML {
         if($cndriver=="mysql") {
 
             if(!$this->con) {
-                $this->myconn = @new PDO("mysql:host=$db_host;dbname=$db_or_dsn_name",$db_user,$db_pass);
-                
+                $this->myconn = @mysql_connect($db_host,$db_user,$db_pass);
+                if($this->myconn) {
+                    $seldb = @mysql_select_db($db_or_dsn_name,$this->myconn);
+                    if($seldb) {
+                        $this->con = true;
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
             } else {
                 return true;
             }
@@ -1412,12 +1423,22 @@ $font=$data->textElement->font["fontName"];
                 }
                 $this->m++;
             }
-        }}
-             
+        }
+        else {
+             @mysql_query("set names 'utf8'");
+            $result = @mysql_query($this->sql); //query from db
+
+            while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+                foreach($this->arrayfield as $out) {
+                    $this->arraysqltable[$this->m]["$out"]=$row["$out"];
+                }
+                $this->m++;
+            }
+        }
 //print_r(   $this->arraysqltable);die;
        	//close connection to db
 
-    
+    }
 
     public function time_to_sec($time) {
         $hours = substr($time, 0, -6);

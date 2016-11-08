@@ -1,3 +1,4 @@
+
 APP_ENV=local
 APP_KEY=base64:oX1P9kWWCiVWyfqGuqiKW56OJvtt3y0xQGBeEjp8eic=
 APP_DEBUG=true
