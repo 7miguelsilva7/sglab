@@ -42,6 +42,7 @@ WHERE
      and funcionarios.`siem_id` = $P{escola}
 
 ORDER BY
+	 siems.`nome` ASC,
      ocupacaos.`nome` ASC,
      pessoas.`nome` ASC]]>
 	</queryString>
