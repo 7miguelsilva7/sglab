@@ -124,7 +124,7 @@ require_once '../connect.php';
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                     
-									<li><a data-toggle="modal" href="#"><i class="fa glyphicon glyphicon-home"></i>Lista Escolas</a></li>
+									<li><a data-toggle="modal" href="#escolas"><i class="fa glyphicon glyphicon-home"></i>Lista Escolas</a></li>
 									<li><a data-toggle="modal" href="#funcionario"><i class="fa glyphicon glyphicon-user"></i>Lista Funcionários</a></li>
                                     <li><a href="{{ url('/funcionario') }}"><i class="fa glyphicon glyphicon-hdd"></i>Lista Laboratórios</a></li>
                                     
@@ -209,12 +209,124 @@ require_once '../connect.php';
     <!-- Scripts -->
 <script src="/js/app.js"></script>
 
-    <!-- funcionarios -->
-    <!-- funcionarios -->
-    <!-- funcionarios -->
-    <!-- funcionarios -->
-    <!-- funcionarios -->
 
+
+	<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
+	<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
+	<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
+	<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
+	<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
+	<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
+	<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
+	<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
+
+
+    <!-- escolas -->    <!-- escolas -->     <!-- escolas -->     <!-- escolas -->    <!-- escolas -->
+    <!-- escolas -->    <!-- escolas -->     <!-- escolas -->     <!-- escolas -->    <!-- escolas -->
+    <!-- escolas -->    <!-- escolas -->     <!-- escolas -->     <!-- escolas -->    <!-- escolas -->
+    <!-- escolas -->    <!-- escolas -->     <!-- escolas -->     <!-- escolas -->    <!-- escolas -->
+    <!-- escolas -->    <!-- escolas -->     <!-- escolas -->     <!-- escolas -->    <!-- escolas -->
+
+
+
+   <!-- modal Lista Escolas -->
+	
+
+    <div class="modal fade" id="escolas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Listar Escolas</h4>
+      </div>
+      <div class="modal-body">
+
+<form name="escola" method="post" action='{{url("escola/reportescola")}}'>
+      <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+
+<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
+<tr>
+
+<td align="center">
+<label >Selecione um Distrito:</label></p>
+<select name="distrito" id="select1"> 
+ 	<option value="'distrito'">Todos os distritos cadastrados</option>
+ 	<option value="'ABÓBORA'">ABÓBORA</option>
+ 	<option value="'ITAMOTINGA'">ITAMOTINGA</option>
+ 	<option value="'JUNCO'">JUNCO</option>
+ 	<option value="'JUREMAL'">JUREMAL</option>
+ 	<option value="'MANDACARU'">MANDACARU</option>
+ 	<option value="'MANIÇOBA'">MANIÇOBA</option>
+ 	<option value="'MASSAROCA'">MASSAROCA</option>
+ 	<option value="'PINHÕES'">PINHÕES</option>
+ 	<option value="'SEDE'">SEDE</option>
+</select>
+
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 align="center" class="panel-title">
+        <a  data-toggle="collapse" href="#collapse1">MAIS FILTROS</a>
+      </h5>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+
+<label >Possui Articulador?</label></p>
+<select name="articulador" id="articulador"> 
+ 	<option value="possui_analista">SIM/NÂO</option>
+ 	<option value="'SIM'">SIM</option>
+ 	<option value="'NÃO'">NÃO</option>
+</select></p>
+ 
+<label >Possui Laboratório?</label></p>
+<select name="lab" id="lab"> 
+ 	<option value="possui_lab">SIM/NÂO</option>
+ 	<option value="'SIM'">SIM</option>
+ 	<option value="'NÃO'">NÃO</option>
+</select></p>
+
+<label >Possui Internet?</label></p>
+<select name="internet" id="internet"> 
+ 	<option value="possui_internet_escola">SIM/NÂO</option>
+ 	<option value="'SIM'">SIM</option>
+ 	<option value="'NÃO'">NÃO</option>
+</select>
+</p>
+					</div>
+
+  </td>
+ </tr>
+
+</table>
+<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" >Cancelar</button>
+			<button type="submit" class="btn btn-primary">Gerar Listagem</button>
+		 </div>
+                        </div>
+                </form>
+
+                        </div>
+                        
+
+    </div>
+  </div>
+</div>
+
+    
+    <!-- FIM escolas -->    <!-- FIM escolas -->     <!-- FIM escolas -->     <!-- FIM escolas -->    <!-- FIM escolas -->
+    <!-- FIM escolas -->    <!-- FIM escolas -->     <!-- FIM escolas -->     <!-- FIM escolas -->    <!-- FIM escolas -->
+    <!-- FIM escolas -->    <!-- FIM escolas -->     <!-- FIM escolas -->     <!-- FIM escolas -->    <!-- FIM escolas -->
+    <!-- FIM escolas -->    <!-- FIM escolas -->     <!-- FIM escolas -->     <!-- FIM escolas -->    <!-- FIM escolas -->
+    <!-- FIM escolas -->    <!-- FIM escolas -->     <!-- FIM escolas -->     <!-- FIM escolas -->    <!-- FIM escolas -->
+
+
+
+    <!-- funcionarios -->    <!-- funcionarios -->     <!-- funcionarios -->     <!-- funcionarios -->    <!-- funcionarios -->
+    <!-- funcionarios -->    <!-- funcionarios -->     <!-- funcionarios -->     <!-- funcionarios -->    <!-- funcionarios -->
+    <!-- funcionarios -->    <!-- funcionarios -->     <!-- funcionarios -->     <!-- funcionarios -->    <!-- funcionarios -->
+    <!-- funcionarios -->    <!-- funcionarios -->     <!-- funcionarios -->     <!-- funcionarios -->    <!-- funcionarios -->
+    <!-- funcionarios -->    <!-- funcionarios -->     <!-- funcionarios -->     <!-- funcionarios -->    <!-- funcionarios -->
 
 <div class="modal fade" id="funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -253,9 +365,6 @@ require_once '../connect.php';
 
 ?>
 
-
-
-
 <form name="funcionarios" method='post' action='{{url("funcionario/reportfuncionario")}}'>
       <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 
@@ -264,20 +373,20 @@ require_once '../connect.php';
 <tr>
 <td align="center">
 <div class="panel-group">
-  <div class="panel panel-default">
+    <div class="panel panel-default">
     <div class="panel-heading">
-<label >Selecione uma Ocupação:</label></p>
-<select name="ocupacao" id="select1"> 
+    <label >Selecione uma Ocupação:</label></p>
+    <select name="ocupacao" id="select2"> 
  	<option value="ocupacao_id">Todas as Ocupações Cadastradas</option>
 
-<?php foreach($data as $row) : ?> 
+    <?php foreach($data as $row) : ?> 
     <option value="<?php echo $row['id']; ?>"><?php echo $row['nome']; ?></option> 
-<?php endforeach ?> 
-</select>
-</div></div></div>
-<div class="panel-group">
-  <div class="panel panel-default">
-    <div class="panel-heading">
+    <?php endforeach ?> 
+    </select>
+    </div></div></div>
+    <div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
       <h5 align="center" class="panel-title">
         <a  data-toggle="collapse" href="#collapsef">MAIS FILTROS</a>
       </h5>
@@ -288,7 +397,7 @@ require_once '../connect.php';
                 <div class="panel-group">
                 <div class="panel-heading">
                 <label >Tipo de Vínculo:</label></p>
-                <select name="vinculo" id="select2"> 
+                <select name="vinculo" id="select3"> 
                     <option value="vinculo">Todos os Vínculos</option>
                     <option value="'CONCURSADO'">CONCURSADO</option>
                     <option value="'EFETIVO'">EFETIVO</option>
@@ -298,7 +407,7 @@ require_once '../connect.php';
                 </select>
 </p>
                 <label >Selecione uma Escola:</label></p>
-                <select name="escola" id="select3"> 
+                <select name="escola" id="select4"> 
                     <option value="siem_id">Todas as Escolas Cadastradas</option>
 
                 <?php foreach($data2 as $row2) : ?> 
@@ -323,14 +432,11 @@ require_once '../connect.php';
   </div>
 </div>
 
-
-<!-- FIM Funcionário -->
-<!-- FIM Funcionário -->
-<!-- FIM Funcionário -->
-<!-- FIM Funcionário -->
-<!-- FIM Funcionário -->
-
-
+    <!-- FIM funcionarios -->    <!-- FIM funcionarios -->     <!-- FIM funcionarios -->     <!-- FIM funcionarios -->    <!-- FIM funcionarios -->
+    <!-- FIM funcionarios -->    <!-- FIM funcionarios -->     <!-- FIM funcionarios -->     <!-- FIM funcionarios -->    <!-- FIM funcionarios -->
+    <!-- FIM funcionarios -->    <!-- FIM funcionarios -->     <!-- FIM funcionarios -->     <!-- FIM funcionarios -->    <!-- FIM funcionarios -->
+    <!-- FIM funcionarios -->    <!-- FIM funcionarios -->     <!-- FIM funcionarios -->     <!-- FIM funcionarios -->    <!-- FIM funcionarios -->
+    <!-- FIM funcionarios -->    <!-- FIM funcionarios -->     <!-- FIM funcionarios -->     <!-- FIM funcionarios -->    <!-- FIM funcionarios -->
 
 
 
@@ -345,207 +451,9 @@ require_once '../connect.php';
 
 
 
-
-
-
-	<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-	<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-	<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-	<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-	<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-	<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-	<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-	<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-	
-
-
-	<!-- modal form dialog -->
-	<div class="modal hide fade" id="funcionarios">
-		<div class="modal-header">
-			<a class="close" data-dismiss="modal">&times;</a>
-			<h3>
-				<i class="icon-th-list"></i> Relatório Funcionários
-				
-			</h3>
-		</div>
-		<div class="modal-body">
-
-<?php
-
-#Seleciona dados da Tabela siem
- try{
-    $sql2 ='SELECT * FROM siem;';
-    $stmt2 = $conn->prepare($sql2);
-    $stmt2 ->execute();
-    $data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
-}catch(PDOException $e2){
-    echo 'ERROR: ' . $e2->getMessage();
-}
-
-?>
-
-
-<?php
-
-#Seleciona dados da Tabela Ocupação
- try{
-    $sql ='SELECT * FROM ocupacao;';
-    $stmt = $conn->prepare($sql);
-    $stmt ->execute();
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-}catch(PDOException $e){
-    echo 'ERROR: ' . $e->getMessage();
-}
-
-?>
-
-
-
-
-
-<form name="ocupacao" method="post" action="../Reporter/phpreport/ReportFuncionarios.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding=5>
-<tr>
-
-<td align="center">
-<label >Selecione uma Ocupação:</label>
-<select name="ocupacao" id="ocupacao"> 
- 	<option value="o_id">Todos</option>
-
-<?php foreach($data as $row) : ?> 
-    <option value="<?php echo $row['o_id']; ?>"><?php echo $row['o_nome']; ?></option> 
-<?php endforeach ?> 
-</select>
- 
-<div class="panel-group">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h5 align="center" class="panel-title">
-        <a  data-toggle="collapse" href="#collapsef">MAIS FILTROS</a>
-      </h5>
-    </div>
-    <div id="collapsef" class="panel-collapse collapse">
-      <div class="panel-body">
-
-
-<label >Tipo de Vínculo:</label>
-<select name="vinculo" id="vinculo"> 
- 	<option value="f_vinculo">Todos</option>
- 	<option value="'Concursado'">Concursado</option>
- 	<option value="'Contratado'">Contratado</option>
- 	<option value="'Temporário'">Temporário</option>
- 	<option value="'REDA'">REDA</option>
-</select>
-
-<label >Selecione uma Escola:</label>
-<select name="escola" id="escola"> 
- 	<option value="s_id">Todos</option>
-
-<?php foreach($data2 as $row2) : ?> 
-    <option value="<?php echo $row2['s_id']; ?>"><?php echo $row2['s_nome']; ?></option> 
-<?php endforeach ?> 
-</select>
-
-  </td>
- </tr>
-
-</table>
-<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" >Cancelar</button>
-			<button type="submit" class="btn btn-primary">Gerar Relatório</button>
-		</div>
-		</div>
-</form>
-
-		</div>
-		
-	</div>
-
-        
-<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->       
-        
-        <!-- modal Lista Escolas -->
-	<div class="modal hide fade" id="escolas">
-		<div class="modal-header">
-			<a class="close" data-dismiss="modal">&times;</a>
-			<h3>
-				<i class="icon-th-list"></i> Relatório Escolas
-				
-			</h3>
-		</div>
-		<div class="modal-body">
-
-<form name="escola" method="post" action="../Reporter/phpreport/ReportEscolas.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
-<tr>
-
-<td align="center">
-<label >Selecione um Distrito:</label>
-<select name="distrito" id="distrito"> 
- 	<option value="e_distrito">Todos</option>
- 	<option value="'ABÓBORA'">ABÓBORA</option>
- 	<option value="'ITAMOTINGA'">ITAMOTINGA</option>
- 	<option value="'JUNCO'">JUNCO</option>
- 	<option value="'JUREMAL'">JUREMAL</option>
- 	<option value="'MANDACARU'">MANDACARU</option>
- 	<option value="'MANIÇOBA'">MANIÇOBA</option>
- 	<option value="'MASSAROCA'">MASSAROCA</option>
- 	<option value="'PINHÕES'">PINHÕES</option>
- 	<option value="'SEDE'">SEDE</option>
-</select>
-
-<div class="panel-group">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h5 align="center" class="panel-title">
-        <a  data-toggle="collapse" href="#collapse1">MAIS FILTROS</a>
-      </h5>
-    </div>
-    <div id="collapse1" class="panel-collapse collapse">
-      <div class="panel-body">
-
-<label >Possui Articulador?</label>
-<select name="articulador" id="articulador"> 
- 	<option value="e_possui_analista">Todos</option>
- 	<option value="'SIM'">SIM</option>
- 	<option value="'NÃO'">NÃO</option>
-</select>
- 
-<label >Possui Laboratório?</label>
-<select name="lab" id="lab"> 
- 	<option value="e_possui_lab">Todos</option>
- 	<option value="'SIM'">SIM</option>
- 	<option value="'NÃO'">NÃO</option>
-</select>
-
-<label >Possui Internet?</label>
-<select name="internet" id="internet"> 
- 	<option value="e_possui_internet_escola">Todos</option>
- 	<option value="'SIM'">SIM</option>
- 	<option value="'NÃO'">NÃO</option>
-</select>
-
-					</div>
-
-  </td>
- </tr>
-
-</table>
-<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" >Cancelar</button>
-			<button type="submit" class="btn btn-primary">Gerar Relatório</button>
-		</div>
-</form>
-
-		</div>
-		
-	</div>
-    
-    <!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->
-<!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog --><!-- modal edit dialog -->       
+    <!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
+<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
+<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->       
         
         <!-- modal form dialog Lista de LABORATÓRIOS -->
 	<div class="modal hide fade" id="laboratorios">

@@ -5,7 +5,7 @@
  */
 include_once ('../class/tcpdf/tcpdf.php');
 include_once ("../class/PHPJasperXML.inc.php");
-include_once ('../class/setting.php');
+include_once ('../connect.php');
 
 $PHPJasperXML = new PHPJasperXML();
 //$PHPJasperXML->debugsql=true;
