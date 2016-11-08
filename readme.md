@@ -21,25 +21,25 @@
 
 ## Instlar Dependências PHP < 5.6
 
-sudo apt-get install php5 php5-mysqlnd php5.6-mysql php5.6-mbstring php5.6-ext-dom php-curl php5.6-xml
+* sudo apt-get install php5 php5-mysqlnd php5.6-mysql php5.6-mbstring php5.6-ext-dom php-curl php5.6-xml
 
 * cd /var/www/html/
 * git clone https://github.com/7miguelsilva7/sglab.git
 
-# criar base de dados "sglab"
-# restaurar o banco que se encontra na pasta database do projeto
+## criar base de dados "sglab"
+## restaurar o banco que se encontra na pasta database do projeto
 
 ## Atualizar composer
 
-composer update
+* composer update
 
-# Para rodar a aplicação executar
+## Para rodar a aplicação executar
 
-php artisan serve
+* php artisan serve
 
-# No navegador usar o endereço:
+## No navegador usar o endereço:
 
-http://localhost:8000/
+* http://localhost:8000/
 
 
 
