@@ -9,7 +9,7 @@ include_once ('../connect.php');
 
 
 $PHPJasperXML = new PHPJasperXML();
-//$PHPJasperXML->debugsql=true;
+$PHPJasperXML->debugsql=true;
 
 //Verificao de campo
 $distrito=$_POST["distrito"]; //recebendo o parâmetro descrição

@@ -126,7 +126,7 @@ require_once '../connect.php';
                                     
 									<li><a data-toggle="modal" href="#escolas"><i class="fa glyphicon glyphicon-home"></i>Lista Escolas</a></li>
 									<li><a data-toggle="modal" href="#funcionario"><i class="fa glyphicon glyphicon-user"></i>Lista Funcionários</a></li>
-                                    <li><a href="{{ url('/funcionario') }}"><i class="fa glyphicon glyphicon-hdd"></i>Lista Laboratórios</a></li>
+									<li><a data-toggle="modal" href="#laboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Lista Laboratórios</a></li>
                                     
                                     </li>
                                 </ul>
@@ -250,7 +250,7 @@ require_once '../connect.php';
 <td align="center">
 <label >Selecione um Distrito:</label></p>
 <select name="distrito" id="select1"> 
- 	<option value="'distrito'">Todos os distritos cadastrados</option>
+ 	<option value="distrito">Todos os distritos cadastrados</option>
  	<option value="'ABÓBORA'">ABÓBORA</option>
  	<option value="'ITAMOTINGA'">ITAMOTINGA</option>
  	<option value="'JUNCO'">JUNCO</option>
@@ -401,6 +401,7 @@ require_once '../connect.php';
                     <option value="vinculo">Todos os Vínculos</option>
                     <option value="'CONCURSADO'">CONCURSADO</option>
                     <option value="'EFETIVO'">EFETIVO</option>
+                    <option value="'ESTAGIÁRIO'">ESTAGIÁRIO</option>
                     <option value="'CONTRATADO'">CONTRATADO</option>
                     <option value="'TEMPORARIO'">TEMPORARIO</option>
                     <option value="'REDA'">REDA</option>
@@ -441,35 +442,29 @@ require_once '../connect.php';
 
 
 
-</body>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script> var baseURL = "{{URL::to('/')}}"</script>
-<script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
-<script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
+    <!-- Laboratórios -->    <!-- Laboratórios -->     <!-- Laboratórios -->     <!-- Laboratórios -->    <!-- Laboratórios -->
+    <!-- Laboratórios -->    <!-- Laboratórios -->     <!-- Laboratórios -->     <!-- Laboratórios -->    <!-- Laboratórios -->
+    <!-- Laboratórios -->    <!-- Laboratórios -->     <!-- Laboratórios -->     <!-- Laboratórios -->    <!-- Laboratórios -->
+    <!-- Laboratórios -->    <!-- Laboratórios -->     <!-- Laboratórios -->     <!-- Laboratórios -->    <!-- Laboratórios -->
+    <!-- Laboratórios -->    <!-- Laboratórios -->     <!-- Laboratórios -->     <!-- Laboratórios -->    <!-- Laboratórios -->
 
 
 
-
-
-    <!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
-<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->
-<!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios --><!-- Incio dos Modals Relatórios -->       
-        
+     
         <!-- modal form dialog Lista de LABORATÓRIOS -->
-	<div class="modal hide fade" id="laboratorios">
-		<div class="modal-header">
-			<a class="close" data-dismiss="modal">&times;</a>
-			<h3>
-				<i class="icon-th-list"></i> Relatório de Laboratórios
-				
-			</h3>
-		</div>
-		<div class="modal-body">
+	<div class="modal fade" id="laboratorios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"> <i class="fa glyphicon glyphicon-th-list"></i>   Listar Laboratórios</h4>
+      </div>
+      <div class="modal-body">
 <?php
 
 #Seleciona dados da Tabela siem
  try{
-    $sql ='SELECT * FROM siem;';
+    $sql ='SELECT * FROM siems;';
     $stmt = $conn->prepare($sql);
     $stmt ->execute();
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -478,15 +473,17 @@ require_once '../connect.php';
 }
 
 ?>
-<form name="siem" method="post" action="libs/Reporter/phpreport/ReportLaboratorios.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding=5>
+<form name="escolas" method="post" action='{{url("escola/reportlaboratorio")}}'>
+      <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+
+<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
 <tr>
 
 <td align="center">
 
-<label >Selecione um Distrito:</label>
-<select name="distrito" id="distrito"> 
- 	<option value="e_distrito">Todos</option>
+<label >Selecione um Distrito:</label></br>
+<select name="distrito" id="select5"> 
+ 	<option value="distrito">Todos os Distritos</option>
  	<option value="'ABÓBORA'">ABÓBORA</option>
  	<option value="'ITAMOTINGA'">ITAMOTINGA</option>
  	<option value="'JUNCO'">JUNCO</option>
@@ -496,7 +493,7 @@ require_once '../connect.php';
  	<option value="'MASSAROCA'">MASSAROCA</option>
  	<option value="'PINHÕES'">PINHÕES</option>
  	<option value="'SEDE'">SEDE</option>
-</select>
+</select></p>
 
 <div class="panel-group">
   <div class="panel panel-default">
@@ -508,30 +505,30 @@ require_once '../connect.php';
     <div id="collapsel" class="panel-collapse collapse">
       <div class="panel-body">
 
-<label >Selecione uma Escola:</label>
-<select name="escola" id="escola"> 
- 	<option value="s_id">Todos</option>
+<label >Selecione uma Escola:</label></br>
+<select name="escola" id="select6"> 
+ 	<option value="id">Todas as Escolas Cadastradas</option>
 
 <?php foreach($data as $row) : ?> 
-    <option value="<?php echo $row['s_id']; ?>"><?php echo $row['s_nome']; ?></option> 
+    <option value="<?php echo $row['id']; ?>"><?php echo $row['nome']; ?></option> 
 <?php endforeach ?> 
-</select>
+</select></p>
 
 
 
-<label >Possui Articulador?</label>
-<select name="articulador" id="articulador"> 
- 	<option value="e_possui_analista">Todos</option>
+<label >Possui Articulador?</label></br>
+<select name="articulador" id="articulador">
+ 	<option value="possui_analista">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
-</select>
+</select></p>
 
-<label >Possui Internet?</label>
-<select name="internet" id="internet"> 
- 	<option value="e_possui_internet_lab">Todos</option>
+<label >Possui Internet?</label></br>
+<select name="internet" id="internet">
+ 	<option value="possui_internet_lab">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
-</select>
+</select></p>
 
 
 					</div>
@@ -546,9 +543,30 @@ require_once '../connect.php';
 		</div>
 </form>
 
-		</div>
 		
-	</div>
+        </div>
+                        
+
+    </div>
+  </div>
+</div>
+
+
+    <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->
+    <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->
+    <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->
+    <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->
+    <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->
+    
+
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script> var baseURL = "{{URL::to('/')}}"</script>
+<script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
+<script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
+
+
+
     
 	<!-- PERFIL --> 	<!-- PERFIL --> 	<!-- PERFIL -->	<!-- PERFIL -->
 	<!-- PERFIL --> 	<!-- PERFIL --> 	<!-- PERFIL -->	<!-- PERFIL -->

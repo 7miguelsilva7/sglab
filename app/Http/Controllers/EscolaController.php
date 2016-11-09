@@ -61,6 +61,13 @@ class EscolaController extends Controller
 
 }
 
+ public function reportlaboratorio()
+{
+
+        return view('phpreport.ReportLaboratorios');
+
+
+}
 
     public function create()
     {

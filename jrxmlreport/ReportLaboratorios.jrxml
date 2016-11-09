@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportlaboratorios" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ed200036-70aa-442e-a51b-22dda4fa46ce">
-	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="escola" class="java.lang.String">
@@ -17,51 +17,51 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     escola.`e_id` AS escola_e_id,
-     escola.`e_siem_id` AS escola_e_siem_id,
-     escola.`e_distrito` AS escola_e_distrito,
-     escola.`e_bairro` AS escola_e_bairro,
-     escola.`e_funcionario` AS escola_e_funcionario,
-     escola.`e_pregao1` AS escola_e_pregao1,
-     escola.`e_pregao2` AS escola_e_pregao2,
-     escola.`e_pregao3` AS escola_e_pregao3,
-     escola.`e_pregao4` AS escola_e_pregao4,
-     escola.`e_possui_internet_lab` AS escola_e_possui_internet_lab,
-     escola.`e_qt_monitores_lab` AS escola_e_qt_monitores_lab,
-     siem.`s_id` AS siem_s_id,
-     siem.`s_siem` AS siem_s_siem,
-     siem.`s_nome` AS siem_s_nome,
-     siem.`s_tipo_escola` AS siem_s_tipo_escola,
-     escola.`e_possui_analista` AS escola_e_possui_analista,
-     escola.`e_possui_lab` AS escola_e_possui_lab
+     escolas.`id` AS escolas_e_id,
+     escolas.`siem_id` AS escolas_e_siems_id,
+     escolas.`distrito` AS escolas_e_distrito,
+     escolas.`bairro` AS escolas_e_bairro,
+     escolas.`pessoa_id` AS escolas_e_funcionario,
+     escolas.`pregao1` AS escolas_e_pregao1,
+     escolas.`pregao2` AS escolas_e_pregao2,
+     escolas.`pregao3` AS escolas_e_pregao3,
+     escolas.`pregao4` AS escolas_e_pregao4,
+     escolas.`possui_internet_lab` AS escolas_e_possui_internet_lab,
+     escolas.`qt_monitores_lab` AS escolas_e_qt_monitores_lab,
+     siems.`id` AS siems_s_id,
+     siems.`siem` AS siems_s_siems,
+     siems.`nome` AS siems_s_nome,
+     siems.`tipo_escola` AS siems_s_tipo_escolas,
+     escolas.`possui_analista` AS escolas_e_possui_analista,
+     escolas.`possui_lab` AS escolas_e_possui_lab
 FROM
-     `siem` siem INNER JOIN `escola` escola ON siem.`s_id` = escola.`e_siem_id`
+     `siems` siems INNER JOIN `escolas` escolas ON siems.`id` = escolas.`siem_id`
 WHERE
-e_possui_lab = "SIM"
- AND e_possui_analista = $P{articulador}
- AND e_distrito = $P{distrito}
- AND s_id = $P{escola}
- AND e_possui_internet_lab = $P{internet}]]>
+ possui_lab = "SIM"
+ AND possui_analista = $P{articulador}
+ AND distrito = $P{distrito}
+ AND siems.`id` = $P{escola}
+ AND possui_internet_lab = $P{internet}]]>
 	</queryString>
-	<field name="escola_e_id" class="java.lang.Long"/>
-	<field name="escola_e_siem_id" class="java.lang.Long"/>
-	<field name="escola_e_distrito" class="java.lang.String"/>
-	<field name="escola_e_bairro" class="java.lang.String"/>
-	<field name="escola_e_funcionario" class="java.lang.String"/>
-	<field name="escola_e_pregao1" class="java.lang.String"/>
-	<field name="escola_e_pregao2" class="java.lang.String"/>
-	<field name="escola_e_pregao3" class="java.lang.String"/>
-	<field name="escola_e_pregao4" class="java.lang.String"/>
-	<field name="escola_e_possui_internet_lab" class="java.lang.String"/>
-	<field name="escola_e_qt_monitores_lab" class="java.lang.Integer"/>
-	<field name="siem_s_id" class="java.lang.Long"/>
-	<field name="siem_s_siem" class="java.lang.Integer"/>
-	<field name="siem_s_nome" class="java.lang.String"/>
-	<field name="siem_s_tipo_escola" class="java.lang.String"/>
-	<field name="escola_e_possui_analista" class="java.lang.String"/>
-	<field name="escola_e_possui_lab" class="java.lang.String"/>
+	<field name="escolas_e_id" class="java.lang.Long"/>
+	<field name="escolas_e_siems_id" class="java.lang.Long"/>
+	<field name="escolas_e_distrito" class="java.lang.String"/>
+	<field name="escolas_e_bairro" class="java.lang.String"/>
+	<field name="escolas_e_funcionario" class="java.lang.Long"/>
+	<field name="escolas_e_pregao1" class="java.lang.String"/>
+	<field name="escolas_e_pregao2" class="java.lang.String"/>
+	<field name="escolas_e_pregao3" class="java.lang.String"/>
+	<field name="escolas_e_pregao4" class="java.lang.String"/>
+	<field name="escolas_e_possui_internet_lab" class="java.lang.String"/>
+	<field name="escolas_e_qt_monitores_lab" class="java.lang.String"/>
+	<field name="siems_s_id" class="java.lang.Long"/>
+	<field name="siems_s_siems" class="java.lang.String"/>
+	<field name="siems_s_nome" class="java.lang.String"/>
+	<field name="siems_s_tipo_escolas" class="java.lang.String"/>
+	<field name="escolas_e_possui_analista" class="java.lang.String"/>
+	<field name="escolas_e_possui_lab" class="java.lang.String"/>
 	<group name="distrito" isStartNewPage="true">
-		<groupExpression><![CDATA[$F{escola_e_distrito}]]></groupExpression>
+		<groupExpression><![CDATA[$F{escolas_e_distrito}]]></groupExpression>
 		<groupHeader>
 			<band height="5"/>
 		</groupHeader>
@@ -102,7 +102,7 @@ e_possui_lab = "SIM"
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[SISTEMA DE INFORMAÇÕES DA EDUCAÇÃO MUNICIPAL - SIEM]]></text>
+				<text><![CDATA[SISTEMA DE INFORMAÇÕES DA EDUCAÇÃO MUNICIPAL - siems]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -116,7 +116,7 @@ e_possui_lab = "SIM"
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[ESCOLA]]></text>
+				<text><![CDATA[ESCOLAs]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="421" y="2" width="87" height="20" uuid="cb895458-e6ae-46b2-98da-c51e71657044"/>
@@ -152,38 +152,38 @@ e_possui_lab = "SIM"
 		<band height="24" splitType="Stretch">
 			<textField>
 				<reportElement x="14" y="0" width="191" height="20" uuid="474f84be-a844-4bf0-af2e-2d87e56d20a1"/>
-				<textFieldExpression><![CDATA[$F{siem_s_nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{siems_s_nome}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="421" y="0" width="48" height="20" uuid="aca02fca-8a56-49bb-8a83-313ce0b8f8b5"/>
-				<textFieldExpression><![CDATA[$F{escola_e_pregao1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escolas_e_pregao1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="472" y="0" width="48" height="20" uuid="f1dd3831-2dc8-4f62-b8b5-7ab5d8ddad42"/>
-				<textFieldExpression><![CDATA[$F{escola_e_pregao2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escolas_e_pregao2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="523" y="0" width="48" height="20" uuid="c2714023-be13-4203-a3df-1c3430881610"/>
-				<textFieldExpression><![CDATA[$F{escola_e_pregao3}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escolas_e_pregao3}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="574" y="0" width="48" height="20" uuid="fcf423ba-c5a2-43ed-9e1a-bc53345017e6"/>
-				<textFieldExpression><![CDATA[$F{escola_e_pregao4}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escolas_e_pregao4}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="14" y="14" width="777" height="1" uuid="1738d98d-a82a-48f0-9987-eb088101b6a4"/>
 			</line>
 			<textField>
 				<reportElement x="695" y="0" width="100" height="20" uuid="dc0f1599-172a-40cc-8f04-a8638256c2ff"/>
-				<textFieldExpression><![CDATA[$F{escola_e_qt_monitores_lab}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escolas_e_qt_monitores_lab}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="217" y="0" width="192" height="20" uuid="9289d257-ba11-4eaa-bf39-b8cc32f9a68a"/>
-				<textFieldExpression><![CDATA[$F{escola_e_funcionario}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escolas_e_funcionario}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="626" y="0" width="66" height="20" uuid="0091493d-e1dd-4ff1-bcfe-69c7407a9a22"/>
-				<textFieldExpression><![CDATA[$F{escola_e_possui_internet_lab}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escolas_e_possui_internet_lab}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
