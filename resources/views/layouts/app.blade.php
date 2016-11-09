@@ -452,85 +452,68 @@ require_once '../connect.php';
 
      
         <!-- modal form dialog Lista de LABORATÓRIOS -->
-	<div class="modal fade" id="laboratorios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	
+<div class="modal fade" id="laboratorios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"> <i class="fa glyphicon glyphicon-th-list"></i>   Listar Laboratórios</h4>
+        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Listar Laboratorios</h4>
       </div>
       <div class="modal-body">
-<?php
 
-#Seleciona dados da Tabela siem
- try{
-    $sql ='SELECT * FROM siems;';
-    $stmt = $conn->prepare($sql);
-    $stmt ->execute();
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-}catch(PDOException $e){
-    echo 'ERROR: ' . $e->getMessage();
-}
-
-?>
-<form name="escolas" method="post" action='{{url("escola/reportlaboratorio")}}'>
+<form name="escola" method="post" action='{{url("escola/reportlaboratorio")}}'>
       <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 
 <table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
 <tr>
 
 <td align="center">
-
-<label >Selecione um Distrito:</label></br>
-<select name="distrito" id="select5"> 
- 	<option value="distrito">Todos os Distritos</option>
+<label >Selecione um Distrito:</label></p>
+<select name="distrito" id="select1"> 
+ 	<option value="distrito">Todos os distritos cadastrados</option>
  	<option value="'ABÓBORA'">ABÓBORA</option>
  	<option value="'ITAMOTINGA'">ITAMOTINGA</option>
  	<option value="'JUNCO'">JUNCO</option>
-  	<option value="'JUREMAL'">JUREMAL</option>
+ 	<option value="'JUREMAL'">JUREMAL</option>
  	<option value="'MANDACARU'">MANDACARU</option>
  	<option value="'MANIÇOBA'">MANIÇOBA</option>
  	<option value="'MASSAROCA'">MASSAROCA</option>
  	<option value="'PINHÕES'">PINHÕES</option>
  	<option value="'SEDE'">SEDE</option>
-</select></p>
+</select>
 
 <div class="panel-group">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h5 align="center" class="panel-title">
-        <a  data-toggle="collapse" href="#collapsel">MAIS FILTROS</a>
+        <a  data-toggle="collapse" href="#collapse10">MAIS FILTROS</a>
       </h5>
     </div>
-    <div id="collapsel" class="panel-collapse collapse">
+    <div id="collapse10" class="panel-collapse collapse">
       <div class="panel-body">
 
-<label >Selecione uma Escola:</label></br>
-<select name="escola" id="select6"> 
- 	<option value="id">Todas as Escolas Cadastradas</option>
-
-<?php foreach($data as $row) : ?> 
-    <option value="<?php echo $row['id']; ?>"><?php echo $row['nome']; ?></option> 
-<?php endforeach ?> 
-</select></p>
-
-
-
-<label >Possui Articulador?</label></br>
-<select name="articulador" id="articulador">
+<label >Possui Articulador?</label></p>
+<select name="articulador" id="articulador"> 
  	<option value="possui_analista">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
 </select></p>
-
-<label >Possui Internet?</label></br>
-<select name="internet" id="internet">
- 	<option value="possui_internet_lab">SIM/NÃO</option>
+ 
+<label >Possui Laboratório?</label></p>
+<select name="lab" id="lab"> 
+ 	<option value="possui_lab">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
 </select></p>
 
-
+<label >Possui Internet?</label></p>
+<select name="internet" id="internet"> 
+ 	<option value="possui_internet_escola">SIM/NÃO</option>
+ 	<option value="'SIM'">SIM</option>
+ 	<option value="'NÃO'">NÃO</option>
+</select>
+</p>
 					</div>
 
   </td>
@@ -539,17 +522,19 @@ require_once '../connect.php';
 </table>
 <div class="modal-footer">
 			<button class="btn" data-dismiss="modal" >Cancelar</button>
-			<button type="submit" class="btn btn-primary">Gerar Relatório</button>
-		</div>
-</form>
+			<button type="submit" class="btn btn-primary">Gerar Listagem</button>
+		 </div>
+                        </div>
+                </form>
 
-		
-        </div>
+                        </div>
                         
 
     </div>
   </div>
 </div>
+
+    
 
 
     <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->

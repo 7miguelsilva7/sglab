@@ -7,19 +7,16 @@ include_once ('../class/tcpdf/tcpdf.php');
 include_once ("../class/PHPJasperXML.inc.php");
 include_once ('../connect.php');
 
-
 $PHPJasperXML = new PHPJasperXML();
-$PHPJasperXML->debugsql=true;
+//$PHPJasperXML->debugsql=true;
 
 //Verificao de campo
-$distrito=$_POST["distrito"]; //recebendo o parâmetro descrição
-$escola=$_POST["escola"]; //recebendo o parâmetro descrição
-$articulador=$_POST["articulador"]; //recebendo o parâmetro descrição
-$internet=$_POST["internet"]; //recebendo o parâmetro descrição
+$distrito=$_POST["distrito"]; //recebendo o parâmetro que vem do formulário
+$articulador=$_POST["articulador"]; //recebendo o parâmetro que vem do formulário
+$lab=$_POST["lab"]; //recebendo o parâmetro que vem do formulário
+$internet=$_POST["internet"]; //recebendo o parâmetro que vem do formulário
 
-
-
-$PHPJasperXML->arrayParameter=  ["distrito"=>$distrito,"escola"=>$escola,"articulador"=>$articulador,"internet"=>$internet];
+$PHPJasperXML->arrayParameter=  ["distrito"=>$distrito,"articulador"=>$articulador,"lab"=>$lab,"internet"=>$internet];
 
 
 
