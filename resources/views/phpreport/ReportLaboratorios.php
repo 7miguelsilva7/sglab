@@ -13,10 +13,9 @@ $PHPJasperXML = new PHPJasperXML();
 //Verificao de campo
 $distrito=$_POST["distrito"]; //recebendo o parâmetro que vem do formulário
 $articulador=$_POST["articulador"]; //recebendo o parâmetro que vem do formulário
-$lab=$_POST["lab"]; //recebendo o parâmetro que vem do formulário
 $internet=$_POST["internet"]; //recebendo o parâmetro que vem do formulário
 
-$PHPJasperXML->arrayParameter=  ["distrito"=>$distrito,"articulador"=>$articulador,"lab"=>$lab,"internet"=>$internet];
+$PHPJasperXML->arrayParameter=  ["distrito"=>$distrito,"articulador"=>$articulador,"internet"=>$internet];
 
 
 

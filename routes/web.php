@@ -74,6 +74,7 @@ Route::post('funcionario/reportfuncionario','FuncionarioController@reportfuncion
 // Route::get('funcionario/reportfuncionario','FuncionarioController@reportfuncionario');
 Route::post('escola/reportescola','EscolaController@reportescola');
 Route::post('escola/reportlaboratorio','EscolaController@reportlaboratorio');
+Route::post('escola/perfilescola','EscolaController@perfilescola');
 
 
 

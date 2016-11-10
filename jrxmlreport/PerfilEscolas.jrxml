@@ -3,26 +3,26 @@
 	<property name="ireport.zoom" value="1.2100000000000146"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="escolas" class="java.lang.String">
+	<parameter name="escola" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      escolas.`id` AS escolas_id,
      escolas.`siem_id` AS escolas_siem_id,
-     escolas.`status_escolas` AS escolas_e_status_escolas,
+     escolas.`status_escola` AS escolas_e_status_escolas,
      escolas.`distrito` AS escolas_e_distrito,
      escolas.`fone` AS escolas_e_fone,
      escolas.`cel1` AS escolas_e_cel1,
      escolas.`bairro` AS escolas_e_bairro,
      escolas.`possui_lab` AS escolas_e_possui_lab,
-     escolas.`possui_internet_escolas` AS escolas_e_possui_internet_escolas,
+     escolas.`possui_internet_escola` AS escolas_e_possui_internet_escolas,
      escolas.`possui_analista` AS escolas_e_possui_analista,
      siems.`id` AS siems_s_id,
-     siems.`siems` AS siems_s_siems,
+     siems.`siem` AS siems_s_siems,
      siems.`cod_ext` AS siems_s_cod_ext,
      siems.`nome` AS siems_s_nome,
-     siems.`tipo_escolas` AS siems_s_tipo_escolas,
+     siems.`tipo_escola` AS siems_s_tipo_escolas,
      escolas.`inep` AS escolas_e_inep,
      escolas.`cep` AS escolas_e_cep,
      escolas.`logradouro` AS escolas_e_logradouro,
@@ -31,8 +31,8 @@
      escolas.`email` AS escolas_e_email,
      escolas.`cel2` AS escolas_e_cel2,
      escolas.`sigla` AS escolas_e_sigla,
-     escolas.`tipo_internet_escolas` AS escolas_e_tipo_internet_escolas,
-     escolas.`funcionarios` AS escolas_e_funcionarios,
+     escolas.`tipo_internet_escola` AS escolas_e_tipo_internet_escolas,
+     escolas.`pessoa_id` AS escolas_e_funcionarios,
      escolas.`tipo_sala` AS escolas_e_tipo_sala,
      escolas.`pregao1` AS escolas_e_pregao1,
      escolas.`pregao2` AS escolas_e_pregao2,
@@ -44,18 +44,18 @@
      escolas.`qt_computadores_lab` AS escolas_e_qt_computadores_lab,
      escolas.`qt_monitores_lab` AS escolas_e_qt_monitores_lab,
      escolas.`status_lab` AS escolas_e_status_lab,
-     escolas.`ar_condicionado` AS escolas_e_ar_condicionado,
-     escolas.`impressora` AS escolas_e_impressora,
+     escolas.`ar_condicionado_lab` AS escolas_e_ar_condicionado,
+     escolas.`impressora_lab` AS escolas_e_impressora,
      escolas.`qt_notebook_lab` AS escolas_e_qt_notebook_lab,
-     escolas.`roteador` AS escolas_e_roteador,
-     escolas.`switch` AS escolas_e_switch,
+     escolas.`roteador_lab` AS escolas_e_roteador,
+     escolas.`switch_lab` AS escolas_e_switch,
      escolas.`qt_cadeiras_lab` AS escolas_e_qt_cadeiras_lab,
      funcionarios.`id` AS funcionarios_f_id,
      funcionarios.`siem_id` AS funcionarios_f_siem_id,
-     funcionarios.`ocupacaos_id` AS funcionarios_f_ocupacaos_id,
-     funcionarios.`pessoas_id` AS funcionarios_f_pessoas_id,
+     funcionarios.`ocupacao_id` AS funcionarios_f_ocupacaos_id,
+     funcionarios.`pessoa_id` AS funcionarios_f_pessoas_id,
      funcionarios.`vinculo` AS funcionarios_f_vinculo,
-     funcionarios.`status_funcionarios` AS funcionarios_f_status_funcionarios,
+     funcionarios.`status_funcionario` AS funcionarios_f_status_funcionarios,
      ocupacaos.`id` AS ocupacaos_o_id,
      ocupacaos.`nome` AS ocupacaos_o_nome,
      pessoas.`id` AS pessoas_p_id,
@@ -82,11 +82,11 @@
      pessoas.`nome_pai` AS pessoas_p_nome_pai
 FROM
      `siems` siems INNER JOIN `escolas` escolas ON siems.`id` = escolas.`siem_id`
-     INNER JOIN `funcionarios` funcionarios ON siems.`id` = funcionarios.`f_siem_id`
-     INNER JOIN `ocupacaos` ocupacaos ON funcionarios.`ocupacao_id` = ocupacaos.`o_id`
-     INNER JOIN `pessoas` pessoas ON funcionarios.`pessoa_id` = pessoas.`p_id`
+     INNER JOIN `funcionarios` funcionarios ON siems.`id` = funcionarios.`siem_id`
+     INNER JOIN `ocupacaos` ocupacaos ON funcionarios.`ocupacao_id` = ocupacaos.`id`
+     INNER JOIN `pessoas` pessoas ON funcionarios.`pessoa_id` = pessoas.`id`
 WHERE
-    siems.`id` = $P{escolas}
+    escolas.`siem_id` = $P{escola}
 and (ocupacaos.`id` = 1 or ocupacaos.`id` = 2 or ocupacaos.`id` = 3 or ocupacaos.`id` = 4 or ocupacaos.`id` = 5)
 
 ORDER BY
@@ -105,8 +105,8 @@ ORDER BY
 	<field name="escolas_e_possui_internet_escolas" class="java.lang.String"/>
 	<field name="escolas_e_possui_analista" class="java.lang.String"/>
 	<field name="siems_s_id" class="java.lang.Long"/>
-	<field name="siems_s_siems" class="java.lang.Integer"/>
-	<field name="siems_s_cod_ext" class="java.lang.Long"/>
+	<field name="siems_s_siems" class="java.lang.String"/>
+	<field name="siems_s_cod_ext" class="java.lang.String"/>
 	<field name="siems_s_nome" class="java.lang.String"/>
 	<field name="siems_s_tipo_escolas" class="java.lang.String"/>
 	<field name="escolas_e_inep" class="java.lang.String"/>
@@ -127,15 +127,15 @@ ORDER BY
 	<field name="escolas_e_possui_internet_lab" class="java.lang.String"/>
 	<field name="escolas_e_tipo_internet_lab" class="java.lang.String"/>
 	<field name="escolas_e_lab_montado" class="java.lang.String"/>
-	<field name="escolas_e_qt_computadores_lab" class="java.lang.Integer"/>
-	<field name="escolas_e_qt_monitores_lab" class="java.lang.Integer"/>
+	<field name="escolas_e_qt_computadores_lab" class="java.lang.String"/>
+	<field name="escolas_e_qt_monitores_lab" class="java.lang.String"/>
 	<field name="escolas_e_status_lab" class="java.lang.String"/>
 	<field name="escolas_e_ar_condicionado" class="java.lang.String"/>
 	<field name="escolas_e_impressora" class="java.lang.String"/>
-	<field name="escolas_e_qt_notebook_lab" class="java.lang.Integer"/>
+	<field name="escolas_e_qt_notebook_lab" class="java.lang.String"/>
 	<field name="escolas_e_roteador" class="java.lang.String"/>
 	<field name="escolas_e_switch" class="java.lang.String"/>
-	<field name="escolas_e_qt_cadeiras_lab" class="java.lang.Integer"/>
+	<field name="escolas_e_qt_cadeiras_lab" class="java.lang.String"/>
 	<field name="funcionarios_f_id" class="java.lang.Long"/>
 	<field name="funcionarios_f_siem_id" class="java.lang.Long"/>
 	<field name="funcionarios_f_ocupacaos_id" class="java.lang.Long"/>
@@ -203,15 +203,11 @@ ORDER BY
 			</staticText>
 			<image>
 				<reportElement x="27" y="0" width="78" height="71" uuid="da3af6d6-d071-45ed-95d2-5aacfe08a88e"/>
-				<imageExpression><![CDATA["../../../img/logo_escudo_juazeiro.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["../img/logo_escudo_juazeiro.jpg"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="700" y="7" width="76" height="24" uuid="b7c46fa4-c425-4c06-a493-7a4b99991e69"/>
-				<imageExpression><![CDATA["../../../img/simitlogo.jpg"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="700" y="37" width="76" height="34" uuid="833759b1-7316-46ab-ab81-7a8872b73c4d"/>
-				<imageExpression><![CDATA["../../../img/logoNTM.jpg"]]></imageExpression>
+				<reportElement x="702" y="23" width="76" height="34" uuid="833759b1-7316-46ab-ab81-7a8872b73c4d"/>
+				<imageExpression><![CDATA["../img/logoNTM.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="351" y="54" width="100" height="20" uuid="a4cb60c3-e716-4725-9773-fe13437fd1c9"/>
@@ -432,7 +428,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_sigla}+" - ESCOLAs MUNICIPAL "+$F{siems_s_nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escolas_e_sigla}+" - ESCOLAS MUNICIPAL "+$F{siems_s_nome}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="502" y="102" width="100" height="20" uuid="88891d98-5210-4a34-a0df-e266d5c58de3"/>

@@ -57,7 +57,9 @@ class Escolas extends Migration
         $table->String('possui_lab');
         
         $table->String('possui_analista');
-        
+
+        $table->integer('pessoa_id');
+       
         $table->String('tipo_sala');
         
         $table->String('pregao1');
@@ -99,8 +101,6 @@ class Escolas extends Migration
         $table->integer('siem_id')->unsigned()->nullable();
         $table->foreign('siem_id')->references('id')->on('siems')->onDelete('cascade');
         
-        $table->integer('pessoa_id')->unsigned()->nullable();
-        $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('cascade');
         
         
         $table->timestamps();

@@ -155,10 +155,10 @@ require_once '../connect.php';
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                     
-                                    <li><a href="{{ url('/siem') }}"><i class="fa glyphicon glyphicon-home"></i>Perfil Escolas</a></li>
-                                    <li><a href="{{ url('/escola') }}"><i class="fa glyphicon glyphicon-user"></i>Perfil Funcionários</a></li>
-                                    <li><a href="{{ url('/funcionario') }}"><i class="fa glyphicon glyphicon-hdd"></i>Perfil Laboratórios</a></li>
-                                   
+                                    <li><a data-toggle="modal" href="#perfilescolas"><i class="fa glyphicon glyphicon-home"></i>Perfil Escolas</a></li>
+									<li><a data-toggle="modal" href="#funcionario"><i class="fa glyphicon glyphicon-user"></i>Perfil Funcionários</a></li>
+									<li><a data-toggle="modal" href="#laboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Perfil Laboratórios</a></li>
+                                    
 
                                     </li>
                                 </ul>
@@ -500,13 +500,6 @@ require_once '../connect.php';
  	<option value="'NÃO'">NÃO</option>
 </select></p>
  
-<label >Possui Laboratório?</label></p>
-<select name="lab" id="lab"> 
- 	<option value="possui_lab">SIM/NÃO</option>
- 	<option value="'SIM'">SIM</option>
- 	<option value="'NÃO'">NÃO</option>
-</select></p>
-
 <label >Possui Internet?</label></p>
 <select name="internet" id="internet"> 
  	<option value="possui_internet_escola">SIM/NÃO</option>
@@ -544,12 +537,6 @@ require_once '../connect.php';
     <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->     <!-- FIM Laboratórios -->    <!-- FIM Laboratórios -->
     
 
-</body>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script> var baseURL = "{{URL::to('/')}}"</script>
-<script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
-<script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
-
 
 
     
@@ -568,26 +555,24 @@ require_once '../connect.php';
 
 
 	<!-- ESCOLA --> 	<!-- ESCOLA --> 	<!-- ESCOLA -->	<!-- ESCOLA -->
+	<!-- ESCOLA --> 	<!-- ESCOLA --> 	<!-- ESCOLA -->	<!-- ESCOLA -->
+	<!-- ESCOLA --> 	<!-- ESCOLA --> 	<!-- ESCOLA -->	<!-- ESCOLA -->
+	<!-- ESCOLA --> 	<!-- ESCOLA --> 	<!-- ESCOLA -->	<!-- ESCOLA -->
 
 
-
-
-	<!-- modal form dialog -->
-	<div class="modal hide fade" id="perfilescolas">
-		<div class="modal-header">
-			<a class="close" data-dismiss="modal">&times;</a>
-			<h3>
-				<i class="icon-th-list"></i> Perfil Escolas
-				
-			</h3>
-		</div>
-		<div class="modal-body">
-
+	<div class="modal fade" id="perfilescolas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Perfil Escolas</h4>
+      </div>
+      <div class="modal-body">
 <?php
 
-#Seleciona dados da Tabela siem
+#Seleciona dados da Tabela siems
  try{
-    $sql2 ='SELECT * FROM siem;';
+    $sql2 ='SELECT * FROM siems;';
     $stmt2 = $conn->prepare($sql2);
     $stmt2 ->execute();
     $data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
@@ -598,21 +583,24 @@ require_once '../connect.php';
 ?>
 
 
-<form name="escola" method="post" action="libs/Reporter/phpreport/PerfilEscolas.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding=5>
+<form name="perfilescola" method="post" action='{{url("escola/perfilescola")}}'>
+
+      <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+
+<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
 <tr>
 
 <td align="center">
 
  
-<label >Selecione uma Escola:</label>
-<select name="escola" id="escola"> 
- 	<option value="s_id">Todos</option>
+<label >Selecione uma Escola:</label></p>
+<select name="escola" id="select6"> 
+ 	<option value="siem_id">Todos as Escolas Cadastradas</option>
 
 <?php foreach($data2 as $row2) : ?> 
-    <option value="<?php echo $row2['s_id']; ?>"><?php echo $row2['s_nome']; ?></option> 
+    <option value="<?php echo $row2['id']; ?>"><?php echo $row2['nome']; ?></option> 
 <?php endforeach ?> 
-</select>
+</select></p>
 
   </td>
  </tr>
@@ -625,9 +613,21 @@ require_once '../connect.php';
 		</div>
 </form>
 
+     </div>
+                        
+
+    </div>
+  </div>
+</div>
+
+	<!-- FIM ESCOLA --> 	<!-- FIM ESCOLA --> 	<!-- FIM ESCOLA -->	<!-- FIM ESCOLA -->
+	<!-- FIM ESCOLA --> 	<!-- FIM ESCOLA --> 	<!-- FIM ESCOLA -->	<!-- FIM ESCOLA -->
+	<!-- FIM ESCOLA --> 	<!-- FIM ESCOLA --> 	<!-- FIM ESCOLA -->	<!-- FIM ESCOLA -->
+	<!-- FIM ESCOLA --> 	<!-- FIM ESCOLA --> 	<!-- FIM ESCOLA -->	<!-- FIM ESCOLA -->
+
 
 	<!-- modal form dialog -->
-	<div class="modal hide fade" id="perfilescolas">
+	<div class="modal hide fade" id="##########">
 		<div class="modal-header">
 			<a class="close" data-dismiss="modal">&times;</a>
 			<h3>
@@ -653,7 +653,7 @@ require_once '../connect.php';
 
 
 <form name="escola" method="post" action="libs/Reporter/phpreport/PerfilEscolas.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding=5>
+<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
 <tr>
 
 <td align="center">
@@ -686,6 +686,17 @@ require_once '../connect.php';
 		</div>
 		
 	</div>
+
+
+
+
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script> var baseURL = "{{URL::to('/')}}"</script>
+<script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
+<script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
+
+
 
 
 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS -->	<!-- FUNCIONARIOS -->

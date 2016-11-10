@@ -9,10 +9,10 @@ include_once ('../connect.php');
 
 
 $PHPJasperXML = new PHPJasperXML();
-$PHPJasperXML->debugsql=true;
+//$PHPJasperXML->debugsql=true;
 
 //Verificao de campo
-$escola=$_POST["escola"]; //recebendo o parâmetro descrição
+$escola=$_POST["escola"]; //recebendo o parâmetro escola
 
 
 $PHPJasperXML->arrayParameter=  ["escola"=>$escola];

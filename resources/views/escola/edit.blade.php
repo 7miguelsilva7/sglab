@@ -62,7 +62,7 @@
                 <div class="col-md-6">
 
                     <label for="cep">Cep</label>
-                    <input id="cep" name = "cep" type="number" value="{{$escola->cep}}" class="form-control">
+                    <input id="cep" name = "cep" value="{{$escola->cep}}" class="form-control">
                 
                 </div> 
                 </div> 
@@ -247,10 +247,10 @@
                    <div class="form-group">
     <label>Analista em Educação</label>
     <select name = 'pessoa_id' class = "form-control" id="select4">
-        <option value="{{$escola->pessoa_id}}">{{$escola->pessoa->nome}}</option>
+        <option value="{{$escola->pessoa_id}}">{{$escola->pessoa_id}}</option>
         <option value="2">NÃO POSSUI</option>
        @foreach($pessoas->except($escola->pessoa_id) as $key => $value)
-        <option value="{{$key}}">{{$value}}</option>
+        <option value="{{$value}}">{{$value}}</option>
         @endforeach
     </select>
 </div>

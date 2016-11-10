@@ -63,13 +63,11 @@
                    
                   <!--   
                      <th>fone</th>
-
                     <th>usuario</th>
                                        
                     <th>cep</th>
                     
                      <th>bairro</th>
-
                     
                     <th>logradouro</th>
                     
@@ -202,7 +200,6 @@
 
 <!--
                         <td>{{$Escola->fone}}</td>
-
                         
                         <td>{{$Escola->usuario}}</td>
                         
@@ -210,7 +207,6 @@
                         <td>{{$Escola->cep}}</td>
                         
                         <td>{{$Escola->bairro}}</td>
-
                         
                         <td>{{$Escola->logradouro}}</td>
                         
@@ -275,56 +271,31 @@
                         
                         
                         
-
-
                                                 <td>{{$Escola->siem->escola_tipo}}</td>
-
                                                 <td>{{$Escola->siem->cod_ext}}</td>
-
                                                 <td>{{$Escola->siem->created_at}}</td>
-
                                                 <td>{{$Escola->siem->updated_at}}</td>
-
                         
                         
                                                 <td>{{$Escola->pessoa->nome}}</td>
-
                                                 <td>{{$Escola->pessoa->cep}}</td>
-
                                                 <td>{{$Escola->pessoa->distrito}}</td>
-
                                                 <td>{{$Escola->pessoa->bairro}}</td>
-
                                                 <td>{{$Escola->pessoa->logradouro}}</td>
-
                                                 <td>{{$Escola->pessoa->numero}}</td>
-
                                                 <td>{{$Escola->pessoa->complemento}}</td>
-
                                                 <td>{{$Escola->pessoa->fone}}</td>
-
                                                 <td>{{$Escola->pessoa->cel1}}</td>
-
                                                 <td>{{$Escola->pessoa->cel2}}</td>
-
                                                 <td>{{$Escola->pessoa->email}}</td>
-
                                                 <td>{{$Escola->pessoa->cpf}}</td>
-
                                                 <td>{{$Escola->pessoa->rg}}</td>
-
                                                 <td>{{$Escola->pessoa->expedicao_rg}}</td>
-
                                                 <td>{{$Escola->pessoa->data_nascimento}}</td>
-
                                                 <td>{{$Escola->pessoa->nome_mae}}</td>
-
                                                 <td>{{$Escola->pessoa->nome_pai}}</td>
-
                                                 <td>{{$Escola->pessoa->created_at}}</td>
-
                                                 <td>{{$Escola->pessoa->updated_at}}</td>
-
                         -->
                         
                         

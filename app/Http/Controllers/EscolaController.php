@@ -69,6 +69,14 @@ class EscolaController extends Controller
 
 }
 
+public function perfilescola()
+{
+
+        return view('phpreport.PerfilEscolas');
+
+
+}
+
     public function create()
     {
         
