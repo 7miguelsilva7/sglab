@@ -247,10 +247,10 @@
                    <div class="form-group">
     <label>Analista em Educação</label>
     <select name = 'pessoa_id' class = "form-control" id="select4">
-        <option value="{{$escola->pessoa_id}}">{{$escola->pessoa_id}}</option>
+        <option value="{{$escola->pessoa_id}}">{{$escola->pessoa->nome}}</option>
         <option value="2">NÃO POSSUI</option>
        @foreach($pessoas->except($escola->pessoa_id) as $key => $value)
-        <option value="{{$value}}">{{$value}}</option>
+        <option value="{{$key}}">{{$value}}</option>
         @endforeach
     </select>
 </div>

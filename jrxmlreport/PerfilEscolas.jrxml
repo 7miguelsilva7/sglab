@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PerfilEscolass" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e6482a4-e7fb-48cb-9bd0-2ffdb6b98f61">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PerfilEscolas" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e6482a4-e7fb-48cb-9bd0-2ffdb6b98f61">
 	<property name="ireport.zoom" value="1.2100000000000146"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -8,166 +8,166 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     escolas.`id` AS escolas_id,
-     escolas.`siem_id` AS escolas_siem_id,
-     escolas.`status_escola` AS escolas_e_status_escolas,
-     escolas.`distrito` AS escolas_e_distrito,
-     escolas.`fone` AS escolas_e_fone,
-     escolas.`cel1` AS escolas_e_cel1,
-     escolas.`bairro` AS escolas_e_bairro,
-     escolas.`possui_lab` AS escolas_e_possui_lab,
-     escolas.`possui_internet_escola` AS escolas_e_possui_internet_escolas,
-     escolas.`possui_analista` AS escolas_e_possui_analista,
-     siems.`id` AS siems_s_id,
-     siems.`siem` AS siems_s_siems,
-     siems.`cod_ext` AS siems_s_cod_ext,
-     siems.`nome` AS siems_s_nome,
-     siems.`tipo_escola` AS siems_s_tipo_escolas,
-     escolas.`inep` AS escolas_e_inep,
-     escolas.`cep` AS escolas_e_cep,
-     escolas.`logradouro` AS escolas_e_logradouro,
-     escolas.`numero` AS escolas_e_numero,
-     escolas.`complemento` AS escolas_e_complemento,
-     escolas.`email` AS escolas_e_email,
-     escolas.`cel2` AS escolas_e_cel2,
-     escolas.`sigla` AS escolas_e_sigla,
-     escolas.`tipo_internet_escola` AS escolas_e_tipo_internet_escolas,
-     escolas.`pessoa_id` AS escolas_e_funcionarios,
-     escolas.`tipo_sala` AS escolas_e_tipo_sala,
-     escolas.`pregao1` AS escolas_e_pregao1,
-     escolas.`pregao2` AS escolas_e_pregao2,
-     escolas.`pregao3` AS escolas_e_pregao3,
-     escolas.`pregao4` AS escolas_e_pregao4,
-     escolas.`possui_internet_lab` AS escolas_e_possui_internet_lab,
-     escolas.`tipo_internet_lab` AS escolas_e_tipo_internet_lab,
-     escolas.`lab_montado` AS escolas_e_lab_montado,
-     escolas.`qt_computadores_lab` AS escolas_e_qt_computadores_lab,
-     escolas.`qt_monitores_lab` AS escolas_e_qt_monitores_lab,
-     escolas.`status_lab` AS escolas_e_status_lab,
-     escolas.`ar_condicionado_lab` AS escolas_e_ar_condicionado,
-     escolas.`impressora_lab` AS escolas_e_impressora,
-     escolas.`qt_notebook_lab` AS escolas_e_qt_notebook_lab,
-     escolas.`roteador_lab` AS escolas_e_roteador,
-     escolas.`switch_lab` AS escolas_e_switch,
-     escolas.`qt_cadeiras_lab` AS escolas_e_qt_cadeiras_lab,
-     funcionarios.`id` AS funcionarios_f_id,
-     funcionarios.`siem_id` AS funcionarios_f_siem_id,
-     funcionarios.`ocupacao_id` AS funcionarios_f_ocupacaos_id,
-     funcionarios.`pessoa_id` AS funcionarios_f_pessoas_id,
-     funcionarios.`vinculo` AS funcionarios_f_vinculo,
-     funcionarios.`status_funcionario` AS funcionarios_f_status_funcionarios,
-     ocupacaos.`id` AS ocupacaos_o_id,
-     ocupacaos.`nome` AS ocupacaos_o_nome,
-     pessoas.`id` AS pessoas_p_id,
-     pessoas.`nome` AS pessoas_p_nome,
-     pessoas.`cep` AS pessoas_p_cep,
-     pessoas.`distrito` AS pessoas_p_distrito,
-     pessoas.`bairro` AS pessoas_p_bairro,
-     pessoas.`logradouro` AS pessoas_p_logradouro,
-     pessoas.`numero` AS pessoas_p_numero,
-     pessoas.`complemento` AS pessoas_p_complemento,
-     pessoas.`fone` AS pessoas_p_fone,
-     pessoas.`email` AS pessoas_p_email,
-     pessoas.`cel1` AS pessoas_p_cel1,
-     pessoas.`cel2` AS pessoas_p_cel2,
-     pessoas.`cpf` AS pessoas_p_cpf,
-     pessoas.`rg` AS pessoas_p_rg,
-     pessoas.`expedicao_rg` AS pessoas_p_expedicao_rg,
-     pessoas.`naturalidade` AS pessoas_p_naturalidade,
-     pessoas.`nascionalidade` AS pessoas_p_nascionalidade,
-     pessoas.`nis` AS pessoas_p_nis,
-     pessoas.`escolaridade` AS pessoas_p_escolasridade,
-     pessoas.`data_nascimento` AS pessoas_p_data_nascimento,
-     pessoas.`nome_mae` AS pessoas_p_nome_mae,
-     pessoas.`nome_pai` AS pessoas_p_nome_pai
+     escolas.`id` AS escola_e_id,
+     escolas.`siem_id` AS escola_e_siem_id,
+     escolas.`status_escola` AS escola_e_status_escola,
+     escolas.`distrito` AS escola_e_distrito,
+     escolas.`fone` AS escola_e_fone,
+     escolas.`cel1` AS escola_e_cel1,
+     escolas.`bairro` AS escola_e_bairro,
+     escolas.`possui_lab` AS escola_e_possui_lab,
+     escolas.`possui_internet_escola` AS escola_e_possui_internet_escola,
+     escolas.`possui_analista` AS escola_e_possui_analista,
+     siems.`id` AS siem_s_id,
+     siems.`siem` AS siem_s_siem,
+     siems.`cod_ext` AS siem_s_cod_ext,
+     siems.`nome` AS siem_s_nome,
+     siems.`tipo_escola` AS siem_s_tipo_escola,
+     escolas.`inep` AS escola_e_inep,
+     escolas.`cep` AS escola_e_cep,
+     escolas.`logradouro` AS escola_e_logradouro,
+     escolas.`numero` AS escola_e_numero,
+     escolas.`complemento` AS escola_e_complemento,
+     escolas.`email` AS escola_e_email,
+     escolas.`cel2` AS escola_e_cel2,
+     escolas.`sigla` AS escola_e_sigla,
+     escolas.`tipo_internet_escola` AS escola_e_tipo_internet_escola,
+     escolas.`pessoa_id` AS escola_e_funcionario,
+     escolas.`tipo_sala` AS escola_e_tipo_sala,
+     escolas.`pregao1` AS escola_e_pregao1,
+     escolas.`pregao2` AS escola_e_pregao2,
+     escolas.`pregao3` AS escola_e_pregao3,
+     escolas.`pregao4` AS escola_e_pregao4,
+     escolas.`possui_internet_lab` AS escola_e_possui_internet_lab,
+     escolas.`tipo_internet_lab` AS escola_e_tipo_internet_lab,
+     escolas.`lab_montado` AS escola_e_lab_montado,
+     escolas.`qt_computadores_lab` AS escola_e_qt_computadores_lab,
+     escolas.`qt_monitores_lab` AS escola_e_qt_monitores_lab,
+     escolas.`status_lab` AS escola_e_status_lab,
+     escolas.`ar_condicionado_lab` AS escola_e_ar_condicionado,
+     escolas.`impressora_lab` AS escola_e_impressora,
+     escolas.`qt_notebook_lab` AS escola_e_qt_notebook_lab,
+     escolas.`roteador_lab` AS escola_e_roteador,
+     escolas.`switch_lab` AS escola_e_switch,
+     escolas.`qt_cadeiras_lab` AS escola_e_qt_cadeiras_lab,
+     funcionarios.`id` AS funcionario_f_id,
+     funcionarios.`siem_id` AS funcionario_f_siem_id,
+     funcionarios.`ocupacao_id` AS funcionario_f_ocupacao_id,
+     funcionarios.`pessoa_id` AS funcionario_f_pessoa_id,
+     funcionarios.`vinculo` AS funcionario_f_vinculo,
+     funcionarios.`status_funcionario` AS funcionario_f_status_funcionario,
+     ocupacaos.`id` AS ocupacao_o_id,
+     ocupacaos.`nome` AS ocupacao_o_nome,
+     pessoas.`id` AS pessoa_p_id,
+     pessoas.`nome` AS pessoa_p_nome,
+     pessoas.`cep` AS pessoa_p_cep,
+     pessoas.`distrito` AS pessoa_p_distrito,
+     pessoas.`bairro` AS pessoa_p_bairro,
+     pessoas.`logradouro` AS pessoa_p_logradouro,
+     pessoas.`numero` AS pessoa_p_numero,
+     pessoas.`complemento` AS pessoa_p_complemento,
+     pessoas.`fone` AS pessoa_p_fone,
+     pessoas.`email` AS pessoa_p_email,
+     pessoas.`cel1` AS pessoa_p_cel1,
+     pessoas.`cel2` AS pessoa_p_cel2,
+     pessoas.`cpf` AS pessoa_p_cpf,
+     pessoas.`rg` AS pessoa_p_rg,
+     pessoas.`expedicao_rg` AS pessoa_p_expedicao_rg,
+     pessoas.`naturalidade` AS pessoa_p_naturalidade,
+     pessoas.`nascionalidade` AS pessoa_p_nascionalidade,
+     pessoas.`nis` AS pessoa_p_nis,
+     pessoas.`escolaridade` AS pessoa_p_escolaridade,
+     pessoas.`data_nascimento` AS pessoa_p_data_nascimento,
+     pessoas.`nome_mae` AS pessoa_p_nome_mae,
+     pessoas.`nome_pai` AS pessoa_p_nome_pai
 FROM
      `siems` siems INNER JOIN `escolas` escolas ON siems.`id` = escolas.`siem_id`
      INNER JOIN `funcionarios` funcionarios ON siems.`id` = funcionarios.`siem_id`
      INNER JOIN `ocupacaos` ocupacaos ON funcionarios.`ocupacao_id` = ocupacaos.`id`
      INNER JOIN `pessoas` pessoas ON funcionarios.`pessoa_id` = pessoas.`id`
 WHERE
-    escolas.`siem_id` = $P{escola}
+    siems.`id` = $P{escola}
 and (ocupacaos.`id` = 1 or ocupacaos.`id` = 2 or ocupacaos.`id` = 3 or ocupacaos.`id` = 4 or ocupacaos.`id` = 5)
 
 ORDER BY
-     escolas.`distrito` ASC,
-     siems.`nome` ASC,
-     ocupacaos.`nome`]]>
+     escolas.distrito ASC,
+     siems.nome ASC,
+     ocupacaos.nome]]>
 	</queryString>
-	<field name="escolas_id" class="java.lang.Long"/>
-	<field name="escolas_siem_id" class="java.lang.Long"/>
-	<field name="escolas_e_status_escolas" class="java.lang.String"/>
-	<field name="escolas_e_distrito" class="java.lang.String"/>
-	<field name="escolas_e_fone" class="java.lang.String"/>
-	<field name="escolas_e_cel1" class="java.lang.String"/>
-	<field name="escolas_e_bairro" class="java.lang.String"/>
-	<field name="escolas_e_possui_lab" class="java.lang.String"/>
-	<field name="escolas_e_possui_internet_escolas" class="java.lang.String"/>
-	<field name="escolas_e_possui_analista" class="java.lang.String"/>
-	<field name="siems_s_id" class="java.lang.Long"/>
-	<field name="siems_s_siems" class="java.lang.String"/>
-	<field name="siems_s_cod_ext" class="java.lang.String"/>
-	<field name="siems_s_nome" class="java.lang.String"/>
-	<field name="siems_s_tipo_escolas" class="java.lang.String"/>
-	<field name="escolas_e_inep" class="java.lang.String"/>
-	<field name="escolas_e_cep" class="java.lang.String"/>
-	<field name="escolas_e_logradouro" class="java.lang.String"/>
-	<field name="escolas_e_numero" class="java.lang.String"/>
-	<field name="escolas_e_complemento" class="java.lang.String"/>
-	<field name="escolas_e_email" class="java.lang.String"/>
-	<field name="escolas_e_cel2" class="java.lang.String"/>
-	<field name="escolas_e_sigla" class="java.lang.String"/>
-	<field name="escolas_e_tipo_internet_escolas" class="java.lang.String"/>
-	<field name="escolas_e_funcionarios" class="java.lang.String"/>
-	<field name="escolas_e_tipo_sala" class="java.lang.String"/>
-	<field name="escolas_e_pregao1" class="java.lang.String"/>
-	<field name="escolas_e_pregao2" class="java.lang.String"/>
-	<field name="escolas_e_pregao3" class="java.lang.String"/>
-	<field name="escolas_e_pregao4" class="java.lang.String"/>
-	<field name="escolas_e_possui_internet_lab" class="java.lang.String"/>
-	<field name="escolas_e_tipo_internet_lab" class="java.lang.String"/>
-	<field name="escolas_e_lab_montado" class="java.lang.String"/>
-	<field name="escolas_e_qt_computadores_lab" class="java.lang.String"/>
-	<field name="escolas_e_qt_monitores_lab" class="java.lang.String"/>
-	<field name="escolas_e_status_lab" class="java.lang.String"/>
-	<field name="escolas_e_ar_condicionado" class="java.lang.String"/>
-	<field name="escolas_e_impressora" class="java.lang.String"/>
-	<field name="escolas_e_qt_notebook_lab" class="java.lang.String"/>
-	<field name="escolas_e_roteador" class="java.lang.String"/>
-	<field name="escolas_e_switch" class="java.lang.String"/>
-	<field name="escolas_e_qt_cadeiras_lab" class="java.lang.String"/>
-	<field name="funcionarios_f_id" class="java.lang.Long"/>
-	<field name="funcionarios_f_siem_id" class="java.lang.Long"/>
-	<field name="funcionarios_f_ocupacaos_id" class="java.lang.Long"/>
-	<field name="funcionarios_f_pessoas_id" class="java.lang.Long"/>
-	<field name="funcionarios_f_vinculo" class="java.lang.String"/>
-	<field name="funcionarios_f_status_funcionarios" class="java.lang.String"/>
-	<field name="ocupacaos_o_id" class="java.lang.Long"/>
-	<field name="ocupacaos_o_nome" class="java.lang.String"/>
-	<field name="pessoas_p_id" class="java.lang.Long"/>
-	<field name="pessoas_p_nome" class="java.lang.String"/>
-	<field name="pessoas_p_cep" class="java.lang.String"/>
-	<field name="pessoas_p_distrito" class="java.lang.String"/>
-	<field name="pessoas_p_bairro" class="java.lang.String"/>
-	<field name="pessoas_p_logradouro" class="java.lang.String"/>
-	<field name="pessoas_p_numero" class="java.lang.String"/>
-	<field name="pessoas_p_complemento" class="java.lang.String"/>
-	<field name="pessoas_p_fone" class="java.lang.String"/>
-	<field name="pessoas_p_email" class="java.lang.String"/>
-	<field name="pessoas_p_cel1" class="java.lang.String"/>
-	<field name="pessoas_p_cel2" class="java.lang.String"/>
-	<field name="pessoas_p_cpf" class="java.lang.String"/>
-	<field name="pessoas_p_rg" class="java.lang.String"/>
-	<field name="pessoas_p_expedicao_rg" class="java.lang.String"/>
-	<field name="pessoas_p_naturalidade" class="java.lang.String"/>
-	<field name="pessoas_p_nascionalidade" class="java.lang.String"/>
-	<field name="pessoas_p_nis" class="java.lang.String"/>
-	<field name="pessoas_p_escolasridade" class="java.lang.String"/>
-	<field name="pessoas_p_data_nascimento" class="java.lang.String"/>
-	<field name="pessoas_p_nome_mae" class="java.lang.String"/>
-	<field name="pessoas_p_nome_pai" class="java.lang.String"/>
-	<group name="escolas" isStartNewPage="true">
-		<groupExpression><![CDATA[$F{siems_s_id}]]></groupExpression>
+	<field name="escola_e_id" class="java.lang.Long"/>
+	<field name="escola_e_siem_id" class="java.lang.Long"/>
+	<field name="escola_e_status_escola" class="java.lang.String"/>
+	<field name="escola_e_distrito" class="java.lang.String"/>
+	<field name="escola_e_fone" class="java.lang.String"/>
+	<field name="escola_e_cel1" class="java.lang.String"/>
+	<field name="escola_e_bairro" class="java.lang.String"/>
+	<field name="escola_e_possui_lab" class="java.lang.String"/>
+	<field name="escola_e_possui_internet_escola" class="java.lang.String"/>
+	<field name="escola_e_possui_analista" class="java.lang.String"/>
+	<field name="siem_s_id" class="java.lang.Long"/>
+	<field name="siem_s_siem" class="java.lang.String"/>
+	<field name="siem_s_cod_ext" class="java.lang.String"/>
+	<field name="siem_s_nome" class="java.lang.String"/>
+	<field name="siem_s_tipo_escola" class="java.lang.String"/>
+	<field name="escola_e_inep" class="java.lang.String"/>
+	<field name="escola_e_cep" class="java.lang.String"/>
+	<field name="escola_e_logradouro" class="java.lang.String"/>
+	<field name="escola_e_numero" class="java.lang.String"/>
+	<field name="escola_e_complemento" class="java.lang.String"/>
+	<field name="escola_e_email" class="java.lang.String"/>
+	<field name="escola_e_cel2" class="java.lang.String"/>
+	<field name="escola_e_sigla" class="java.lang.String"/>
+	<field name="escola_e_tipo_internet_escola" class="java.lang.String"/>
+	<field name="escola_e_funcionario" class="java.lang.Long"/>
+	<field name="escola_e_tipo_sala" class="java.lang.String"/>
+	<field name="escola_e_pregao1" class="java.lang.String"/>
+	<field name="escola_e_pregao2" class="java.lang.String"/>
+	<field name="escola_e_pregao3" class="java.lang.String"/>
+	<field name="escola_e_pregao4" class="java.lang.String"/>
+	<field name="escola_e_possui_internet_lab" class="java.lang.String"/>
+	<field name="escola_e_tipo_internet_lab" class="java.lang.String"/>
+	<field name="escola_e_lab_montado" class="java.lang.String"/>
+	<field name="escola_e_qt_computadores_lab" class="java.lang.String"/>
+	<field name="escola_e_qt_monitores_lab" class="java.lang.String"/>
+	<field name="escola_e_status_lab" class="java.lang.String"/>
+	<field name="escola_e_ar_condicionado" class="java.lang.String"/>
+	<field name="escola_e_impressora" class="java.lang.String"/>
+	<field name="escola_e_qt_notebook_lab" class="java.lang.String"/>
+	<field name="escola_e_roteador" class="java.lang.String"/>
+	<field name="escola_e_switch" class="java.lang.String"/>
+	<field name="escola_e_qt_cadeiras_lab" class="java.lang.String"/>
+	<field name="funcionario_f_id" class="java.lang.Long"/>
+	<field name="funcionario_f_siem_id" class="java.lang.Long"/>
+	<field name="funcionario_f_ocupacao_id" class="java.lang.Long"/>
+	<field name="funcionario_f_pessoa_id" class="java.lang.Long"/>
+	<field name="funcionario_f_vinculo" class="java.lang.String"/>
+	<field name="funcionario_f_status_funcionario" class="java.lang.String"/>
+	<field name="ocupacao_o_id" class="java.lang.Long"/>
+	<field name="ocupacao_o_nome" class="java.lang.String"/>
+	<field name="pessoa_p_id" class="java.lang.Long"/>
+	<field name="pessoa_p_nome" class="java.lang.String"/>
+	<field name="pessoa_p_cep" class="java.lang.String"/>
+	<field name="pessoa_p_distrito" class="java.lang.String"/>
+	<field name="pessoa_p_bairro" class="java.lang.String"/>
+	<field name="pessoa_p_logradouro" class="java.lang.String"/>
+	<field name="pessoa_p_numero" class="java.lang.String"/>
+	<field name="pessoa_p_complemento" class="java.lang.String"/>
+	<field name="pessoa_p_fone" class="java.lang.String"/>
+	<field name="pessoa_p_email" class="java.lang.String"/>
+	<field name="pessoa_p_cel1" class="java.lang.String"/>
+	<field name="pessoa_p_cel2" class="java.lang.String"/>
+	<field name="pessoa_p_cpf" class="java.lang.String"/>
+	<field name="pessoa_p_rg" class="java.lang.String"/>
+	<field name="pessoa_p_expedicao_rg" class="java.lang.String"/>
+	<field name="pessoa_p_naturalidade" class="java.lang.String"/>
+	<field name="pessoa_p_nascionalidade" class="java.lang.String"/>
+	<field name="pessoa_p_nis" class="java.lang.String"/>
+	<field name="pessoa_p_escolaridade" class="java.lang.String"/>
+	<field name="pessoa_p_data_nascimento" class="java.lang.String"/>
+	<field name="pessoa_p_nome_mae" class="java.lang.String"/>
+	<field name="pessoa_p_nome_pai" class="java.lang.String"/>
+	<group name="escola" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{siem_s_id}]]></groupExpression>
 		<groupHeader>
 			<band/>
 		</groupHeader>
@@ -181,21 +181,14 @@ ORDER BY
 	<pageHeader>
 		<band height="81" splitType="Stretch">
 			<staticText>
-				<reportElement x="122" y="0" width="541" height="14" uuid="8803a9a5-cb4f-4fdf-be58-ec3c01b1d083"/>
+				<reportElement x="122" y="14" width="541" height="14" uuid="8803a9a5-cb4f-4fdf-be58-ec3c01b1d083"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[SECRETARIA DE EDUCAÇÃO E ESPORTE DE JUAZEIRO BAHIA- SEDUC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="122" y="16" width="541" height="14" uuid="a2b35e6f-ae8c-4b74-b8f6-fd4861834295"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[SISTEMA DE INFORMAÇÕES DA EDUCAÇÃO MUNICIPAL - SIEMs]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="33" width="541" height="14" uuid="85986098-e085-4cc9-ac23-278b5a37c590"/>
+				<reportElement x="122" y="34" width="541" height="14" uuid="85986098-e085-4cc9-ac23-278b5a37c590"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
@@ -206,13 +199,15 @@ ORDER BY
 				<imageExpression><![CDATA["../img/logo_escudo_juazeiro.jpg"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="702" y="23" width="76" height="34" uuid="833759b1-7316-46ab-ab81-7a8872b73c4d"/>
+				<reportElement x="700" y="24" width="76" height="34" uuid="833759b1-7316-46ab-ab81-7a8872b73c4d"/>
 				<imageExpression><![CDATA["../img/logoNTM.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="351" y="54" width="100" height="20" uuid="a4cb60c3-e716-4725-9773-fe13437fd1c9"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Perfil Escolas]]></text>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERFIL ESCOLA]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -244,7 +239,7 @@ ORDER BY
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nome da Escolas]]></text>
+				<text><![CDATA[Nome da Escola]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="351" y="42" width="451" height="20" backcolor="#CCCCCC" uuid="91f18904-63d5-49ae-a97d-929ea73eef37"/>
@@ -270,7 +265,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_complemento}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escola_e_complemento}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="62" width="160" height="20" uuid="a0181bfc-fae7-424b-876d-be01d37f3662"/>
@@ -282,7 +277,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_distrito}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escola_e_distrito}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="132" width="802" height="20" uuid="f8d209e2-9556-490c-8ee0-895641f6fd59"/>
@@ -322,7 +317,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_email}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escola_e_email}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="351" y="62" width="451" height="20" uuid="407b7bb4-345a-490b-a3fd-a1869304edaa"/>
@@ -334,7 +329,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_logradouro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escola_e_logradouro}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="364" y="152" width="217" height="20" backcolor="#CCCCCC" uuid="a776411f-ef80-4d07-91ca-cf4238bf095b"/>
@@ -402,7 +397,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_bairro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escola_e_bairro}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="160" y="42" width="191" height="20" backcolor="#CCCCCC" uuid="19ff9b85-d1c6-4ad5-973b-346bd5016277"/>
@@ -428,7 +423,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_sigla}+" - ESCOLAS MUNICIPAL "+$F{siems_s_nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escola_e_sigla}+" - ESCOLA MUNICIPAL "+$F{siem_s_nome}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="502" y="102" width="100" height="20" uuid="88891d98-5210-4a34-a0df-e266d5c58de3"/>
@@ -440,7 +435,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_fone}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escola_e_fone}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="602" y="102" width="100" height="20" uuid="7de7263a-48f9-4050-b8d8-26c8e72360ab"/>
@@ -452,7 +447,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_cel1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escola_e_cel1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="702" y="102" width="100" height="20" uuid="4f571226-be06-4901-abbf-3a693f82ee94"/>
@@ -464,7 +459,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_cel2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escola_e_cel2}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="502" y="82" width="100" height="20" backcolor="#CCCCCC" uuid="3236e6c2-37a0-4a68-8266-1a90acfd1b22"/>
@@ -518,7 +513,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_numero}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{escola_e_numero}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="41" y="82" width="222" height="20" backcolor="#CCCCCC" uuid="ded9ad75-7660-42d8-a475-acfdcd383489"/>
@@ -562,7 +557,7 @@ ORDER BY
 					<rightPen lineWidth="0.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{pessoas_p_cel1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pessoa_p_cel1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="135" y="0" width="229" height="20" uuid="078bf9bf-09c8-4f3a-a924-bc89994626a8"/>
@@ -574,7 +569,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{pessoas_p_nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pessoa_p_nome}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="473" y="0" width="108" height="20" uuid="d34b49cd-9b61-4f58-b64c-fcd8ee9f4b97"/>
@@ -584,7 +579,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{pessoas_p_cel2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pessoa_p_cel2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="581" y="0" width="221" height="20" uuid="d111ff8f-9268-4deb-9c72-820c790548ed"/>
@@ -596,7 +591,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{pessoas_p_email}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pessoa_p_email}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="0" width="135" height="20" uuid="cd3d963f-ea22-41a5-bf73-53866b6e635c"/>
@@ -608,7 +603,7 @@ ORDER BY
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{ocupacaos_o_nome}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ocupacao_o_nome}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -14,6 +14,7 @@ use App\Siem;
 
 use App\Pessoa;
 
+
 /**
  * Class EscolaController.
  *
@@ -53,7 +54,7 @@ class EscolaController extends Controller
             return view('escola.index',compact('escolas','siems'));
         }
 
-  public function reportescola()
+public function reportescola()
 {
 
         return view('phpreport.ReportEscolas');
@@ -76,6 +77,16 @@ public function perfilescola()
 
 
 }
+
+
+public function perfillaboratorio()
+{
+
+        return view('phpreport.PerfilLaboratorios');
+
+
+}
+
 
     public function create()
     {

@@ -251,7 +251,7 @@
                     <select name = 'pessoa_id' style="no" class = 'form-control' id="select3" required>
                         <option value="2">NÃO POSSUI</option>
                         @foreach($pessoas->except($pessoas->id=2) as $key => $value)
-                        <option value="{{$value}}">{{$value}}</option>
+                        <option value="{{$key}}">{{$value}}</option>
                         @endforeach
                     </select>
                 </div>

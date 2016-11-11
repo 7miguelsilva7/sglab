@@ -12,14 +12,20 @@ $PHPJasperXML = new PHPJasperXML();
 //$PHPJasperXML->debugsql=true;
 
 //Verificao de campo
-$distrito=$_POST["distrito"]; //recebendo o parâmetro descrição
-$escola=$_POST["escola"]; //recebendo o parâmetro descrição
-$articulador=$_POST["articulador"]; //recebendo o parâmetro descrição
-$internet=$_POST["internet"]; //recebendo o parâmetro descrição
+// $distrito=$_POST["distrito"]; //recebendo o parâmetro do filtro modal
+$escola=$_POST["escola"]; //recebendo o parâmetro filtro modal
+// $articulador=$_POST["articulador"]; //recebendo o parâmetro filtro modal
+// $internet=$_POST["internet"]; //recebendo o parâmetro filtro modal
+// $status_lab=$_POST["status_lab"]; //recebendo o parâmetro filtro modal
 
 
-
-$PHPJasperXML->arrayParameter=  ["distrito"=>$distrito,"escola"=>$escola,"articulador"=>$articulador,"internet"=>$internet];
+$PHPJasperXML->arrayParameter=  [
+// "distrito"=>$distrito,
+// "articulador"=>$articulador,
+// "internet"=>$internet,
+// "status_lab"=>$status_lab,
+"escola"=>$escola
+];
 
 
 

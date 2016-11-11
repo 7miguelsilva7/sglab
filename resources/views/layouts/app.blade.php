@@ -156,8 +156,8 @@ require_once '../connect.php';
                                     <li>
                                     
                                     <li><a data-toggle="modal" href="#perfilescolas"><i class="fa glyphicon glyphicon-home"></i>Perfil Escolas</a></li>
-									<li><a data-toggle="modal" href="#funcionario"><i class="fa glyphicon glyphicon-user"></i>Perfil Funcionários</a></li>
-									<li><a data-toggle="modal" href="#laboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Perfil Laboratórios</a></li>
+									<li><a data-toggle="modal" href="#perfilfuncionarios"><i class="fa glyphicon glyphicon-user"></i>Perfil Funcionários</a></li>
+									<li><a data-toggle="modal" href="#perfillaboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Perfil Laboratórios</a></li>
                                     
 
                                     </li>
@@ -274,21 +274,21 @@ require_once '../connect.php';
 
 <label >Possui Articulador?</label></p>
 <select name="articulador" id="articulador"> 
- 	<option value="possui_analista">SIM/NÂO</option>
+ 	<option value="possui_analista">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
 </select></p>
  
 <label >Possui Laboratório?</label></p>
 <select name="lab" id="lab"> 
- 	<option value="possui_lab">SIM/NÂO</option>
+ 	<option value="possui_lab">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
 </select></p>
 
 <label >Possui Internet?</label></p>
 <select name="internet" id="internet"> 
- 	<option value="possui_internet_escola">SIM/NÂO</option>
+ 	<option value="possui_internet_escola">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
 </select>
@@ -471,7 +471,7 @@ require_once '../connect.php';
 <td align="center">
 <label >Selecione um Distrito:</label></p>
 <select name="distrito" id="select1"> 
- 	<option value="distrito">Todos os distritos cadastrados</option>
+ 	<option value="escolas.distrito">Todos os distritos cadastrados</option>
  	<option value="'ABÓBORA'">ABÓBORA</option>
  	<option value="'ITAMOTINGA'">ITAMOTINGA</option>
  	<option value="'JUNCO'">JUNCO</option>
@@ -554,10 +554,10 @@ require_once '../connect.php';
 	<!-- PERFIL --> 	<!-- PERFIL --> 	<!-- PERFIL -->	<!-- PERFIL -->
 
 
-	<!-- ESCOLA --> 	<!-- ESCOLA --> 	<!-- ESCOLA -->	<!-- ESCOLA -->
-	<!-- ESCOLA --> 	<!-- ESCOLA --> 	<!-- ESCOLA -->	<!-- ESCOLA -->
-	<!-- ESCOLA --> 	<!-- ESCOLA --> 	<!-- ESCOLA -->	<!-- ESCOLA -->
-	<!-- ESCOLA --> 	<!-- ESCOLA --> 	<!-- ESCOLA -->	<!-- ESCOLA -->
+	<!-- PERFIL ESCOLA --> 	<!-- PERFIL ESCOLA --> 	<!-- PERFIL ESCOLA -->	<!-- PERFIL ESCOLA -->
+	<!-- PERFIL ESCOLA --> 	<!-- PERFIL ESCOLA --> 	<!-- PERFIL ESCOLA -->	<!-- PERFIL ESCOLA -->
+	<!-- PERFIL ESCOLA --> 	<!-- PERFIL ESCOLA --> 	<!-- PERFIL ESCOLA -->	<!-- PERFIL ESCOLA -->
+	<!-- PERFIL ESCOLA --> 	<!-- PERFIL ESCOLA --> 	<!-- PERFIL ESCOLA -->	<!-- PERFIL ESCOLA -->
 
 
 	<div class="modal fade" id="perfilescolas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -595,7 +595,7 @@ require_once '../connect.php';
  
 <label >Selecione uma Escola:</label></p>
 <select name="escola" id="select6"> 
- 	<option value="siem_id">Todos as Escolas Cadastradas</option>
+ 	<option value="siems.id">Todos as Escolas Cadastradas</option>
 
 <?php foreach($data2 as $row2) : ?> 
     <option value="<?php echo $row2['id']; ?>"><?php echo $row2['nome']; ?></option> 
@@ -626,23 +626,31 @@ require_once '../connect.php';
 	<!-- FIM ESCOLA --> 	<!-- FIM ESCOLA --> 	<!-- FIM ESCOLA -->	<!-- FIM ESCOLA -->
 
 
-	<!-- modal form dialog -->
-	<div class="modal hide fade" id="##########">
-		<div class="modal-header">
-			<a class="close" data-dismiss="modal">&times;</a>
-			<h3>
-				<i class="icon-th-list"></i> Perfil Escolas
-				
-			</h3>
-		</div>
-		<div class="modal-body">
+	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS -->	<!-- FUNCIONARIOS -->
+	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS -->	<!-- FUNCIONARIOS -->
+	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS -->	<!-- FUNCIONARIOS -->
+	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS -->	<!-- FUNCIONARIOS -->
+
+
+
+
+   	<div class="modal fade" id="perfilfuncionarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+		 <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Perfil Escolas</h4>
+      </div>
+      <div class="modal-body">
 
 <?php
 
-#Seleciona dados da Tabela siem
+#Seleciona dados da Tabela PESSOA
  try{
-    $sql2 ='SELECT * FROM siem;';
-    $stmt2 = $conn->prepare($sql2);
+    $sql2 ='SELECT * FROM pessoas order by nome
+	;';
+    $stmt2 = $conn->prepare($sql2);	
     $stmt2 ->execute();
     $data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 }catch(PDOException $e2){
@@ -651,22 +659,24 @@ require_once '../connect.php';
 
 ?>
 
+<form name="perfilfuncionario" method="post" action='{{url("funcionario/perfilfuncionario")}}'>
 
-<form name="escola" method="post" action="libs/Reporter/phpreport/PerfilEscolas.php">
+     <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+
 <table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
 <tr>
 
 <td align="center">
 
  
-<label >Selecione uma Escola:</label>
-<select name="escola" id="escola"> 
- 	<option value="s_id">Todos</option>
+<label >Selecione um Funcionário:</label></p>
+<select name="funcionario" id="select7"> 
+ 	<option value="funcionarios.id">Todos os Funcionários cadastrados</option>
 
 <?php foreach($data2 as $row2) : ?> 
-    <option value="<?php echo $row2['s_id']; ?>"><?php echo $row2['s_nome']; ?></option> 
+    <option value="<?php echo $row2['id']; ?>"><?php echo $row2['nome']; ?></option> 
 <?php endforeach ?> 
-</select>
+</select> 
 
   </td>
  </tr>
@@ -682,10 +692,75 @@ require_once '../connect.php';
 		</div>
 		
 	</div>
-
-		</div>
-		
 	</div>
+
+
+
+	<!-- PERFIL LABORATORIOS --> 	<!-- PERFIL LABORATORIOS --> 	<!-- PERFIL LABORATORIOS -->	<!-- PERFIL LABORATORIOS -->
+	<!-- PERFIL LABORATORIOS --> 	<!-- PERFIL LABORATORIOS --> 	<!-- PERFIL LABORATORIOS -->	<!-- PERFIL LABORATORIOS -->
+	<!-- PERFIL LABORATORIOS --> 	<!-- PERFIL LABORATORIOS --> 	<!-- PERFIL LABORATORIOS -->	<!-- PERFIL LABORATORIOS -->
+	<!-- PERFIL LABORATORIOS --> 	<!-- PERFIL LABORATORIOS --> 	<!-- PERFIL LABORATORIOS -->	<!-- PERFIL LABORATORIOS -->
+
+
+
+	<div class="modal fade" id="perfillaboratorios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Perfil Laboratórios</h4>
+      </div>
+      <div class="modal-body">
+<?php
+
+#Seleciona dados da Tabela siems
+ try{
+    $sql2 ='SELECT * FROM siems;';
+    $stmt2 = $conn->prepare($sql2);
+    $stmt2 ->execute();
+    $data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+}catch(PDOException $e2){
+    echo 'ERROR: ' . $e2->getMessage();
+}
+
+?>
+
+
+<form name="perfillaboratorio" method="post" action='{{url("escola/perfillaboratorio")}}'>
+
+      <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+
+<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
+<tr>
+
+<td align="center">
+
+ 
+<label >Selecione uma Escola:</label></p>
+<select name="escola" id="select10"> 
+ 	<option value="siems.id">Todos as Escolas Cadastradas</option>
+
+<?php foreach($data2 as $row2) : ?> 
+    <option value="<?php echo $row2['id']; ?>"><?php echo $row2['nome']; ?></option> 
+<?php endforeach ?> 
+</select></p>
+
+  </td>
+ </tr>
+
+</table>
+<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" >Cancelar</button>
+			<button type="submit" class="btn btn-primary">Gerar Perfil</button>
+		</div>
+		</div>
+</form>
+
+     </div>
+                        
+
+    </div>
+  </div>
 
 
 
@@ -699,73 +774,6 @@ require_once '../connect.php';
 
 
 
-	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS -->	<!-- FUNCIONARIOS -->
-	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS -->	<!-- FUNCIONARIOS -->
-
-
-
-
-	<!-- modal form dialog -->
-	<div class="modal hide fade" id="perfilfuncionarios">
-		<div class="modal-header">
-			<a class="close" data-dismiss="modal">&times;</a>
-			<h3>
-				<i class="icon-th-list"></i> Perfil Funcionarios
-				
-			</h3>
-		</div>
-		<div class="modal-body">
-
-<?php
-
-#Seleciona dados da Tabela PESSOA
- try{
-    $sql2 ='SELECT * FROM pessoa order by p_nome
-	;';
-    $stmt2 = $conn->prepare($sql2);	
-    $stmt2 ->execute();
-    $data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
-}catch(PDOException $e2){
-    echo 'ERROR: ' . $e2->getMessage();
-}
-
-?>
-
-
-<form name="funcionario" method="post" action="libs/Reporter/phpreport/PerfilFuncionarios.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding=5>
-<tr>
-
-<td align="center">
-
- 
-<label >Selecione um Funcionário:</label>
-<select name="funcionario" id="funcionario"> 
- 	<option value="p_id">Todos</option>
-
-<?php foreach($data2 as $row2) : ?> 
-    <option value="<?php echo $row2['p_id']; ?>"><?php echo $row2['p_nome']; ?></option> 
-<?php endforeach ?> 
-</select>
-
-  </td>
- </tr>
-
-</table>
-<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" >Cancelar</button>
-			<button type="submit" class="btn btn-primary">Gerar Perfil</button>
-		</div>
-		</div>
-</form>
-
-		</div>
-		
-	</div>
-
-
-
-
 	<!-- modal form dialog -->
 	<!-- modal form dialog -->
 	<!-- modal form dialog -->
@@ -773,7 +781,7 @@ require_once '../connect.php';
 	<!-- modal form dialog -->
 	<!-- modal form dialog -->
 
-	<div class="modal hide fade" id="perfillaboratorios">
+	<div class="modal hide fade" id="########## ">
 		<div class="modal-header">
 			<a class="close" data-dismiss="modal">&times;</a>
 			<h3>
@@ -831,4 +839,3 @@ require_once '../connect.php';
 
 
 </html>
-

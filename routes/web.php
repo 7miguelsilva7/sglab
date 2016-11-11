@@ -65,16 +65,23 @@ Route::get('funcionario/{id}/deleteMsg','\App\Http\Controllers\FuncionarioContro
 /********************* funcionario ***********************************************/
 
 
+
 // Relatorios Resources
 /********************* Relatórios ***********************************************/
 
 //Route::metodo('link',controller@função')
-// Route::post('funcionario/reportfuncionario','\App\Http\Controllers\FuncionarioController@reportfuncionario');
-Route::post('funcionario/reportfuncionario','FuncionarioController@reportfuncionario');
-// Route::get('funcionario/reportfuncionario','FuncionarioController@reportfuncionario');
+
+// Relatorios
+
 Route::post('escola/reportescola','EscolaController@reportescola');
 Route::post('escola/reportlaboratorio','EscolaController@reportlaboratorio');
+
+Route::post('funcionario/reportfuncionario','FuncionarioController@reportfuncionario');
+
+// Perfis
+
 Route::post('escola/perfilescola','EscolaController@perfilescola');
+Route::post('escola/perfillaboratorio','EscolaController@perfillaboratorio');
 
-
+Route::post('funcionario/perfilfuncionario','FuncionarioController@perfilfuncionario');
 

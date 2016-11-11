@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div align="center" class="panel-heading">Escola Municipal {{$siem->escola_nome}}  </br>
+                <div align="center" class="panel-heading">Escola Municipal {{$siem->nome}}  </br>
   Última Edição: {{$siem->updated_at}}</div>
                 <div class="panel-body">
 

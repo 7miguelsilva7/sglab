@@ -55,6 +55,14 @@ class FuncionarioController extends Controller
      * @return  \Illuminate\Http\Response
      */
 
+        public function perfilfuncionario()
+{
+
+        return view('phpreport.PerfilFuncionarios');
+
+
+}
+
         public function reportfuncionario()
 {
 
