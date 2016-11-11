@@ -81,25 +81,18 @@ WHERE
 				<imageExpression><![CDATA["../img/logoNTM.jpg"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="119" y="10" width="541" height="14" uuid="341f35b3-c21e-4378-999b-2548ff371229"/>
+				<reportElement x="119" y="25" width="541" height="14" uuid="341f35b3-c21e-4378-999b-2548ff371229"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[SECRETARIA DE EDUCAÇÃO E ESPORTE DE JUAZEIRO BAHIA- SEDUC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="119" y="43" width="541" height="14" uuid="2cceacd4-b832-4cdd-a0b8-c0e2cf33bdb1"/>
+				<reportElement x="119" y="48" width="541" height="14" uuid="2cceacd4-b832-4cdd-a0b8-c0e2cf33bdb1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[NUCLEO DE TECNOLOGIA MUNICIPAL - NTM]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="119" y="26" width="541" height="14" uuid="2d29362a-f6ba-480d-8922-dc5d87eff282"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[SISTEMA DE INFORMAÇÕES DA EDUCAÇÃO MUNICIPAL]]></text>
 			</staticText>
 		</band>
 	</title>

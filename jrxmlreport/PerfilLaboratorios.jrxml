@@ -194,7 +194,7 @@ ORDER BY
 				<text><![CDATA[NUCLEO DE TECNOLOGIA MUNICIPAL - NTM]]></text>
 			</staticText>
 			<image>
-				<reportElement x="27" y="0" width="78" height="71" uuid="da3af6d6-d071-45ed-95d2-5aacfe08a88e"/>
+				<reportElement x="27" y="17" width="78" height="71" uuid="da3af6d6-d071-45ed-95d2-5aacfe08a88e"/>
 				<imageExpression><![CDATA["../img/logo_escudo_juazeiro.jpg"]]></imageExpression>
 			</image>
 			<image>
@@ -841,7 +841,7 @@ ORDER BY
 				<textFieldExpression><![CDATA[$F{escola_e_qt_cadeiras_lab}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="128" width="802" height="32" uuid="92dfff4d-5dd2-472e-aaef-f5f96359563b"/>
+				<reportElement x="0" y="136" width="802" height="24" uuid="92dfff4d-5dd2-472e-aaef-f5f96359563b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>

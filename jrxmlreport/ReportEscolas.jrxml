@@ -89,21 +89,14 @@ ORDER BY
 	<pageHeader>
 		<band height="71" splitType="Stretch">
 			<staticText>
-				<reportElement x="122" y="0" width="541" height="14" uuid="8803a9a5-cb4f-4fdf-be58-ec3c01b1d083"/>
+				<reportElement x="122" y="16" width="541" height="14" uuid="8803a9a5-cb4f-4fdf-be58-ec3c01b1d083"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[SECRETARIA DE EDUCAÇÃO E ESPORTE DE JUAZEIRO BAHIA- SEDUC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="122" y="16" width="541" height="14" uuid="a2b35e6f-ae8c-4b74-b8f6-fd4861834295"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[SISTEMA DE INFORMAÇÕES DA EDUCAÇÃO MUNICIPAL]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="122" y="33" width="541" height="14" uuid="85986098-e085-4cc9-ac23-278b5a37c590"/>
+				<reportElement x="122" y="36" width="541" height="14" uuid="85986098-e085-4cc9-ac23-278b5a37c590"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>

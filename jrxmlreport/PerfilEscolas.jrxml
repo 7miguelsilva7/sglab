@@ -179,7 +179,7 @@ ORDER BY
 		<band splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="81" splitType="Stretch">
+		<band height="95" splitType="Stretch">
 			<staticText>
 				<reportElement x="122" y="14" width="541" height="14" uuid="8803a9a5-cb4f-4fdf-be58-ec3c01b1d083"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -195,7 +195,7 @@ ORDER BY
 				<text><![CDATA[NUCLEO DE TECNOLOGIA MUNICIPAL - NTM]]></text>
 			</staticText>
 			<image>
-				<reportElement x="27" y="0" width="78" height="71" uuid="da3af6d6-d071-45ed-95d2-5aacfe08a88e"/>
+				<reportElement x="27" y="9" width="78" height="71" uuid="da3af6d6-d071-45ed-95d2-5aacfe08a88e"/>
 				<imageExpression><![CDATA["../img/logo_escudo_juazeiro.jpg"]]></imageExpression>
 			</image>
 			<image>
