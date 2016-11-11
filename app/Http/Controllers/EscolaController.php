@@ -69,7 +69,7 @@ if($usuario_logado == "Admin") {
 
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
-            $escolas = Escola::where('siem_id', 'like', $usuario_logado)
+            $escolas = Escola::where('usuario', 'like', $usuario_logado)
                 ->orderBy('siem_id')
                 ->paginate(5);
 
@@ -292,6 +292,13 @@ public function perfillaboratorio()
      */
     public function edit($id,Request $request)
     {
+
+
+$usuario_logado = Auth::user()->nome; 
+$usuario_logado2 = Auth::user()->id; 
+
+        if($usuario_logado == "Admin") {
+
         if($request->ajax())
         {
             return URL::to('escola/'. $id . '/edit');
@@ -306,7 +313,27 @@ public function perfillaboratorio()
         
         $escola = Escola::findOrfail($id);
         return view('escola.edit',compact('escola' ,'siems', 'pessoas' ) );
+    } else {
+
+ if($request->ajax())
+        {
+            return URL::to('escola/'. $usuario_logado2 . '/edit');
+        }
+
+        
+        $siems = Siem::all()->pluck('nome','id');
+
+        
+        $pessoas = Pessoa::all()->pluck('nome','id');
+
+        
+        $escola = Escola::findOrfail($id);
+        return view('escola.edit',compact('escola' ,'siems', 'pessoas' ) );
+
+
     }
+
+    }    
 
     /**
      * Update the specified resource in storage.

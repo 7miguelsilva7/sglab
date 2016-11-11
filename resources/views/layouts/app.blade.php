@@ -69,6 +69,9 @@ require_once '../connect.php';
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+
+
+                    
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -177,9 +180,9 @@ require_once '../connect.php';
                         @if (Auth::guest())
 
                             <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
 
                         @else
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -193,12 +196,18 @@ require_once '../connect.php';
                                             <i class="fa glyphicon glyphicon-log-out"></i>Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                      <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
                                 </ul>
                             </li>
+                <?php
+                $usuario_logado = Auth::user()->name;
+                if ($usuario_logado == "Admin") { ?>
+
+                            <li><a href="{{ url('/register') }}">Registrar</a></li>
+                <?php } ?>
 
                             
                         @endif

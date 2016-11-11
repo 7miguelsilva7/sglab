@@ -29,7 +29,10 @@
 <?php
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>
+
 <a href="{{ url('escola/create') }}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+
+
 <?php } ?>
 
 <div class="input-group custom-search-form">
@@ -329,7 +332,13 @@
                         
                         
                         <td>
+
+                        <?php
+                        $usuario_logado = Auth::user()->name;
+                        if ($usuario_logado == "Admin") { ?>
                                 <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/escola/{{$Escola->id}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
+                        <?php } ?>
+
                                 <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/escola/{{$Escola->id}}/edit'><i class = 'material-icons'>edit</i></a>
                                 <a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/escola/{{$Escola->id}}'><i class = 'material-icons'>info</i></a>
                         </td>
