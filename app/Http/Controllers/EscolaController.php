@@ -116,14 +116,17 @@ public function perfillaboratorio()
 
     public function create()
     {
-        
+         $usuario_logado = Auth::user()->name; 
+
+if($usuario_logado == "Admin") {
+    
         $siems = Siem::all()->pluck('nome','id');
         
         $pessoas = Pessoa::all()->pluck('nome','id');
         
         return view('escola.create',compact('siems' , 'pessoas'  ));
+        }
     }
-
     /**
      * Store a newly created resource in storage.
      *
