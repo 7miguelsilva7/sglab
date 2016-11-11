@@ -1,20 +1,46 @@
 # SGLAB (Sistema de Gerenciamento de Laboratórios)
 
-# Informações
+## Instalação Testada no Ubuntu 14.04 i386
 
-[![AETJ](https://travis-ci.org/laravel/framework.svg)](http://aetj.info)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Execute os seguintes comandos no terminal
 
+## 1 - Instalação de Dependências
 
-## Dependêcias PHP 7.0
+* sudo apt-get install git
+* sudo add-apt-repository ppa:ondrej/php
+* sudo apt-get update
+* sudo apt-get install python-software-properties
+* sudo apt-get install lamp-server^
+* sudo apt-get update
 
-sudo apt-get install php7 php7.0-mbstring php7.0-ext-dom php-curl php7.0-mysql 
+## 2 - Instalar Dependências PHP < 5.6
 
-## Atualizar composer
+* sudo apt-get install php5 php5-mysqlnd php5.6-mysql php5.6-mbstring php5.6-ext-dom php-curl php5.6-xml phpmyadmin
 
-composer update
+* cd /var/www/html/
+* git clone https://github.com/7miguelsilva7/sglab.git
+
+## 3 - Instalar composer
+
+* php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+* php -r "if (hash_file('SHA384', 'composer-setup.php') === 'aa96f26c2b67226a324c27919f1eb05f21c248b987e6195cad9690d5c1ff713d53020a02ac8c217dbf90a7eacc9d141d') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+* php composer-setup.php
+* php -r "unlink('composer-setup.php');"
+
+## 4 - Criar base de dados "sglab"
+## 5 - Restaurar o banco que se encontra na pasta database do projeto
+
+## 6 - Atualizar composer
+
+* composer update
+
+## 7 - Para rodar a aplicação executar
+
+* php artisan serve
+
+## 8 - No navegador usar o endereço:
+
+* http://localhost:8000/
+
 
 
