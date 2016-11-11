@@ -118,8 +118,8 @@ public function perfillaboratorio()
     {
          $usuario_logado = Auth::user()->name; 
 
-if($usuario_logado == "Admin") {
-    
+        if($usuario_logado == "Admin") {
+
         $siems = Siem::all()->pluck('nome','id');
         
         $pessoas = Pessoa::all()->pluck('nome','id');
