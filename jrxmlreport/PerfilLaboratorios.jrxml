@@ -180,14 +180,14 @@ ORDER BY
 	<pageHeader>
 		<band height="107" splitType="Stretch">
 			<staticText>
-				<reportElement x="122" y="22" width="541" height="14" uuid="8803a9a5-cb4f-4fdf-be58-ec3c01b1d083"/>
+				<reportElement x="131" y="22" width="541" height="14" uuid="8803a9a5-cb4f-4fdf-be58-ec3c01b1d083"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[SECRETARIA DE EDUCAÇÃO E ESPORTE DE JUAZEIRO BAHIA- SEDUC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="122" y="42" width="541" height="14" uuid="85986098-e085-4cc9-ac23-278b5a37c590"/>
+				<reportElement x="131" y="42" width="541" height="14" uuid="85986098-e085-4cc9-ac23-278b5a37c590"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
@@ -202,7 +202,7 @@ ORDER BY
 				<imageExpression><![CDATA["../img/logoNTM.jpg"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="0" y="63" width="802" height="32" uuid="ac766139-0309-43e0-b2d1-52fbcec30d85"/>
+				<reportElement x="0" y="67" width="802" height="32" uuid="ac766139-0309-43e0-b2d1-52fbcec30d85"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>

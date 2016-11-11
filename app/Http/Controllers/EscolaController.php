@@ -15,6 +15,9 @@ use App\Siem;
 use App\Pessoa;
 
 
+use Auth;
+
+
 /**
  * Class EscolaController.
  *
@@ -41,7 +44,13 @@ class EscolaController extends Controller
      */
 
       public function index()
+
         {
+            $usuario_logado = Auth::user()->name; 
+
+if($usuario_logado == "Admin") {
+
+
             $siems = Siem::all();
             $escolas = Escola::all();
 
@@ -52,6 +61,24 @@ class EscolaController extends Controller
                 ->paginate(5);
 
             return view('escola.index',compact('escolas','siems'));
+        
+
+}else {
+
+
+            $siems = Siem::all();
+
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            $escolas = Escola::where('siem_id', 'like', $usuario_logado)
+                ->orderBy('siem_id')
+                ->paginate(5);
+
+            return view('escola.index',compact('escolas','siems'));
+}
+
+
+
         }
 
 public function reportescola()
@@ -106,6 +133,7 @@ public function perfillaboratorio()
      */
     public function store(Request $request)
     {
+        
         $escola = new Escola();
 
         

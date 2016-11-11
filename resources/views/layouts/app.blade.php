@@ -81,9 +81,12 @@ require_once '../connect.php';
 
                     <ul class="nav navbar-nav ">
                         <!-- Authentication Links -->
-                        @if (Auth::guest())
+<?php
+                 $usuario_logado = Auth::user()->name;
+
+                    { ?>                          
+                        
                            
-                        @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                    Cadastrar <span class="caret"></span>
@@ -97,12 +100,16 @@ require_once '../connect.php';
                                     <li><a href="{{ url('/funcionario') }}"><i class="fa glyphicon glyphicon-user"></i>Funcionário</a></li>
                                     <li><a href="{{ url('/ocupacao') }}"><i class="fa glyphicon glyphicon-cog"></i>Ocupação</a></li>
                                     <li><a href="{{ url('/pessoa') }}"><i class="fa glyphicon glyphicon-user"></i>Pessoa</a></li>
-
                                     </li>
+<?php } ?>
+
+
                                 </ul>
                             </li>
-                        @endif
                     </ul>
+
+
+                    
 
  <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
@@ -807,7 +814,7 @@ require_once '../connect.php';
 
 
 <form name="escola" method="post" action="libs/Reporter/phpreport/PerfilLaboratorios.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding=5>
+<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
 <tr>
 
 <td align="center">
