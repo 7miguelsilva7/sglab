@@ -81,12 +81,9 @@ require_once '../connect.php';
 
                     <ul class="nav navbar-nav ">
                         <!-- Authentication Links -->
-<?php
-                 $usuario_logado = Auth::user()->name;
-
-                    { ?>                          
-                        
+                        @if (Auth::guest())
                            
+                        @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                    Cadastrar <span class="caret"></span>
@@ -95,21 +92,21 @@ require_once '../connect.php';
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                     
-                                    <li><a href="{{ url('/siem') }}"><i class="fa glyphicon glyphicon-modal-window"></i>Siem</a></li>
                                     <li><a href="{{ url('/escola') }}"><i class="fa glyphicon glyphicon-home"></i>Escola</a></li>
                                     <li><a href="{{ url('/funcionario') }}"><i class="fa glyphicon glyphicon-user"></i>Funcionário</a></li>
-                                    <li><a href="{{ url('/ocupacao') }}"><i class="fa glyphicon glyphicon-cog"></i>Ocupação</a></li>
                                     <li><a href="{{ url('/pessoa') }}"><i class="fa glyphicon glyphicon-user"></i>Pessoa</a></li>
+                        <?php
+                        $usuario_logado = Auth::user()->name;
+                        if ($usuario_logado == "Admin") { ?>
+                                    <li><a href="{{ url('/siem') }}"><i class="fa glyphicon glyphicon-modal-window"></i>Siem</a></li>
+                                    <li><a href="{{ url('/ocupacao') }}"><i class="fa glyphicon glyphicon-cog"></i>Ocupação</a></li>
+                        <?php } ?>
+
                                     </li>
-<?php } ?>
-
-
                                 </ul>
                             </li>
+                        @endif
                     </ul>
-
-
-                    
 
  <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
@@ -814,7 +811,7 @@ require_once '../connect.php';
 
 
 <form name="escola" method="post" action="libs/Reporter/phpreport/PerfilLaboratorios.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
+<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding=5>
 <tr>
 
 <td align="center">

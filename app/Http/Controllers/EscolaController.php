@@ -50,7 +50,6 @@ class EscolaController extends Controller
 
 if($usuario_logado == "Admin") {
 
-
             $siems = Siem::all();
             $escolas = Escola::all();
 
@@ -133,7 +132,7 @@ public function perfillaboratorio()
      */
     public function store(Request $request)
     {
-        
+
         $escola = new Escola();
 
         
