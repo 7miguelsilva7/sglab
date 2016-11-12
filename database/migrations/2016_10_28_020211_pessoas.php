@@ -22,8 +22,8 @@ class Pessoas extends Migration
 
         $table->increments('id');
         
-        $table->String('usuario');
-        
+        $table->String('adicionado_por');
+
         $table->String('nome');
         
         $table->String('cep');
@@ -65,6 +65,13 @@ class Pessoas extends Migration
         $table->String('nome_mae');
         
         $table->String('nome_pai');
+
+/**
+         * Foreignkeys section
+         */
+
+        $table->integer('user_id')->unsigned()->nullable();
+        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         
         /**
          * Foreignkeys section

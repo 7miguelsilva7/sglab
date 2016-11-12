@@ -27,7 +27,7 @@
                         <td>
                             <b><i>Adicionado por : </i></b>
                         </td>
-                        <td>{{$funcionario->usuario}}</td>
+                        <td>{{$funcionario->adicionado_por}}</td>
                     </tr>
                     
                     <tr>

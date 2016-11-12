@@ -46,7 +46,9 @@ class EscolaController extends Controller
       public function index()
 
         {
-            $usuario_logado = Auth::user()->name; 
+            $usuario_logado = Auth::user()->name;
+            $escolas = Escola::all();
+ 
 
 if($usuario_logado == "Admin") {
 
@@ -69,7 +71,9 @@ if($usuario_logado == "Admin") {
 
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
-            $escolas = Escola::where('usuario', 'like', $usuario_logado)
+            $escolas = Escola::where('user_id',Auth::user()->id)
+                ->where('siem_id','like','%'.$search.'%')
+                ->orwhere('adicionado_por','like','Admin')
                 ->orderBy('siem_id')
                 ->paginate(5);
 
@@ -138,8 +142,11 @@ public function perfillaboratorio()
 
         $escola = new Escola();
 
+
+        $escola->adicionado_por = $request->adicionado_por;
+
         
-        $escola->usuario = $request->usuario;
+        $escola->user_id = $request->user_id;
 
         
         $escola->inep = $request->inep;
@@ -294,8 +301,7 @@ public function perfillaboratorio()
     {
 
 
-$usuario_logado = Auth::user()->nome; 
-$usuario_logado2 = Auth::user()->id; 
+$usuario_logado = Auth::user()->name; 
 
         if($usuario_logado == "Admin") {
 
@@ -315,9 +321,9 @@ $usuario_logado2 = Auth::user()->id;
         return view('escola.edit',compact('escola' ,'siems', 'pessoas' ) );
     } else {
 
- if($request->ajax())
+        if($request->ajax())
         {
-            return URL::to('escola/'. $usuario_logado2 . '/edit');
+            return URL::to('escola/'. $id . '/edit');
         }
 
         
@@ -345,8 +351,10 @@ $usuario_logado2 = Auth::user()->id;
     public function update($id,Request $request)
     {
         $escola = Escola::findOrfail($id);
+
+        $escola->adicionado_por = $request->adicionado_por;
     	
-        $escola->usuario = $request->usuario;
+        $escola->user_id = $request->user_id;
         
         $escola->inep = $request->inep;
         

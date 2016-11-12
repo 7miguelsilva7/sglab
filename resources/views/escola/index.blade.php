@@ -67,7 +67,7 @@
                   <!--   
                      <th>fone</th>
 
-                    <th>usuario</th>
+                    <th>user_id</th>
                                        
                     <th>cep</th>
                     
@@ -194,6 +194,7 @@
                 </thead>
                 <tbody>
                     @foreach($escolas as $Escola)
+                    
                     <tr>
 
                                                 <td>{{$Escola->siem->siem}}</td>
@@ -207,7 +208,7 @@
                         <td>{{$Escola->fone}}</td>
 
                         
-                        <td>{{$Escola->usuario}}</td>
+                        <td>{{$Escola->user_id}}</td>
                         
                         
                         <td>{{$Escola->cep}}</td>

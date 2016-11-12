@@ -14,18 +14,24 @@
             <form method = 'POST' action = '{{url("escola")}}/{{$escola->id}}/update'>
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
                 
-               <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
+             
+<!-- campo verifica usuário logado, identificando quem está inserindo registro -->
 <?php
-                        $usuario_logado = Auth::user()->name;
+                        $usuario_logado = Auth::user()->id;
+                        $adicionado_por = Auth::user()->name;
                         { ?>       
 
                 <div class="form-group">
-                    <input type = 'hidden' value= "{{$usuario_logado}}" id="usuario" name = "usuario" type="text" class="form-control">
+                    <input type = 'hidden' value= "{{$usuario_logado}}" id="user_id" name = "user_id" type="text" class="form-control">
                 </div>
+
+                <div class="form-group">
+                    <input type = 'hidden' value= "{{$adicionado_por}}" id="adicionado_por" name = "adicionado_por" type="text" class="form-control">
+                </div>
+                
 
 <?php } ?>
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
-
 
                         <div class="form-group">
                         <div class="row">
@@ -248,7 +254,7 @@
     <label>Analista em Educação</label>
     <select name = 'pessoa_id' class = "form-control" id="select4">
         <option value="{{$escola->pessoa_id}}">{{$escola->pessoa->nome}}</option>
-        <option value="2">NÃO POSSUI</option>
+        <option value="1">NÃO POSSUI</option>
        @foreach($pessoas->except($escola->pessoa_id) as $key => $value)
         <option value="{{$key}}">{{$value}}</option>
         @endforeach

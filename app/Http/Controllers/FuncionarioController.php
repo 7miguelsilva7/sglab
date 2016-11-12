@@ -94,8 +94,9 @@ class FuncionarioController extends Controller
     {
         $funcionario = new Funcionario();
 
-        
-        $funcionario->usuario = $request->usuario;
+        $funcionario->adicionado_por = $request->adicionado_por;
+
+        $funcionario->user_id = $request->user_id;
 
         
         $funcionario->vinculo = $request->vinculo;
@@ -184,8 +185,11 @@ class FuncionarioController extends Controller
     public function update($id,Request $request)
     {
         $funcionario = Funcionario::findOrfail($id);
+
+        $funcionario->adicionado_por = $request->adicionado_por;
+        
     	
-        $funcionario->usuario = $request->usuario;
+        $funcionario->user_id = $request->user_id;
         
         $funcionario->vinculo = $request->vinculo;
         

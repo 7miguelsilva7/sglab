@@ -61,8 +61,10 @@ class PessoaController extends Controller
     {
         $pessoa = new Pessoa();
 
-        
-        $pessoa->usuario = $request->usuario;
+        $pessoa->adicionado_por = $request->adicionado_por;
+
+
+        $pessoa->user_id = $request->user_id;
 
         
         $pessoa->nome = $request->nome;
@@ -190,8 +192,10 @@ class PessoaController extends Controller
     public function update($id,Request $request)
     {
         $pessoa = Pessoa::findOrfail($id);
+
+        $pessoa->adicionado_por = $request->adicionado_por;       
     	
-        $pessoa->usuario = $request->usuario;
+        $pessoa->user_id = $request->user_id;
         
         $pessoa->nome = $request->nome;
         

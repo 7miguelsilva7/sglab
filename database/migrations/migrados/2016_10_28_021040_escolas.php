@@ -21,8 +21,8 @@ class Escolas extends Migration
         Schema::create('escolas',function (Blueprint $table){
 
         $table->increments('id');
-        
-        $table->String('usuario');
+
+        $table->String('adicionado_por');
         
         $table->String('inep');
         
@@ -101,6 +101,9 @@ class Escolas extends Migration
         
         $table->integer('pessoa_id')->unsigned()->nullable();
         $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('cascade');
+
+        $table->integer('user_id')->unsigned()->nullable();
+        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         
         
         $table->timestamps();

@@ -97,6 +97,7 @@
                 </thead>
                 <tbody>
                     @foreach($pessoas as $Pessoa)
+
                     <tr>
                         
                         <td>{{$Pessoa->nome}}</td>

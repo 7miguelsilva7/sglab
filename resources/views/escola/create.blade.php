@@ -18,12 +18,18 @@
 
 <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
 <?php
-                        $usuario_logado = Auth::user()->name;
+                        $usuario_logado = Auth::user()->id;
+                        $adicionado_por = Auth::user()->name;
                         { ?>       
 
                 <div class="form-group">
-                    <input type = 'hidden' value= "{{$usuario_logado}}" id="usuario" name = "usuario" type="text" class="form-control">
+                    <input type = 'hidden' value= "{{$usuario_logado}}" id="user_id" name = "user_id" type="text" class="form-control">
                 </div>
+
+                <div class="form-group">
+                    <input type = 'hidden' value= "{{$adicionado_por}}" id="adicionado_por" name = "adicionado_por" type="text" class="form-control">
+                </div>
+                
 
 <?php } ?>
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
@@ -249,8 +255,8 @@
                     <div class="form-group">
                     <label>Analista em Educação</label>
                     <select name = 'pessoa_id' style="no" class = 'form-control' id="select3" required>
-                        <option value="2">NÃO POSSUI</option>
-                        @foreach($pessoas->except($pessoas->id=2) as $key => $value)
+                        <option value="1">NÃO POSSUI</option>
+                        @foreach($pessoas->except($pessoas->id=1) as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>
                         @endforeach
                     </select>

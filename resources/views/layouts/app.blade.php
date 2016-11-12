@@ -349,7 +349,8 @@ require_once '../connect.php';
         <h4 class="modal-title" id="myModalLabel"> <i class="fa glyphicon glyphicon-th-list"></i>   Listar Funcionários</h4>
       </div>
       <div class="modal-body">
-        <?php
+        
+ <?php
 
 #Seleciona dados da Tabela siem
  try{

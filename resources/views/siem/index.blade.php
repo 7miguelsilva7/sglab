@@ -16,10 +16,10 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Siem-Escolas</div>
+                <div class="panel-heading">Siem</div>
 
                 <div class="panel-body">
-            <h2><i class="fa glyphicon glyphicon-th-list"></i> Siem-Escolas</h2>
+            <h2><i class="fa glyphicon glyphicon-th-list"></i> Siem</h2>
 
 
 {!! Form::open(['method'=>'GET','url'=>'siem','class'=>'navbar-form navbar-right','role'=>'search'])  !!}

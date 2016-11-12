@@ -33,7 +33,7 @@
                        <div class="form-group">
                         <div class="row">
                             <div class="col-md-6">
-                            <label for="siem">Número Siem</label>
+                            <label for="siem">Admin ou Número SIEM</label>
 
                                 <input id="siem" type="text" class="form-control" name="siem"  required>
                             </div> 
@@ -98,7 +98,7 @@
 
 <script type="text/javascript">
   jQuery(function($) {
-    $("#siem").mask("000");
+    // $("#siem").mask("000");
     $("#cod_ext").mask("000");
     $("#cep").mask("00.000-000");
     $("#cpf").mask("000.000.000-00");
