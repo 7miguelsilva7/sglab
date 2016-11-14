@@ -82,6 +82,7 @@ require_once '../connect.php';
                     </ul>
 
 
+                 
                     <ul class="nav navbar-nav ">
                         <!-- Authentication Links -->
                         @if (Auth::guest())

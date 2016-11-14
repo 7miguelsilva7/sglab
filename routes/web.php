@@ -64,6 +64,10 @@ Route::get('funcionario/{id}/delete','\App\Http\Controllers\FuncionarioControlle
 Route::get('funcionario/{id}/deleteMsg','\App\Http\Controllers\FuncionarioController@DeleteMsg');
 /********************* funcionario ***********************************************/
 
+//Vinculos
+Route::resource('vinculo','\App\Http\Controllers\VinculoController');
+Route::post('vinculo/{id}/update','\App\Http\Controllers\VinculoController@update');
+//Vinculos
 
 
 // Relatorios Resources
@@ -71,14 +75,14 @@ Route::get('funcionario/{id}/deleteMsg','\App\Http\Controllers\FuncionarioContro
 
 //Route::metodo('link',controller@função')
 
-// Relatorios
+// Rotas de Relatorios/Listas
 
 Route::post('escola/reportescola','EscolaController@reportescola');
 Route::post('escola/reportlaboratorio','EscolaController@reportlaboratorio');
 
 Route::post('funcionario/reportfuncionario','FuncionarioController@reportfuncionario');
 
-// Perfis
+// Rotas de Perfis
 
 Route::post('escola/perfilescola','EscolaController@perfilescola');
 Route::post('escola/perfillaboratorio','EscolaController@perfillaboratorio');

@@ -35,7 +35,7 @@
     <input type="text" class="form-control" name="search" placeholder="Busca...">
     <span class="input-group-btn">
         <button class="btn btn-default-sm" type="submit">
-            <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
+            <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--> </i>
         </button>
     </span>
 </div>
@@ -153,7 +153,14 @@
                         -->
 
                         <td>
+                        
+<?php
+                        $usuario_logado = Auth::user()->name;
+                        if ($usuario_logado == "Admin") { ?>
+                       
                                 <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/pessoa/{{$Pessoa->id}}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
+                        <?php } ?>
+      
                                 <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/pessoa/{{$Pessoa->id}}/edit'><i class = 'material-icons'>edit</i></a>
                                 <a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/pessoa/{{$Pessoa->id}}'><i class = 'material-icons'>info</i></a>
                         </td>

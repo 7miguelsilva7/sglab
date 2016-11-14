@@ -25,7 +25,6 @@
                     <input type = 'hidden' value= "{{$usuario_logado}}" id="user_id" name = "user_id" type="text" class="form-control">
                 </div>
 
-                
                 <div class="form-group">
                     <input type = 'hidden' value= "{{$adicionado_por}}" id="adicionado_por" name = "adicionado_por" type="text" class="form-control">
                 </div>

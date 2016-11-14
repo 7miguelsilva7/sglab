@@ -9,6 +9,9 @@ use App\Pessoa;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 
+use Auth;
+
+
 /**
  * Class PessoaController.
  *
@@ -36,6 +39,11 @@ class PessoaController extends Controller
 
     public function index()
         {
+            $usuario_logado = Auth::user()->name;
+ 
+
+if($usuario_logado == "Admin") {
+
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
             $pessoas = Pessoa::where('nome','like','%'.$search.'%')
@@ -43,8 +51,19 @@ class PessoaController extends Controller
                 ->paginate(5);
 
             return view('pessoa.index',compact('pessoas'));
-        }
+            
+        } else {
 
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            $pessoas = Pessoa::where('nome','like','%'.$search.'%')
+                ->where('user_id',Auth::user()->id)
+                ->orderBy('nome')
+                ->paginate(5);
+
+            return view('pessoa.index',compact('pessoas'));
+        }
+    }
     public function create()
     {
         

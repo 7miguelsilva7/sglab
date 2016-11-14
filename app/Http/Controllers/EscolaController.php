@@ -73,7 +73,6 @@ if($usuario_logado == "Admin") {
 
             $escolas = Escola::
                 where('siem_id','like','%'.$search.'%')
-                ->orwhere('adicionado_por','=','Admin')
                 ->where('user_id',Auth::user()->id)
                 ->orderBy('siem_id')
                 ->paginate(5);
@@ -301,6 +300,7 @@ public function perfillaboratorio()
     public function edit($id,Request $request)
     {
 
+$usuario_logado = Auth::user()->name;
 
         if($request->ajax())
         {
@@ -315,7 +315,22 @@ public function perfillaboratorio()
 
         
         $escola = Escola::findOrfail($id);
+
+if($usuario_logado == "Admin") 
+
+        {
+
         return view('escola.edit',compact('escola' ,'siems', 'pessoas' ) );
+
+} else {
+
+        $this->authorize('edit', $escola);
+
+        return view('escola.edit',compact('escola' ,'siems', 'pessoas' ) );
+
+        }
+
+
 
     }    
 

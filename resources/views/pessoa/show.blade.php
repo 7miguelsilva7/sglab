@@ -25,11 +25,19 @@
    
                     <tr>
                         <td>
+                            <b>Adicionado Por : </b>
+                        </td>
+                        <td>{{$pessoa->adicionado_por}}</td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td>
                             <b><i>nome : </i></b>
                         </td>
                         <td>{{$pessoa->nome}}</td>
                     </tr>
-                    
+
                     <tr>
                         <td>
                             <b><i>cep : </i></b>
