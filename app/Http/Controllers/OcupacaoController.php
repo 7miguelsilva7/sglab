@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Ocupacao;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
+use App\Http\Requests;
+
 
 /**
  * Class OcupacaoController.
@@ -34,6 +36,9 @@ class OcupacaoController extends Controller
      * @return  \Illuminate\Http\Response
      */
 
+
+
+
     public function index()
         {
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
@@ -59,6 +64,16 @@ class OcupacaoController extends Controller
      */
     public function store(Request $request)
     {
+
+        
+        // validação de campos do formulário
+        print_r($request->all());
+        $this->validate($request,[
+         'usuario'=>'required|max:25',
+         'nome'=>'required|unique:ocupacaos'
+        ]);
+        // Fim validação de campos de formulário
+
         $ocupacao = new Ocupacao();
 
         

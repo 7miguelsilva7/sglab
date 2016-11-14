@@ -13,9 +13,19 @@
             
             <br>
   
+    
 
             <form method = 'POST' action = '{{url("ocupacao")}}'>
    
+   @if (count($errors) > 0)
+         <div class = "alert alert-danger">
+            <ul>
+               @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+               @endforeach
+            </ul>
+         </div>
+    @endif
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
 <?php
@@ -30,18 +40,18 @@
         <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
 
           
-                <div class="form-group">
+                    <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
   
                     <label for="nome">nome</label>
                     <input id="nome" name = "nome" type="text" class="form-control">
-                </div>
+                    
+                    </div>
                 
                 
                 <button class = 'btn btn-primary' type ='submit'>Create</button>
             </form>
         </div>
     </body>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </html>
 @endsection
