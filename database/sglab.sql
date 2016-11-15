@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 15, 2016 at 02:55 AM
+-- Generation Time: Nov 15, 2016 at 04:27 PM
 -- Server version: 5.5.53-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.20
 
@@ -227,19 +227,21 @@ CREATE TABLE IF NOT EXISTS `pessoas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `rg` (`rg`),
   KEY `pessoas_user_id_foreign` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `pessoas`
 --
 
 INSERT INTO `pessoas` (`id`, `vinculo`, `nome`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `cel1`, `cel2`, `email`, `cpf`, `rg`, `expedicao_rg`, `naturalidade`, `nascionalidade`, `nis`, `escolaridade`, `data_nascimento`, `nome_mae`, `nome_pai`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'NÃO POSSUI', '', 'SEDE', '00000000000000', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 12, '2016-11-13 00:10:15', '2016-11-13 00:10:15'),
-(2, 'Educandário João XXIII', 'Miguel dos Santos Silva', '0', 'SEDE', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16, '2016-11-13 00:12:32', '2016-11-15 06:54:33'),
-(3, 'Liberado', 'Etienne Alves Santana', '0', 'SEDE', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', 'SUPERIOR', '', '', '', 12, '2016-11-13 00:12:58', '2016-11-15 06:51:35'),
-(4, 'CENTRO SOCIAL URBANO - CSU', 'Mariana Athayde', '0', 'SEDE', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 15, '2016-11-13 00:14:51', '2016-11-15 07:07:22'),
-(5, 'Liberado', 'Marcos José Chagas', '', 'SEDE', 'Petrolina', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 12, '2016-11-15 07:10:27', '2016-11-15 07:10:52');
+(1, 'Admin', 'NÃO POSSUI', '', 'SEDE', '00000000000000', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '', '', '', 12, '2016-11-13 00:10:15', '2016-11-13 00:10:15'),
+(2, 'Educandário João XXIII', 'Miguel dos Santos Silva', '0', 'SEDE', '0', '', '', '', '', '', '', '', '', '2', '', '', '', '', '', '', '', '', 16, '2016-11-13 00:12:32', '2016-11-15 06:54:33'),
+(3, 'Educandário João XXIII', 'Etienne Alves Santana', '0', 'SEDE', '0', '', '', '', '', '', '', '', '', '3', '', '', '', '', 'SUPERIOR', '', '', '', 16, '2016-11-13 00:12:58', '2016-11-15 19:50:24'),
+(4, 'CENTRO SOCIAL URBANO - CSU', 'Mariana Athayde', '0', 'SEDE', '0', '', '', '', '', '', '', '', '', '4', '', '', '', '', '', '', '', '', 15, '2016-11-13 00:14:51', '2016-11-15 07:07:22'),
+(5, 'Liberado', 'Marcos José Chagas', '', 'SEDE', 'Petrolina', '', '', '', '', '', '', '', '', '5', '', '', '', '', '', '', '', '', 12, '2016-11-15 07:10:27', '2016-11-15 07:10:52'),
+(7, 'Liberado', 'Thiago Leal', '', '', '', '', '', '', '', '', '', '', '', '6', '', '', '', '', '', '', '', '', 12, '2016-11-15 22:08:04', '2016-11-15 22:08:56');
 
 -- --------------------------------------------------------
 
@@ -349,9 +351,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$owYPnWTMoJBH0lovrW/bqONuFCnxI1zoizzst2TOB2p5bTVwEmfV2', 'K9cjoMeBYI2KOyHLXM66R5XHXCLzTVDM6XlJCwyWOVmMGuc7UAdzBlSkuafS', '2016-11-12 17:44:03', '2016-11-15 08:49:03'),
-(15, 'CENTRO SOCIAL URBANO - CSU', 'centro@gmail.com', '$2y$10$wvad2ySwqBelHhc/qKeku.nQ8N.0m8idOKgffiZKCm.iarKb8hczK', 'MbLEssyey6sgsRmVYyudxPvd00bwAYAvD4exQuhcR773sXqWVNyDrMBoIuZL', '2016-11-12 23:47:44', '2016-11-15 08:50:48'),
-(16, 'Educandário João XXIII', 'educandariojoao23@gmail.com', '$2y$10$wX49d.6NX1FhI60dnMyapO8v7I0t4NCy3X5T4UyiFqJhQvI49tFHa', '7huhO015aL0IbOrT2WayvEPKMbznyKh01uTMMq8RFxUxRsGvhx1XieKjyiSy', '2016-11-13 00:16:36', '2016-11-15 08:49:58'),
+(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$owYPnWTMoJBH0lovrW/bqONuFCnxI1zoizzst2TOB2p5bTVwEmfV2', 'JuPuuKXH8CzOpga83xKoxhZ1B8eBjadGNTtmPjIs8BzHXMRyOvVu6d63J3sO', '2016-11-12 17:44:03', '2016-11-15 22:12:54'),
+(15, 'CENTRO SOCIAL URBANO - CSU', 'centro@gmail.com', '$2y$10$wvad2ySwqBelHhc/qKeku.nQ8N.0m8idOKgffiZKCm.iarKb8hczK', 'uKLfSV37o8aDL6cXMT56Tf803lU5KypbxqcWCYPGDzpJew8cmciSXg8gJpiz', '2016-11-12 23:47:44', '2016-11-15 20:41:40'),
+(16, 'Educandário João XXIII', 'educandariojoao23@gmail.com', '$2y$10$wX49d.6NX1FhI60dnMyapO8v7I0t4NCy3X5T4UyiFqJhQvI49tFHa', 'tFQSXGmp3bjkiOBPgb91EGs7ufqXO0WZSOiJUeB2WWfhhyhlnB66DFzu64OS', '2016-11-13 00:16:36', '2016-11-15 21:42:57'),
 (17, 'Liberado', 'liberado@gmail.com', '$2y$10$XjCrpeKNG0ilPkwHslBdouPEmr1i6wdxLkZ4ZmIcPbjHM9cyo7066', '3iwSPnG0AUqTtTJ8ikv5vSBUQ9pVd16NxbdV4sJJLTxAhM1pTnVu0Iou30vq', '2016-11-15 05:35:44', '2016-11-15 05:35:49');
 
 -- --------------------------------------------------------
