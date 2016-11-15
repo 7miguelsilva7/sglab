@@ -25,11 +25,7 @@
 
 {!! Form::open(['method'=>'GET','url'=>'funcionario','class'=>'navbar-form navbar-right','role'=>'search'])  !!}
 
-<?php
-                        $usuario_logado = Auth::user()->name;
-                        if ($usuario_logado == "Admin") { ?>
 <a href="{{ url('funcionario/create') }}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo</a>
-<?php } ?>
 
 <div class="input-group custom-search-form">
 

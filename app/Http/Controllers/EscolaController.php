@@ -75,33 +75,22 @@ if($usuario_logado == "Admin") {
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
             
-            if ($search == "") {
 
-
-            $escolas = Escola::
-                where('user_id',Auth::user()->id)
+            $escolas = Escola::where('siem_id','like','%'.$search.'%')
+                ->where('vinculo',Auth::user()->name)
                 ->orderBy('siem_id')
                 ->paginate(5);
 
             return view('escola.index',compact('escolas','siems'));
 
-            } else {
-
-            $escolas = Escola::
-                where('siem_id','like','%'.$search.'%')
-                ->where('user_id',Auth::user()->id)
-                ->orderBy('siem_id')
-                ->paginate(5);
-
-            return view('escola.index',compact('escolas','siems'));
-
+         
                 
                   }
             }
 
 
 
-   }
+   
 
 public function reportescola()
 {

@@ -17,6 +17,7 @@ use App\Ocupacao;
 
 use App\Pessoa;
 
+use Auth;
 
 /**
  * Class FuncionarioController.
@@ -34,25 +35,37 @@ class FuncionarioController extends Controller
     public function index()
     {
        //$funcionarios = Funcionario::paginate(6);
-       
 
-            $usuario_logado = Auth::user()->name;
+
+$usuario_logado = Auth::user()->name;
 
 
             $pessoas = Pessoa::all();
 
             $siems = Siem::all();
 
+
+if($usuario_logado == "Admin") {
+
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
-
-
             $funcionarios = Funcionario::where('pessoa_id','like','%'.$search.'%')
-
                 ->orderBy('pessoa_id')
                 ->paginate(5);
 
         return view('funcionario.index',compact('funcionarios','pessoas','escolas'));
+
+} else {
+
+       $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            $funcionarios = Funcionario::where('pessoa_id','like','%'.$search.'%')
+                ->where('user_id',Auth::user()->id)
+                ->orderBy('pessoa_id')
+                ->paginate(5);
+
+        return view('funcionario.index',compact('funcionarios','pessoas','escolas'));
+}
     }
 
 
@@ -101,7 +114,7 @@ class FuncionarioController extends Controller
     {
         $funcionario = new Funcionario();
 
-        $funcionario->vinculo = $request->vinculo;
+        $funcionario->adicionado_por = $request->adicionado_por;
 
         $funcionario->user_id = $request->user_id;
 
