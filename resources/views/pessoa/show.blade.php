@@ -25,9 +25,9 @@
    
                     <tr>
                         <td>
-                            <b>Adicionado Por : </b>
+                            <b>Vínculo : </b>
                         </td>
-                        <td>{{$pessoa->adicionado_por}}</td>
+                        <td>{{$pessoa->vinculo}}</td>
                     </tr>
                     
 

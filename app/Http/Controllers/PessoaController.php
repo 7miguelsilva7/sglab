@@ -39,6 +39,7 @@ class PessoaController extends Controller
 
     public function index()
         {
+            
             $usuario_logado = Auth::user()->name;
  
 
@@ -56,12 +57,30 @@ if($usuario_logado == "Admin") {
 
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
+            if ($search == "") {
+
+                
+            $pessoas = Pessoa::
+                where('vinculo',"Liberado")
+                ->orwhere('user_id',Auth::user()->id)
+                ->orderBy('nome')
+                ->paginate(5);
+
+            return view('pessoa.index',compact('pessoas'));
+
+
+            } else {
+
+
             $pessoas = Pessoa::where('nome','like','%'.$search.'%')
+                ->orwhere('vinculo',"Liberado")
                 ->where('user_id',Auth::user()->id)
                 ->orderBy('nome')
                 ->paginate(5);
 
             return view('pessoa.index',compact('pessoas'));
+                    }
+
         }
     }
     public function create()
@@ -80,7 +99,7 @@ if($usuario_logado == "Admin") {
     {
         $pessoa = new Pessoa();
 
-        $pessoa->adicionado_por = $request->adicionado_por;
+        $pessoa->vinculo = $request->vinculo;
 
 
         $pessoa->user_id = $request->user_id;
@@ -191,6 +210,10 @@ if($usuario_logado == "Admin") {
      */
     public function edit($id,Request $request)
     {
+
+$usuario_logado = Auth::user()->name;
+
+
         if($request->ajax())
         {
             return URL::to('pessoa/'. $id . '/edit');
@@ -198,8 +221,35 @@ if($usuario_logado == "Admin") {
 
         
         $pessoa = Pessoa::findOrfail($id);
+
+if($usuario_logado == "Admin") 
+
+        {
+
         return view('pessoa.edit',compact('pessoa'  ));
+
+} else {
+        
+        if($pessoa->vinculo == "Liberado")
+
+        {
+
+        return view('pessoa.edit',compact('pessoa'  ));
+
+        } else 
+
+        {
+
+        $this->authorize('edit_pessoa', $pessoa);
+
+        
+        return view('pessoa.edit',compact('pessoa'  ));
+
+        }
+
     }
+
+    }    
 
     /**
      * Update the specified resource in storage.
@@ -212,7 +262,7 @@ if($usuario_logado == "Admin") {
     {
         $pessoa = Pessoa::findOrfail($id);
 
-        $pessoa->adicionado_por = $request->adicionado_por;       
+        $pessoa->vinculo = $request->vinculo;       
     	
         $pessoa->user_id = $request->user_id;
         

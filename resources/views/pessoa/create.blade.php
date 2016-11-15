@@ -18,7 +18,7 @@
 <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
 <?php
                         $usuario_logado = Auth::user()->id;
-                        $adicionado_por = Auth::user()->name;
+                        $vinculo = Auth::user()->name;
                         { ?>       
 
                 <div class="form-group">
@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type = 'hidden' value= "{{$adicionado_por}}" id="adicionado_por" name = "adicionado_por" type="text" class="form-control">
+                    <input type = 'hidden' value= "{{$vinculo}}" id="vinculo" name = "vinculo" type="text" class="form-control">
                 </div>
                 
 

@@ -1,3 +1,10 @@
+
+<?php
+
+#chama o arquivo de configuração com o banco
+
+require_once '../connect.php';
+?>
 @extends('layouts.app')
 
 @section('content')
@@ -16,10 +23,62 @@
                 
              
 <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
+<!-- campo verifica usuário logado, identificando quem está inserindo registro -->
+<!-- campo verifica usuário logado, identificando quem está inserindo registro -->
+<!-- campo verifica usuário logado, identificando quem está inserindo registro -->
+
+
 <?php
+
                         $usuario_logado = Auth::user()->id;
-                        $adicionado_por = Auth::user()->name;
-                        { ?>       
+                        $vinculo = Auth::user()->name;
+
+
+
+#Seleciona dados da Tabela User
+ try{
+    $sql2 ='SELECT * FROM users;';
+    $stmt2 = $conn->prepare($sql2);
+    $stmt2 ->execute();
+    $data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+}catch(PDOException $e2){
+    echo 'ERROR: ' . $e2->getMessage();
+}
+
+
+
+                      if (Auth::user()->name == "Admin")  
+                      
+                      { ?>       
+
+                        <div class="form-group">
+                        <div class="row">
+                            <div align="center" class="col-md-12">
+                            <label for="vinculo" >Víncular registro a:</label></br>
+<!--<input value= "{{$usuario_logado}}" id="user_id" name = "user_id" type="text" class="form-control">-->
+                            <select name="vinculo" id="select14" require> 
+                            <option value="">Escolha um usuário/escola para vincular Registro</option>
+
+                            <?php foreach($data2 as $row2) : ?> 
+                            <option value="<?php echo $row2['name']; ?>"><?php echo $row2['name']; ?></option> 
+                            <?php endforeach ?> 
+                            </select>
+                            </div> 
+                           
+                        </div><!--/row-->
+                      
+                        </div>
+                                <div align="center">
+                                <button align="center" class = 'btn btn-primary' type ='submit'>Apenas Víncular</button>
+                                </div>
+                <div class="form-group">
+                    <input type = 'hidden' value= "{{$usuario_logado}}" id="user_id" name = "user_id" type="text" class="form-control">
+                </div>
+                
+
+                    <?php }  else { ?>
+
+
 
                 <div class="form-group">
                     <input type = 'hidden' value= "{{$usuario_logado}}" id="user_id" name = "user_id" type="text" class="form-control">
@@ -27,11 +86,13 @@
 
                 
                 <div class="form-group">
-                    <input type = 'hidden' value= "{{$adicionado_por}}" id="adicionado_por" name = "adicionado_por" type="text" class="form-control">
+                    <input type = 'hidden' value= "{{$vinculo}}" id="vinculo" name = "vinculo" type="text" class="form-control">
                 </div>
-                
-
 <?php } ?>
+
+<!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
+<!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
+<!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
 
                         <div class="form-group">
@@ -186,7 +247,7 @@
                             <div class="row">
                             <div class="col-md-6">   
                             <label for="tipo_internet_escola">Tipo Internet da Escola</label>
-<select class="form-control" name="tipo_internet_escola" id="select11" required>
+                    <select class="form-control" name="tipo_internet_escola" id="select11" required>
                                 <option value="{{$escola->tipo_internet_escola}}">{{$escola->tipo_internet_escola}}</option>
                                 <option value="NENHUMA">NENHUMA</option>
                                 <option value="CLARO">CLARO</option>

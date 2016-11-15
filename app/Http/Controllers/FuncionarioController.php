@@ -34,6 +34,10 @@ class FuncionarioController extends Controller
     public function index()
     {
        //$funcionarios = Funcionario::paginate(6);
+       
+
+            $usuario_logado = Auth::user()->name;
+
 
             $pessoas = Pessoa::all();
 
@@ -41,7 +45,10 @@ class FuncionarioController extends Controller
 
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
+
+
             $funcionarios = Funcionario::where('pessoa_id','like','%'.$search.'%')
+
                 ->orderBy('pessoa_id')
                 ->paginate(5);
 
@@ -94,7 +101,7 @@ class FuncionarioController extends Controller
     {
         $funcionario = new Funcionario();
 
-        $funcionario->adicionado_por = $request->adicionado_por;
+        $funcionario->vinculo = $request->vinculo;
 
         $funcionario->user_id = $request->user_id;
 
@@ -186,7 +193,7 @@ class FuncionarioController extends Controller
     {
         $funcionario = Funcionario::findOrfail($id);
 
-        $funcionario->adicionado_por = $request->adicionado_por;
+        $funcionario->vinculo = $request->vinculo;
         
     	
         $funcionario->user_id = $request->user_id;

@@ -17,6 +17,8 @@ use App\Pessoa;
 
 use Auth;
 
+use App\User;
+
 
 /**
  * Class EscolaController.
@@ -53,6 +55,7 @@ class EscolaController extends Controller
 if($usuario_logado == "Admin") {
 
             $siems = Siem::all();
+
             $escolas = Escola::all();
 
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
@@ -64,12 +67,25 @@ if($usuario_logado == "Admin") {
             return view('escola.index',compact('escolas','siems'));
         
 
-}else {
+} else {
 
 
             $siems = Siem::all();
 
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            
+            if ($search == "") {
+
+
+            $escolas = Escola::
+                where('user_id',Auth::user()->id)
+                ->orderBy('siem_id')
+                ->paginate(5);
+
+            return view('escola.index',compact('escolas','siems'));
+
+            } else {
 
             $escolas = Escola::
                 where('siem_id','like','%'.$search.'%')
@@ -78,11 +94,14 @@ if($usuario_logado == "Admin") {
                 ->paginate(5);
 
             return view('escola.index',compact('escolas','siems'));
-}
+
+                
+                  }
+            }
 
 
 
-        }
+   }
 
 public function reportescola()
 {
@@ -143,7 +162,7 @@ public function perfillaboratorio()
         $escola = new Escola();
 
 
-        $escola->adicionado_por = $request->adicionado_por;
+        $escola->vinculo = $request->vinculo;
 
         
         $escola->user_id = $request->user_id;
@@ -307,6 +326,7 @@ $usuario_logado = Auth::user()->name;
             return URL::to('escola/'. $id . '/edit');
         }
 
+        $users = User::all();
         
         $siems = Siem::all()->pluck('nome','id');
 
@@ -320,17 +340,29 @@ if($usuario_logado == "Admin")
 
         {
 
-        return view('escola.edit',compact('escola' ,'siems', 'pessoas' ) );
+        return view('escola.edit',compact('users', 'escola' ,'siems', 'pessoas' ) );
 
 } else {
 
-        $this->authorize('edit', $escola);
+        if($escola->vinculo == "Liberado")
+
+        {
+
+        return view('escola.edit',compact('escola' ,'siems', 'pessoas' ) );
+
+        } else
+
+        {
+
+        $this->authorize('edit_escola', $escola);
 
         return view('escola.edit',compact('escola' ,'siems', 'pessoas' ) );
 
         }
 
+        
 
+        }
 
     }    
 
@@ -345,7 +377,7 @@ if($usuario_logado == "Admin")
     {
         $escola = Escola::findOrfail($id);
 
-        $escola->adicionado_por = $request->adicionado_por;
+        $escola->vinculo = $request->vinculo;
     	
         $escola->user_id = $request->user_id;
         

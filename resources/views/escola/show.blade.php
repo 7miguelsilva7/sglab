@@ -25,9 +25,9 @@
                     
                     <tr>
                         <td>
-                            <b><i>Adicionado Por : </i></b>
+                            <b>Vínculo : </b>
                         </td>
-                        <td>{{$escola->adicionado_por}}</td>
+                        <td>{{$escola->vinculo}}</td>
                     </tr>
                     
  <tr>

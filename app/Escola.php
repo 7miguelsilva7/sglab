@@ -28,6 +28,10 @@ class Escola extends Model
 	{
 		return $this->belongsTo('App\Pessoa','pessoa_id');
 	}
-
+    
+	public function user()
+	{
+		return $this->belongsTo('App\User','user_id');
+	}
 	
 }
