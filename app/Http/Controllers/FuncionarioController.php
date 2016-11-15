@@ -176,6 +176,9 @@ if($usuario_logado == "Admin") {
      */
     public function edit($id,Request $request)
     {
+
+        $usuario_logado = Auth::user()->name;
+
         if($request->ajax())
         {
             return URL::to('funcionario/'. $id . '/edit');
@@ -192,9 +195,32 @@ if($usuario_logado == "Admin") {
 
         
         $funcionario = Funcionario::findOrfail($id);
-        return view('funcionario.edit',compact('funcionario' ,'siems', 'ocupacaos', 'pessoas' ) );
-    }
 
+if($usuario_logado == "Admin") 
+
+        {
+
+        return view('funcionario.edit',compact('funcionario' ,'siems', 'ocupacaos', 'pessoas' ) );
+
+} else {
+
+
+        if($funcionario->user_id == Auth::user()->id)
+
+        {
+
+        return view('funcionario.edit',compact('funcionario' ,'siems', 'ocupacaos', 'pessoas' ) );
+
+        } else {
+
+                    $this->authorize('vinculo_funcionario', $funcionario);
+
+                    return view('funcionario.edit',compact('funcionario' ,'siems', 'ocupacaos', 'pessoas' ) );
+
+            }
+
+        }
+    }
     /**
      * Update the specified resource in storage.
      *
