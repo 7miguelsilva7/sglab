@@ -28,28 +28,28 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
 
-        Gate::define('edit_escola', function ($user, $escola)
+        Gate::define('vinculo_escola', function ($user, $escola)
 
         {  
-            return $user->id == $escola->user_id;
+            return $user->name == $escola->vinculo;
         });
 
 
-        Gate::define('edit_pessoa', function ($user, $pessoa)
+        Gate::define('vinculo_pessoa', function ($user, $pessoa)
 
         {  
-            return $user->id == $pessoa->user_id;
+            return $user->name == $pessoa->vinculo;
         });
         
 
-        Gate::define('edit_funcionario', function ($user, $funcionario)
+        Gate::define('vinculo_funcionario', function ($user, $funcionario)
 
         {  
             return $user->id == $funcionario->user_id;
         });
     }
 
-    // public function edit(User $user, Escola $escola)
+    // public function vinculo(User $user, Escola $escola)
     // {
 
     //         return $user->id === $escola->user_id;

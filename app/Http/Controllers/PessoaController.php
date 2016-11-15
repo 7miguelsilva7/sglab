@@ -62,7 +62,7 @@ if($usuario_logado == "Admin") {
                 
             $pessoas = Pessoa::
                 where('vinculo',"Liberado")
-                ->orwhere('user_id',Auth::user()->id)
+                ->orwhere('vinculo',Auth::user()->name)
                 ->orderBy('nome')
                 ->paginate(5);
 
@@ -74,7 +74,7 @@ if($usuario_logado == "Admin") {
 
             $pessoas = Pessoa::where('nome','like','%'.$search.'%')
                 ->orwhere('vinculo',"Liberado")
-                ->where('user_id',Auth::user()->id)
+                ->where('vinculo',Auth::user()->name)
                 ->orderBy('nome')
                 ->paginate(5);
 
@@ -240,7 +240,7 @@ if($usuario_logado == "Admin")
 
         {
 
-        $this->authorize('edit_pessoa', $pessoa);
+        $this->authorize('vinculo_pessoa', $pessoa);
 
         
         return view('pessoa.edit',compact('pessoa'  ));

@@ -128,7 +128,7 @@ public function perfillaboratorio()
 
     public function create()
     {
-         $usuario_logado = Auth::user()->name; 
+        $usuario_logado = Auth::user()->name; 
 
         if($usuario_logado == "Admin") {
 
@@ -343,7 +343,7 @@ if($usuario_logado == "Admin")
 
         {
 
-        $this->authorize('edit_escola', $escola);
+        $this->authorize('vinculo_escola', $escola);
 
         return view('escola.edit',compact('escola' ,'siems', 'pessoas' ) );
 
