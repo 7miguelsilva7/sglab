@@ -15,6 +15,19 @@
             <form method = 'POST' action = '{{url("pessoa")}}'>
                 <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 
+        
+@if (count($errors) > 0)
+         <div class = "alert alert-danger">
+            <ul>
+               @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+               @endforeach
+            </ul>
+         </div>
+@endif
+
+
+
 <!-- campo verifica usuário logado, identificando quem está inserindo registro -->
 <?php
                         $usuario_logado = Auth::user()->id;
@@ -38,7 +51,7 @@
                 <div class="form-group">
                
                     <label for="nome">Nome</label>
-                    <input  id="nome" name = "nome" type="text" class="form-control" >
+                    <input  id="nome" name = "nome" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
@@ -122,7 +135,6 @@
                 </div>
                 </div>
                 
-
                             <div class="form-group">
                             <div class="row">
                             <div class="col-md-6">    

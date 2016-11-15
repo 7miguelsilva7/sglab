@@ -73,6 +73,7 @@ class OcupacaoController extends Controller
          'nome'=>'required|unique:ocupacaos'
         ]);
         // Fim validação de campos de formulário
+        
 
         $ocupacao = new Ocupacao();
 

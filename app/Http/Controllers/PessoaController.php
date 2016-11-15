@@ -20,6 +20,7 @@ use Auth;
  */
 class PessoaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -97,6 +98,18 @@ if($usuario_logado == "Admin") {
      */
     public function store(Request $request)
     {
+
+
+// validação de campos do formulário
+        print_r($request->all());
+        $this->validate($request,[
+         'vinculo'=>'required|max:50',
+         'nome'=>'required|max:100',
+         'rg'=>'required|unique:pessoas'
+        ]);
+// Fim validação de campos de formulário
+
+
         $pessoa = new Pessoa();
 
         $pessoa->vinculo = $request->vinculo;
