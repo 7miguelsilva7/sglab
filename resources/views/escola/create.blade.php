@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-md-12">
                             <label for="siem_id">Selecione a Escola</label>
-                                <select class="form-control" name="siem_id" id="select1" required>
+                                <select class="form-control" name="siem_id" id="select1">
                                 <option value=""></option>
                                 @foreach($siems as $key => $value)
                                 <option value="{{$key}}">{{$value}}</option>
@@ -64,7 +64,7 @@
                 <div class="col-md-6">
 
                     <label for="inep">Inep</label>
-                    <input required id="inep" name = "inep" type="text" class="form-control">
+                    <input id="inep" name = "inep" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
@@ -84,7 +84,7 @@
                             <div class="row">
                             <div class="col-md-6">
                             <label for="distrito">Distrito</label>
-                                <select class="form-control" name="distrito" id="select2" required>
+                                <select class="form-control" name="distrito" id="select2">
                                 <option value=""></option>
                                 <option value="ABÓBORA">ABÓBORA</option>
                                 <option value="ITAMOTINGA">ITAMOTINGA</option>
@@ -102,7 +102,7 @@
                 <div class="form-group">
                 <div class="col-md-6">                   
                 <label for="bairro">Bairro</label>
-                    <input required id="bairro" name = "bairro" type="text" class="form-control">
+                    <input id="bairro" name = "bairro" type="text" class="form-control">
                 </div>
                 </div>
                 </div>
@@ -174,7 +174,7 @@
                 <div class="col-md-6">                 
                 
                     <label for="possui_internet_escola">Possui internet na Escola</label>
-                    <select class="form-control" name="possui_internet_escola" id="select2" required>
+                    <select class="form-control" name="possui_internet_escola" id="select2">
                                 <option value=""></option>
                                 <option value="SIM">SIM</option>
                                 <option value="NÃO">NÃO</option>
@@ -188,7 +188,7 @@
                             <div class="row">
                             <div class="col-md-6">   
                             <label for="tipo_internet_escola">Tipo Internet da Escola</label>
-<select class="form-control" name="tipo_internet_escola" id="select11" required>
+<select class="form-control" name="tipo_internet_escola" id="select11">
                                 <option value=""></option>
                                 <option value="NENHUMA">NENHUMA</option>
                                 <option value="CLARO">CLARO</option>
@@ -207,7 +207,7 @@
                 <div class="col-md-6">   
 
                     <label for="status_escola">Status Escola</label>
-                    <select class="form-control" name="status_escola" id="select2" required>
+                    <select class="form-control" name="status_escola" id="select2">
                                 <option value="ATIVO">ATIVO</option>
                                 <option value="INATIVO">INATIVO</option>
                                
@@ -224,7 +224,7 @@
                             <div class="row">
                             <div class="col-md-6"> 
                                                 <label for="possui_lab">Possui Lab</label>
-                    <select class="form-control" name="possui_lab" id="select2" required>
+                    <select class="form-control" name="possui_lab" id="select2">
                                 <option value=""></option>
                                 <option value="SIM">SIM</option>
                                 <option value="NÃO">NÃO</option>
@@ -238,7 +238,7 @@
                             <div class="col-md-6"> 
                 
                     <label for="possui_analista">Possui Analista</label>
-                    <select class="form-control" name="possui_analista" id="select2" required>
+                    <select class="form-control" name="possui_analista" id="select2">
                                 <option value=""></option>
                                 <option value="SIM">SIM</option>
                                 <option value="NÃO">NÃO</option>
@@ -254,7 +254,7 @@
                 
                     <div class="form-group">
                     <label>Analista em Educação</label>
-                    <select name = 'pessoa_id' style="no" class = 'form-control' id="select3" required>
+                    <select name = 'pessoa_id' style="no" class = 'form-control' id="select3">
                         <option value="1">NÃO POSSUI</option>
                         @foreach($pessoas->except($pessoas->id=1) as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>

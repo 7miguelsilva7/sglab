@@ -38,7 +38,7 @@
                 <div class="form-group">
                
                     <label for="nome">Nome</label>
-                    <input required id="nome" name = "nome" type="text" class="form-control" required>
+                    <input  id="nome" name = "nome" type="text" class="form-control" >
                 </div>
                 
                 <div class="form-group">
@@ -75,7 +75,7 @@
                 <div class="row">
                 <div class="col-md-6">              
                 <label for="bairro">Bairro</label>
-                    <input required id="bairro" name = "bairro" type="text" class="form-control">
+                    <input  id="bairro" name = "bairro" type="text" class="form-control">
                 </div>
                
                 

@@ -99,7 +99,7 @@ require_once '../connect.php';
                 <div class="form-group">
                
                     <label for="nome">Nome</label>
-                    <input required id="nome" name = "nome" type="text" value= "{{$pessoa->nome}}" class="form-control">
+                    <input  id="nome" name = "nome" type="text" value= "{{$pessoa->nome}}" class="form-control">
                 </div>
                 
                 <div class="form-group">
@@ -114,7 +114,7 @@ require_once '../connect.php';
                             <div class="form-group">
                             <div class="col-md-6">
                             <label for="distrito">Distrito</label>
-                                <select class="form-control" name="distrito" id="select2" required>
+                                <select class="form-control" name="distrito" id="select2" >
                                 <option value="{{$pessoa->distrito}}">{{$pessoa->distrito}}</option>
                                 <option value="ABÓBORA">ABÓBORA</option>
                                 <option value="ITAMOTINGA">ITAMOTINGA</option>
@@ -136,7 +136,7 @@ require_once '../connect.php';
                 <div class="row">
                 <div class="col-md-6">              
                 <label for="bairro">Bairro</label>
-                    <input required id="bairro" name = "bairro" type="text" value= "{{$pessoa->bairro}}" class="form-control">
+                    <input  id="bairro" name = "bairro" type="text" value= "{{$pessoa->bairro}}" class="form-control">
                 </div>
                
                 
