@@ -10,6 +10,7 @@ use Amranidev\Ajaxis\Ajaxis;
 use URL;
 use App\Http\Requests;
 
+use Auth;
 
 /**
  * Class OcupacaoController.
@@ -41,6 +42,11 @@ class OcupacaoController extends Controller
 
     public function index()
         {
+
+if(Auth::user()->name == "Admin")
+
+        {
+
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
             $ocupacaos = Ocupacao::where('nome','like','%'.$search.'%')
@@ -48,12 +54,19 @@ class OcupacaoController extends Controller
                 ->paginate(5);
 
             return view('ocupacao.index',compact('ocupacaos'));
+
+        }
+
+           
         }
 
     public function create()
     {
-        
+        if(Auth::user()->name == "Admin")
+
+        {
         return view('ocupacao.create');
+        }
     }
 
     /**
@@ -64,6 +77,7 @@ class OcupacaoController extends Controller
      */
     public function store(Request $request)
     {
+
 
         
         // validação de campos do formulário
@@ -109,6 +123,11 @@ class OcupacaoController extends Controller
      */
     public function show($id,Request $request)
     {
+
+if(Auth::user()->name == "Admin")
+
+        {
+
         if($request->ajax())
         {
             return URL::to('ocupacao/'.$id);
@@ -116,6 +135,7 @@ class OcupacaoController extends Controller
 
         $ocupacao = Ocupacao::findOrfail($id);
         return view('ocupacao.show',compact('ocupacao'));
+        }
     }
 
     /**
@@ -126,6 +146,12 @@ class OcupacaoController extends Controller
      */
     public function edit($id,Request $request)
     {
+
+if(Auth::user()->name == "Admin")
+
+        {
+
+
         if($request->ajax())
         {
             return URL::to('ocupacao/'. $id . '/edit');
@@ -134,6 +160,8 @@ class OcupacaoController extends Controller
         
         $ocupacao = Ocupacao::findOrfail($id);
         return view('ocupacao.edit',compact('ocupacao'  ));
+
+        }
     }
 
     /**

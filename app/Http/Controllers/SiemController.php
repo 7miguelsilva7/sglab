@@ -36,6 +36,11 @@ class SiemController extends Controller
 
         public function index()
         {
+
+
+if(Auth::user()->name == "Admin")
+
+        {            
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
             $siems = Siem::where('nome','like','%'.$search.'%')
@@ -43,13 +48,25 @@ class SiemController extends Controller
                 ->paginate(5);
 
             return view('siem.index',compact('siems'));
+
         }
+
+        }
+
 
     public function create()
     {
         
+ if(Auth::user()->name == "Admin")
+
+        {
+
         return view('siem.create');
+
+        }
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -102,6 +119,11 @@ class SiemController extends Controller
      */
     public function show($id,Request $request)
     {
+
+
+if(Auth::user()->name == "Admin")
+
+        {        
         if($request->ajax())
         {
             return URL::to('siem/'.$id);
@@ -109,6 +131,8 @@ class SiemController extends Controller
 
         $siem = Siem::findOrfail($id);
         return view('siem.show',compact('siem'));
+
+        }
     }
 
     /**
@@ -119,6 +143,10 @@ class SiemController extends Controller
      */
     public function edit($id,Request $request)
     {
+
+if(Auth::user()->name == "Admin")
+
+        {        
         if($request->ajax())
         {
             return URL::to('siem/'. $id . '/edit');
@@ -127,6 +155,8 @@ class SiemController extends Controller
         
         $siem = Siem::findOrfail($id);
         return view('siem.edit',compact('siem'  ));
+
+        }
     }
 
     /**
