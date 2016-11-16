@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Escola;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
+use validator;
 
 use App\Siem;
 
@@ -257,6 +258,13 @@ public function perfillaboratorio()
 
         
         $escola->qt_notebook_lab = $request->qt_notebook_lab;
+
+
+        // campos adicionados posteriormente
+        $escola->qt_projetores = $request->qt_projetores;
+        $escola->qt_tablets = $request->qt_tablets;
+
+
 
         
         $escola->roteador_lab = $request->roteador_lab;
