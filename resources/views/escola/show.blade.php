@@ -32,7 +32,7 @@
                     
  <tr>
                         <td>
-                            <b><i>Siem : </i><b>
+                            <b><i>Número Siem : </i><b>
                         </td>
                         <td>{{$escola->siem->siem}}</td>
                         </tr>
@@ -63,141 +63,141 @@
 
  <tr>
                         <td>
-                            <b><i>pregao1 : </i></b>
+                            <b><i>Pregão Lab : </i></b>
                         </td>
-                        <td>{{$escola->pregao1}}</td>
+                        <td>{{$escola->Pregao1}} {{$escola->Pregao2}} {{$escola->Pregao3}} {{$escola->Pregao4}}</td>
+                    </tr>
+                    
+                    <!--<tr>
+                        <td>
+                            <b><i>Pregao2 : </i></b>
+                        </td>
+                        <td>{{$escola->Pregao2}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>pregao2 : </i></b>
+                            <b><i>Pregao3 : </i></b>
                         </td>
-                        <td>{{$escola->pregao2}}</td>
+                        <td>{{$escola->Pregao3}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>pregao3 : </i></b>
+                            <b><i>Pregao4 : </i></b>
                         </td>
-                        <td>{{$escola->pregao3}}</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <b><i>pregao4 : </i></b>
-                        </td>
-                        <td>{{$escola->pregao4}}</td>
-                    </tr>
+                        <td>{{$escola->Pregao4}}</td>
+                    </tr>-->
 
 
                     <tr>
                         <td>
-                            <b><i>cep : </i></b>
+                            <b><i>Cep : </i></b>
                         </td>
                         <td>{{$escola->cep}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>distrito : </i></b>
+                            <b><i>Distrito : </i></b>
                         </td>
                         <td>{{$escola->distrito}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>bairro : </i></b>
+                            <b><i>Bairro : </i></b>
                         </td>
                         <td>{{$escola->bairro}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>logradouro : </i></b>
+                            <b><i>Logradouro : </i></b>
                         </td>
                         <td>{{$escola->logradouro}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>numero : </i></b>
+                            <b><i>Numero : </i></b>
                         </td>
                         <td>{{$escola->numero}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>complemento : </i></b>
+                            <b><i>Complemento : </i></b>
                         </td>
                         <td>{{$escola->complemento}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>fone : </i></b>
+                            <b><i>Fone : </i></b>
                         </td>
                         <td>{{$escola->fone}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>email : </i></b>
+                            <b><i>Email : </i></b>
                         </td>
                         <td>{{$escola->email}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>cel1 : </i></b>
+                            <b><i>Celular : </i></b>
                         </td>
-                        <td>{{$escola->cel1}}</td>
+                        <td>{{$escola->cel1}} {{$escola->cel2}}</td>
                     </tr>
                     
-                    <tr>
+                    <!--<tr>
                         <td>
                             <b><i>cel2 : </i></b>
                         </td>
                         <td>{{$escola->cel2}}</td>
-                    </tr>
+                    </tr>-->
                     
                     <tr>
                         <td>
-                            <b><i>sigla : </i></b>
+                            <b><i>Sigla : </i></b>
                         </td>
                         <td>{{$escola->sigla}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>possui_internet_escola : </i></b>
+                            <b><i>Possui Internet na Escola : </i></b>
                         </td>
                         <td>{{$escola->possui_internet_escola}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>tipo_internet_escola : </i></b>
+                            <b><i>Tipo de Internet Escola : </i></b>
                         </td>
                         <td>{{$escola->tipo_internet_escola}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>status_escola : </i></b>
+                            <b><i>Status Escola : </i></b>
                         </td>
                         <td>{{$escola->status_escola}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>possui_lab : </i></b>
+                            <b><i>Possui Lab : </i></b>
                         </td>
                         <td>{{$escola->possui_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>possui_analista : </i></b>
+                            <b><i>Possui Analista : </i></b>
                         </td>
                         <td>{{$escola->possui_analista}}</td>
                     </tr>
@@ -205,7 +205,7 @@
                     
                     <tr>
                         <td>
-                            <b><i>tipo_sala : </i></b>
+                            <b><i>Tipo  Sala Lab : </i></b>
                         </td>
                         <td>{{$escola->tipo_sala}}</td>
                     </tr>
@@ -214,84 +214,84 @@
                     
                     <tr>
                         <td>
-                            <b><i>possui_internet_lab : </i></b>
+                            <b><i>Possui Internet Lab : </i></b>
                         </td>
                         <td>{{$escola->possui_internet_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>tipo_internet_lab : </i></b>
+                            <b><i>Tipo Internet Lab : </i></b>
                         </td>
                         <td>{{$escola->tipo_internet_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>lab_montado : </i></b>
+                            <b><i>Lab  Montado : </i></b>
                         </td>
                         <td>{{$escola->lab_montado}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>qt_computadores_lab : </i></b>
+                            <b><i>Qt. Computadores Lab : </i></b>
                         </td>
                         <td>{{$escola->qt_computadores_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>qt_monitorelab : </i></b>
+                            <b><i>Qt. Monitores Lab : </i></b>
                         </td>
-                        <td>{{$escola->qt_monitorelab}}</td>
+                        <td>{{$escola->qt_monitores_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>status_lab : </i></b>
+                            <b><i>Status Lab : </i></b>
                         </td>
                         <td>{{$escola->status_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>ar_condicionado_lab : </i></b>
+                            <b><i>Ar Condicionado Lab : </i></b>
                         </td>
                         <td>{{$escola->ar_condicionado_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>impressora_lab : </i></b>
+                            <b><i>Impressora Lab : </i></b>
                         </td>
                         <td>{{$escola->impressora_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>qt_notebook_lab : </i></b>
+                            <b><i>Qt Notebooks : </i></b>
                         </td>
                         <td>{{$escola->qt_notebook_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>roteador_lab : </i></b>
+                            <b><i>Roteador Lab : </i></b>
                         </td>
                         <td>{{$escola->roteador_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>switch_lab : </i></b>
+                            <b><i>Switch Lab : </i></b>
                         </td>
                         <td>{{$escola->switch_lab}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>qt_cadeiras_lab : </i></b>
+                            <b><i>Qt Cadeiras Lab : </i></b>
                         </td>
                         <td>{{$escola->qt_cadeiras_lab}}</td>
                     </tr>
@@ -301,7 +301,7 @@
                         
                         <tr>
                         <td>
-                            <b><i>escola_tipo : </i><b>
+                            <b><i>Tipo Escola : </i><b>
                         </td>
                         <td>{{$escola->siem->escola_tipo}}</td>
                         </tr>
@@ -315,14 +315,14 @@
                         
                         <tr>
                         <td>
-                            <b><i>created_at : </i><b>
+                            <b><i>Adicionado em : </i><b>
                         </td>
                         <td>{{$escola->siem->created_at}}</td>
                         </tr>
-                        
+                            
                         <tr>
                         <td>
-                            <b><i>updated_at : </i><b>
+                            <b><i>Atualizado em : </i><b>
                         </td>
                         <td>{{$escola->siem->updated_at}}</td>
                         </tr>
