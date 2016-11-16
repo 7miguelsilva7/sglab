@@ -17,8 +17,8 @@
             <br>
             <table class = 'table table-bordered'>
                 <thead>
-                    <th>Campo</th>
                     <th>Nome</th>
+                    <th>Descrição</th>
                 </thead>
                 <tbody>
 
@@ -319,7 +319,7 @@
                         </td>
                         <td>{{$escola->siem->created_at}}</td>
                         </tr>
-                            
+
                         <tr>
                         <td>
                             <b><i>Atualizado em : </i><b>

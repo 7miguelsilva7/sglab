@@ -96,9 +96,9 @@ require_once '../connect.php';
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                     
-                                    <li><a href="{{ url('/escola') }}"><i class="fa glyphicon glyphicon-home"></i>Escola</a></li>
-                                    <li><a href="{{ url('/funcionario') }}"><i class="fa glyphicon glyphicon-user"></i>Funcionário</a></li>
-                                    <li><a href="{{ url('/pessoa') }}"><i class="fa glyphicon glyphicon-user"></i>Pessoa</a></li>
+                                    <li><a href="{{ url('/escola') }}"><i class="fa glyphicon glyphicon-home"></i>Escolas</a></li>
+                                    <li><a href="{{ url('/funcionario') }}"><i class="fa fa-users"></i>Funcionários</a></li>
+                                    <li><a href="{{ url('/pessoa') }}"><i class="fa glyphicon glyphicon-user"></i>Pessoas</a></li>
                         <?php
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>
@@ -133,7 +133,7 @@ require_once '../connect.php';
                                     <li>
                                     
 									<li><a data-toggle="modal" href="#escolas"><i class="fa glyphicon glyphicon-home"></i>Lista Escolas</a></li>
-									<li><a data-toggle="modal" href="#funcionario"><i class="fa glyphicon glyphicon-user"></i>Lista Funcionários</a></li>
+									<li><a data-toggle="modal" href="#funcionario"><i class="fa fa-users"></i>Lista Funcionários</a></li>
 									<li><a data-toggle="modal" href="#laboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Lista Laboratórios</a></li>
                                     
                                     </li>
@@ -164,7 +164,7 @@ require_once '../connect.php';
                                     <li>
                                     
                                     <li><a data-toggle="modal" href="#perfilescolas"><i class="fa glyphicon glyphicon-home"></i>Perfil Escolas</a></li>
-									<li><a data-toggle="modal" href="#perfilfuncionarios"><i class="fa glyphicon glyphicon-user"></i>Perfil Funcionários</a></li>
+									<li><a data-toggle="modal" href="#perfilfuncionarios"><i class="fa fa-users"></i>Perfil Funcionários</a></li>
 									<li><a data-toggle="modal" href="#perfillaboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Perfil Laboratórios</a></li>
                                     
 
@@ -180,13 +180,13 @@ require_once '../connect.php';
                         <!-- Authentication Links -->
                         @if (Auth::guest())
 
-                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a href="{{ url('/login') }}">Entrar</a></li>
 
                         @else
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }}: {{ Auth::user()->email }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -194,7 +194,7 @@ require_once '../connect.php';
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            <i class="fa glyphicon glyphicon-log-out"></i>Logout
+                                            <i class="fa glyphicon glyphicon-log-out"></i>Sair
                                         </a>
 
                                       <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -207,14 +207,42 @@ require_once '../connect.php';
                 $usuario_logado = Auth::user()->name;
                 if ($usuario_logado == "Admin") { ?>
 
-                            <li><a href="{{ url('/register') }}">Registrar</a></li>
-                <?php } ?>
+
+
+                    </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right ">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                           
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                   Usuários <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                <li ><a href="{{url('/users')}}"><i class="fa fa-users"></i> <span>Usuários</span></a></li>
+						        <li ><a href="{{url('/roles')}}"><i class="fa fa-user-plus"></i> <span>Regras</span></a></li>
+						        <li ><a href="{{url('/permissions')}}"><i class="fa fa-key"></i> <span>Permissões</span></a></li> 
+
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
+
+
+                </div>
+            </div>                <?php } ?>
 
                             
                         @endif
                     </ul>
-                </div>
-            </div>
+
+
         </nav>
 
                         @yield('content')

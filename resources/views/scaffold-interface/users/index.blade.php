@@ -1,13 +1,59 @@
-@extends('scaffold-interface.layouts.app')
+@extends('layouts.app')
+
 @section('content')
-<section class="content">
-<div class="box box-primary">
-<div class="box-header">
-	<h3>All Users</h3>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
+        <title>Usuários</title>
+</head>
+<body>
+        <div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading"> Usuários</div>
+
+                <div class="panel-body">
+            <h2><i class="fa glyphicon glyphicon-th-list"></i> Todos Usuários </h2>
+
+
+{!! Form::open(['method'=>'GET','url'=>'#','class'=>'navbar-form navbar-right','role'=>'search'])  !!}
+
+<?php
+                        $usuario_logado = Auth::user()->name;
+                        if ($usuario_logado == "Admin") { ?>
+
+		<a href="{{url('/register')}}" class = "btn btn-success"><i class="fa fa-plus fa-md" aria-hidden="true"></i> Novo</a>
+
+
+<?php } ?>
+
+<div class="input-group custom-search-form">
+
+                                <select class="form-control" name="search" id="select1">
+                                
+                                <option value="">Mostrar Todos os Usuários Cadastras</option>
+                                @foreach($users as $key => $value)
+                                <option value="{{$value->id}}">{{$value->name}}</option>
+                                @endforeach
+                                    
+                                </select>    <span class="input-group-btn">
+        <button class="btn btn-default-sm" type="submit">
+            <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
+        </button>
+    </span>
 </div>
-	<div class="box-body">
-		<a href="{{url('/users/create')}}" class = "btn btn-success"><i class="fa fa-plus fa-md" aria-hidden="true"></i> New</a>
-		<table class = "table table-hover">
+{!! Form::close() !!}
+
+                  
+		<table class = "table table-striped table-bordered">
 		<thead>
 			<th>Name</th>
 			<th>Email</th>
@@ -46,7 +92,16 @@
 			@endforeach
 		</tbody>
 	</table>
-</div>
-</div>
-</section>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class = 'AjaxisModal'>
+        </div>
+    </div>
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script> var baseURL = "{{URL::to('/')}}"</script>
+<script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
+<script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
+</html>
 @endsection

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 
+use Auth;
+
 class PermissionController extends Controller
 {
     /**
@@ -15,9 +17,13 @@ class PermissionController extends Controller
      */
     public function index()
     {
+
+         if(Auth::user()->name == "Admin")
+  {
         $permissions = Permission::all();
 
         return view('scaffold-interface.permissions.index', compact('permissions'));
+    }
     }
 
     /**
@@ -27,9 +33,12 @@ class PermissionController extends Controller
      */
     public function create()
     {
+
+         if(Auth::user()->name == "Admin")
+  {
         return view('scaffold-interface.permissions.create');
     }
-
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -39,11 +48,14 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
+
+         if(Auth::user()->name == "Admin")
+  {
         Permission::create(['name' => $request->name]);
 
         return redirect('permissions');
     }
-
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -53,11 +65,14 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
+
+         if(Auth::user()->name == "Admin")
+  {
         $permission = Permission::findOrFail($id);
 
         return view('scaffold-interface.permissions.edit', compact('permission'));
     }
-
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -67,6 +82,9 @@ class PermissionController extends Controller
      */
     public function update(Request $request)
     {
+
+         if(Auth::user()->name == "Admin")
+  {
         $permission = Permission::findOrFail($request->permission_id);
 
         $permission->name = $request->name;
@@ -75,7 +93,7 @@ class PermissionController extends Controller
 
         return redirect('permissions');
     }
-
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -85,10 +103,14 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
+
+         if(Auth::user()->name == "Admin")
+  {
         $permission = Permission::findOrFail($id);
 
         $permission->delete();
 
         return redirect('permissions');
+    }
     }
 }

@@ -33,147 +33,147 @@
 
                     <tr>
                         <td>
-                            <b><i>nome : </i></b>
+                            <b><i>Nome : </i></b>
                         </td>
                         <td>{{$pessoa->nome}}</td>
                     </tr>
 
                     <tr>
                         <td>
-                            <b><i>cep : </i></b>
+                            <b><i>Cep : </i></b>
                         </td>
                         <td>{{$pessoa->cep}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>distrito : </i></b>
+                            <b><i>Distrito : </i></b>
                         </td>
                         <td>{{$pessoa->distrito}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>bairro : </i></b>
+                            <b><i>Bairro : </i></b>
                         </td>
                         <td>{{$pessoa->bairro}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>logradouro : </i></b>
+                            <b><i>Logradouro : </i></b>
                         </td>
                         <td>{{$pessoa->logradouro}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>numero : </i></b>
+                            <b><i>Número : </i></b>
                         </td>
                         <td>{{$pessoa->numero}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>complemento : </i></b>
+                            <b><i>Complemento : </i></b>
                         </td>
                         <td>{{$pessoa->complemento}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>fone : </i></b>
+                            <b><i>Contatos : </i></b>
                         </td>
-                        <td>{{$pessoa->fone}}</td>
+                        <td>{{$pessoa->fone}} - {{$pessoa->cel1}} - {{$pessoa->cel2}}</td>
                     </tr>
                     
-                    <tr>
+                    <!--<tr>
                         <td>
-                            <b><i>cel1 : </i></b>
+                            <b><i>Celular : </i></b>
                         </td>
                         <td>{{$pessoa->cel1}}</td>
                     </tr>
-                    
-                    <tr>
+                    -->
+                    <!--<tr>
                         <td>
                             <b><i>cel2 : </i></b>
                         </td>
                         <td>{{$pessoa->cel2}}</td>
-                    </tr>
+                    </tr>-->
                     
                     <tr>
                         <td>
-                            <b><i>email : </i></b>
+                            <b><i>Email : </i></b>
                         </td>
                         <td>{{$pessoa->email}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>cpf : </i></b>
+                            <b><i>Cpf : </i></b>
                         </td>
                         <td>{{$pessoa->cpf}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>rg : </i></b>
+                            <b><i>Rg : </i></b>
                         </td>
                         <td>{{$pessoa->rg}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>nis : </i></b>
+                            <b><i>Nis : </i></b>
                         </td>
                         <td>{{$pessoa->nis}}</td>
                     </tr>
 
                        <tr>
                         <td>
-                            <b><i>expedicao_rg : </i></b>
+                            <b><i>Expedicao_rg : </i></b>
                         </td>
                         <td>{{$pessoa->expedicao_rg}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>naturalidade : </i></b>
+                            <b><i>Naturalidade : </i></b>
                         </td>
                         <td>{{$pessoa->naturalidade}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>nascionalidade : </i></b>
+                            <b><i>Nascionalidade : </i></b>
                         </td>
                         <td>{{$pessoa->nascionalidade}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>escolaridade : </i></b>
+                            <b><i>Nscolaridade : </i></b>
                         </td>
                         <td>{{$pessoa->escolaridade}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>data_nascimento : </i></b>
+                            <b><i>Data Nascimento : </i></b>
                         </td>
                         <td>{{$pessoa->data_nascimento}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>nome_mae : </i></b>
+                            <b><i>Nome da Mãe : </i></b>
                         </td>
                         <td>{{$pessoa->nome_mae}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>nome_pai : </i></b>
+                            <b><i>Nome Pai : </i></b>
                         </td>
                         <td>{{$pessoa->nome_pai}}</td>
                     </tr>

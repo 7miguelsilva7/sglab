@@ -5,11 +5,15 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">Início</div>
 
                 <div class="panel-body">
-                    You are logged in!
-                </div>
+
+		<hr>
+
+		<footer>
+			<p>&copy; <?php echo date('Y'); ?> SGLAB</p>
+		</footer>                </div>
             </div>
         </div>
     </div>

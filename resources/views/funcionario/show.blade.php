@@ -16,8 +16,8 @@
             <br>
             <table class = 'table table-bordered'>
                 <thead>
-                    <th>Key</th>
-                    <th>Value</th>
+                    <th>Campo</th>
+                    <th>Descrição</th>
                 </thead>
           
                 <tbody>
@@ -32,14 +32,14 @@
                     
                     <tr>
                         <td>
-                            <b><i>vinculo : </i></b>
+                            <b><i>Vinculo : </i></b>
                         </td>
                         <td>{{$funcionario->vinculo}}</td>
                     </tr>
                     
                     <tr>
                         <td>
-                            <b><i>status_funcionario : </i></b>
+                            <b><i>Status Funcionario : </i></b>
                         </td>
                         <td>{{$funcionario->status_funcionario}}</td>
                     </tr>
@@ -49,14 +49,14 @@
                         
                         <tr>
                         <td>
-                            <b><i>siem : </i><b>
+                            <b><i>Siem : </i><b>
                         </td>
                         <td>{{$funcionario->siem->siem}}</td>
                         </tr>
                         
                         <tr>
                         <td>
-                            <b><i>escola_nome : </i><b>
+                            <b><i>Escola: </i><b>
                         </td>
                         <td>{{$funcionario->siem->nome}}</td>
                         </tr>
@@ -71,7 +71,7 @@
                         </tr>
                         
                     
-                        
+<!--                        
                         
                         
                         <tr>
@@ -191,18 +191,18 @@
                             <b><i>nome_pai : </i><b>
                         </td>
                         <td>{{$funcionario->pessoa->nome_pai}}</td>
-                        </tr>
+                        </tr>-->
                         
                         <tr>
                         <td>
-                            <b><i>created_at : </i><b>
+                            <b><i>Adicionado em : </i><b>
                         </td>
                         <td>{{$funcionario->pessoa->created_at}}</td>
                         </tr>
                         
                         <tr>
                         <td>
-                            <b><i>updated_at : </i><b>
+                            <b><i>Atualizado em : </i><b>
                         </td>
                         <td>{{$funcionario->pessoa->updated_at}}</td>
                         </tr>

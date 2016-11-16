@@ -1,11 +1,17 @@
-@extends('scaffold-interface.layouts.app')
+@extends('layouts.app')
+
 @section('content')
-<section class="content">
-	<div class="box box-primary">
-		<div class="box-header">
-			<h3>Edit User ({{$user->name}})</h3>
-		</div>
-		<div class="box-body">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Editar Usuário</div>
+                <div class="panel-body">
+            <form method = 'get' action = '{{url("users")}}'>
+                <button class = 'btn btn-danger'>Voltar</button>
+            </form>
+            <br>
+     
 			<form action="{{url('users/update')}}" method = "post">
 				{!! csrf_field() !!}
 				<input type="hidden" name = "user_id" value = "{{$user->id}}">
@@ -14,12 +20,12 @@
 					<input type="email" name = "email" value = "{{$user->email}}" class = "form-control" required>
 				</div>
 				<div class="form-group">
-					<label for="">Name</label>
+					<label for="">Nome</label>
 					<input type="text" name = "name" value = "{{$user->name}}" class = "form-control" required>
 				</div>
 				<div class="form-group">
-					<label for="">Password</label>
-					<input type="password" name = "password" class = "form-control" placeholder = "password" required>
+					<label for="">Nova Senha</label>
+					<input type="password" name = "password" class = "form-control" placeholder = "Nova Senha" required>
 				</div>
 				<button class = "btn btn-primary" type="submit">Update</button>
 			</form>
@@ -29,7 +35,7 @@
 		<div class="col-md-6">
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3>{{$user->name}} Roles</h3>
+					<h3> Regras para {{$user->name}} </h3>
 				</div>
 				<div class="box-body">
 					<form action="{{url('users/addRole')}}" method = "post">
@@ -43,7 +49,7 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<button class = 'btn btn-primary'>Add role</button>
+							<button class = 'btn btn-primary'>Adicionar Regras</button>
 						</div>
 					</form>
 					<table class = 'table'>
@@ -66,7 +72,7 @@
 		<div class="col-md-6">
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3>{{$user->name}} Permissions</h3>
+					<h3>Permissões para {{$user->name}} </h3>
 				</div>
 				<div class="box-body">
 					<form action="{{url('users/addPermission')}}" method = "post">
@@ -80,13 +86,13 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<button class = 'btn btn-primary'>Add permission</button>
+							<button class = 'btn btn-primary'>Adicionar Permissões</button>
 						</div>
 					</form>
 					<table class = 'table'>
 						<thead>
-							<th>Permission</th>
-							<th>Action</th>
+							<th>Permissões</th>
+							<th>Ações</th>
 						</thead>
 						<tbody>
 							@foreach($userPermissions as $permission)
@@ -101,5 +107,4 @@
 			</div>
 		</div>
 	</div>
-</section>
 @endsection
