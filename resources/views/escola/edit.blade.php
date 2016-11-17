@@ -552,13 +552,46 @@ require_once '../connect.php';
                                 <option value="SIM">SIM</option>
                                 <option value="NÃO">NÃO</option>
                                
-
-                               
                     </select>          
                                     </div>
                 </div>
                 </div>
                 </div>                
+
+
+
+                            <div class="form-group">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+
+                                        <label for="qt_projetores">Qt. Projetores</label>
+                                        <input id="qt_projetores" value="{{$escola->qt_projetores}}" name="qt_projetores" type="number" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+
+                                            <label for="qt_tablets">Qt. Tablets</label>
+                                            <input id="qt_tablets" value="{{$escola->qt_tablets}}" name="qt_tablets" type="number" class="form-control">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--/row-->
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
 <div class="form-group">
                 <div class="row">
                 <div class="col-md-6">   

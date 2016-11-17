@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 15, 2016 at 04:27 PM
+-- Generation Time: Nov 17, 2016 at 10:31 AM
 -- Server version: 5.5.53-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.20
 
@@ -56,6 +56,8 @@ CREATE TABLE IF NOT EXISTS `escolas` (
   `lab_montado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `qt_computadores_lab` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `qt_monitores_lab` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qt_projetores` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `qt_tablets` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `status_lab` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ar_condicionado_lab` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `impressora_lab` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -77,9 +79,9 @@ CREATE TABLE IF NOT EXISTS `escolas` (
 -- Dumping data for table `escolas`
 --
 
-INSERT INTO `escolas` (`id`, `vinculo`, `inep`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `email`, `cel1`, `cel2`, `sigla`, `possui_internet_escola`, `tipo_internet_escola`, `status_escola`, `possui_lab`, `possui_analista`, `tipo_sala`, `pregao1`, `pregao2`, `pregao3`, `pregao4`, `possui_internet_lab`, `tipo_internet_lab`, `lab_montado`, `qt_computadores_lab`, `qt_monitores_lab`, `status_lab`, `ar_condicionado_lab`, `impressora_lab`, `qt_notebook_lab`, `roteador_lab`, `switch_lab`, `qt_cadeiras_lab`, `siem_id`, `pessoa_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'CENTRO SOCIAL URBANO - CSU', '1', '0', 'SEDE', '0', '', '', '', '', '', '', '', '', 'SIM', 'PROJETO BANDA LARGA NAS ESCOLAS', 'ATIVO', 'SIM', 'SIM', 'NÃO POSSUI', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 2, 1, 12, '2016-11-13 00:11:14', '2016-11-15 07:52:29'),
-(2, 'Educandário João XXIII', '0', '0', 'SEDE', '0', '', '', '', '', '', '', '', '', 'SIM', 'PROJETO BANDA LARGA NAS ESCOLAS', 'ATIVO', 'SIM', 'SIM', 'NÃO POSSUI', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 4, 1, 16, '2016-11-13 00:11:46', '2016-11-15 06:35:21');
+INSERT INTO `escolas` (`id`, `vinculo`, `inep`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `email`, `cel1`, `cel2`, `sigla`, `possui_internet_escola`, `tipo_internet_escola`, `status_escola`, `possui_lab`, `possui_analista`, `tipo_sala`, `pregao1`, `pregao2`, `pregao3`, `pregao4`, `possui_internet_lab`, `tipo_internet_lab`, `lab_montado`, `qt_computadores_lab`, `qt_monitores_lab`, `qt_projetores`, `qt_tablets`, `status_lab`, `ar_condicionado_lab`, `impressora_lab`, `qt_notebook_lab`, `roteador_lab`, `switch_lab`, `qt_cadeiras_lab`, `siem_id`, `pessoa_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, '', '1', '0', 'SEDE', '0', '', '', '', '', '', '', '', '', 'SIM', 'PROJETO BANDA LARGA NAS ESCOLAS', 'ATIVO', 'SIM', 'SIM', 'NÃO POSSUI', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'NÃO POSSUI', '', 2, 1, 12, '2016-11-13 00:11:14', '2016-11-17 16:31:03'),
+(2, 'Educandário João XXIII', '0', '0', 'SEDE', '0', '', '', '', '', '', '', '', '', 'SIM', 'PROJETO BANDA LARGA NAS ESCOLAS', 'ATIVO', 'SIM', 'SIM', 'NÃO POSSUI', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 4, 1, 16, '2016-11-13 00:11:46', '2016-11-15 06:35:21');
 
 -- --------------------------------------------------------
 
@@ -191,7 +193,14 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `permissions_name_unique` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'view_escolas', '2016-11-17 15:39:38', '2016-11-17 15:39:38');
 
 -- --------------------------------------------------------
 
@@ -256,7 +265,14 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', '2016-11-17 15:39:11', '2016-11-17 15:39:11');
 
 -- --------------------------------------------------------
 
@@ -351,9 +367,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$owYPnWTMoJBH0lovrW/bqONuFCnxI1zoizzst2TOB2p5bTVwEmfV2', 'JuPuuKXH8CzOpga83xKoxhZ1B8eBjadGNTtmPjIs8BzHXMRyOvVu6d63J3sO', '2016-11-12 17:44:03', '2016-11-15 22:12:54'),
+(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$8YnfsZ6N5NsXxDXYbYc/UOgb/xvux3B/hXv1x574bsISvxk1xsnO.', 'K1bSe36jgwlVLxwiw117KySYBOTJB4Z2XaMBLjtpGIEY7VLLxV6Ho9qeMZt0', '2016-11-12 17:44:03', '2016-11-17 15:43:57'),
 (15, 'CENTRO SOCIAL URBANO - CSU', 'centro@gmail.com', '$2y$10$wvad2ySwqBelHhc/qKeku.nQ8N.0m8idOKgffiZKCm.iarKb8hczK', 'uKLfSV37o8aDL6cXMT56Tf803lU5KypbxqcWCYPGDzpJew8cmciSXg8gJpiz', '2016-11-12 23:47:44', '2016-11-15 20:41:40'),
-(16, 'Educandário João XXIII', 'educandariojoao23@gmail.com', '$2y$10$wX49d.6NX1FhI60dnMyapO8v7I0t4NCy3X5T4UyiFqJhQvI49tFHa', 'tFQSXGmp3bjkiOBPgb91EGs7ufqXO0WZSOiJUeB2WWfhhyhlnB66DFzu64OS', '2016-11-13 00:16:36', '2016-11-15 21:42:57'),
+(16, 'Educandário João XXIII', 'educandariojoao23@gmail.com', '$2y$10$wX49d.6NX1FhI60dnMyapO8v7I0t4NCy3X5T4UyiFqJhQvI49tFHa', 'GUeTrOcuRNM9dMe08HtUyW5mb9caDW9upOsv7vg1HpjW2judYvnAoVq6s5o8', '2016-11-13 00:16:36', '2016-11-17 16:23:17'),
 (17, 'Liberado', 'liberado@gmail.com', '$2y$10$XjCrpeKNG0ilPkwHslBdouPEmr1i6wdxLkZ4ZmIcPbjHM9cyo7066', '3iwSPnG0AUqTtTJ8ikv5vSBUQ9pVd16NxbdV4sJJLTxAhM1pTnVu0Iou30vq', '2016-11-15 05:35:44', '2016-11-15 05:35:49');
 
 -- --------------------------------------------------------
@@ -369,6 +385,13 @@ CREATE TABLE IF NOT EXISTS `user_has_permissions` (
   KEY `user_has_permissions_permission_id_foreign` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `user_has_permissions`
+--
+
+INSERT INTO `user_has_permissions` (`user_id`, `permission_id`) VALUES
+(12, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -381,6 +404,13 @@ CREATE TABLE IF NOT EXISTS `user_has_roles` (
   PRIMARY KEY (`role_id`,`user_id`),
   KEY `user_has_roles_user_id_foreign` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user_has_roles`
+--
+
+INSERT INTO `user_has_roles` (`role_id`, `user_id`) VALUES
+(1, 12);
 
 --
 -- Constraints for dumped tables

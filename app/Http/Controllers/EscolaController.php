@@ -49,6 +49,7 @@ class EscolaController extends Controller
       public function index()
 
         {
+
             $usuario_logado = Auth::user()->name;
             $escolas = Escola::all();
  
@@ -263,6 +264,8 @@ public function perfillaboratorio()
         // campos adicionados posteriormente
         $escola->qt_projetores = $request->qt_projetores;
         $escola->qt_tablets = $request->qt_tablets;
+        // Fim campos adicionados posteriormente
+        
 
 
 
@@ -450,6 +453,13 @@ if($usuario_logado == "Admin")
         $escola->qt_notebook_lab = $request->qt_notebook_lab;
         
         $escola->roteador_lab = $request->roteador_lab;
+
+
+        // campos adicionados posteriormente
+        $escola->qt_projetores = $request->qt_projetores;
+        $escola->qt_tablets = $request->qt_tablets;
+        // Fim campos adicionados posteriormente
+        
         
         $escola->switch_lab = $request->switch_lab;
         

@@ -524,14 +524,14 @@
                                     <div class="col-md-6">
 
                                         <label for="qt_projetores">Qt. Projetores</label>
-                                        <input id="qt_projetores" name="qt_projetores" type="number" class="form-control">
+                                        <input id="qt_projetores" name="qt_projetores" class="form-control">
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-md-6">
 
                                             <label for="qt_tablets">Qt. Tablets</label>
-                                            <input id="qt_tablets" name="qt_tablets" type="number" class="form-control">
+                                            <input id="qt_tablets" name="qt_tablets" class="form-control">
 
                                         </div>
                                     </div>
