@@ -151,7 +151,7 @@ public function perfillaboratorio()
     {
 
  // validação de campos do formulário
-        print_r($request->all());
+        //print_r($request->all());
         $this->validate($request,[
          'vinculo'=>'required|max:50',
          'siem_id'=>'required|unique:escolas'
@@ -486,7 +486,7 @@ if($usuario_logado == "Admin")
      */
     public function DeleteMsg($id,Request $request)
     {
-        $msg = Ajaxis::BtDeleting('Warning!!','Would you like to remove This?','/escola/'. $id . '/delete/');
+        $msg = Ajaxis::BtDeleting('Cuidado!!','Gostaria de deletar o Registro?','/escola/'. $id . '/delete');
 
         if($request->ajax())
         {

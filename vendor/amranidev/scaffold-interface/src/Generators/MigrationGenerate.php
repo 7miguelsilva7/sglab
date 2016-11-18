@@ -17,11 +17,11 @@ class MigrationGenerate
     private $dataSystem;
 
     /**
-     * The NamesGenerate instance.
+     * The Parser instance.
      *
-     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
+     * @var \Amranidev\ScaffoldInterface\Parsers\Parser
      */
-    private $names;
+    private $parser;
 
     /**
      * Create New MigrationGenerate instance.
@@ -31,7 +31,7 @@ class MigrationGenerate
     public function __construct()
     {
         $this->dataSystem = app()->make('Datasystem');
-        $this->names = app()->make('NamesGenerate');
+        $this->parser = app()->make('Parser');
     }
 
     /**
@@ -41,6 +41,6 @@ class MigrationGenerate
      */
     public function generate()
     {
-        return "<?php\n\n".view('scaffold-interface::template.migration.migration', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return "<?php\n\n".view('scaffold-interface::template.migration.migration', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
     }
 }

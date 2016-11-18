@@ -17,11 +17,11 @@ class ModelGenerate
     private $dataSystem;
 
     /**
-     * The NamesGenerate instance.
+     * The Parser instance.
      *
-     * @var \Amranidev\ScaffoldInterface\Generators\NamesGenerate
+     * @var \Amranidev\ScaffoldInterface\Parsers\Parser
      */
-    private $names;
+    private $parser;
 
     /**
      * Create new ModelGenerate instance.
@@ -30,8 +30,8 @@ class ModelGenerate
      */
     public function __construct()
     {
-        $this->names = app()->make('NamesGenerate');
         $this->dataSystem = app()->make('Datasystem');
+        $this->parser = app()->make('Parser');
     }
 
     /**
@@ -41,6 +41,6 @@ class ModelGenerate
      */
     public function generate()
     {
-        return "<?php\n\n".view('scaffold-interface::template.model.model', ['names' => $this->names, 'dataSystem' => $this->dataSystem])->render();
+        return "<?php\n\n".view('scaffold-interface::template.model.model', ['parser' => $this->parser, 'dataSystem' => $this->dataSystem])->render();
     }
 }

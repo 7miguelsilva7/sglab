@@ -5,14 +5,14 @@ namespace Amranidev\ScaffoldInterface;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * class Attribute.
+ * Class Attribute.
  *
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class Attribute
 {
     /**
-     * table name.
+     * Table name.
      *
      * @var string
      */
@@ -21,12 +21,12 @@ class Attribute
     /**
      * Result.
      *
-     * @var[]
+     * @var array
      */
     private $result = [];
 
     /**
-     * create new attribute instance.
+     * Create new attribute instance.
      *
      * @param $table
      */
@@ -38,13 +38,13 @@ class Attribute
     /**
      * Get attributes from an existing table.
      *
-     * @return mixed
+     * @return array
      */
     public function getAttributes()
     {
         //get table attributes
         $this->result = Schema::getColumnListing($this->table);
-        //delete the first element.(ignore the id section)
+        //delete the first element, (ignore the id section)
         unset($this->result[0]);
         //get result
         return $this->result;

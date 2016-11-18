@@ -81,7 +81,7 @@ if(Auth::user()->name == "Admin")
 
         
         // validação de campos do formulário
-        print_r($request->all());
+        //print_r($request->all());
         $this->validate($request,[
          'usuario'=>'required|max:25',
          'nome'=>'required|unique:ocupacaos'

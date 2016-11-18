@@ -41,12 +41,12 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         $this->publishes([__DIR__.'/../public' => public_path(),
         ], 'public');
 
-        // views
+        // Views
         $this->publishes([__DIR__.'/Publishes/Views' => base_path('/resources/views')], 'views');
 
         $this->publishes([__DIR__.'/Publishes/Controllers' => app_path('/Http/Controllers')], 'Controllers');
 
-        // Load Views.
+        // Load views.
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'scaffold-interface');
 
         // Migrations.
@@ -57,7 +57,7 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
         //config path.
         $configPath = __DIR__.'/../config/config.php';
 
-        //register config.
+        //Register config.
         $this->publishes([
             $configPath => config_path('amranidev/config.php'), ]);
     }
@@ -79,9 +79,11 @@ class ScaffoldInterfaceServiceProvider extends ServiceProvider
             return new \Amranidev\ScaffoldInterface\Datasystem\Datasystem($app->make('Request')->getRequest());
         });
 
-        $this->app->singleton('NamesGenerate', function ($app) {
-            return new \Amranidev\ScaffoldInterface\Generators\NamesGenerate($app->make('Request')->getRequest());
+        $this->app->singleton('Parser', function ($app) {
+            return new \Amranidev\ScaffoldInterface\Parsers\Parser($app->make('Request')->getRequest());
         });
+
+        $this->app->singleton('Indenter', \Gajus\Dindent\Indenter::class);
 
         $this->app->singleton('Path', \Amranidev\ScaffoldInterface\Filesystem\Path::class);
 
