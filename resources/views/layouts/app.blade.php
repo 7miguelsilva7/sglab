@@ -25,7 +25,7 @@ require_once '/home/aetji649/sglab/connect.php';
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
         <!-- Latest compiled and minified CSS -->
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -41,7 +41,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <!-- Scripts -->
 
 <script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="/home/aetji649/sglab/public/js/jquery.mask.min.js"></script>
 
 
     <script>
