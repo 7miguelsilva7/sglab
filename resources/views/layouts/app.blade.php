@@ -33,7 +33,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'SGLAB') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
