@@ -570,9 +570,6 @@
                                 </div>
                             </div>
                             <button class='btn btn-primary' type='submit'>Salvar</button>
-                    </form>
-                </div>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 
@@ -587,4 +584,13 @@
     $("#cel2").mask("(00) 00000-0000");
     
   });
-</script> @endsection
+</script>
+
+                    </form>
+
+
+                </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+@endsection

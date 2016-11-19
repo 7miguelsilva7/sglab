@@ -41,7 +41,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <!-- Scripts -->
 
 <script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/home/aetji649/sglab/public/js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="/js/jquery.maskedinput.js"></script>
 
 
     <script>
