@@ -808,12 +808,10 @@ require_once '/home/aetji649/sglab/connect.php';
 
 
 </body>
-		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/app.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/demo.js"></script>
 		<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
-
 <script> var baseURL = "{{URL::to('/')}}"</script>
 <script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
 <script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>

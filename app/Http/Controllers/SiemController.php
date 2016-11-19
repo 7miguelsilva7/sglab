@@ -9,6 +9,8 @@ use App\Siem;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 
+use Auth;   
+
 /**
  * Class SiemController.
  *

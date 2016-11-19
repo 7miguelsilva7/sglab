@@ -576,7 +576,7 @@
 
 
 
-                <script type="text/javascript">
+<script type="text/javascript">
   jQuery(function($) {
     $("#inep").mask("00000000");
     $("#cep").mask("00.000-000");

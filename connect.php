@@ -1,8 +1,8 @@
 <?php
 $server="localhost";
-$db="aetji649_sglab";
-$user="aetji649";
-$pass="n6F44r8aEo";
+$db="sglab";
+$user="root";
+$pass="root";
 $version="0.9d";
 $mysqlport=3306;
 $pchartfolder="class/pchart2";
