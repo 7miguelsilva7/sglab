@@ -172,14 +172,14 @@
                             <div class="form-group">
                             <div class="row">
                             <div class="col-md-6"> 
-                                                <label for="nis">nis</label>
+                                                <label for="nis">Nis</label>
                     <input id="nis" name = "nis" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
                 <div class="col-md-6"> 
                 
-                    <label for="expedicao_rg">expedicao_rg</label>
+                    <label for="expedicao_rg">Data Expedicao_rg</label>
                     <input id="expedicao_rg" name = "expedicao_rg" type="date" class="form-control">
                 </div>
                 </div>
@@ -190,14 +190,14 @@
                             <div class="form-group">
                             <div class="row">
                             <div class="col-md-6"> 
-                                                <label for="naturalidade">naturalidade</label>
+                                                <label for="naturalidade">Naturalidade</label>
                     <input id="naturalidade" name = "naturalidade" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
                 <div class="col-md-6"> 
 
-                    <label for="nascionalidade">nascionalidade</label>
+                    <label for="nascionalidade">Nascionalidade</label>
                     <input id="nascionalidade" name = "nascionalidade" type="text" class="form-control">
                 </div>
                 </div>
@@ -207,7 +207,7 @@
                             <div class="form-group">
                             <div class="row">
                             <div class="col-md-6"> 
-                                                <label for="escolaridade">escolaridade</label>
+                                                <label for="escolaridade">Escolaridade</label>
                                 <select class="form-control" name="escolaridade" id="select2">
                                 <option value=""></option>
                                 <option value="DOUTORADO">DOUTORADO</option>
@@ -223,7 +223,7 @@
                 <div class="form-group">
                 <div class="col-md-6"> 
                 
-                    <label for="data_nascimento">data_nascimento</label>
+                    <label for="data_nascimento">Data Nascimento</label>
                     <input id="data_nascimento" name = "data_nascimento" type="date" class="form-control">
                 </div>
                 </div>
@@ -231,12 +231,12 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="nome_mae">nome_mae</label>
+                    <label for="nome_mae">Nome Mãe</label>
                     <input id="nome_mae" name = "nome_mae" type="text" class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="nome_pai">nome_pai</label>
+                    <label for="nome_pai">Nome Pai</label>
                     <input id="nome_pai" name = "nome_pai" type="text" class="form-control">
                 </div>
                 
@@ -260,6 +260,11 @@
     $("#fone").mask("(00) 0000-0000");
     $("#cel1").mask("(00) 00000-0000");
     $("#cel2").mask("(00) 00000-0000");
+    $("#data_nascimento").mask("00/00/0000");
+    $("#expedicao_rg").mask("00/00/0000");
+
+
+    
     
   });
 </script>   

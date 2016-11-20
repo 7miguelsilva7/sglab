@@ -583,7 +583,7 @@
 <script type="text/javascript">
   jQuery(function($) {
     $("#inep").mask("00000000");
-    $("#cep").mask("00.000-000");
+    $("#cep").mask("00.000-000", { placeholder: "  .   -   " });
     $("#cpf").mask("000.000.000-00");
     $("#rg").mask("00.000.000-00");
     $("#fone").mask("(00) 0000-0000");

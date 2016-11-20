@@ -54,7 +54,7 @@ require_once '/home/aetji649/sglab/connect.php';
                         <div class="form-group">
                         <div class="row">
                             <div align="center" class="col-md-12">
-                            <label for="vinculo" >Víncular registro a:</label></br>
+                            <label for="vinculo" >Víncular Registro a:</label></br>
 <!--<input value= "{{$usuario_logado}}" id="user_id" name = "user_id" type="text" class="form-control">-->
                             <select name="vinculo" id="select14" require> 
                             <option value="">Escolha um usuário/escola para vincular Registro</option>
@@ -203,13 +203,13 @@ require_once '/home/aetji649/sglab/connect.php';
                             <div class="row">
                             <div class="col-md-6"> 
                 
-                    <label for="cpf">cpf</label>
+                    <label for="cpf">Cpf</label>
                     <input id="cpf" name = "cpf" type="text" value= "{{$pessoa->cpf}}" class="form-control">
                 </div>
                 
                 <div class="form-group">
                 <div class="col-md-6"> 
-                <label for="rg">rg</label>
+                <label for="rg">Rg</label>
                     <input id="rg" name = "rg" type="text" value= "{{$pessoa->rg}}" class="form-control">
                 </div>
                 </div>
@@ -220,14 +220,14 @@ require_once '/home/aetji649/sglab/connect.php';
                             <div class="form-group">
                             <div class="row">
                             <div class="col-md-6"> 
-                                                <label for="nis">nis</label>
+                                                <label for="nis">Nis</label>
                     <input id="nis" name = "nis" type="text" value= "{{$pessoa->nis}}" class="form-control">
                 </div>
                 
                 <div class="form-group">
                 <div class="col-md-6"> 
                 
-                    <label for="expedicao_rg">expedicao_rg</label>
+                    <label for="expedicao_rg">Data Expedicao Rg</label>
                     <input id="expedicao_rg" name = "expedicao_rg" type="date" value= "{{$pessoa->expedicao_rg}}" class="form-control">
                 </div>
                 </div>
@@ -238,14 +238,14 @@ require_once '/home/aetji649/sglab/connect.php';
                             <div class="form-group">
                             <div class="row">
                             <div class="col-md-6"> 
-                                                <label for="naturalidade">naturalidade</label>
+                                                <label for="naturalidade">Naturalidade</label>
                     <input id="naturalidade" name = "naturalidade" type="text"  value= "{{$pessoa->naturalidade}}"  class="form-control">
                 </div>
                 
                 <div class="form-group">
                 <div class="col-md-6"> 
 
-                    <label for="nascionalidade">nascionalidade</label>
+                    <label for="nascionalidade">Nascionalidade</label>
                     <input id="nascionalidade" name = "nascionalidade" type="text" value= "{{$pessoa->nascionalidade}}" class="form-control">
                 </div>
                 </div>
@@ -255,7 +255,7 @@ require_once '/home/aetji649/sglab/connect.php';
                             <div class="form-group">
                             <div class="row">
                             <div class="col-md-6"> 
-                                                <label for="escolaridade">escolaridade</label>
+                                                <label for="escolaridade">Escolaridade</label>
                                 <select class="form-control" name="escolaridade" id="select2">
                                 <option value="{{$pessoa->escolaridade}}">{{$pessoa->escolaridade}}</option>
                                 <option value="DOUTORADO">DOUTORADO</option>
@@ -270,7 +270,7 @@ require_once '/home/aetji649/sglab/connect.php';
                 <div class="form-group">
                 <div class="col-md-6"> 
                 
-                    <label for="data_nascimento">data_nascimento</label>
+                    <label for="data_nascimento">Data Nascimento</label>
                     <input id="data_nascimento" name = "data_nascimento" type="date" value= "{{$pessoa->data_nascimento}}" class="form-control">
                 </div>
                 </div>
@@ -278,12 +278,12 @@ require_once '/home/aetji649/sglab/connect.php';
                 </div>
                 
                 <div class="form-group">
-                    <label for="nome_mae">nome_mae</label>
+                    <label for="nome_mae">Nome Mae</label>
                     <input id="nome_mae" name = "nome_mae" type="text"  value= "{{$pessoa->nome_mae}}"  class="form-control">
                 </div>
                 
                 <div class="form-group">
-                    <label for="nome_pai">nome_pai</label>
+                    <label for="nome_pai">Nome Pai</label>
                     <input id="nome_pai" name = "nome_pai" type="text" value= "{{$pessoa->nome_pai}}" class="form-control">
                 </div>
                 
@@ -307,7 +307,13 @@ require_once '/home/aetji649/sglab/connect.php';
     $("#fone").mask("(00) 0000-0000");
     $("#cel1").mask("(00) 00000-0000");
     $("#cel2").mask("(00) 00000-0000");
+    $("#data_nascimento").mask("00/00/0000");
+    $("#expedicao_rg").mask("00/00/0000");
+
+
+    
     
   });
 </script>   
+
 @endsection
