@@ -39,14 +39,9 @@ require_once '/home/aetji649/sglab/connect.php';
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
-<!--
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/jquery.mask.min.js"></script>-->
-<script src="/js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/jquery.maskedinput.min.js" type="text/javascript"></script>
 
-
-
+<script type="text/javascript" src="http://aetj.info/sglab/js/jquery.js"></script>
+<script type="text/javascript" src="http://aetj.info/sglab/js/jquery.mask.min.js"></script>
 
 
     <script>
