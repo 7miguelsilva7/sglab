@@ -78,7 +78,6 @@ if(Auth::user()->name == "Admin")
     public function store(Request $request)
     {
 
-
         
         // validação de campos do formulário
         //print_r($request->all());

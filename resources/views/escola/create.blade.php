@@ -13,7 +13,7 @@
                     <br>
                     <form method='POST' action='{{url("escola")}}'>
 
- @if (count($errors) > 0)
+   @if (count($errors) > 0)
          <div class = "alert alert-danger">
             <ul>
                @foreach ($errors->all() as $error)
@@ -22,7 +22,8 @@
             </ul>
          </div>
     @endif
-                       
+
+                    
 
                         <input type='hidden' name='_token' value='{{Session::token()}}'>
 
