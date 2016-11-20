@@ -36,7 +36,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <title>{{ config('app.name', 'SGLAB') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="http://aetj.info/sglab/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
 
