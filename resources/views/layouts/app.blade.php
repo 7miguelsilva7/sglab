@@ -248,7 +248,7 @@ require_once '/home/aetji649/sglab/connect.php';
     </div>
 
     <!-- Scripts -->
-<script src="/js/app.js"></script>
+<script src="http://aetj.info/sglab/js/app.js"></script>
 
 
 
