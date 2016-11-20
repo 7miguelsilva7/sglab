@@ -4,7 +4,7 @@
 
 require_once '/home/aetji649/sglab/connect.php';
 ?>
-
+<head>
 <!-- Tell the browser to be responsive to screen width -->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<!-- Bootstrap 3.3.7 -->
@@ -39,9 +39,14 @@ require_once '/home/aetji649/sglab/connect.php';
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
-
+<!--
 <script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="/js/jquery.mask.min.js"></script>-->
+<script src="/js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/jquery.maskedinput.min.js" type="text/javascript"></script>
+
+
+
 
 
     <script>
@@ -852,7 +857,7 @@ require_once '/home/aetji649/sglab/connect.php';
 
 
 <form name="escola" method="post" action="libs/Reporter/phpreport/PerfilLaboratorios.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding=5>
+<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
 <tr>
 
 <td align="center">
