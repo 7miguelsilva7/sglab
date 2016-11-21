@@ -48,7 +48,7 @@
                     <th>Contato</th>
                     
                     
-                    <th>E-mail</th>
+                    <!--<th>E-mail</th>-->
 
                     
 <!--
@@ -103,7 +103,7 @@
                         <td>{{$Pessoa->cel1}}</td>
                         
                         
-                        <td>{{$Pessoa->email}}</td>
+                        <!--<td>{{$Pessoa->email}}</td>-->
 
 
 
