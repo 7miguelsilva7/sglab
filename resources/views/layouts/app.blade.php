@@ -179,7 +179,7 @@ require_once '/home/aetji649/sglab/connect.php';
                         <!-- Authentication Links -->
                         @if (Auth::guest())
 
-                            <li><a href="{{ url('/login') }}">Entrar</a></li>
+                            <li><a href="{{ url('/login') }}">...</a></li>
 
                         @else
 
@@ -277,7 +277,7 @@ require_once '/home/aetji649/sglab/connect.php';
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Listar Escolas</h4>
       </div>
       <div class="modal-body">

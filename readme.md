@@ -42,5 +42,9 @@ Execute os seguintes comandos no terminal
 
 * http://localhost:8000/
 
+##Tradução
+
+* https://github.com/leandroluk/laravel-5.3-pt-br-localization
+
 
 

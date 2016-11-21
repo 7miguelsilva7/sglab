@@ -23,7 +23,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Sistema de Gestão de Laboratórios - Cadastrar</div>
                 <div class="panel-body">
 
                 
