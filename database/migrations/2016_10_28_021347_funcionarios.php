@@ -41,8 +41,6 @@ class Funcionarios extends Migration
         $table->integer('pessoa_id')->unsigned()->nullable();
         $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('cascade');
         
-        
-
         $table->integer('user_id')->unsigned()->nullable();
         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 

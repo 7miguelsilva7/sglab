@@ -22,7 +22,7 @@ class Pessoas extends Migration
 
         $table->increments('id');
         
-        $table->String('adicionado_por');
+        $table->String('vinculo');
 
         $table->String('nome');
         

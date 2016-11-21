@@ -22,7 +22,7 @@ class Escolas extends Migration
 
         $table->increments('id');
 
-        $table->String('adicionado_por');
+        $table->String('vinculo');
         
         $table->String('inep');
         
@@ -77,7 +77,11 @@ class Escolas extends Migration
         $table->String('qt_computadores_lab');
         
         $table->String('qt_monitores_lab');
-        
+
+        $table->String('qt_projetores');
+
+        $table->String('qt_tablets');
+     
         $table->String('status_lab');
         
         $table->String('ar_condicionado_lab');
