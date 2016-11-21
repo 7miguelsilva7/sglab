@@ -197,7 +197,7 @@ if(Auth::user()->name == "Admin")
      */
     public function DeleteMsg($id,Request $request)
     {
-        $msg = Ajaxis::BtDeleting('Warning!!','Would you like to remove This?','/siem/'. $id . '/delete/');
+        $msg = Ajaxis::BtDeleting('Warning!!','Would you like to remove This?','/siem/'. $id . '/delete');
 
         if($request->ajax())
         {

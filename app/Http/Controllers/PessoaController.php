@@ -336,7 +336,7 @@ if($usuario_logado == "Admin")
      */
     public function DeleteMsg($id,Request $request)
     {
-        $msg = Ajaxis::BtDeleting('Warning!!','Would you like to remove This?','/pessoa/'. $id . '/delete/');
+        $msg = Ajaxis::BtDeleting('Warning!!','Would you like to remove This?','/pessoa/'. $id . '/delete');
 
         if($request->ajax())
         {
