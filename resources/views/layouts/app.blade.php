@@ -440,7 +440,7 @@ require_once '/home/aetji649/sglab/connect.php';
                 <div class="panel-heading">
                 <label >Tipo de Vínculo:</label></p>
                 <select name="vinculo" id="select3"> 
-                    <option value="vinculo">Todos os Vínculos</option>
+                    <option value="funcionarios.vinculo">Todos os Vínculos</option>
                     <option value="'CONCURSADO'">CONCURSADO</option>
                     <option value="'EFETIVO'">EFETIVO</option>
                     <option value="'ESTAGIÁRIO'">ESTAGIÁRIO</option>
