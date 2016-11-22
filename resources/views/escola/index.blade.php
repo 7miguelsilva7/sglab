@@ -35,21 +35,20 @@
 
 <?php } ?>
 
-<div class="input-group custom-search-form">
-
-                                <select class="form-control" name="search" id="select1">
-                                
-                                <option value="">Mostrar Todas Escolas Cadastras</option>
-                                @foreach($siems as $key => $value)
-                                <option value="{{$value->id}}">{{$value->nome}}</option>
-                                @endforeach
-                                    
-                                </select>    <span class="input-group-btn">
-        <button class="btn btn-default-sm" type="submit">
-            <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
-        </button>
-    </span>
-</div>
+            <div class="input-group custom-search-form">
+                                            <select class="form-control" name="search" id="select1">
+                                            
+                                            <option value="">Mostrar Todas Escolas Cadastras</option>
+                                            @foreach($siems as $key => $value)
+                                            <option value="{{$value->id}}">{{$value->nome}}</option>
+                                            @endforeach
+                                                
+                                            </select>    <span class="input-group-btn">
+                    <button class="btn btn-default-sm" type="submit">
+                        <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
+                    </button>
+                </span>
+            </div>
 {!! Form::close() !!}
 
                               

@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="lista_escolas" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e6482a4-e7fb-48cb-9bd0-2ffdb6b98f61">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportescolass" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e6482a4-e7fb-48cb-9bd0-2ffdb6b98f61">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="14"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="distrito" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="articulador" class="java.lang.String">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
-	<parameter name="lab" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="internet" class="java.lang.String">
@@ -27,26 +24,34 @@
      escolas.`fone` AS escolas_e_fone,
      escolas.`cel1` AS escolas_e_cel1,
      escolas.`bairro` AS escolas_e_bairro,
+     escolas.`pregao1` AS pregao1,     
+     escolas.`pregao2` AS pregao2,
+     escolas.`pregao3` AS pregao3,
+     escolas.`pregao4` AS pregao4,
      escolas.`possui_lab` AS escolas_e_possui_lab,
      escolas.`possui_internet_escola` AS escolas_e_possui_internet_escolas,
-     escolas.`possui_analista` AS escolas_e_possui_analista,
-(select count(escolas.`siem_id`) from `escolas` WHERE
-     escolas.`distrito` = $P{distrito}
-     and escolas.`status_escola` = "ATIVO"
-     and escolas.`possui_analista` = $P{articulador}
-     and escolas.`possui_lab` = $P{lab}
-     and escolas.`possui_internet_escola` = $P{internet}) as totalescolass
+     escolas.`possui_analista` AS escolas_e_possui_analista,     
+     escolas.`pessoa_id` AS analista,
+     pessoas.`nome` AS nome_analista,
 
-FROM
-     `siems` siems INNER JOIN `escolas` escolas ON siems.`id` = escolas.`siem_id`
-WHERE
-     escolas.`distrito` = $P{distrito}
+	 (select count(escolas.`siem_id`) from `escolas`WHERE
+     distrito = $P{distrito}
      and status_escola = "ATIVO"
      and possui_analista = $P{articulador}
-     and possui_lab = $P{lab}
+     and possui_lab = "SIM"
+     and possui_internet_escola = $P{internet}) as totalescolass
+   
+FROM
+     `siems` siems INNER JOIN `escolas` escolas ON siems.`id` = escolas.`siem_id`
+     INNER JOIN `pessoas` pessoas ON escolas.`pessoa_id` = pessoas.`id`
+WHERE
+     escolas.distrito = $P{distrito}
+     and status_escola = "ATIVO"
+     and possui_analista = $P{articulador}
+     and possui_lab = "SIM"
      and possui_internet_escola = $P{internet}
 ORDER BY
-     escolas.`distrito` ASC,
+     escolas.distrito ASC,
      siems.`nome` ASC]]>
 	</queryString>
 	<field name="siems_s_id" class="java.lang.Long"/>
@@ -59,9 +64,23 @@ ORDER BY
 	<field name="escolas_e_fone" class="java.lang.String"/>
 	<field name="escolas_e_cel1" class="java.lang.String"/>
 	<field name="escolas_e_bairro" class="java.lang.String"/>
+	<field name="pregao1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pregao2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pregao3" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pregao4" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="escolas_e_possui_lab" class="java.lang.String"/>
 	<field name="escolas_e_possui_internet_escolas" class="java.lang.String"/>
 	<field name="escolas_e_possui_analista" class="java.lang.String"/>
+	<field name="analista" class="java.lang.Long"/>
+	<field name="nome_analista" class="java.lang.String"/>
 	<field name="totalescolass" class="java.lang.Long"/>
 	<group name="distrito" isStartNewPage="true">
 		<groupExpression><![CDATA[$F{escolas_e_distrito}]]></groupExpression>
@@ -71,11 +90,11 @@ ORDER BY
 		<groupFooter>
 			<band height="24">
 				<textField evaluationTime="Group" evaluationGroup="distrito" isBlankWhenNull="false">
-					<reportElement x="7" y="0" width="215" height="20" uuid="6f58bc86-6c31-428a-a31f-e149457c1d9f"/>
+					<reportElement x="7" y="0" width="426" height="20" uuid="6f58bc86-6c31-428a-a31f-e149457c1d9f"/>
 					<textElement verticalAlignment="Middle">
 						<font size="12" isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Total de Escolas: "+$V{distrito_COUNT}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["Total de Laboratórios: "+$V{distrito_COUNT}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupFooter>
@@ -96,19 +115,19 @@ ORDER BY
 				<text><![CDATA[SECRETARIA DE EDUCAÇÃO E ESPORTE DE JUAZEIRO BAHIA- SEDUC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="122" y="36" width="541" height="14" uuid="85986098-e085-4cc9-ac23-278b5a37c590"/>
+				<reportElement x="122" y="33" width="541" height="14" uuid="85986098-e085-4cc9-ac23-278b5a37c590"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[NUCLEO DE TECNOLOGIA MUNICIPAL - NTM]]></text>
 			</staticText>
 			<image>
-				<reportElement x="33" y="0" width="78" height="71" uuid="da3af6d6-d071-45ed-95d2-5aacfe08a88e"/>
-				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logo_escudo_juazeiro.jpg"]]></imageExpression>
+				<reportElement x="673" y="13" width="69" height="42" uuid="f6065816-a2ce-477a-aebf-4a6bb780ddb9"/>
+				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logoNTM.jpg"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="675" y="16" width="69" height="42" uuid="c71b4650-d292-4ca2-9261-340a150e33d1"/>
-				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logoNTM.jpg"]]></imageExpression>
+				<reportElement x="56" y="0" width="78" height="71" uuid="59f7d818-d608-4109-9cad-47c8773a9b3a"/>
+				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logo_escudo_juazeiro.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</pageHeader>
@@ -119,42 +138,21 @@ ORDER BY
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[LISTA DE ESCOLAS]]></text>
+				<text><![CDATA[LISTA DE LABORATÓRIOS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="42" y="60" width="219" height="20" uuid="f7727399-d4f2-44a4-81f3-2ae0ef0ccb2a"/>
+				<reportElement x="42" y="60" width="37" height="20" uuid="f7727399-d4f2-44a4-81f3-2ae0ef0ccb2a"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[NOME]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="261" y="60" width="83" height="20" uuid="ecf75877-0813-46d1-b774-210fbab3fa24"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[TEL FIXO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="428" y="60" width="89" height="20" uuid="d3233095-3db6-4259-b649-49a19645a2b9"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[DISTRITO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="3" y="60" width="39" height="20" uuid="bb77ce98-c575-4533-8c8e-d74d83be1c0b"/>
+				<reportElement x="6" y="60" width="36" height="20" uuid="bb77ce98-c575-4533-8c8e-d74d83be1c0b"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[SIEM]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="344" y="60" width="84" height="20" uuid="6b78eac5-684b-4841-b078-20e897dcbf5d"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[CELULAR]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="7" y="30" width="252" height="20" uuid="4064923d-8806-4c18-ab2a-fec49b383837"/>
@@ -164,40 +162,38 @@ ORDER BY
 				<textFieldExpression><![CDATA["DISTRITO: " + $F{escolas_e_distrito}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="517" y="60" width="155" height="20" uuid="bacf9276-53c6-4311-b73a-59d2207da159"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[BAIRRO / POVOADO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="672" y="60" width="58" height="20" uuid="e3ec77b9-836e-4d10-a40d-05d2753993c6"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[ANALISTA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="733" y="60" width="28" height="20" uuid="e3d0b78b-7410-49cb-95f0-d13cf4338998"/>
+				<reportElement x="673" y="60" width="28" height="20" uuid="e3d0b78b-7410-49cb-95f0-d13cf4338998"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[NET]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="761" y="60" width="38" height="20" uuid="94d6d5cd-ef81-4567-a0b4-8bc1657491be"/>
+				<reportElement x="720" y="60" width="79" height="20" uuid="94d6d5cd-ef81-4567-a0b4-8bc1657491be"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[LAB]]></text>
+				<text><![CDATA[Qtd. COMP.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="663" y="5" width="128" height="14" uuid="0e1af1fa-f80a-4f4b-a1f9-056b5841892c"/>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["Total Geral: "+$F{totalescolass}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="235" y="60" width="100" height="20" uuid="766b4706-1859-482e-9805-413467c9066e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ANALISTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="60" width="122" height="20" uuid="c1a389ac-d939-448f-8128-7c23ffba2a40"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREGÃO]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -210,36 +206,32 @@ ORDER BY
 				<textFieldExpression><![CDATA[$F{siems_s_siems}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="42" y="2" width="217" height="20" uuid="fb8276a4-31f2-4338-830e-f97458d30ad1"/>
+				<reportElement x="42" y="2" width="180" height="20" uuid="fb8276a4-31f2-4338-830e-f97458d30ad1"/>
 				<textFieldExpression><![CDATA[$F{siems_s_nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="261" y="2" width="70" height="20" uuid="0ed65a2b-52c4-4b9e-9c84-1d62b3762f82"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_fone}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="428" y="2" width="89" height="20" uuid="28f723cf-973a-4efd-a434-702296050c41"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_distrito}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="344" y="2" width="78" height="20" uuid="8abe9ade-7724-43a3-9485-296b23e88459"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_cel1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="519" y="2" width="155" height="20" uuid="3ac0dcee-0c5c-410c-aeb3-a15180bb484f"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_bairro}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="763" y="2" width="28" height="20" uuid="d35ddd40-1784-4ef4-95ed-43023156fcef"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_possui_lab}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="735" y="2" width="26" height="20" uuid="6b49313d-639d-4393-ac2e-a1a88849a8d6"/>
+				<reportElement x="673" y="2" width="26" height="20" uuid="6b49313d-639d-4393-ac2e-a1a88849a8d6"/>
 				<textFieldExpression><![CDATA[$F{escolas_e_possui_internet_escolas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="674" y="2" width="58" height="20" uuid="53974bfe-97c6-42fb-9921-fb2c947d3689"/>
-				<textFieldExpression><![CDATA[$F{escolas_e_possui_analista}]]></textFieldExpression>
+				<reportElement x="389" y="2" width="65" height="20" uuid="2818aff8-b78d-40f9-84bb-128d199a68c3"/>
+				<textFieldExpression><![CDATA[$F{pregao1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="2" width="57" height="20" uuid="832651ac-4e78-44d2-aeb9-a3b777b00150"/>
+				<textFieldExpression><![CDATA[$F{pregao2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="527" y="2" width="66" height="20" uuid="0fa17566-dd03-4292-a575-4fcf781fdae6"/>
+				<textFieldExpression><![CDATA[$F{pregao3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="593" y="2" width="59" height="20" uuid="1dbe42cb-8f9c-47b9-bed3-2ae975f7d0ba"/>
+				<textFieldExpression><![CDATA[$F{pregao4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="2" width="100" height="20" uuid="3b5b60ed-ebe0-496f-9f9f-bec01e180a6d"/>
+				<textFieldExpression><![CDATA[$F{nome_analista}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -31,10 +31,12 @@
 
 <?php } ?>
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
-
+ 
+ <?php
+ if (Auth::user()->name == "Admin") { ?>
                 
                 <div class="form-group">
-                    <label>Selecione uma Escola</label>
+                    <label>Escola</label>
                     <select required name = 'siem_id' class = 'form-control' id="select1">
                         <option value=""></option>
           
@@ -44,6 +46,14 @@
                     </select>
                 </div>
                 
+<?php }  else { ?>
+
+                <div class="form-group">
+                    <input type = 'hidden' value= "{{ Auth::user()->id }}" id="siem_id" name = "siem_id" type="text" class="form-control">
+                </div>
+                
+<?php } ?>
+
                 <div class="form-group">
                     <label>Ocupacão</label>
                     <select required name = 'ocupacao_id' class = 'form-control' id="select2">
