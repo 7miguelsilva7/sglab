@@ -36,12 +36,17 @@ require_once '/home/aetji649/sglab/connect.php';
     <title>{{ config('app.name', 'SGLAB') }}</title>
 
     <!-- Styles -->
-    <link href="http://aetj.info/sglab/css/app.css" rel="stylesheet">
+        <link href="../../../css/app.css" rel="stylesheet">
+
+    <!--<link href="http://aetj.info/sglab/css/app.css" rel="stylesheet">-->
 
     <!-- Scripts -->
 
-<script type="text/javascript" src="http://aetj.info/sglab/js/jquery.js"></script>
-<script type="text/javascript" src="http://aetj.info/sglab/js/jquery.mask.min.js"></script>
+<!--<script type="text/javascript" src="http://aetj.info/sglab/js/jquery.js"></script>
+<script type="text/javascript" src="http://aetj.info/sglab/js/jquery.mask.min.js"></script>-->
+
+<script type="text/javascript" src="../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../js/jquery.mask.min.js"></script>
 
 
     <script>
