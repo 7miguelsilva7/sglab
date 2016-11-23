@@ -1,9 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php
 
 #chama o arquivo de configuração com o banco
 
 require_once '/home/aetji649/sglab/connect.php';
 ?>
+
 <head>
 <!-- Tell the browser to be responsive to screen width -->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -43,12 +46,6 @@ require_once '/home/aetji649/sglab/connect.php';
 <script type="text/javascript" src="http://aetj.info/sglab/js/jquery.js"></script>
 <script type="text/javascript" src="http://aetj.info/sglab/js/jquery.mask.min.js"></script>
 
-
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
 
 </head>
 <body>
@@ -249,7 +246,6 @@ require_once '/home/aetji649/sglab/connect.php';
     </div>
 
     <!-- Scripts -->
-<script src="http://aetj.info/sglab/js/app.js"></script>
 
 
 
@@ -291,7 +287,7 @@ require_once '/home/aetji649/sglab/connect.php';
 
 <td align="center">
 <label >Selecione um Distrito:</label></p>
-<select name="distrito" id="select1"> 
+<select name="distrito" id="select16"> 
  	<option value="distrito">Todos os distritos cadastrados</option>
  	<option value="'ABÓBORA'">ABÓBORA</option>
  	<option value="'ITAMOTINGA'">ITAMOTINGA</option>
@@ -809,79 +805,15 @@ require_once '/home/aetji649/sglab/connect.php';
 
 
 </body>
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	   
+</html>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/app.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/demo.js"></script>
 		<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
-<script> var baseURL = "{{URL::to('/')}}"</script>
-<script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
-<script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
-
-
-
-
-	<!-- modal form dialog -->
-	<!-- modal form dialog -->
-	<!-- modal form dialog -->
-	<!-- modal form dialog -->
-	<!-- modal form dialog -->
-	<!-- modal form dialog -->
-
-	<div class="modal hide fade" id="########## ">
-		<div class="modal-header">
-			<a class="close" data-dismiss="modal">&times;</a>
-			<h3>
-				<i class="icon-th-list"></i> Perfil Laboratorios
-				
-			</h3>
-		</div>
-		<div class="modal-body">
-
-<?php
-
-#Seleciona dados da Tabela siem
- try{
-    $sql2 ='SELECT * FROM siem;';
-    $stmt2 = $conn->prepare($sql2);
-    $stmt2 ->execute();
-    $data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
-}catch(PDOException $e2){
-    echo 'ERROR: ' . $e2->getMessage();
-}
-
-?>
-
-
-<form name="escola" method="post" action="libs/Reporter/phpreport/PerfilLaboratorios.php">
-<table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
-<tr>
-
-<td align="center">
-
- 
-<label >Selecione uma Escola:</label>
-<select name="escola" id="escola"> 
- 	<option value="s_id">Todos</option>
-
-<?php foreach($data2 as $row2) : ?> 
-    <option value="<?php echo $row2['s_id']; ?>"><?php echo $row2['s_nome']; ?></option> 
-<?php endforeach ?> 
-</select>
-
-  </td>
- </tr>
-
-</table>
-<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" >Cancelar</button>
-			<button type="submit" class="btn btn-primary">Gerar Perfil</button>
-		</div>
-		</div>
-</form>
-
-
-
-
-
-
-</html>
+        <script> var baseURL = "{{URL::to('/')}}"</script>
+        <script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
+        <script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
+        <script src="http://aetj.info/sglab/js/app.js"></script>
+        

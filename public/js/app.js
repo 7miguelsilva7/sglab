@@ -29,6 +29,11 @@ $.getScript('http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.8/select2.min.js'
   var select = $('#select14').select2();
   var select = $('#select15').select2();
   var select = $('#select16').select2();
+  var select = $('#select17').select2();
+  var select = $('#select18').select2();
+  var select = $('#select19').select2();
+  var select = $('#select20').select2();
+  var select = $('#select99').select2();
   
   /* Select2 plugin as tagpicker */
   $("#tagPicker").select2({

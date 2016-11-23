@@ -60,7 +60,7 @@
 
      status_escola = "ATIVO"
      and possui_lab = "SIM"
-     and siems.id = siems.id) as totalescolas
+     and siems.id = $P{escola}) as totalescolas
    
 FROM
      `siems` siems INNER JOIN `escolas` escolas ON siems.`id` = escolas.`siem_id`
@@ -69,7 +69,7 @@ WHERE
 
      status_escola = "ATIVO"
      and possui_lab = "SIM"
-     and siems.id = siems.id
+     and siems.id = $P{escola}
 ORDER BY
      escolas.distrito ASC,
      siems.`nome` ASC]]>
