@@ -86,13 +86,17 @@ require_once '/home/aetji649/sglab/connect.php';
 
                 
                 <div class="form-group">
+                <div align="center" class="col-md-12">
+
                 <label for="vinculo" >Víncular Registro a:</label></br>
 
                     <select id="select10" name = "vinculo" type="text" class="form-control">
                     <option value="{{$vinculo}}">{{$vinculo}}</option>
                     <option value="Liberado">Liberado</option>
-                    </select>
+                </select></br>
                 </div>
+                </div>
+
                 <div align="center">
                 <button align="center" class = 'btn btn-primary' type ='submit'>Vincular/Desvincular</button>
                 </div>
