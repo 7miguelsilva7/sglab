@@ -49,6 +49,7 @@ require_once '/home/aetji649/sglab/connect.php';
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
 </head>
 <body>
     <div id="app">
@@ -682,7 +683,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Perfil Escolas</h4>
+        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Perfil Funcionários</h4>
       </div>
       <div class="modal-body">
 
@@ -713,7 +714,7 @@ require_once '/home/aetji649/sglab/connect.php';
  
 <label >Selecione um Funcionário:</label></p>
 <select name="funcionario" id="select7"> 
- 	<option value="funcionarios.id">Todos os Funcionários cadastrados</option>
+ 	<option value="pessoas.id">Todos os Funcionários cadastrados</option>
 
 <?php foreach($data2 as $row2) : ?> 
     <option value="<?php echo $row2['id']; ?>"><?php echo $row2['nome']; ?></option> 

@@ -190,21 +190,21 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[NUCLEO DE TECNOLOGIA MUNICIPAL - NTM]]></text>
 			</staticText>
-			<image>
-				<reportElement x="27" y="15" width="78" height="71" uuid="da3af6d6-d071-45ed-95d2-5aacfe08a88e"/>
-				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logo_escudo_juazeiro.png"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="700" y="33" width="76" height="34" uuid="833759b1-7316-46ab-ab81-7a8872b73c4d"/>
-				<imageExpression><![CDATA["../img/logoNTM.jpg"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="281" y="64" width="223" height="20" uuid="2c05b1e4-2c3f-464b-91be-4917ea29a554"/>
+				<reportElement x="281" y="68" width="223" height="20" uuid="2c05b1e4-2c3f-464b-91be-4917ea29a554"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[PERFIL FUNCIONÁRIOS]]></text>
 			</staticText>
+			<image>
+				<reportElement x="23" y="10" width="78" height="71" uuid="1fc946c6-3b8b-4287-b41b-3b5c2ab245e8"/>
+				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logo_escudo_juazeiro.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="698" y="32" width="69" height="36" uuid="bd85aea7-4cc2-4a71-81fd-d0ba2eb60837"/>
+				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logoNTM.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</pageHeader>
 	<columnHeader>

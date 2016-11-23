@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PerfilEscolas" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e6482a4-e7fb-48cb-9bd0-2ffdb6b98f61">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PerfilLaboratorios" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e6482a4-e7fb-48cb-9bd0-2ffdb6b98f61">
 	<property name="ireport.zoom" value="0.9090909090909206"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="15"/>
 	<parameter name="escola" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -88,6 +88,7 @@ FROM
 WHERE
     siems.id = $P{escola}
 and ocupacaos.id = 1
+
 
 ORDER BY
      escolas.distrito ASC,
@@ -193,14 +194,6 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[NUCLEO DE TECNOLOGIA MUNICIPAL - NTM]]></text>
 			</staticText>
-			<image>
-				<reportElement x="27" y="17" width="78" height="71" uuid="da3af6d6-d071-45ed-95d2-5aacfe08a88e"/>
-				<imageExpression><![CDATA["../img/logo_escudo_juazeiro.jpg"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="700" y="29" width="76" height="34" uuid="833759b1-7316-46ab-ab81-7a8872b73c4d"/>
-				<imageExpression><![CDATA["../img/logoNTM.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="0" y="67" width="802" height="32" uuid="ac766139-0309-43e0-b2d1-52fbcec30d85"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -208,6 +201,14 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[PERFIL LABORATÓRIO DE INFORMÁTICA]]></text>
 			</staticText>
+			<image>
+				<reportElement x="701" y="26" width="69" height="42" uuid="c366d734-e8a8-4295-acb7-011d280fc5a1"/>
+				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logoNTM.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="28" y="13" width="78" height="71" uuid="29c97b96-cc9b-4323-9272-2e20af009d00"/>
+				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logo_escudo_juazeiro.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -862,67 +863,7 @@ ORDER BY
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20" splitType="Stretch">
-			<textField>
-				<reportElement x="288" y="0" width="136" height="20" uuid="95a6f9c5-3174-44a1-8b21-2577a24ea776"/>
-				<box>
-					<pen lineWidth="0.25"/>
-					<topPen lineWidth="0.25"/>
-					<leftPen lineWidth="0.25"/>
-					<bottomPen lineWidth="0.25"/>
-					<rightPen lineWidth="0.0"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<paragraph leftIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{pessoa_p_cel1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="424" y="0" width="127" height="20" uuid="d34b49cd-9b61-4f58-b64c-fcd8ee9f4b97"/>
-				<box leftPadding="1" bottomPadding="1" rightPadding="1">
-					<topPen lineWidth="0.25"/>
-					<bottomPen lineWidth="0.25"/>
-					<rightPen lineWidth="0.25"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<paragraph leftIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{pessoa_p_cel2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="551" y="0" width="251" height="20" uuid="d111ff8f-9268-4deb-9c72-820c790548ed"/>
-				<box>
-					<pen lineWidth="0.25"/>
-					<topPen lineWidth="0.25"/>
-					<leftPen lineWidth="0.25"/>
-					<bottomPen lineWidth="0.25"/>
-					<rightPen lineWidth="0.25"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<paragraph leftIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{pessoa_p_email}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="2" y="0" width="12" height="20" uuid="96cfd5d1-327f-485b-978d-ecf1b62f0d02"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<paragraph leftIndent="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ocupacao_o_nome}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Opaque" x="2" y="0" width="286" height="20" uuid="25db3be4-1557-4b04-bd28-fcb1f829195b"/>
-				<box>
-					<pen lineWidth="0.25"/>
-					<topPen lineWidth="0.25"/>
-					<leftPen lineWidth="0.25"/>
-					<bottomPen lineWidth="0.25"/>
-					<rightPen lineWidth="0.25"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{pessoa_p_nome}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="20" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band splitType="Stretch"/>
