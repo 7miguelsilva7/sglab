@@ -34,18 +34,28 @@
 <?php } ?>
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
      
-             
-                
-<div class="form-group">
-    <label>Selecione uma Escola</label>
-    <select name = 'siem_id' class = "form-control" id="select1" >
-        <option value="{{$funcionario->siem_id}}">{{$funcionario->siem->nome}}</option>
-        @foreach($siems->except($funcionario->siem_id) as $key => $value)
-        <option value="{{$key}}">{{$value}}</option>
-        @endforeach
-    </select>
-</div>
 
+ <?php
+ if (Auth::user()->name == "Admin") { ?>
+                
+                <div class="form-group">
+                    <label>Escola</label>
+                    <select required name = 'siem_id' class = 'form-control' id="select1">
+                        <option value=""></option>
+          
+                        @foreach($siems as $key => $value)
+                        <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                
+<?php }  else { ?>
+
+                <div class="form-group">
+                    <input type = 'hidden' value= "{{ Auth::user()->id }}" id="siem_id" name = "siem_id" type="text" class="form-control">
+                </div>
+                
+<?php } ?>
                
 <div class="form-group">
     <label>Selecione uma Ocupação</label>
@@ -58,7 +68,7 @@
 </div>
 
 <div class="form-group">
-    <label>Selecione uma Ocupação</label>
+    <label>Selecione um funcionário</label>
     <select name = 'pessoa_id' class = "form-control" id="select3">
         <option value="{{$funcionario->pessoa_id}}">{{$funcionario->pessoa->nome}}</option>
         @foreach($pessoas->except($funcionario->pessoa_id) as $key => $value)

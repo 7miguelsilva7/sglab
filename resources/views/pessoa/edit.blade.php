@@ -55,9 +55,9 @@ require_once '/home/aetji649/sglab/connect.php';
                         <div class="row">
                             <div align="center" class="col-md-12">
                             <label for="vinculo" >Víncular Registro a:</label></br>
-<!--<input value= "{{$usuario_logado}}" id="user_id" name = "user_id" type="text" class="form-control">-->
+                <!--<input value= "{{$usuario_logado}}" id="user_id" name = "user_id" type="text" class="form-control">-->
                             <select name="vinculo" id="select14" require> 
-                            <option value="">Escolha um usuário/escola para vincular Registro</option>
+                            <option value="Liberado">Escolha um usuário/escola para vincular Registro</option>
 
                             <?php foreach($data2 as $row2) : ?> 
                             <option value="<?php echo $row2['name']; ?>"><?php echo $row2['name']; ?></option> 
@@ -86,7 +86,15 @@ require_once '/home/aetji649/sglab/connect.php';
 
                 
                 <div class="form-group">
-                    <input type = 'hidden' value= "{{$vinculo}}" id="vinculo" name = "vinculo" type="text" class="form-control">
+                <label for="vinculo" >Víncular Registro a:</label></br>
+
+                    <select id="select10" name = "vinculo" type="text" class="form-control">
+                    <option value="{{$vinculo}}">{{$vinculo}}</option>
+                    <option value="Liberado">Liberado</option>
+                    </select>
+                </div>
+                <div align="center">
+                <button align="center" class = 'btn btn-primary' type ='submit'>Vincular/Desvincular</button>
                 </div>
 <?php } ?>
 
