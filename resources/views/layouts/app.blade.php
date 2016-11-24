@@ -123,10 +123,10 @@ require_once '/home/aetji649/sglab/connect.php';
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                   Listas <span class="caret"></span>
+                                   Relatórios <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
+                                <!--<ul class="dropdown-menu" role="menu">
                                     <li>
                                     
 									<li><a data-toggle="modal" href="#escolas"><i class="fa glyphicon glyphicon-home"></i>Lista Escolas</a></li>
@@ -134,7 +134,35 @@ require_once '/home/aetji649/sglab/connect.php';
 									<li><a data-toggle="modal" href="#laboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Lista Laboratórios</a></li>
                                     
                                     </li>
-                                </ul>
+                                </ul>-->
+
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="margin-bottom: 5px; *width: 180px;">
+  
+
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">Listas</a>
+    <ul class="dropdown-menu">
+    
+    <li><a tabindex="-1" data-toggle="modal" href="#escolas"><i class="fa glyphicon glyphicon-home"></i>Lista Escolas</a></li>
+	<li><a tabindex="-1" data-toggle="modal" href="#funcionario"><i class="fa fa-users"></i>Lista Funcionários</a></li>
+	<li><a tabindex="-1" data-toggle="modal" href="#laboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Lista Laboratórios</a></li>
+                                   
+    </ul>
+  </li>
+
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">Perfis</a>
+    <ul class="dropdown-menu">
+    
+        <li><a data-toggle="modal" href="#perfilescolas"><i class="fa glyphicon glyphicon-home"></i>Perfil Escolas</a></li>
+		<li><a data-toggle="modal" href="#perfilfuncionarios"><i class="fa fa-users"></i>Perfil Funcionários</a></li>
+		<li><a data-toggle="modal" href="#perfillaboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Perfil Laboratórios</a></li>
+                                    
+    </ul>
+  </li>
+</ul>
+
+
                             </li>
                         @endif
                     </ul>                    
@@ -152,7 +180,7 @@ require_once '/home/aetji649/sglab/connect.php';
                         @if (Auth::guest())
                            
                         @else
-                            <li class="dropdown">
+                            <!--<li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                    Perfis <span class="caret"></span>
                                 </a>
@@ -167,7 +195,7 @@ require_once '/home/aetji649/sglab/connect.php';
 
                                     </li>
                                 </ul>
-                            </li>
+                            </li>-->
                         @endif
                     </ul>
 
