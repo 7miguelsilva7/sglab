@@ -1,14 +1,14 @@
-@@extends('scaffold-interface.layouts.defaultBootstrap')
+@@extends('scaffold-interface.layouts.app')
 @@section('title','Create')
 @@section('content')
-<div class = 'container'>
+<section class="content">
     <h1>Create {{$parser->singular()}}</h1>
     <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
         <button class = 'btn btn-danger'>{{$parser->singular()}} Index</button>
     </form>
     <br>
     <form method = 'POST' action = '@{!!url("{{$parser->singular()}}")!!}'>
-        <input type = 'hidden' name = '_token' value = '@{!! Session::token() !!}}'>
+        <input type = 'hidden' name = '_token' value = '@{{Session::token()}}'>
         @foreach($dataSystem->dataScaffold('v') as $value)
         <div class="form-group">
             <label for="{{$value}}">{{$value}}</label>
@@ -27,5 +27,5 @@
         @endforeach
         <button class = 'btn btn-primary' type ='submit'>Create</button>
     </form>
-</div>
+</section>
 @@endsection

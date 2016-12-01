@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Dashboard</title>
+		<title>@yield('title')</title>
 		<!-- Tell the browser to be responsive to screen width -->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<!-- Bootstrap 3.3.7 -->
@@ -72,34 +72,18 @@
 											{{Auth::user()->name}}
 										</p>
 									</li>
-									<!-- Menu Body -->
-									<li class="user-body">
-										<div class="row">
-											<div class="col-xs-4 text-center">
-												<a href="#">Followers</a>
-											</div>
-											<div class="col-xs-4 text-center">
-												<a href="#">Sales</a>
-											</div>
-											<div class="col-xs-4 text-center">
-												<a href="#">Friends</a>
-											</div>
-										</div>
-										<!-- /.row -->
-									</li>
 									<!-- Menu Footer-->
 									<li class="user-footer">
 										<div class="pull-left">
-											<a href="#" class="btn btn-default btn-flat">Profile</a>
+											<a href="#" class="btn btn-danger btn-flat"><span class = 'fa fa-sign-out'></span> Profile</a>
 										</div>
 										<div class="pull-right">
 											<a href="{{url('logout')}}" class="btn btn-default btn-flat"
-											onclick="event.preventDefault();
-													 document.getElementById('logout-form').submit();">Sign out</a>
-
-	                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-	                                            {{ csrf_field() }}
-	                                        </form>
+												onclick="event.preventDefault();
+											document.getElementById('logout-form').submit();">Sign out</a>
+											<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+												{{ csrf_field() }}
+											</form>
 										</div>
 									</li>
 								</ul>
@@ -142,11 +126,18 @@
 				@yield('content')
 			</div>
 		</div>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class = 'AjaxisModal'>
+			</div>
+		</div>
 		<!-- Compiled and minified JavaScript -->
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/app.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.5/js/demo.js"></script>
+		<script> var baseURL = "{{ URL::to('/') }}"</script>
+        <script src = "{{URL::asset('js/AjaxisBootstrap.js') }}"></script>
+        <script src = "{{URL::asset('js/scaffold-interface-js/customA.js') }}"></script>
 		<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
 		<script>
 		// pusher log to console.
@@ -161,9 +152,9 @@
 		$('.notification-label').addClass('label-warning');
 		$('.notification-menu').append(
 			'<li>\
-				<a href="#">\
-					<i class="fa fa-users text-aqua"></i> '+data.message+'\
-				</a>\
+					<a href="#">\
+							<i class="fa fa-users text-aqua"></i> '+data.message+'\
+					</a>\
 			</li>'
 			);
 		});

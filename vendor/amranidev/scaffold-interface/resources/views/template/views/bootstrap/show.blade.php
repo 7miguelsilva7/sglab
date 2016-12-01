@@ -1,7 +1,7 @@
-@@extends('scaffold-interface.layouts.defaultBootstrap')
+@@extends('scaffold-interface.layouts.app')
 @@section('title','Show')
 @@section('content')
-<div class = 'container'>
+<section class="content">
     <h1>Show {{$parser->singular()}}</h1>
     <br>
     <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
@@ -27,7 +27,7 @@
             @foreach($value as $key1 => $value1)
             <tr>
                 <td>
-                    <b><i>{{$value1}} : </i><b>
+                    <b><i>{{$value1}} : </i></b>
                 </td>
                 <td>@{!!${{$parser->singular()}}->{{str_singular($key)}}->{{$value1}}!!}</td>
             </tr>
@@ -36,5 +36,5 @@
             @endif
         </tbody>
     </table>
-</div>
+</section>
 @@endsection

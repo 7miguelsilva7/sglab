@@ -166,7 +166,57 @@ require_once '/home/aetji649/sglab/connect.php';
                             </li>
                         @endif
                     </ul>                    
+<!--***********************************************Documentos******************************************-->
 
+<div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+
+                    <ul class="nav navbar-nav ">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                           
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                   Documentos <span class="caret"></span>
+                                </a>
+
+
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="margin-bottom: 5px; *width: 180px;">
+  
+
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">NTM</a>
+    <ul class="dropdown-menu">
+    
+    <li><a href="http://aetj.info/downloads/NTM/Lei_2335_13.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Criação do NTM</a></li>                              
+    <li><a href="http://aetj.info/downloads/NTM/Sala_de_recursos.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Sala de recursos</a></li>
+     <li><a href="http://aetj.info/downloads/NTM/PROINFO_urbano.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO urbano</a></li>                              
+    <li><a href="http://aetj.info/downloads/NTM/PROINFO_rural.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO rural</a></li>   
+    </ul>
+  </li>
+
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">Pedagógico</a>
+    <ul class="dropdown-menu">
+    
+      <li><a href="#" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno do coordenador</a></li>
+      <li><a href="#" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno do professor</a></li>
+                                    
+    </ul>
+        <li><a href="http://aetj.info/downloads/NTM/Lei_2605_16.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PCCR</a></li>
+  </li>
+</ul>
+
+
+                            </li>
+                        @endif
+                    </ul>                    
+<!--***********************************************Documentos******************************************-->
 
 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->

@@ -1,8 +1,8 @@
-@@extends('scaffold-interface.layouts.defaultBootstrap')
+@@extends('scaffold-interface.layouts.app')
 @@section('title','Index')
 @@section('content')
-<div class = 'container'>
-    <h1>{{$parser->singular()}} Index</h1>
+<section class="content">
+    <h1>{{ucfirst($parser->singular())}} Index</h1>
     <form class = 'col s3' method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}/create'>
         <button class = 'btn btn-primary' type = 'submit'>Create New {{$parser->singular()}}</button>
     </form>
@@ -21,7 +21,7 @@
     </div>
     @endif
     <br>
-    <table class = "table table-striped table-bordered">
+    <table class = "table table-striped table-bordered table-hover" style = 'background:#fff'>
         <thead>
             @foreach($dataSystem->dataScaffold('v') as $value)
             <th>{{$value}}</th>
@@ -58,5 +58,5 @@
         </tbody>
     </table>
     @{!! ${{$parser->plural()}}->render() !!}
-</div>
+</section>
 @@endsection
