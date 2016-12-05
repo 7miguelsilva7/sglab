@@ -193,10 +193,11 @@ require_once '/home/aetji649/sglab/connect.php';
     <a tabindex="-1" href="#">NTM</a>
     <ul class="dropdown-menu">
     
-    <li><a href="http://aetj.info/downloads/NTM/Lei_2335_13.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Criação do NTM</a></li>                              
+    <li><a href="http://aetj.info/downloads/NTM/Lei_2335_13.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Criação do NTM</a></li>
     <li><a href="http://aetj.info/downloads/NTM/Sala_de_recursos.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Sala de recursos</a></li>
-     <li><a href="http://aetj.info/downloads/NTM/PROINFO_urbano.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO urbano</a></li>                              
-    <li><a href="http://aetj.info/downloads/NTM/PROINFO_rural.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO rural</a></li>   
+    <li><a href="http://aetj.info/downloads/NTM/PROINFO_urbano.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO urbano</a></li>
+    <li><a href="http://aetj.info/downloads/NTM/PROINFO_rural.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO rural</a></li>
+    <li><a href="http://aetj.info/downloads/NTM/TutorialGLPI.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Tutorial GLPI</a></li>
     </ul>
   </li>
 
