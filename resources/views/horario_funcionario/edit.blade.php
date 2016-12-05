@@ -1,13 +1,14 @@
-@extends('scaffold-interface.layouts.app')
-@section('title','Edit')
-@section('content')
+@extends('layouts.app')
 
-<section class="content">
-    <h1>
-        Edit horario_funcionario
-    </h1>
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Editar Horário</div>
+                <div class="panel-body">
     <form method = 'get' action = '{!!url("horario_funcionario")!!}'>
-        <button class = 'btn btn-danger'>horario_funcionario Index</button>
+        <button class = 'btn btn-danger'>Voltar</button>
     </form>
     <br>
     <form method = 'POST' action = '{!! url("horario_funcionario")!!}/{!!$horario_funcionario->
@@ -18,11 +19,14 @@
             <input id="dias" name = "dias" type="text" class="form-control" value="{!!$horario_funcionario->
             dias!!}"> 
         </div>
+
+
         <div class="form-group">
             <label for="turno">turno</label>
-            <input id="turno" name = "turno" type="text" class="form-control" value="{!!$horario_funcionario->
-            turno!!}"> 
+      {!! Form::select ('turno', Config::get('enums.turno'), $horario_funcionario->turno) !!}
         </div>
+
+
         <div class="form-group">
             <label for="horario_m">horario_m</label>
             <input id="horario_m" name = "horario_m" type="text" class="form-control" value="{!!$horario_funcionario->
