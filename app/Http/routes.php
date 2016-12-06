@@ -53,3 +53,11 @@ Route::group(['middleware'=> 'web'],function(){
   Route::get('horario_funcionario/{id}/delete','\App\Http\Controllers\Horario_funcionarioController@destroy');
   Route::get('horario_funcionario/{id}/deleteMsg','\App\Http\Controllers\Horario_funcionarioController@DeleteMsg');
 });
+
+//horario_funcionario Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('horario_funcionario','\App\Http\Controllers\Horario_funcionarioController');
+  Route::post('horario_funcionario/{id}/update','\App\Http\Controllers\Horario_funcionarioController@update');
+  Route::get('horario_funcionario/{id}/delete','\App\Http\Controllers\Horario_funcionarioController@destroy');
+  Route::get('horario_funcionario/{id}/deleteMsg','\App\Http\Controllers\Horario_funcionarioController@DeleteMsg');
+});

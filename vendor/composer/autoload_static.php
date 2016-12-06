@@ -397,7 +397,7 @@ class ComposerStaticInit2bdfd2463a6e4bc3b2699a3b50eece2f
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
-        'HorarioFuncionarios' => __DIR__ . '/../..' . '/database/migrations/2016_12_05_013158_horario_funcionarios.php',
+        'HorarioFuncionarios' => __DIR__ . '/../..' . '/database/migrations/2016_12_06_035703_horario_funcionarios.php',
         'Ocupacaos' => __DIR__ . '/../..' . '/database/migrations/2016_10_28_021136_ocupacaos.php',
         'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',

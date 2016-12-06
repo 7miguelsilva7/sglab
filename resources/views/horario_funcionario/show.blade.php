@@ -19,39 +19,171 @@
         <tbody>
             <tr>
                 <td>
-                    <b><i>dias : </i></b>
+                    <b><i>seg_m : </i></b>
                 </td>
-                <td>{!!$horario_funcionario->dias!!}</td>
+                <td>{!!$horario_funcionario->seg_m!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>turno : </i></b>
+                    <b><i>ter_m : </i></b>
                 </td>
-                <td>{!!$horario_funcionario->turno!!}</td>
+                <td>{!!$horario_funcionario->ter_m!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>horario_m : </i></b>
+                    <b><i>qua_m : </i></b>
                 </td>
-                <td>{!!$horario_funcionario->horario_m!!}</td>
+                <td>{!!$horario_funcionario->qua_m!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>horario_t : </i></b>
+                    <b><i>qui_m : </i></b>
                 </td>
-                <td>{!!$horario_funcionario->horario_t!!}</td>
+                <td>{!!$horario_funcionario->qui_m!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>horario_n : </i></b>
+                    <b><i>sex_m : </i></b>
                 </td>
-                <td>{!!$horario_funcionario->horario_n!!}</td>
+                <td>{!!$horario_funcionario->sex_m!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>horario_c : </i></b>
+                    <b><i>sab_m : </i></b>
                 </td>
-                <td>{!!$horario_funcionario->horario_c!!}</td>
+                <td>{!!$horario_funcionario->sab_m!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>dom_m : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->dom_m!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>seg_t : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->seg_t!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>ter_t : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->ter_t!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>qua_t : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->qua_t!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>qui_t : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->qui_t!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>sex_t : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->sex_t!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>sab_t : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->sab_t!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>dom_t : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->dom_t!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>seg_n : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->seg_n!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>ter_n : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->ter_n!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>qua_n : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->qua_n!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>qui_n : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->qui_n!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>sex_n : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->sex_n!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>sab_n : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->sab_n!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>dom_n : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->dom_n!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>seg_c : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->seg_c!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>ter_c : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->ter_c!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>qua_c : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->qua_c!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>qui_c : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->qui_c!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>sex_c : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->sex_c!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>sab_c : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->sab_c!!}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b><i>dom_c : </i></b>
+                </td>
+                <td>{!!$horario_funcionario->dom_c!!}</td>
             </tr>
             <tr>
                 <td>

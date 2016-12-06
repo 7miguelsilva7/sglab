@@ -18,7 +18,7 @@ use App\Pessoa;
 /**
  * Class Horario_funcionarioController.
  *
- * @author  The scaffold-interface created at 2016-12-05 01:31:58pm
+ * @author  The scaffold-interface created at 2016-12-06 03:57:03pm
  * @link  https://github.com/amranidev/scaffold-interface
  */
 class Horario_funcionarioController extends Controller
@@ -62,22 +62,88 @@ class Horario_funcionarioController extends Controller
         $horario_funcionario = new Horario_funcionario();
 
         
-        $horario_funcionario->dias = $request->dias;
+        $horario_funcionario->seg_m = $request->seg_m;
 
         
-        $horario_funcionario->turno = $request->turno;
+        $horario_funcionario->ter_m = $request->ter_m;
 
         
-        $horario_funcionario->horario_m = $request->horario_m;
+        $horario_funcionario->qua_m = $request->qua_m;
 
         
-        $horario_funcionario->horario_t = $request->horario_t;
+        $horario_funcionario->qui_m = $request->qui_m;
 
         
-        $horario_funcionario->horario_n = $request->horario_n;
+        $horario_funcionario->sex_m = $request->sex_m;
 
         
-        $horario_funcionario->horario_c = $request->horario_c;
+        $horario_funcionario->sab_m = $request->sab_m;
+
+        
+        $horario_funcionario->dom_m = $request->dom_m;
+
+        
+        $horario_funcionario->seg_t = $request->seg_t;
+
+        
+        $horario_funcionario->ter_t = $request->ter_t;
+
+        
+        $horario_funcionario->qua_t = $request->qua_t;
+
+        
+        $horario_funcionario->qui_t = $request->qui_t;
+
+        
+        $horario_funcionario->sex_t = $request->sex_t;
+
+        
+        $horario_funcionario->sab_t = $request->sab_t;
+
+        
+        $horario_funcionario->dom_t = $request->dom_t;
+
+        
+        $horario_funcionario->seg_n = $request->seg_n;
+
+        
+        $horario_funcionario->ter_n = $request->ter_n;
+
+        
+        $horario_funcionario->qua_n = $request->qua_n;
+
+        
+        $horario_funcionario->qui_n = $request->qui_n;
+
+        
+        $horario_funcionario->sex_n = $request->sex_n;
+
+        
+        $horario_funcionario->sab_n = $request->sab_n;
+
+        
+        $horario_funcionario->dom_n = $request->dom_n;
+
+        
+        $horario_funcionario->seg_c = $request->seg_c;
+
+        
+        $horario_funcionario->ter_c = $request->ter_c;
+
+        
+        $horario_funcionario->qua_c = $request->qua_c;
+
+        
+        $horario_funcionario->qui_c = $request->qui_c;
+
+        
+        $horario_funcionario->sex_c = $request->sex_c;
+
+        
+        $horario_funcionario->sab_c = $request->sab_c;
+
+        
+        $horario_funcionario->dom_c = $request->dom_c;
 
         
         
@@ -158,17 +224,61 @@ class Horario_funcionarioController extends Controller
     {
         $horario_funcionario = Horario_funcionario::findOrfail($id);
     	
-        $horario_funcionario->dias = $request->dias;
+        $horario_funcionario->seg_m = $request->seg_m;
         
-        $horario_funcionario->turno = $request->turno;
+        $horario_funcionario->ter_m = $request->ter_m;
         
-        $horario_funcionario->horario_m = $request->horario_m;
+        $horario_funcionario->qua_m = $request->qua_m;
         
-        $horario_funcionario->horario_t = $request->horario_t;
+        $horario_funcionario->qui_m = $request->qui_m;
         
-        $horario_funcionario->horario_n = $request->horario_n;
+        $horario_funcionario->sex_m = $request->sex_m;
         
-        $horario_funcionario->horario_c = $request->horario_c;
+        $horario_funcionario->sab_m = $request->sab_m;
+        
+        $horario_funcionario->dom_m = $request->dom_m;
+        
+        $horario_funcionario->seg_t = $request->seg_t;
+        
+        $horario_funcionario->ter_t = $request->ter_t;
+        
+        $horario_funcionario->qua_t = $request->qua_t;
+        
+        $horario_funcionario->qui_t = $request->qui_t;
+        
+        $horario_funcionario->sex_t = $request->sex_t;
+        
+        $horario_funcionario->sab_t = $request->sab_t;
+        
+        $horario_funcionario->dom_t = $request->dom_t;
+        
+        $horario_funcionario->seg_n = $request->seg_n;
+        
+        $horario_funcionario->ter_n = $request->ter_n;
+        
+        $horario_funcionario->qua_n = $request->qua_n;
+        
+        $horario_funcionario->qui_n = $request->qui_n;
+        
+        $horario_funcionario->sex_n = $request->sex_n;
+        
+        $horario_funcionario->sab_n = $request->sab_n;
+        
+        $horario_funcionario->dom_n = $request->dom_n;
+        
+        $horario_funcionario->seg_c = $request->seg_c;
+        
+        $horario_funcionario->ter_c = $request->ter_c;
+        
+        $horario_funcionario->qua_c = $request->qua_c;
+        
+        $horario_funcionario->qui_c = $request->qui_c;
+        
+        $horario_funcionario->sex_c = $request->sex_c;
+        
+        $horario_funcionario->sab_c = $request->sab_c;
+        
+        $horario_funcionario->dom_c = $request->dom_c;
         
         
         $horario_funcionario->siem_id = $request->siem_id;

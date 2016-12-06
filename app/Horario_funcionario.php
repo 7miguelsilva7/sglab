@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Horario_funcionario.
  *
- * @author  The scaffold-interface created at 2016-12-05 01:31:58pm
+ * @author  The scaffold-interface created at 2016-12-06 03:57:03pm
  * @link  https://github.com/amranidev/scaffold-interface
  */
 class Horario_funcionario extends Model
