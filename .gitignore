@@ -1,3 +1,5 @@
 /nbproject/private/
 .env
 connect.php
+.idea
+/.idea
