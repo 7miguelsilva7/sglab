@@ -96,6 +96,8 @@ require_once '/home/aetji649/sglab/connect.php';
                                     <li><a href="{{ url('/escola') }}"><i class="fa glyphicon glyphicon-home"></i>Escolas</a></li>
                                     <li><a href="{{ url('/funcionario') }}"><i class="fa fa-users"></i>Funcionários</a></li>
                                     <li><a href="{{ url('/pessoa') }}"><i class="fa glyphicon glyphicon-user"></i>Pessoas</a></li>
+                                    <li><a href="{{ url('/horario_funcionario') }}"><i class="fa glyphicon glyphicon-calendar"></i>Horários Funcionários</a></li>
+
                         <?php
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>

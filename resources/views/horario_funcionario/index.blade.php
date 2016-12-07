@@ -1,26 +1,55 @@
-@extends('scaffold-interface.layouts.app')
-@section('title','Index')
-@section('content')
+@extends('layouts.app')
 
-<section class="content">
-    <h1>
-        Horario_funcionario Index
-    </h1>
-    <form class = 'col s3' method = 'get' action = '{!!url("horario_funcionario")!!}/create'>
-        <button class = 'btn btn-primary' type = 'submit'>Create New horario_funcionario</button>
-    </form>
-    <br>
-    <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Associate <span class="caret"></span> </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="http://localhost:8000/siem">Siem</a></li>
-            <li><a href="http://localhost:8000/pessoa">Pessoa</a></li>
-        </ul>
-    </div>
-    <br>
+@section('content')
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
+        <title>Funcionários</title>
+    </head>
+    <body>
+        <div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Horário Funcinários</div>
+                                <div class="panel-body">
+
+            <h2><i class="fa glyphicon glyphicon-th-list"></i> Horário Funcionários </h2>
+
+
+{!! Form::open(['method'=>'GET','url'=>'horario_funcionario','class'=>'navbar-form navbar-right','role'=>'search'])  !!}
+
+<a href="{{ url('horario_funcionario/create') }}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+
+<div class="input-group custom-search-form">
+
+                                <select class="form-control" name="search" id="select1">
+                                
+                                <option value="">Mostrar Todos Horários Cadastrados</option>
+                                @foreach($pessoas as $key => $value)
+                                <option value="{{$value->id}}">{{$value->nome}}</option>
+                                @endforeach
+                                    
+                                </select>    <span class="input-group-btn">
+        <button class="btn btn-default-sm" type="submit">
+            <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
+        </button>
+    </span>
+</div>
+{!! Form::close() !!}
+
+          
+    
     <table class = "table table-striped table-bordered table-hover" style = 'background:#fff'>
         <thead>
-            <th>seg_m</th>
+            <!--<th>seg_m</th>
             <th>ter_m</th>
             <th>qua_m</th>
             <th>qui_m</th>
@@ -47,17 +76,17 @@
             <th>qui_c</th>
             <th>sex_c</th>
             <th>sab_c</th>
-            <th>dom_c</th>
-            <th>usuario</th>
-            <th>siem</th>
-            <th>nome</th>
-            <th>tipo_escola</th>
+            <th>dom_c</th>-->
+            <!--<th>usuario</th>
+            <th>siem</th>-->
+            <th>Nome</th>
+            <!--<th>tipo_escola</th>
             <th>cod_ext</th>
             <th>created_at</th>
             <th>updated_at</th>
-            <th>vinculo</th>
-            <th>nome</th>
-            <th>cep</th>
+            <th>vinculo</th>-->
+            <th>Escola</th>
+            <!--<th>cep</th>
             <th>distrito</th>
             <th>bairro</th>
             <th>logradouro</th>
@@ -75,13 +104,13 @@
             <th>nome_mae</th>
             <th>nome_pai</th>
             <th>created_at</th>
-            <th>updated_at</th>
+            <th>updated_at</th>-->
             <th>actions</th>
         </thead>
         <tbody>
             @foreach($horario_funcionarios as $horario_funcionario) 
             <tr>
-                <td>{!!$horario_funcionario->seg_m!!}</td>
+                <!--<td>{!!$horario_funcionario->seg_m!!}</td>
                 <td>{!!$horario_funcionario->ter_m!!}</td>
                 <td>{!!$horario_funcionario->qua_m!!}</td>
                 <td>{!!$horario_funcionario->qui_m!!}</td>
@@ -108,17 +137,17 @@
                 <td>{!!$horario_funcionario->qui_c!!}</td>
                 <td>{!!$horario_funcionario->sex_c!!}</td>
                 <td>{!!$horario_funcionario->sab_c!!}</td>
-                <td>{!!$horario_funcionario->dom_c!!}</td>
-                <td>{!!$horario_funcionario->siem->usuario!!}</td>
-                <td>{!!$horario_funcionario->siem->siem!!}</td>
-                <td>{!!$horario_funcionario->siem->nome!!}</td>
-                <td>{!!$horario_funcionario->siem->tipo_escola!!}</td>
+                <td>{!!$horario_funcionario->dom_c!!}</td>-->
+                <!--<td>{!!$horario_funcionario->siem->usuario!!}</td>
+                <td>{!!$horario_funcionario->siem->siem!!}</td>-->
+                <!--<td>{!!$horario_funcionario->siem->tipo_escola!!}</td>
                 <td>{!!$horario_funcionario->siem->cod_ext!!}</td>
                 <td>{!!$horario_funcionario->siem->created_at!!}</td>
                 <td>{!!$horario_funcionario->siem->updated_at!!}</td>
-                <td>{!!$horario_funcionario->pessoa->vinculo!!}</td>
+                <td>{!!$horario_funcionario->pessoa->vinculo!!}</td>-->
                 <td>{!!$horario_funcionario->pessoa->nome!!}</td>
-                <td>{!!$horario_funcionario->pessoa->cep!!}</td>
+                <td>{!!$horario_funcionario->siem->nome!!}</td>
+                <!--<td>{!!$horario_funcionario->pessoa->cep!!}</td>
                 <td>{!!$horario_funcionario->pessoa->distrito!!}</td>
                 <td>{!!$horario_funcionario->pessoa->bairro!!}</td>
                 <td>{!!$horario_funcionario->pessoa->logradouro!!}</td>
@@ -136,7 +165,7 @@
                 <td>{!!$horario_funcionario->pessoa->nome_mae!!}</td>
                 <td>{!!$horario_funcionario->pessoa->nome_pai!!}</td>
                 <td>{!!$horario_funcionario->pessoa->created_at!!}</td>
-                <td>{!!$horario_funcionario->pessoa->updated_at!!}</td>
+                <td>{!!$horario_funcionario->pessoa->updated_at!!}</td>-->
                 <td>
                     <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/horario_funcionario/{!!$horario_funcionario->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
                     <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/horario_funcionario/{!!$horario_funcionario->id!!}/edit'><i class = 'material-icons'>edit</i></a>
@@ -148,5 +177,4 @@
     </table>
     {!! $horario_funcionarios->render() !!}
 
-</section>
 @endsection

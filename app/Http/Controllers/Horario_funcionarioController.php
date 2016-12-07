@@ -11,6 +11,7 @@ use URL;
 
 use App\Siem;
 
+use Auth;
 
 use App\Pessoa;
 
@@ -30,9 +31,43 @@ class Horario_funcionarioController extends Controller
      */
     public function index()
     {
-        $title = 'Index - horario_funcionario';
-        $horario_funcionarios = Horario_funcionario::paginate(6);
-        return view('horario_funcionario.index',compact('horario_funcionarios','title'));
+
+        // $pessoas = Pessoa::all();
+        // $title = 'Index - horario_funcionario';
+        // $horario_funcionarios = Horario_funcionario::paginate(6);
+        // return view('horario_funcionario.index',compact('horario_funcionarios','title'));
+
+
+$usuario_logado = Auth::user()->name;
+
+            $pessoas = Pessoa::all();
+
+            $siems = Siem::all();
+
+
+if($usuario_logado == "Admin") {
+
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            $horario_funcionarios = Horario_funcionario::where('pessoa_id','like','%'.$search.'%')
+                ->orderBy('pessoa_id')
+                ->paginate(5);
+
+        return view('horario_funcionario.index',compact('horario_funcionarios','pessoas','escolas'));
+
+} else {
+
+       $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            $horario_funcionarios = Horario_funcionario::where('pessoa_id','like','%'.$search.'%')
+                ->where('vinculo',Auth::user()->name)
+                ->orderBy('pessoa_id')
+                ->paginate(5);
+
+        return view('horario_funcionario.index',compact('horario_funcionarios','pessoas','escolas'));
+}
+
+
     }
 
     /**
@@ -62,9 +97,10 @@ class Horario_funcionarioController extends Controller
         $horario_funcionario = new Horario_funcionario();
 
         
+        $horario_funcionario->vinculo = $request->vinculo;
+
         $horario_funcionario->seg_m = $request->seg_m;
 
-        
         $horario_funcionario->ter_m = $request->ter_m;
 
         
@@ -223,6 +259,9 @@ class Horario_funcionarioController extends Controller
     public function update($id,Request $request)
     {
         $horario_funcionario = Horario_funcionario::findOrfail($id);
+
+        $horario_funcionario->vinculo = $request->vinculo;
+      
     	
         $horario_funcionario->seg_m = $request->seg_m;
         

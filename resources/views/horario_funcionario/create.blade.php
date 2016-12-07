@@ -14,10 +14,13 @@
                     <form method='POST' action='{!!url("horario_funcionario")!!}'>
                         <input type='hidden' name='_token' value='{{Session::token()}}'>
 
+                        <input type='hidden' name='vinculo' value='{{Auth::user()->name}}'>
+
 
                         <div class="form-group">
                             <label>Selecione a Escola</label>
                             <select name='siem_id' class='form-control' id="select1">
+                <option value="">Selecione a Escola</option>
                 @foreach($siems as $key => $value) 
                 <option value="{{$key}}">{{$value}}</option>
                 @endforeach
@@ -27,6 +30,7 @@
                         <div class="form-group">
                             <label>Selecione o Analista</label>
                             <select name='pessoa_id' class='form-control' id="select2">
+                <option value="">Selecione o Analista</option>
                 @foreach($pessoas as $key => $value) 
                 <option value="{{$key}}">{{$value}}</option>
                 @endforeach 
@@ -47,6 +51,7 @@
   <div class="btn-group">
     <button type="button" class="btn btn-success" data-toggle="collapse" data-parent="#accordion" href="#collapse1"><b>Matutino</b></button>
   </div>
+</div>
 </div>
 
     <div id="collapse1" class="panel-collapse collapse in">
@@ -112,6 +117,7 @@
           </div>
     </div>
   </div>
+
   <div class="panel panel-default">
     <div class="panel-heading">
       <!--<h4 align="center" class="panel-title">
@@ -333,7 +339,6 @@
   </div>
 
 </div> 
-</div>
 
                         <button class='btn btn-primary' type='submit'>Salvar</button>
                     </form>
