@@ -25,7 +25,7 @@
             </select>
                         </div>
                         <div class="form-group">
-                            <label>Selecione o Funcionário</label>
+                            <label>Selecione o Analista</label>
                             <select name='pessoa_id' class='form-control' id="select2">
                 @foreach($pessoas as $key => $value) 
                 <option value="{{$key}}">{{$value}}</option>
