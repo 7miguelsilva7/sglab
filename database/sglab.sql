@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 07, 2016 at 03:57 PM
+-- Generation Time: Dec 08, 2016 at 12:36 PM
 -- Server version: 5.5.53-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.20
 
@@ -254,6 +254,8 @@ INSERT INTO `funcionarios` (`id`, `adicionado_por`, `vinculo`, `status_funcionar
 
 CREATE TABLE IF NOT EXISTS `horario_funcionarios` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `adicionado_por` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `vinculo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `seg_m` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ter_m` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `qua_m` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -289,14 +291,14 @@ CREATE TABLE IF NOT EXISTS `horario_funcionarios` (
   PRIMARY KEY (`id`),
   KEY `horario_funcionarios_siem_id_foreign` (`siem_id`),
   KEY `horario_funcionarios_pessoa_id_foreign` (`pessoa_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `horario_funcionarios`
 --
 
-INSERT INTO `horario_funcionarios` (`id`, `seg_m`, `ter_m`, `qua_m`, `qui_m`, `sex_m`, `sab_m`, `dom_m`, `seg_t`, `ter_t`, `qua_t`, `qui_t`, `sex_t`, `sab_t`, `dom_t`, `seg_n`, `ter_n`, `qua_n`, `qui_n`, `sex_n`, `sab_n`, `dom_n`, `seg_c`, `ter_c`, `qua_c`, `qui_c`, `sex_c`, `sab_c`, `dom_c`, `siem_id`, `pessoa_id`, `created_at`, `updated_at`) VALUES
-(3, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '07:30 às 13:30', '12:00 às 18:00', '12:00 às 18:00', '07:30 às 13:30', '07:30 às 13:30', '', '', 163, 2134, '2016-12-06 23:50:59', '2016-12-06 23:50:59');
+INSERT INTO `horario_funcionarios` (`id`, `adicionado_por`, `vinculo`, `seg_m`, `ter_m`, `qua_m`, `qui_m`, `sex_m`, `sab_m`, `dom_m`, `seg_t`, `ter_t`, `qua_t`, `qui_t`, `sex_t`, `sab_t`, `dom_t`, `seg_n`, `ter_n`, `qua_n`, `qui_n`, `sex_n`, `sab_n`, `dom_n`, `seg_c`, `ter_c`, `qua_c`, `qui_c`, `sex_c`, `sab_c`, `dom_c`, `siem_id`, `pessoa_id`, `created_at`, `updated_at`) VALUES
+(3, 'Admin', 'NÚCLEO DE TECNOLOGIA MUNICIPAL - NTM', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '07:30 às 13:30', '12:00 às 18:00', '12:00 às 18:00', '07:30 às 13:30', '07:30 às 13:30', '', '', 163, 2134, '2016-12-06 23:50:59', '2016-12-08 14:52:47');
 
 -- --------------------------------------------------------
 
@@ -1054,7 +1056,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$8YnfsZ6N5NsXxDXYbYc/UOgb/xvux3B/hXv1x574bsISvxk1xsnO.', 'OhFP4yfL4bTK3nGNlK3tEYrAD3rZlsH6T49ylxdZqzbsz9teyMtpDtHdzKS2', '2016-11-12 17:44:03', '2016-11-30 22:59:50'),
+(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$8YnfsZ6N5NsXxDXYbYc/UOgb/xvux3B/hXv1x574bsISvxk1xsnO.', '1eYVfWUFRVV0Igv0jgKINrLmVnZ9EILx94IznvzdHWAELXuhd1lz0qyY3cE7', '2016-11-12 17:44:03', '2016-12-08 15:05:02'),
 (17, 'Liberado', 'liberado@gmail.com', '$2y$10$XjCrpeKNG0ilPkwHslBdouPEmr1i6wdxLkZ4ZmIcPbjHM9cyo7066', 'ov1yW2XtE7dXU8V2cY5vniZjVb6srButRuQcOQSCAPKEf3N6etGzgExNeVxo', '2016-11-15 05:35:44', '2016-11-22 19:09:42'),
 (21, '02 DE JULHO', 'doisdejulhojuazeiro@hotmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (22, '15 DE JULHO', '29teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1111,7 +1113,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 (73, 'E.M.E.I PRIMAVERA', '1teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (74, 'E.M.E.I SEMENTE DO AMANHA', '42teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (75, 'E.M.E.I. ARCENIO JOSE DA SILVA', '43teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(76, 'EDUCANDÁRIO JOÃO XXIII', 'educandariojoao23@gmail.com', '$2y$10$gkS9F8a7yQzh2rV/GKnWgu.IQVMzf3q0Ycyrojc3uBm1plhZsqiG2', 'IwPkTRHraCIsukI2zErjfiv84PjGrPXcYFLlmEoE3s2zdjnl2cKVVETSMekD', '0000-00-00 00:00:00', '2016-11-24 20:15:54'),
+(76, 'EDUCANDÁRIO JOÃO XXIII', 'educandariojoao23@gmail.com', '$2y$10$gkS9F8a7yQzh2rV/GKnWgu.IQVMzf3q0Ycyrojc3uBm1plhZsqiG2', 'aiDAKyWvQdt78ffm4wSxE0q5c768NShKV1MFykkAlV0R2IwWMiOnQgUCUCCm', '0000-00-00 00:00:00', '2016-12-08 14:37:26'),
 (77, 'ELEOTÉRIO SOARES FONSÊCA', '44teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (78, 'ELISEU SANTOS', '24teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (79, 'ERUM - RURAL DA MASSAROCA', '25teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
