@@ -32,7 +32,7 @@
 
                                 <select class="form-control" name="search" id="select1">
                                 
-                                <option value="">Mostrar Todos Horários Cadastrados</option>
+                                <option value="">Mostrar Todos Funcionários com Horários Cadastrados</option>
                                 @foreach($pessoas as $key => $value)
                                 <option value="{{$value->id}}">{{$value->nome}}</option>
                                 @endforeach
