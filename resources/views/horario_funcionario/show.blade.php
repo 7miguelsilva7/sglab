@@ -12,15 +12,9 @@
     <form method = 'get' action = '{!!url("horario_funcionario")!!}'>
         <button class = 'btn btn-primary'>Voltar</button>
     </form>
-    <br>
-          
-    <table align="center">
-            <thead>
-
-               <th  ><h3>HORÁRIO</h3></th>
-            <thead>
-
-    </table>
+     
+               <h4 align="center">HORÁRIO</h4>
+        
     <p>
     <!--<table align="center">
             <thead>

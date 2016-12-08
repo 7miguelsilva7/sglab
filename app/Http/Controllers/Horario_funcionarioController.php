@@ -98,6 +98,8 @@ if($usuario_logado == "Admin") {
 
         
         $horario_funcionario->vinculo = $request->vinculo;
+        $horario_funcionario->adicionado_por = $request->adicionado_por;
+
 
         $horario_funcionario->seg_m = $request->seg_m;
 
@@ -261,7 +263,8 @@ if($usuario_logado == "Admin") {
         $horario_funcionario = Horario_funcionario::findOrfail($id);
 
         $horario_funcionario->vinculo = $request->vinculo;
-      
+        $horario_funcionario->adicionado_por = $request->adicionado_por;
+    
     	
         $horario_funcionario->seg_m = $request->seg_m;
         

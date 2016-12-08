@@ -13,13 +13,29 @@
                     <br>
                     <form method='POST' action='{!!url("horario_funcionario")!!}'>
                         <input type='hidden' name='_token' value='{{Session::token()}}'>
+                        <input type='hidden' name='adicionado_por' value='{{Auth::user()->name}}'>
 
+@if (Auth::user()->name == "Admin")
+                        
+                   <div class="form-group">
+
+                            <label>Vincular à</label>
+                <select  name='vinculo' class='form-control' id="select1" required>
+                <option value="">Vincular a um Usuário</option>
+                @foreach($siems as $key => $value)
+                <option value="{{$key}}">{{$value}}</option>
+                @endforeach
+
+            </select>
+            </div>
+                        
+@else
                         <input type='hidden' name='vinculo' value='{{Auth::user()->name}}'>
-
+@endif
 
                         <div class="form-group">
                             <label>Selecione a Escola</label>
-                            <select name='siem_id' class='form-control' id="select1">
+                            <select name='siem_id' class='form-control' id="select2" required>
                 <option value="">Selecione a Escola</option>
                 @foreach($siems as $key => $value) 
                 <option value="{{$key}}">{{$value}}</option>
@@ -29,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <label>Selecione o Analista</label>
-                            <select name='pessoa_id' class='form-control' id="select2">
+                            <select name='pessoa_id' class='form-control' id="select3" required>
                 <option value="">Selecione o Analista</option>
                 @foreach($pessoas as $key => $value) 
                 <option value="{{$key}}">{{$value}}</option>
