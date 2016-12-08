@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PerfilEscolas" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e6482a4-e7fb-48cb-9bd0-2ffdb6b98f61">
-	<property name="ireport.zoom" value="1.464100000000018"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ac87d448-c8f8-4e26-8ca7-2e70b89f2bf0">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.y" value="30"/>
 	<parameter name="escola" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -44,21 +44,20 @@
      horario_funcionarios.`dom_c` AS horario_funcionarios_dom_c,
      horario_funcionarios.`siem_id` AS horario_funcionarios_siem_id,
      horario_funcionarios.`pessoa_id` AS horario_funcionarios_pessoa_id,
-     pessoas.`id` AS pessoas_id,
-     pessoas.`vinculo` AS pessoas_vinculo,
-     pessoas.`nome` AS pessoas_nome,
-     escolas.`id` AS escolas_id,
-     escolas.`vinculo` AS escolas_vinculo,
-     escolas.`inep` AS escolas_inep,
+     horario_funcionarios.`created_at` AS horario_funcionarios_created_at,
+     horario_funcionarios.`updated_at` AS horario_funcionarios_updated_at,
      siems.`id` AS siems_id,
      siems.`usuario` AS siems_usuario,
      siems.`siem` AS siems_siem,
      siems.`nome` AS siems_nome,
-     siems.`tipo_escola` AS siems_tipo_escola
+     siems.`tipo_escola` AS siems_tipo_escola,
+     siems.`cod_ext` AS siems_cod_ext,
+     pessoas.`id` AS pessoas_id,
+     pessoas.`vinculo` AS pessoas_vinculo,
+     pessoas.`nome` AS pessoas_nome
 FROM
      `pessoas` pessoas INNER JOIN `horario_funcionarios` horario_funcionarios ON pessoas.`id` = horario_funcionarios.`pessoa_id`
-     INNER JOIN `siems` siems ON horario_funcionarios.`siem_id` = siems.`id`,
-     `escolas` escolas]]>
+     INNER JOIN `siems` siems ON horario_funcionarios.`siem_id` = siems.`id`]]>
 	</queryString>
 	<field name="horario_funcionarios_id" class="java.lang.Long"/>
 	<field name="horario_funcionarios_adicionado_por" class="java.lang.String"/>
@@ -93,69 +92,66 @@ FROM
 	<field name="horario_funcionarios_dom_c" class="java.lang.String"/>
 	<field name="horario_funcionarios_siem_id" class="java.lang.Long"/>
 	<field name="horario_funcionarios_pessoa_id" class="java.lang.Long"/>
-	<field name="pessoas_id" class="java.lang.Long"/>
-	<field name="pessoas_vinculo" class="java.lang.String"/>
-	<field name="pessoas_nome" class="java.lang.String"/>
-	<field name="escolas_id" class="java.lang.Long"/>
-	<field name="escolas_vinculo" class="java.lang.String"/>
-	<field name="escolas_inep" class="java.lang.String"/>
+	<field name="horario_funcionarios_created_at" class="java.sql.Timestamp"/>
+	<field name="horario_funcionarios_updated_at" class="java.sql.Timestamp"/>
 	<field name="siems_id" class="java.lang.Long"/>
 	<field name="siems_usuario" class="java.lang.String"/>
 	<field name="siems_siem" class="java.lang.String"/>
 	<field name="siems_nome" class="java.lang.String"/>
 	<field name="siems_tipo_escola" class="java.lang.String"/>
-	<group name="escola" isStartNewPage="true">
-		<groupExpression><![CDATA[]]></groupExpression>
-		<groupHeader>
-			<band/>
-		</groupHeader>
+	<field name="siems_cod_ext" class="java.lang.String"/>
+	<field name="pessoas_id" class="java.lang.Long"/>
+	<field name="pessoas_vinculo" class="java.lang.String"/>
+	<field name="pessoas_nome" class="java.lang.String"/>
+	<group name="siems_siem">
+		<groupExpression><![CDATA[$F{siems_siem}]]></groupExpression>
 	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band height="85" splitType="Stretch">
+		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="122" y="15" width="304" height="14" uuid="8803a9a5-cb4f-4fdf-be58-ec3c01b1d083"/>
+				<reportElement x="196" y="56" width="153" height="20" uuid="bca5897a-a493-40da-a292-46c02bd7311f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
+					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[SECRETARIA DE EDUCAÇÃO E ESPORTE DE JUAZEIRO BAHIA- SEDUC]]></text>
+				<text><![CDATA[Horario de Trabalho]]></text>
 			</staticText>
+			<image>
+				<reportElement x="457" y="14" width="69" height="42" uuid="8c98fa55-a006-4418-9c6c-eb291e94ded1"/>
+				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logoNTM.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="26" y="11" width="54" height="48" uuid="e08f227b-0475-4932-b2ea-c830fd408718"/>
+				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logo_escudo_juazeiro.jpg"]]></imageExpression>
+			</image>
 			<staticText>
-				<reportElement x="122" y="34" width="304" height="14" uuid="85986098-e085-4cc9-ac23-278b5a37c590"/>
+				<reportElement x="117" y="29" width="304" height="14" uuid="dcf45687-ffc8-44cf-9f2f-c1ca170fbf56"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[NUCLEO DE TECNOLOGIA MUNICIPAL - NTM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="201" y="61" width="153" height="20" uuid="a4cb60c3-e716-4725-9773-fe13437fd1c9"/>
+				<reportElement x="117" y="10" width="304" height="14" uuid="dc0a3a5d-1269-4a6b-a92f-198ec78691db"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
+					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Horário de Trabalho]]></text>
+				<text><![CDATA[SECRETARIA DE EDUCAÇÃO E ESPORTE DE JUAZEIRO BAHIA- SEDUC]]></text>
 			</staticText>
-			<image>
-				<reportElement x="462" y="19" width="69" height="42" uuid="3231c1e7-ad47-47a7-a9ec-607bcab9b54a"/>
-				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logoNTM.jpg"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="31" y="16" width="54" height="48" uuid="d41f99ec-e775-4ac0-b707-b6a01e69e8ba"/>
-				<imageExpression><![CDATA["/home/aetji649/sglab/jrxmlreport/img/logo_escudo_juazeiro.jpg"]]></imageExpression>
-			</image>
 		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="6" splitType="Stretch"/>
+		<band height="15" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="270" splitType="Stretch">
+		<band height="180" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="554" height="20" backcolor="#CCCCCC" uuid="6dffa4b0-c956-4a6b-80a3-3cff29759217"/>
+				<reportElement mode="Opaque" x="1" y="0" width="554" height="20" backcolor="#CCCCCC" uuid="f46ef1bd-9667-452d-b233-8e6423d11d0a"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -169,7 +165,7 @@ FROM
 				<text><![CDATA[Funcionário]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="471" y="55" width="84" height="15" uuid="8cce1904-23f1-42b7-9053-21a32daa16f1"/>
+				<reportElement x="471" y="67" width="84" height="15" uuid="94203eb9-f5a2-4c6d-9918-6b2fcb4bbca9"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -183,7 +179,7 @@ FROM
 				<textFieldExpression><![CDATA[$F{horario_funcionarios_sab_m}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Opaque" x="201" y="35" width="84" height="15" backcolor="#CCCCCC" uuid="3236e6c2-37a0-4a68-8266-1a90acfd1b22"/>
+				<reportElement mode="Opaque" x="201" y="47" width="84" height="15" backcolor="#CCCCCC" uuid="79913161-b9c0-4802-b78c-c0df8b4adc24"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -197,7 +193,7 @@ FROM
 				<text><![CDATA[Qua]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="471" y="95" width="84" height="15" uuid="6b48bba0-dbb6-4b95-87b1-c0e74fccdfe3"/>
+				<reportElement x="471" y="107" width="84" height="15" uuid="ed9d2ba5-f019-4d23-8368-d470b8eb73f5"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -208,10 +204,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_sab_n}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="115" width="21" height="15" uuid="873d59f0-b218-454d-8eca-139153684a9c"/>
+				<reportElement x="0" y="127" width="21" height="15" uuid="69841ce7-0ef2-4d02-8748-15721fccfdcb"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -225,7 +221,7 @@ FROM
 				<textFieldExpression><![CDATA[C]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="111" y="95" width="84" height="15" uuid="64c82c5e-c010-4e12-8d57-7dcd4f04927a"/>
+				<reportElement x="111" y="107" width="84" height="15" uuid="f71271b5-e7de-4260-88f2-ff0464deb0f9"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -236,10 +232,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_ter_n}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="55" width="21" height="15" uuid="4879cc2e-af1d-427c-a19c-5ee86c098f85"/>
+				<reportElement x="0" y="67" width="21" height="15" uuid="669e38d3-11b1-4bcd-9af2-d982653bb89b"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -253,7 +249,7 @@ FROM
 				<textFieldExpression><![CDATA[M]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="75" width="21" height="15" uuid="bd9a6a26-f030-424c-8fd7-bcdd13f29934"/>
+				<reportElement x="0" y="87" width="21" height="15" uuid="e28bb955-333e-4428-bf88-cc8d6cc5276a"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -267,7 +263,7 @@ FROM
 				<textFieldExpression><![CDATA[T]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Opaque" x="111" y="35" width="84" height="15" backcolor="#CCCCCC" uuid="52513297-4e27-4011-9747-7be16dc68132"/>
+				<reportElement mode="Opaque" x="111" y="47" width="84" height="15" backcolor="#CCCCCC" uuid="fa110ab0-cc2c-4380-be69-4505e7485d4e"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -281,7 +277,7 @@ FROM
 				<text><![CDATA[Ter]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="21" y="55" width="84" height="15" uuid="53aea7fb-1503-4a16-bd06-3be39543a421"/>
+				<reportElement x="21" y="67" width="84" height="15" uuid="17b683ee-9a7c-444d-b905-243e72bf57db"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -295,7 +291,7 @@ FROM
 				<textFieldExpression><![CDATA[$F{horario_funcionarios_seg_m}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="21" y="95" width="84" height="15" uuid="86bef94f-399c-43ce-87cf-0581779787e8"/>
+				<reportElement x="21" y="107" width="84" height="15" uuid="1992d8a2-aff3-440f-85d5-2fcb6afdaa56"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -306,10 +302,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_seg_n}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Opaque" x="471" y="35" width="84" height="15" backcolor="#CCCCCC" uuid="e793c66c-f2b7-4bc9-afa7-43c731dc6547"/>
+				<reportElement mode="Opaque" x="471" y="47" width="84" height="15" backcolor="#CCCCCC" uuid="15d958a8-a2e2-4694-a433-967526025147"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -323,7 +319,7 @@ FROM
 				<text><![CDATA[Sáb]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="21" y="75" width="84" height="15" uuid="539be80d-5862-4228-81ad-4b7f7fcbafaa"/>
+				<reportElement x="21" y="87" width="84" height="15" uuid="c88f3c43-6574-494e-8dd6-c4004d7c75d2"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -334,10 +330,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_seg_t}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="291" y="75" width="84" height="15" uuid="04a2f27f-0e60-4736-9b24-dad02b90dc98"/>
+				<reportElement x="291" y="87" width="84" height="15" uuid="4f552c37-a87f-4d21-bf85-13975a3e7446"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -348,10 +344,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_qui_t}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="201" y="75" width="84" height="15" uuid="7388a359-65ae-406a-91b9-bc8a5a1dd1b9"/>
+				<reportElement x="201" y="87" width="84" height="15" uuid="5b6a8192-14ad-4a45-a061-03de4c0f8542"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -362,10 +358,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_qua_t}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Opaque" x="381" y="35" width="84" height="15" backcolor="#CCCCCC" uuid="70521490-3fa5-4b4d-a3aa-07e06c56e7b9"/>
+				<reportElement mode="Opaque" x="381" y="47" width="84" height="15" backcolor="#CCCCCC" uuid="394711ff-f43f-4314-bc0f-577252cf5b84"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -379,7 +375,7 @@ FROM
 				<text><![CDATA[Sex]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="21" y="35" width="84" height="15" backcolor="#CCCCCC" uuid="ded9ad75-7660-42d8-a475-acfdcd383489"/>
+				<reportElement mode="Opaque" x="21" y="47" width="84" height="15" backcolor="#CCCCCC" uuid="7ef6f86d-80ac-48bf-9664-cbde0e004194"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -393,7 +389,7 @@ FROM
 				<text><![CDATA[Seg]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="111" y="115" width="84" height="15" uuid="96323e57-1e14-40e3-8f31-7f87a8b607e6"/>
+				<reportElement x="111" y="127" width="84" height="15" uuid="db818451-2f30-4f72-a435-2f8e74679595"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -404,10 +400,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_ter_c}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="471" y="75" width="84" height="15" uuid="40fecc04-9926-4494-b79d-21d20a9a3977"/>
+				<reportElement x="471" y="87" width="84" height="15" uuid="bb2b2d51-f663-4dba-bdf7-a4b91260bf82"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -418,10 +414,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_sab_t}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="201" y="115" width="84" height="15" uuid="ace5f714-f5f9-4164-8c39-3f6c146e4dce"/>
+				<reportElement x="201" y="127" width="84" height="15" uuid="98165dec-a113-47a8-887d-6940bfd877e9"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -432,10 +428,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_qua_c}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="381" y="55" width="84" height="15" uuid="4f571226-be06-4901-abbf-3a693f82ee94"/>
+				<reportElement x="381" y="67" width="84" height="15" uuid="7f96fb81-303c-42fd-a49d-2c11eff44764"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -449,7 +445,7 @@ FROM
 				<textFieldExpression><![CDATA[$F{horario_funcionarios_sex_m}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="201" y="55" width="84" height="15" uuid="88891d98-5210-4a34-a0df-e266d5c58de3"/>
+				<reportElement x="201" y="67" width="84" height="15" uuid="5e9637b8-722d-4c98-8e36-ffd350700ff3"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -463,7 +459,7 @@ FROM
 				<textFieldExpression><![CDATA[$F{horario_funcionarios_qua_m}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="21" y="115" width="84" height="15" uuid="ef16b77b-491d-406a-b480-856fd22965c8"/>
+				<reportElement x="21" y="127" width="84" height="15" uuid="4ad0297c-5eb9-4c0e-b043-03c865d1c047"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -474,10 +470,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_seg_c}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Opaque" x="291" y="35" width="84" height="15" backcolor="#CCCCCC" uuid="ae1d1425-9c32-4fb2-b464-95eab970185f"/>
+				<reportElement mode="Opaque" x="291" y="47" width="84" height="15" backcolor="#CCCCCC" uuid="b334de4a-8295-4231-b173-6a3846fee8df"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -491,7 +487,7 @@ FROM
 				<text><![CDATA[Qui]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="291" y="95" width="84" height="15" uuid="327105f2-934a-4f84-bf05-c4e03ad7c687"/>
+				<reportElement x="291" y="107" width="84" height="15" uuid="7e3e5058-3a78-419e-95fb-b6fb748c3c1f"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -502,10 +498,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_qui_n}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="381" y="95" width="84" height="15" uuid="579d6fe7-571c-4275-bcac-8d0eeec025ae"/>
+				<reportElement x="381" y="107" width="84" height="15" uuid="c7f87a01-7c19-419a-8530-962cdaf1e593"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -516,10 +512,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_sex_n}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="95" width="21" height="15" uuid="7287bb27-eb6e-419e-a318-b1f4adc97a19"/>
+				<reportElement x="0" y="107" width="21" height="15" uuid="c5a7a756-d43c-497f-9777-2ab7d51f6993"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -533,7 +529,7 @@ FROM
 				<textFieldExpression><![CDATA[N]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="381" y="115" width="84" height="15" uuid="853ea6a3-d1dd-45da-b13d-73b8b65afed7"/>
+				<reportElement x="381" y="127" width="84" height="15" uuid="2f2330f0-783d-433d-be7e-e3eae3919609"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -544,10 +540,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_sex_c}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="291" y="55" width="84" height="15" uuid="7de7263a-48f9-4050-b8d8-26c8e72360ab"/>
+				<reportElement x="291" y="67" width="84" height="15" uuid="e708778e-3dbe-41cf-87a7-37d94ed18256"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -561,7 +557,7 @@ FROM
 				<textFieldExpression><![CDATA[$F{horario_funcionarios_qui_m}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="471" y="115" width="84" height="15" uuid="30b1a6de-a00b-4e23-8f32-a14cdcba1475"/>
+				<reportElement x="471" y="127" width="84" height="15" uuid="da1d308c-0606-4dbb-9bd9-55588bcc9638"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -572,10 +568,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_sab_c}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="201" y="95" width="84" height="15" uuid="7798e0ca-e557-47f8-bb4c-cd4db6893e45"/>
+				<reportElement x="201" y="107" width="84" height="15" uuid="521804ae-9819-460f-9175-453192e42c5f"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -586,10 +582,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_qua_n}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="291" y="115" width="84" height="15" uuid="49ecb73d-4aa2-4112-82a0-cb01d26fbdec"/>
+				<reportElement x="291" y="127" width="84" height="15" uuid="d98ccb24-4e7b-4ec7-9b18-c4ca81e618dc"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -600,10 +596,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_qui_c}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="111" y="55" width="84" height="15" uuid="1d809775-3a35-47ea-98ab-bd4c4895fe0e"/>
+				<reportElement x="111" y="67" width="84" height="15" uuid="0cffe3a3-eeea-48c6-9bf4-0ec86551f704"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -617,7 +613,7 @@ FROM
 				<textFieldExpression><![CDATA[$F{horario_funcionarios_ter_m}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="111" y="75" width="84" height="15" uuid="a639b0bf-bba0-40ec-912b-297b5715caaa"/>
+				<reportElement x="381" y="87" width="84" height="15" uuid="64c5dd69-7163-4197-b7d9-4a60554346e8"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -628,10 +624,10 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_ter_t}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="381" y="75" width="84" height="15" uuid="01497be9-e0ee-4b3d-9148-da99a5a78198"/>
+				<reportElement x="111" y="87" width="84" height="15" uuid="209e4714-1517-48bb-9177-1cc68f4eef4d"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -642,17 +638,17 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{horario_funcionarios_sex_t}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[11:00 às 13:00]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band splitType="Stretch"/>
+		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band splitType="Stretch"/>
+		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="38" splitType="Stretch"/>
+		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>

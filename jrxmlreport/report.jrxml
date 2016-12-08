@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d82640b-72ce-4369-9776-cfcc5fb98b06">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     horario_funcionarios.`id` AS horario_funcionarios_id,
+     horario_funcionarios.`adicionado_por` AS horario_funcionarios_adicionado_por,
+     horario_funcionarios.`vinculo` AS horario_funcionarios_vinculo,
+     horario_funcionarios.`seg_m` AS horario_funcionarios_seg_m,
+     horario_funcionarios.`ter_m` AS horario_funcionarios_ter_m,
+     horario_funcionarios.`qua_m` AS horario_funcionarios_qua_m,
+     horario_funcionarios.`qui_m` AS horario_funcionarios_qui_m,
+     horario_funcionarios.`sex_m` AS horario_funcionarios_sex_m,
+     horario_funcionarios.`sab_m` AS horario_funcionarios_sab_m,
+     horario_funcionarios.`dom_m` AS horario_funcionarios_dom_m,
+     horario_funcionarios.`seg_t` AS horario_funcionarios_seg_t,
+     horario_funcionarios.`ter_t` AS horario_funcionarios_ter_t,
+     horario_funcionarios.`qua_t` AS horario_funcionarios_qua_t,
+     horario_funcionarios.`qui_t` AS horario_funcionarios_qui_t,
+     horario_funcionarios.`sex_t` AS horario_funcionarios_sex_t,
+     horario_funcionarios.`sab_t` AS horario_funcionarios_sab_t,
+     horario_funcionarios.`dom_t` AS horario_funcionarios_dom_t,
+     horario_funcionarios.`seg_n` AS horario_funcionarios_seg_n,
+     horario_funcionarios.`ter_n` AS horario_funcionarios_ter_n,
+     horario_funcionarios.`qua_n` AS horario_funcionarios_qua_n,
+     horario_funcionarios.`qui_n` AS horario_funcionarios_qui_n,
+     horario_funcionarios.`sex_n` AS horario_funcionarios_sex_n,
+     horario_funcionarios.`sab_n` AS horario_funcionarios_sab_n,
+     horario_funcionarios.`dom_n` AS horario_funcionarios_dom_n,
+     horario_funcionarios.`seg_c` AS horario_funcionarios_seg_c,
+     horario_funcionarios.`ter_c` AS horario_funcionarios_ter_c,
+     horario_funcionarios.`qua_c` AS horario_funcionarios_qua_c,
+     horario_funcionarios.`qui_c` AS horario_funcionarios_qui_c,
+     horario_funcionarios.`sex_c` AS horario_funcionarios_sex_c,
+     horario_funcionarios.`sab_c` AS horario_funcionarios_sab_c,
+     horario_funcionarios.`dom_c` AS horario_funcionarios_dom_c,
+     horario_funcionarios.`siem_id` AS horario_funcionarios_siem_id,
+     horario_funcionarios.`pessoa_id` AS horario_funcionarios_pessoa_id,
+     horario_funcionarios.`created_at` AS horario_funcionarios_created_at,
+     horario_funcionarios.`updated_at` AS horario_funcionarios_updated_at,
+     pessoas.`id` AS pessoas_id,
+     pessoas.`vinculo` AS pessoas_vinculo,
+     pessoas.`nome` AS pessoas_nome,
+     siems.`id` AS siems_id,
+     siems.`usuario` AS siems_usuario,
+     siems.`siem` AS siems_siem,
+     siems.`nome` AS siems_nome,
+     siems.`tipo_escola` AS siems_tipo_escola,
+     siems.`cod_ext` AS siems_cod_ext
+FROM
+     `siems` siems INNER JOIN `horario_funcionarios` horario_funcionarios ON siems.`id` = horario_funcionarios.`siem_id`
+     INNER JOIN `pessoas` pessoas ON horario_funcionarios.`pessoa_id` = pessoas.`id`]]>
+	</queryString>
+	<field name="horario_funcionarios_id" class="java.lang.Long"/>
+	<field name="horario_funcionarios_adicionado_por" class="java.lang.String"/>
+	<field name="horario_funcionarios_vinculo" class="java.lang.String"/>
+	<field name="horario_funcionarios_seg_m" class="java.lang.String"/>
+	<field name="horario_funcionarios_ter_m" class="java.lang.String"/>
+	<field name="horario_funcionarios_qua_m" class="java.lang.String"/>
+	<field name="horario_funcionarios_qui_m" class="java.lang.String"/>
+	<field name="horario_funcionarios_sex_m" class="java.lang.String"/>
+	<field name="horario_funcionarios_sab_m" class="java.lang.String"/>
+	<field name="horario_funcionarios_dom_m" class="java.lang.String"/>
+	<field name="horario_funcionarios_seg_t" class="java.lang.String"/>
+	<field name="horario_funcionarios_ter_t" class="java.lang.String"/>
+	<field name="horario_funcionarios_qua_t" class="java.lang.String"/>
+	<field name="horario_funcionarios_qui_t" class="java.lang.String"/>
+	<field name="horario_funcionarios_sex_t" class="java.lang.String"/>
+	<field name="horario_funcionarios_sab_t" class="java.lang.String"/>
+	<field name="horario_funcionarios_dom_t" class="java.lang.String"/>
+	<field name="horario_funcionarios_seg_n" class="java.lang.String"/>
+	<field name="horario_funcionarios_ter_n" class="java.lang.String"/>
+	<field name="horario_funcionarios_qua_n" class="java.lang.String"/>
+	<field name="horario_funcionarios_qui_n" class="java.lang.String"/>
+	<field name="horario_funcionarios_sex_n" class="java.lang.String"/>
+	<field name="horario_funcionarios_sab_n" class="java.lang.String"/>
+	<field name="horario_funcionarios_dom_n" class="java.lang.String"/>
+	<field name="horario_funcionarios_seg_c" class="java.lang.String"/>
+	<field name="horario_funcionarios_ter_c" class="java.lang.String"/>
+	<field name="horario_funcionarios_qua_c" class="java.lang.String"/>
+	<field name="horario_funcionarios_qui_c" class="java.lang.String"/>
+	<field name="horario_funcionarios_sex_c" class="java.lang.String"/>
+	<field name="horario_funcionarios_sab_c" class="java.lang.String"/>
+	<field name="horario_funcionarios_dom_c" class="java.lang.String"/>
+	<field name="horario_funcionarios_siem_id" class="java.lang.Long"/>
+	<field name="horario_funcionarios_pessoa_id" class="java.lang.Long"/>
+	<field name="horario_funcionarios_created_at" class="java.sql.Timestamp"/>
+	<field name="horario_funcionarios_updated_at" class="java.sql.Timestamp"/>
+	<field name="pessoas_id" class="java.lang.Long"/>
+	<field name="pessoas_vinculo" class="java.lang.String"/>
+	<field name="pessoas_nome" class="java.lang.String"/>
+	<field name="siems_id" class="java.lang.Long"/>
+	<field name="siems_usuario" class="java.lang.String"/>
+	<field name="siems_siem" class="java.lang.String"/>
+	<field name="siems_nome" class="java.lang.String"/>
+	<field name="siems_tipo_escola" class="java.lang.String"/>
+	<field name="siems_cod_ext" class="java.lang.String"/>
+	<group name="siems_siem">
+		<groupExpression><![CDATA[$F{siems_siem}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
