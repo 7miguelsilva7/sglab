@@ -105,7 +105,7 @@
             <th>nome_pai</th>
             <th>created_at</th>
             <th>updated_at</th>-->
-            <th>actions</th>
+            <th style="width:15%">actions</th>
         </thead>
         <tbody>
             @foreach($horario_funcionarios as $horario_funcionario) 
