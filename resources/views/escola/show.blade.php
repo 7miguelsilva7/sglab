@@ -318,14 +318,14 @@
                         <td>
                             <b><i>Adicionado em : </i><b>
                         </td>
-                        <td>{{$escola->siem->created_at}}</td>
+                        <td>{{$escola->created_at}}</td>
                         </tr>
 
                         <tr>
                         <td>
                             <b><i>Atualizado em : </i><b>
                         </td>
-                        <td>{{$escola->siem->updated_at}}</td>
+                        <td>{{$escola->updated_at}}</td>
                         </tr>
                         
                         

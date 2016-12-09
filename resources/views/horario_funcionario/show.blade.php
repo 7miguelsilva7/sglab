@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div align="center" class="panel-heading">{{$horario_funcionario->pessoa->nome}}  </br>
-  Última Edição: {{$horario_funcionario->pessoa->updated_at}}</div>
+  Última Edição: {{$horario_funcionario->updated_at}}</div>
                 <div class="panel-body">
 
     <form method = 'get' action = '{!!url("horario_funcionario")!!}'>
