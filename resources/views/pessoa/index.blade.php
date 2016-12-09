@@ -90,7 +90,7 @@
                     
                     -->
                     
-                    <th>Ações</th>
+                    <th style="width:15%">Ações</th>
                 </thead>
                 <tbody>
                     @foreach($pessoas as $Pessoa)

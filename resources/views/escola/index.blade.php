@@ -189,7 +189,7 @@
                     
                     --> 
                     
-                    <th>actions</th>
+                    <th style="width:15%">actions</th>
                 </thead>
                 <tbody>
                     @foreach($escolas as $Escola)

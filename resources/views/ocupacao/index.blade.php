@@ -48,7 +48,7 @@
                     <th>nome</th>
                     
                     
-                    <th>actions</th>
+                    <th style="width:15%">actions</th>
                 </thead>
                 <tbody>
                     @foreach($ocupacaos as $Ocupacao)

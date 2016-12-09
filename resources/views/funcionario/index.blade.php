@@ -126,7 +126,7 @@
 
 -->                    
                     
-                    <th>actions</th>
+                    <th style="width:15%">actions</th>
                 </thead>
                 <tbody>
                     @foreach($funcionarios as $Funcionario)
@@ -137,7 +137,6 @@
                     <td>{{$Funcionario->siem->nome}}</td>
 
 <!--
-
                         
                                                 <td>{{$Funcionario->usuario}}</td>
                                                 

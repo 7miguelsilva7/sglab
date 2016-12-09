@@ -61,11 +61,12 @@
                         </tr>
                         
 
- <tr>
+                    <tr>
                         <td>
                             <b><i>Pregão Lab : </i></b>
                         </td>
-                        <td>{{$escola->Pregao1}} {{$escola->Pregao2}} {{$escola->Pregao3}} {{$escola->Pregao4}}</td>
+                        <td>{{$escola->pregao1}} {{$escola->pregao2}} {{$escola->pregao3}} {{$escola->pregao4}}
+                        </td>
                     </tr>
                     
                     <!--<tr>

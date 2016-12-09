@@ -72,7 +72,7 @@ if($usuario_logado == "Admin") {
         
             } else {
 
-                 $escolas = Escola::where('siem_id','like',$search)
+                 $escolas = Escola::where('siem_id','=',$search)
                 ->orderBy('siem_id')
                 ->paginate(5);
 

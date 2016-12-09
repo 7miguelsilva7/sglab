@@ -54,7 +54,7 @@
                <!--     <th>cod_ext</th>  -->
                     
                     
-                    <th>Ações</th>
+                    <th style="width:15%">Ações</th>
                 </thead>
                 <tbody>
                     @foreach($siems as $Siem)
