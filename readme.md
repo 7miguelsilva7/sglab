@@ -46,5 +46,6 @@ Execute os seguintes comandos no terminal
 
 * https://github.com/leandroluk/laravel-5.3-pt-br-localization
 
+teste
 
 
