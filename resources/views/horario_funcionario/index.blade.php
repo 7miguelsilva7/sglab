@@ -176,5 +176,16 @@
         </tbody>
     </table>
     {!! $horario_funcionarios->render() !!}
-
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class = 'AjaxisModal'>
+        </div>
+    </div>
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script> var baseURL = "{{URL::to('/')}}"</script>
+<script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
+<script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
+</html>
 @endsection
