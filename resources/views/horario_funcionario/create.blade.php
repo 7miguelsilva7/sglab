@@ -23,7 +23,7 @@
                 <select  name='vinculo' class='form-control' id="select1" required>
                 <option value="">Vincular a um Usuário</option>
                 @foreach($siems as $key => $value)
-                <option value="{{$key}}">{{$value}}</option>
+                <option value="{{$value}}">{{$value}}</option>
                 @endforeach
 
             </select>
