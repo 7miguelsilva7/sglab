@@ -89,6 +89,10 @@ Route::post('escola/perfillaboratorio','EscolaController@perfillaboratorio');
 
 Route::post('funcionario/perfilfuncionario','FuncionarioController@perfilfuncionario');
 
+// Rotas de Horários
+Route::post('funcionario/horariofuncionario','FuncionarioController@horariofuncionario');
+
+
 
 Route::group(['middleware'=> 'web'],function(){
 });

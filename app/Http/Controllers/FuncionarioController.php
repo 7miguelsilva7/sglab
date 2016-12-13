@@ -91,6 +91,13 @@ if($usuario_logado == "Admin") {
 
 }
 
+        public function horariofuncionario()
+{
+
+        return view('phpreport.ReportHorarioFunc');
+
+
+}
 
     public function create()
     {
