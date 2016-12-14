@@ -131,7 +131,7 @@ class AjaxisGenerate
     {
         $modal = new BootstrapDeleteConfirmationMessage();
 
-        $modal = $this->modalDirector->build($title, 'Agree', $body, $link, $modal);
+        $modal = $this->modalDirector->build($title, 'Excluir', $body, $link, $modal);
 
         return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }

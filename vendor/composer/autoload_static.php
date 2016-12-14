@@ -861,6 +861,7 @@ class ComposerStaticInit2bdfd2463a6e4bc3b2699a3b50eece2f
         'Siems' => __DIR__ . '/../..' . '/database/migrations/2016_10_28_015607_siems.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'Turmas' => __DIR__ . '/../..' . '/database/migrations/2016_12_14_072346_turmas.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

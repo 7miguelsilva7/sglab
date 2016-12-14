@@ -108,7 +108,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                         <ul class="dropdown-menu">
                                         
                                         <li><a href="{{ url('/horario_funcionario') }}"><i class="fa glyphicon glyphicon-calendar"></i>Funcionários</a></li>
-                                        <li><a href="#" ><i class="glyphicon glyphicon-calendar"></i>Turmas</a></li>
+                                        <li><a href="{{ url('/turma') }}" ><i class="glyphicon glyphicon-calendar"></i>Turmas</a></li>
                                         </ul>
                                     </li>
                                     <!--submenu horário -->
@@ -187,7 +187,7 @@ require_once '/home/aetji649/sglab/connect.php';
  
  <li><a data-toggle="modal" data-target="#horario_funcionario" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Funcionários</a></li>
  <li><a data-toggle="modal" data-target="#" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Turmas</a></li>
- <li><a data-toggle="modal" data-target="#" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Turmas LAB</a></li>
+ <li><a data-toggle="modal" data-target="#" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Laboratórios</a></li>
  </ul>
  </li>
  <!--submenu horário -->
