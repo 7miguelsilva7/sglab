@@ -185,8 +185,9 @@ require_once '/home/aetji649/sglab/connect.php';
  <a tabindex="-1" href="#">Horários</a>
  <ul class="dropdown-menu">
  
- <li><a data-toggle="modal" data-target="#horario_funcionario" href="#"><i class="fa glyphicon glyphicon-home"></i>Horário Funcionários</a></li>
- <li><a data-toggle="modal" data-target="#" href="#"><i class="fa glyphicon glyphicon-home"></i>Horário Turmas</a></li>
+ <li><a data-toggle="modal" data-target="#horario_funcionario" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Funcionários</a></li>
+ <li><a data-toggle="modal" data-target="#" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Turmas</a></li>
+ <li><a data-toggle="modal" data-target="#" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Turmas LAB</a></li>
  </ul>
  </li>
  <!--submenu horário -->

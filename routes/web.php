@@ -93,7 +93,6 @@ Route::post('funcionario/perfilfuncionario','FuncionarioController@perfilfuncion
 Route::post('funcionario/horariofuncionario','FuncionarioController@horariofuncionario');
 
 
-
 Route::group(['middleware'=> 'web'],function(){
 });
 //horario_funcionario Routes
