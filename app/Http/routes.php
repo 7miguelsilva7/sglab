@@ -76,3 +76,11 @@ Route::group(['middleware'=> 'web'],function(){
   Route::get('turma/{id}/delete','\App\Http\Controllers\TurmaController@destroy');
   Route::get('turma/{id}/deleteMsg','\App\Http\Controllers\TurmaController@DeleteMsg');
 });
+
+//moodle_simulado Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('moodle_simulado','\App\Http\Controllers\Moodle_simuladoController');
+  Route::post('moodle_simulado/{id}/update','\App\Http\Controllers\Moodle_simuladoController@update');
+  Route::get('moodle_simulado/{id}/delete','\App\Http\Controllers\Moodle_simuladoController@destroy');
+  Route::get('moodle_simulado/{id}/deleteMsg','\App\Http\Controllers\Moodle_simuladoController@DeleteMsg');
+});
