@@ -11,7 +11,6 @@ use URL;
 
 use App\Siem;
 
-
 use App\Ocupacao;
 
 
@@ -119,6 +118,15 @@ if($usuario_logado == "Admin") {
      */
     public function store(Request $request)
     {
+    
+ // validação de campos do formulário
+        //print_r($request->all());
+        $this->validate($request,[
+         'vinculo'=>'required|max:50',
+         'siem_id'=>'required|unique_with:funcionarios,pessoa_id',
+        ]);
+// Fim validação de campos de formulário
+
         $funcionario = new Funcionario();
 
         $funcionario->adicionado_por = $request->adicionado_por;
