@@ -547,5 +547,5 @@ return array(
     'Siems' => $baseDir . '/database/migrations/2016_10_28_015607_siems.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
-    'Turmas' => $baseDir . '/database/migrations/2016_12_14_072346_turmas.php',
+    'Turmas' => $baseDir . '/database/migrations/2016_12_15_025007_turmas.php',
 );

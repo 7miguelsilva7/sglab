@@ -4,15 +4,14 @@
 
 return [
     'turno' => [
-        '' => "Escolha um Turno",
+        '' => "Escolha o Turno",
         'Manhã' => "Manhã",
         'Tarde' => "Tarde",
         'Noite' => "Noite",
         'Corrido' => "Corrido",
-    ]
-];
+    ],
 
-return [
+
     'dias' => [
         '' => "Escolha um Dia",
         'Segunda' => "Segunda",
@@ -22,22 +21,16 @@ return [
         'Sexta' => "Sexta",
         'Sábado' => "Sábado",
         'Domingo' => "Domingo",
-    ]
+    ],
 
-];
-
-return [
-    'nivel' => [
-        '' => "Escolha a Nível",
+     'nivel' => [
+        '' => "Escolha o Nível",
         'Fund I' => "Fundamental I",
         'Fund II' => "Fundamental II",
-    ]
+    ],
 
-];
-
-return [
-    'serie' => [
-        '' => "Escolha um Série",
+      'serie' => [
+        '' => "Escolha a Série",
         '1º' => "1º",
         '2º' => "2º",
         '3º' => "3º",
@@ -47,13 +40,10 @@ return [
         '7º' => "7º",
         '8º' => "8º",
         '9º' => "9º",
-    ]
+    ],
 
-];
-
-return [
-    'turma' => [
-        '' => "Escolha um Turma",
+      'turma' => [
+        '' => "Escolha a Turma",
         'A' => "A",
         'B' => "B",
         'C' => "C",
@@ -65,6 +55,20 @@ return [
         'I' => "I",
         'J' => "J",
         'K' => "K",
+    ],
+
+    'disciplina' => [
+        '' => "",
+        'LAB' => "LAB",
+        'POR' => "POR",
+        'ING' => "ING",
+        'MAT' => "MAT",
+        'HIS' => "HIS",
+        'GEO' => "GEO",
+        'BIO' => "BIO",
+        'EMP' => "EMP",
+        'REL' => "REL",
+       
     ]
 
 ];

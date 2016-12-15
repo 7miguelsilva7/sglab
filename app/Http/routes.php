@@ -62,6 +62,13 @@ Route::group(['middleware'=> 'web'],function(){
   Route::get('horario_funcionario/{id}/deleteMsg','\App\Http\Controllers\Horario_funcionarioController@DeleteMsg');
 });
 
+Route::group(['middleware'=> 'web'],function(){
+});
+
+Route::group(['middleware'=> 'web'],function(){
+});
+Route::group(['middleware'=> 'web'],function(){
+});
 //turma Routes
 Route::group(['middleware'=> 'web'],function(){
   Route::resource('turma','\App\Http\Controllers\TurmaController');

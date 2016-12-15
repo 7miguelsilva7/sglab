@@ -174,10 +174,9 @@ public function perfillaboratorio()
         //print_r($request->all());
         $this->validate($request,[
          'vinculo'=>'required|max:50',
-         'siem_id'=>'required|unique:escolas',
+         'siem_id'=>'required|unique_with:escolas,inep',
         ]);
 // Fim validação de campos de formulário
-
 
         $escola = new Escola();
 
