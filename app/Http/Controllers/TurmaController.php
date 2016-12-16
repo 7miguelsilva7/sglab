@@ -54,6 +54,20 @@ class TurmaController extends Controller
      */
     public function store(Request $request)
     {
+
+
+ // validação de campos do formulário
+        //print_r($request->all());
+        $this->validate($request,[
+         'siem_id'=>'required|unique_with:turmas,nivel,serie,turma',
+         'turno'=>'required',
+         'nivel'=>'required',
+         'serie'=>'required',
+         'turma'=>'required',
+         
+        ]);
+// Fim validação de campos de formulário
+
         $turma = new Turma();
 
         
@@ -91,7 +105,7 @@ class TurmaController extends Controller
                          'test-event',
                         ['message' => 'A new turma has been created !!']);
 
-        return redirect('turma');
+        return redirect('turma/create');
     }
 
     /**

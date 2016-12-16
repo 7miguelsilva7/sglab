@@ -12,7 +12,7 @@ return [
 
 
     'dias' => [
-        '' => "Escolha um Dia",
+        '' => "",
         'Segunda' => "Segunda",
         'Terça' => "Terça",
         'Quarta' => "Quarta",
@@ -23,13 +23,19 @@ return [
     ],
 
      'nivel' => [
-        '' => "Escolha o Nível",
+        '' => "",
+        'Infantil' => "Infantil",
         'Fund I' => "Fundamental I",
         'Fund II' => "Fundamental II",
     ],
 
       'serie' => [
-        '' => "Escolha a Série",
+        '' => "",
+        'INF I' => "Infantil I",
+        'INF II' => "Infantil II",
+        'INF III' => "Infantil III",
+        'INF IV' => "Infantil IV",
+        'INF V' => "Infantil V",
         '1º' => "1º",
         '2º' => "2º",
         '3º' => "3º",
@@ -42,7 +48,7 @@ return [
     ],
 
       'turma' => [
-        '' => "Escolha a Turma",
+        '' => "",
         'A' => "A",
         'B' => "B",
         'C' => "C",

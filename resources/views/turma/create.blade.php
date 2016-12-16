@@ -1,9 +1,3 @@
-
-<?php
-
-#chama o arquivo de configuração com o banco
-require_once '/home/aetji649/sglab/connect.php';
-?>
 @extends('layouts.app')
 
 @section('content')
@@ -17,38 +11,51 @@ require_once '/home/aetji649/sglab/connect.php';
                 <button class = 'btn btn-danger'>Voltar</button>
             </form>
             <br>
-  
     <form method = 'POST' action = '{!!url("turma")!!}'>
+
+
+  @if (count($errors) > 0)
+         <div class = "alert alert-danger">
+            <ul>
+               @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+               @endforeach
+            </ul>
+         </div>
+
+  @endif
+
+
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
        
         <div class="form-group">
-            <!--<label for="adicionado_por">adicionado_por</label>-->
+        <!--<label for="adicionado_por">adicionado_por</label>-->
             <input type = 'hidden' id="adicionado_por" name = "adicionado_por" value="{{Auth::user()->name}}" type="text" class="form-control">
         </div>
 
         <!--block de vínculo-->
-
 @if (Auth::user()->name == "Admin")
-        <div class="form-group">
+        <div align="center" class="form-group">
             <label>Vincular a:</label>
-            <select name = 'vinculo' class = 'form-control' id ="select1">
+            <select name = 'vinculo' class = 'form-control' id ="select1" required>
+                <option value="">Escolha uma Escola para Vícular Registro</option>
+
                 @foreach($siems as $key => $value) 
                 <option value="{{$key}}">{{$value}}</option>
                 @endforeach 
             </select>
-        </div>
+        </div> </p>
         
 
-        <div class="form-group">
+        <div align="center" class="form-group">
             <label>Escola</label>
-            <select name = 'siem_id' class = 'form-control' id = "select2">
-                @foreach($siems as $key => $value) 
+            <select name = 'siem_id' class = 'form-control' id = "select2" required>
+                <option value="">Escolha uma Escola para Cadastrar Turma</option>
+                @foreach($siems as $key => $value)
                 <option value="{{$key}}">{{$value}}</option>
                 @endforeach 
             </select>
-        </div>
-   
-
+        </div> </p> </br>
 @else
 
         <div class="form-group">
@@ -58,33 +65,35 @@ require_once '/home/aetji649/sglab/connect.php';
 
          <div class="form-group">
             <!--<label for="siem_id">siem_id</label>-->
-            <input type = 'hidden' id="siem_id" name = "siem_id" value="{{Auth::user()->name}}" type="text" class="form-control">
+            <input type = 'hidden' id="siem_id" name = "siem_id" value="{{Auth::user()->id}}" type="text" class="form-control">
         </div>
 
 @endif
 
         <!--FIM block de vínculo-->
 
-
          <div class="form-group">
-            <label for="turno">turno</label></br>
-            {!! Form::select('nivel',  Config::get('enums.turno')) !!}
+            <label for="turno">Turno</label></br>
+            {!! Form::select('turno',  Config::get('enums.turno')) !!}
         </div>
 
         <div class="form-group">
-            <label for="nivel">nivel</label>
-            <input id="nivel" name = "nivel" type="text" class="form-control" required>
+            <label for="nivel">Nivel</label></br>
+            {!! Form::select('nivel',  Config::get('enums.nivel')) !!}
         </div>
         <div class="form-group">
-            <label for="serie">serie</label>
-            <input id="serie" name = "serie" type="text" class="form-control">
+            <label for="serie">Série</label></br>
+            {!! Form::select('serie',  Config::get('enums.serie')) !!}
         </div>
         <div class="form-group">
-            <label for="turma">turma</label>
-            <input id="turma" name = "turma" type="text" class="form-control">
+            <label for="turma">Turma</label></br>
+            {!! Form::select('turma',  Config::get('enums.turma')) !!}
         </div>
-       
-        <button class = 'btn btn-primary' type ='submit'>Create</button>
+       </p>
+               </br>
+
+        <button class = 'btn btn-primary' type ='submit'>Adicionar</button>
     </form>
-</section>
+
 @endsection
+
