@@ -4,11 +4,10 @@
 
 return [
     'turno' => [
-        '' => "Escolha o Turno",
+        '' => "",
         'Manhã' => "Manhã",
         'Tarde' => "Tarde",
         'Noite' => "Noite",
-        'Corrido' => "Corrido",
     ],
 
 

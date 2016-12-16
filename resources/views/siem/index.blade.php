@@ -21,7 +21,6 @@
                 <div class="panel-body">
             <h2><i class="fa glyphicon glyphicon-th-list"></i> Siem</h2>
 
-
 {!! Form::open(['method'=>'GET','url'=>'siem','class'=>'navbar-form navbar-right','role'=>'search'])  !!}
 
 <?php
