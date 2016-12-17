@@ -11,7 +11,7 @@ use URL;
 
 use App\Siem;
 
-
+use Session;
 /**
  * Class TurmaController.
  *
@@ -106,7 +106,10 @@ class TurmaController extends Controller
                          'test-event',
                         ['message' => 'A new turma has been created !!']);
 
-        return redirect('turma/create');
+    session()->flash('msg', 'Adicionado com Sucesso!!!');
+    return redirect('turma/create');
+
+        // return redirect('turma/create');
     }
 
     /**

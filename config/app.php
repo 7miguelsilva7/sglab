@@ -183,7 +183,9 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Vinkla\Pusher\PusherServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-    'Felixkiss\UniqueWithValidator\UniqueWithValidatorServiceProvider',        
+    'Felixkiss\UniqueWithValidator\UniqueWithValidatorServiceProvider',  
+    'Laracasts\Flash\FlashServiceProvider'        
+      
                 
 
     ],
@@ -236,6 +238,7 @@ return [
         'Html'      => Illuminate\Html\HtmlFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Flash' => 'Laracasts\Flash\Flash'        
 
     ],
 

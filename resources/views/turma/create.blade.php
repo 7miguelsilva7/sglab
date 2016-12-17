@@ -26,6 +26,15 @@
   @endif
 
 
+ {!! Session::has('msg') ? Session::get("msg") : '' !!}
+
+
+@if (Session::has('flash_notification.message'))
+  <div class="{{ Session::get('flash_notification.level') }}">
+    {{ Session::get('flash_notification.message') }}
+  </div>
+@endif
+
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
        
         <div class="form-group">
@@ -72,40 +81,38 @@
 
         <!--FIM block de vínculo-->
 
-         <div class="form-group">
-        <div class="col-md-3">
+        <div class="form-group">
+        <div class="col-md-2">
 
-            <label for="turno">Turno</label>
+            <label for="turno">Turno</label></br>
             {!! Form::select('turno',  Config::get('enums.turno')) !!}
         </div>
+        
 
         <div class="form-group">
-                    <div class="col-md-3">
+        <div class="col-md-3">
 
-            <label for="nivel">Nivel</label>
+            <label for="nivel">Nivel</label></br>
             {!! Form::select('nivel',  Config::get('enums.nivel')) !!}
         </div>
 
         <div class="form-group">
-                    <div class="col-md-3">
+        <div class="col-md-2">
 
-            <label for="serie">Série</label>
+            <label for="serie">Série</label></br>
             {!! Form::select('serie',  Config::get('enums.serie')) !!}
         </div>
 
         <div class="form-group">
-                    <div class="col-md-3">
+        <div class="col-md-5">
 
-            <label for="turma">Turma</label>
-            {!! Form::select('turma',  Config::get('enums.turma')) !!}
-        </div>
-        </div>
-        </div>
-        </div>
+            <label for="turma">Turma</label></br>
+            {!! Form::select('turma',  Config::get('enums.turma')) !!} </p></br>
         </div>
         </div>
 
         <button class = 'btn btn-primary' type ='submit'>Adicionar</button>
+       
     </form>
 
 @endsection
