@@ -60,6 +60,7 @@ class TurmaController extends Controller
         //print_r($request->all());
         $this->validate($request,[
          'siem_id'=>'required|unique_with:turmas,nivel,serie,turma',
+         'vinculo'=>'required',
          'turno'=>'required',
          'nivel'=>'required',
          'serie'=>'required',

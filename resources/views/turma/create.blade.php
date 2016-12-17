@@ -37,7 +37,7 @@
 @if (Auth::user()->name == "Admin")
         <div align="center" class="form-group">
             <label>Vincular a:</label>
-            <select name = 'vinculo' class = 'form-control' id ="select1" required>
+            <select name = 'vinculo' class = 'form-control' id ="select1" >
                 <option value="">Escolha uma Escola para Vícular Registro</option>
 
                 @foreach($siems as $key => $value) 
@@ -49,7 +49,7 @@
 
         <div align="center" class="form-group">
             <label>Escola</label>
-            <select name = 'siem_id' class = 'form-control' id = "select2" required>
+            <select name = 'siem_id' class = 'form-control' id = "select2" >
                 <option value="">Escolha uma Escola para Cadastrar Turma</option>
                 @foreach($siems as $key => $value)
                 <option value="{{$key}}">{{$value}}</option>
@@ -73,24 +73,37 @@
         <!--FIM block de vínculo-->
 
          <div class="form-group">
-            <label for="turno">Turno</label></br>
+        <div class="col-md-3">
+
+            <label for="turno">Turno</label>
             {!! Form::select('turno',  Config::get('enums.turno')) !!}
         </div>
 
         <div class="form-group">
-            <label for="nivel">Nivel</label></br>
+                    <div class="col-md-3">
+
+            <label for="nivel">Nivel</label>
             {!! Form::select('nivel',  Config::get('enums.nivel')) !!}
         </div>
+
         <div class="form-group">
-            <label for="serie">Série</label></br>
+                    <div class="col-md-3">
+
+            <label for="serie">Série</label>
             {!! Form::select('serie',  Config::get('enums.serie')) !!}
         </div>
+
         <div class="form-group">
-            <label for="turma">Turma</label></br>
+                    <div class="col-md-3">
+
+            <label for="turma">Turma</label>
             {!! Form::select('turma',  Config::get('enums.turma')) !!}
         </div>
-       </p>
-               </br>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
 
         <button class = 'btn btn-primary' type ='submit'>Adicionar</button>
     </form>
