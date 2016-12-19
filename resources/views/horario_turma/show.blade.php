@@ -1,16 +1,21 @@
-@extends('scaffold-interface.layouts.app')
-@section('title','Show')
+@extends('layouts.app') 
 @section('content')
 
-<section class="content">
-    <h1>
-        Show horario_turma
-    </h1>
-    <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div align="center" class="panel-heading">{!!$horario_turma->turma->nivel!!} - {!!$horario_turma->turma->serie!!} ANO {!!$horario_turma->turma->turma!!}  </br>
+  Última Edição: {{$horario_turma->updated_at}}</div>
+                <div class="panel-body">
+
     <form method = 'get' action = '{!!url("horario_turma")!!}'>
-        <button class = 'btn btn-primary'>horario_turma Index</button>
+        <button class = 'btn btn-primary'>Voltar</button>
     </form>
-    <br>
+     
+               <h4 align="center">HORÁRIO {!!$horario_turma->turma->serie!!} ANO {!!$horario_turma->turma->turma!!}</h4>
+        
+    
     <table class = 'table table-bordered'>
         <thead>
             <th>Key</th>

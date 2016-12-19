@@ -15,15 +15,7 @@
      
                <h4 align="center">HORÁRIO</h4>
         
-    <p>
-    <!--<table align="center">
-            <thead>
-
-               <th>MANHÃ</th>
-            <thead>
-
-    </table>-->
-    <p>
+    
     <table  class = "table table-striped table-bordered" >
         <thead style="width:100%" >
            <th style="width:7%"  ></th>

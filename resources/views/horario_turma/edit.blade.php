@@ -1,13 +1,14 @@
-@extends('scaffold-interface.layouts.app')
-@section('title','Edit')
+@extends('layouts.app') 
 @section('content')
 
-<section class="content">
-    <h1>
-        Edit horario_turma
-    </h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Editar Horário Turma</div>
+                <div class="panel-body">
     <form method = 'get' action = '{!!url("horario_turma")!!}'>
-        <button class = 'btn btn-danger'>horario_turma Index</button>
+        <button class = 'btn btn-danger'>Voltar</button>
     </form>
     <br>
     <form method = 'POST' action = '{!! url("horario_turma")!!}/{!!$horario_turma->

@@ -1,11 +1,12 @@
-@extends('scaffold-interface.layouts.app')
-@section('title','Edit')
+@extends('layouts.app') 
 @section('content')
 
-<section class="content">
-    <h1>
-        Edit turma
-    </h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Editar Turma</div>
+                <div class="panel-body">
     <form method = 'get' action = '{!!url("turma")!!}'>
         <button class = 'btn btn-danger'>turma Index</button>
     </form>

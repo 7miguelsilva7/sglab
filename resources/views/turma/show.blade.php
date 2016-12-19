@@ -1,16 +1,21 @@
-@extends('scaffold-interface.layouts.app')
-@section('title','Show')
+@extends('layouts.app') 
 @section('content')
 
-<section class="content">
-    <h1>
-        Show turma
-    </h1>
-    <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div align="center" class="panel-heading">{!!$turma->vinculo!!}</br>{!!$turma->serie!!} ANO {!!$turma->turma!!}  </br>
+  Última Edição: {{$turma->updated_at}}</div>
+                <div class="panel-body">
+
     <form method = 'get' action = '{!!url("turma")!!}'>
-        <button class = 'btn btn-primary'>turma Index</button>
+        <button class = 'btn btn-primary'>Voltar</button>
     </form>
-    <br>
+     
+               <h4 align="center">Turma</h4>
+        
+    
     <table class = 'table table-bordered'>
         <thead>
             <th>Key</th>
@@ -53,12 +58,12 @@
                 </td>
                 <td>{!!$turma->adicionado_por!!}</td>
             </tr>
-            <tr>
+            <!--<tr>
                 <td>
                     <b><i>usuario : </i></b>
                 </td>
                 <td>{!!$turma->siem->usuario!!}</td>
-            </tr>
+            </tr>-->
             <tr>
                 <td>
                     <b><i>siem : </i></b>

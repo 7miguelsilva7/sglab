@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -11,6 +12,8 @@
                 <button class = 'btn btn-danger'>Voltar</button>
             </form>
             <br>
+
+            
     <form method = 'POST' action = '{!!url("turma")!!}'>
 
 
@@ -44,16 +47,6 @@
 
         <!--block de vínculo-->
 @if (Auth::user()->name == "Admin")
-        <div align="center" class="form-group">
-            <label>Vincular a:</label>
-            <select name = 'vinculo' class = 'form-control' id ="select1" >
-                <option value="">Escolha uma Escola para Vícular Registro</option>
-
-                @foreach($siems as $key => $value) 
-                <option value="{{$key}}">{{$value}}</option>
-                @endforeach 
-            </select>
-        </div> </p>
         
 
         <div align="center" class="form-group">
@@ -62,6 +55,17 @@
                 <option value="">Escolha uma Escola para Cadastrar Turma</option>
                 @foreach($siems as $key => $value)
                 <option value="{{$key}}">{{$value}}</option>
+                @endforeach 
+            </select>
+        </div> </p> 
+
+         <div align="center" class="form-group">
+            <label>Vincular a:</label>
+            <select name = 'vinculo' class = 'form-control' id ="select1" >
+                <option value="">Escolha uma Escola para Vícular Registro</option>
+
+                @foreach($siems as $key => $value) 
+                <option value="{{$value}}">{{$value}}</option>
                 @endforeach 
             </select>
         </div> </p> </br>
@@ -87,7 +91,7 @@
             <label for="turno">Turno</label></br>
             {!! Form::select('turno',  Config::get('enums.turno')) !!}
         </div>
-        
+       
 
         <div class="form-group">
         <div class="col-md-3">

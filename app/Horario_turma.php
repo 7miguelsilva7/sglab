@@ -28,6 +28,6 @@ class Horario_turma extends Model
 	{
 		return $this->belongsTo('App\Turma','turma_id');
 	}
+		
 
-	
 }

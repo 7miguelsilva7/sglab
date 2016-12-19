@@ -11,8 +11,11 @@ use URL;
 
 use App\Siem;
 
+use DB;
 
 use App\Turma;
+
+use Auth;
 
 
 /**
@@ -46,9 +49,25 @@ class Horario_turmaController extends Controller
         
         $siems = Siem::all()->pluck('nome','id');
         
-        $turmas = Turma::all()->pluck('nivel','id');
+        // $turmas = Turma::all()->pluck("CONCAT(serie,' ',turma) AS full_turma",'id');
+
+        // $turmas = Turma::all()->pluck('full_turma','id');
+
+        // $turmas = Turma::select(DB::raw("CONCAT('serie','nivel') AS full_turma"))->pluck('nivel', 'id');
+
+if (Auth::user()->name == "Admin")
+{
+
+    $turmas = Turma::select(DB::raw("CONCAT(serie,' ANO ',turma) AS full_turma"),'id')->pluck('full_turma', 'id');
+
+}else
+
+{
+    $turmas = Turma::select(DB::raw("CONCAT(serie,' ANO ',turma) AS full_turma"),'id')->where('vinculo', Auth::user()->name)->pluck('full_turma', 'id');
+}
         
-        return view('horario_turma.create',compact('title','siems' , 'turmas'  ));
+
+        return view('horario_turma.create',compact('title','siems' , 'turmas'));
     }
 
     /**
