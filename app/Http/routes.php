@@ -84,3 +84,11 @@ Route::group(['middleware'=> 'web'],function(){
   Route::get('moodle_simulado/{id}/delete','\App\Http\Controllers\Moodle_simuladoController@destroy');
   Route::get('moodle_simulado/{id}/deleteMsg','\App\Http\Controllers\Moodle_simuladoController@DeleteMsg');
 });
+
+//horario_turma Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('horario_turma','\App\Http\Controllers\Horario_turmaController');
+  Route::post('horario_turma/{id}/update','\App\Http\Controllers\Horario_turmaController@update');
+  Route::get('horario_turma/{id}/delete','\App\Http\Controllers\Horario_turmaController@destroy');
+  Route::get('horario_turma/{id}/deleteMsg','\App\Http\Controllers\Horario_turmaController@DeleteMsg');
+});
