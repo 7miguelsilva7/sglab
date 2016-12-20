@@ -17,7 +17,7 @@
 
 @if (Auth::user()->name == "Admin")
                         
-                <div class="form-group">
+                <div align="center" class="form-group">
                 <label>Selecione a Escola</label>
                 <select name='siem_id' class='form-control' id="select2" required>
                     <option value="">Selecione a Escola</option>
@@ -31,11 +31,9 @@
             <input type = 'hidden' id="siem_id" name = "siem_id" value="{{Auth::user()->id}}" type="text" class="form-control">
 
 @endif
-
-                        
-
-                <div class="form-group">
-                <label>Selecione o Analista</label>
+                   
+                <div align="center"  class="form-group">
+                <!--<label>Selecione o Analista</label>-->
                 <select name='pessoa_id' class='form-control' id="select3" required>
                     <option value="">Selecione o Analista</option>
                     @foreach($pessoas as $key => $value) 

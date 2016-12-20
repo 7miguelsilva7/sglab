@@ -102,7 +102,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                     <li>
                                     
                                     <li><a href="{{ url('/escola') }}"><i class="fa glyphicon glyphicon-home"></i>Escolas</a></li>
-                                    <li><a href="{{ url('/funcionario') }}"><i class="fa fa-users"></i>Funcionários</a></li>
+                                    <li><a href="{{ url('/funcionario') }}"><i class="fa fa-users"></i>Analistas</a></li>
                                     <li><a href="{{ url('/pessoa') }}"><i class="fa glyphicon glyphicon-user"></i>Pessoas</a></li>
                                     <li><a href="{{ url('/turma') }}" ><i class="fa fa-users"></i>Turmas</a></li>
                                     
@@ -112,7 +112,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                         <a tabindex="-1" href="#">Horários</a>
                                         <ul class="dropdown-menu">
                                         
-                                        <li><a href="{{ url('/horario_funcionario') }}"><i class="fa glyphicon glyphicon-calendar"></i>Funcionários</a></li>
+                                        <li><a href="{{ url('/horario_funcionario') }}"><i class="fa glyphicon glyphicon-calendar"></i>Analistas</a></li>
                                         <li><a href="{{ url('/horario_turma') }}" ><i class="glyphicon glyphicon-calendar"></i>Turmas</a></li>
                                         </ul>
                                     </li>
@@ -153,7 +153,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                     <li>
                                     
 									<li><a data-toggle="modal" href="#escolas"><i class="fa glyphicon glyphicon-home"></i>Lista Escolas</a></li>
-									<li><a data-toggle="modal" href="#funcionario"><i class="fa fa-users"></i>Lista Funcionários</a></li>
+									<li><a data-toggle="modal" href="#funcionario"><i class="fa fa-users"></i>Lista Analistas</a></li>
 									<li><a data-toggle="modal" href="#laboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Lista Laboratórios</a></li>
                                     
                                     </li>
@@ -167,7 +167,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <ul class="dropdown-menu">
     
     <li><a tabindex="-1" data-toggle="modal" href="#escolas"><i class="fa glyphicon glyphicon-home"></i>Lista Escolas</a></li>
-	<li><a tabindex="-1" data-toggle="modal" href="#funcionario"><i class="fa fa-users"></i>Lista Funcionários</a></li>
+	<li><a tabindex="-1" data-toggle="modal" href="#funcionario"><i class="fa fa-users"></i>Lista Analistas</a></li>
 	<li><a tabindex="-1" data-toggle="modal" href="#laboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Lista Laboratórios</a></li>
                                    
     </ul>
@@ -178,7 +178,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <ul class="dropdown-menu">
     
         <li><a data-toggle="modal" href="#perfilescolas"><i class="fa glyphicon glyphicon-home"></i>Perfil Escolas</a></li>
-		<li><a data-toggle="modal" href="#perfilfuncionarios"><i class="fa fa-users"></i>Perfil Funcionários</a></li>
+		<li><a data-toggle="modal" href="#perfilfuncionarios"><i class="fa fa-users"></i>Perfil Analistas</a></li>
 		<li><a data-toggle="modal" href="#perfillaboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Perfil Laboratórios</a></li>
                                     
     </ul>
@@ -190,7 +190,7 @@ require_once '/home/aetji649/sglab/connect.php';
  <a tabindex="-1" href="#">Horários</a>
  <ul class="dropdown-menu">
  
- <li><a data-toggle="modal" data-target="#horario_funcionario" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Funcionários</a></li>
+ <li><a data-toggle="modal" data-target="#horario_funcionario" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Analistas</a></li>
  <li><a data-toggle="modal" data-target="#" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Turmas</a></li>
  <li><a data-toggle="modal" data-target="#" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Laboratórios</a></li>
  </ul>
@@ -277,7 +277,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                     <li>
                                     
                                     <li><a data-toggle="modal" href="#perfilescolas"><i class="fa glyphicon glyphicon-home"></i>Perfil Escolas</a></li>
-									<li><a data-toggle="modal" href="#perfilfuncionarios"><i class="fa fa-users"></i>Perfil Funcionários</a></li>
+									<li><a data-toggle="modal" href="#perfilfuncionarios"><i class="fa fa-users"></i>Perfil Analistas</a></li>
 									<li><a data-toggle="modal" href="#perfillaboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Perfil Laboratórios</a></li>
                                     
 
@@ -428,7 +428,7 @@ require_once '/home/aetji649/sglab/connect.php';
 
 <label >Possui Articulador?</label></p>
 <select name="articulador" id="articulador"> 
- 	<option value="possui_analista">SIM/NÃO</option>
+ 	<option value="possui_analistasAnalistas">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
 </select></p>
@@ -487,7 +487,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"> <i class="fa glyphicon glyphicon-th-list"></i>   Listar Funcionários</h4>
+        <h4 class="modal-title" id="myModalLabel"> <i class="fa glyphicon glyphicon-th-list"></i>   Listar Analistas</h4>
       </div>
       <div class="modal-body">
         
@@ -650,7 +650,7 @@ require_once '/home/aetji649/sglab/connect.php';
 
 <label >Possui Articulador?</label></p>
 <select name="articulador" id="articulador"> 
- 	<option value="possui_analista">SIM/NÃO</option>
+ 	<option value="possui_analistasAnalistas">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
 </select></p>
@@ -795,7 +795,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Perfil Funcionários</h4>
+        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Perfil Analistas</h4>
       </div>
       <div class="modal-body">
 
@@ -826,7 +826,7 @@ require_once '/home/aetji649/sglab/connect.php';
  
 <label >Selecione um Funcionário:</label></p>
 <select name="funcionario" id="select7"> 
- 	<option value="pessoas.id">Todos os Funcionários cadastrados</option>
+ 	<option value="pessoas.id">Todos os Analistas cadastrados</option>
 
 <?php foreach($data2 as $row2) : ?> 
     <option value="<?php echo $row2['id']; ?>"><?php echo $row2['nome']; ?></option> 
@@ -976,7 +976,7 @@ require_once '/home/aetji649/sglab/connect.php';
 ?>                
                 <label >Selecione um Funcionário:</label></p>
                 <select name="funcionario" id="select8"> 
-                    <option value="pessoa_id">Horários de Todos Funcionários Cadastrados</option>
+                    <option value="pessoa_id">Horários de Todos Analistas Cadastrados</option>
 
                 <?php foreach($data2 as $row2) : ?> 
                     <option value="<?php echo $row2['id']; ?>"><?php echo $row2['nome']; ?></option> 
