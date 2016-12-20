@@ -20,61 +20,34 @@ class MoodleSimulados extends Migration
     {
         Schema::create('moodle_simulados',function (Blueprint $table){
 
-        $table->increments('id');
-        
-        $table->String('siem_cod');
-        
-        $table->String('aluno');
-        
-        $table->String('escola');
-        
-        $table->String('serie');
-        
-        $table->String('simulado');
-        
-        $table->String('cadastro');
-        
-        $table->String('nota1');
-        
-        $table->String('nota2');
-        
-        $table->String('nota3');
-        
-        $table->String('nota4');
-        
-        $table->String('nota5');
-        
-        $table->String('nota6');
-        
-        $table->String('nota7');
-        
-        $table->String('nota8');
-        
-        $table->String('nota9');
-        
-        $table->String('nota10');
-        
-        $table->String('nota11');
-        
-        $table->String('nota12');
-        
-        $table->String('nota13');
-        
-        $table->String('nota14');
-        
-        $table->String('nota15');
-        
-        $table->String('nota16');
-        
-        $table->String('nota17');
-        
-        $table->String('nota18');
-        
-        $table->String('nota19');
-        
-        $table->String('nota20');
-        
-        $table->String('situacao');
+            $table->increments('id');
+            $table->integer('siem_cod');
+            $table->String('aluno', 100);
+            $table->String('escola', 100);
+            $table->String('serie', 10);
+            $table->integer('simulado');
+            $table->decimal('cadastro');
+            $table->decimal('nota1', 10,0);
+            $table->decimal('nota2', 10,0);
+            $table->decimal('nota3', 10,0);
+            $table->decimal('nota4', 10,0);
+            $table->decimal('nota5', 10,0);
+            $table->decimal('nota6', 10,0);
+            $table->decimal('nota7', 10,0);
+            $table->decimal('nota8', 10,0);
+            $table->decimal('nota9', 10,0);
+            $table->decimal('nota10', 10,0);
+            $table->decimal('nota11', 10,0);
+            $table->decimal('nota12', 10,0);
+            $table->decimal('nota13', 10,0);
+            $table->decimal('nota14', 10,0);
+            $table->decimal('nota15', 10,0);
+            $table->decimal('nota16', 10,0);
+            $table->decimal('nota17', 10,0);
+            $table->decimal('nota18', 10,0);
+            $table->decimal('nota19', 10,0);
+            $table->decimal('nota20', 10,0);
+            $table->String('situacao', 50);
         
         /**
          * Foreignkeys section
