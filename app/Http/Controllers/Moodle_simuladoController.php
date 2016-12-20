@@ -12,7 +12,7 @@ use URL;
 /**
  * Class Moodle_simuladoController.
  *
- * @author  The scaffold-interface created at 2016-12-15 06:44:06pm
+ * @author  The scaffold-interface created at 2016-12-20 04:11:13pm
  * @link  https://github.com/amranidev/scaffold-interface
  */
 class Moodle_simuladoController extends Controller
@@ -22,19 +22,11 @@ class Moodle_simuladoController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
-
-    public function upload()
-    {
-        //$file = $request->csv->storeAs('csv', 'csv.csv');
-        return "Olá mundo";
-    }
-
     public function index()
     {
         $title = 'Index - moodle_simulado';
         $moodle_simulados = Moodle_simulado::paginate(6);
         return view('moodle_simulado.index',compact('moodle_simulados','title'));
-
     }
 
     /**
