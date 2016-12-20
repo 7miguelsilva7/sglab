@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 08, 2016 at 12:36 PM
--- Server version: 5.5.53-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.20
+-- Generation Time: 20-Dez-2016 às 22:08
+-- Versão do servidor: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `sglab`
@@ -23,11 +23,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `escolas`
+-- Estrutura da tabela `escolas`
 --
 
-CREATE TABLE IF NOT EXISTS `escolas` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `escolas` (
+  `id` int(10) UNSIGNED NOT NULL,
   `vinculo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `inep` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cep` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -65,17 +65,15 @@ CREATE TABLE IF NOT EXISTS `escolas` (
   `roteador_lab` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `switch_lab` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `qt_cadeiras_lab` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `siem_id` int(10) unsigned DEFAULT NULL,
-  `pessoa_id` int(10) unsigned DEFAULT NULL,
-  `user_id` int(10) unsigned DEFAULT NULL,
+  `siem_id` int(10) UNSIGNED DEFAULT NULL,
+  `pessoa_id` int(10) UNSIGNED DEFAULT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `escolas_siem_id_foreign` (`siem_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1075 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `escolas`
+-- Extraindo dados da tabela `escolas`
 --
 
 INSERT INTO `escolas` (`id`, `vinculo`, `inep`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `email`, `cel1`, `cel2`, `sigla`, `possui_internet_escola`, `tipo_internet_escola`, `status_escola`, `possui_lab`, `possui_analista`, `tipo_sala`, `pregao1`, `pregao2`, `pregao3`, `pregao4`, `possui_internet_lab`, `tipo_internet_lab`, `lab_montado`, `qt_computadores_lab`, `qt_monitores_lab`, `qt_projetores`, `qt_tablets`, `status_lab`, `ar_condicionado_lab`, `impressora_lab`, `qt_notebook_lab`, `roteador_lab`, `switch_lab`, `qt_cadeiras_lab`, `siem_id`, `pessoa_id`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -215,29 +213,24 @@ INSERT INTO `escolas` (`id`, `vinculo`, `inep`, `cep`, `distrito`, `bairro`, `lo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `funcionarios`
+-- Estrutura da tabela `funcionarios`
 --
 
-CREATE TABLE IF NOT EXISTS `funcionarios` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `funcionarios` (
+  `id` int(10) UNSIGNED NOT NULL,
   `adicionado_por` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `vinculo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `status_funcionario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `siem_id` int(10) unsigned DEFAULT NULL,
-  `ocupacao_id` int(10) unsigned DEFAULT NULL,
-  `pessoa_id` int(10) unsigned DEFAULT NULL,
-  `user_id` int(10) unsigned DEFAULT NULL,
+  `siem_id` int(10) UNSIGNED DEFAULT NULL,
+  `ocupacao_id` int(10) UNSIGNED DEFAULT NULL,
+  `pessoa_id` int(10) UNSIGNED DEFAULT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `funcionarios_siem_id_foreign` (`siem_id`),
-  KEY `funcionarios_ocupacao_id_foreign` (`ocupacao_id`),
-  KEY `funcionarios_pessoa_id_foreign` (`pessoa_id`),
-  KEY `funcionarios_user_id_foreign` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `funcionarios`
+-- Extraindo dados da tabela `funcionarios`
 --
 
 INSERT INTO `funcionarios` (`id`, `adicionado_por`, `vinculo`, `status_funcionario`, `siem_id`, `ocupacao_id`, `pessoa_id`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -249,13 +242,12 @@ INSERT INTO `funcionarios` (`id`, `adicionado_por`, `vinculo`, `status_funcionar
 -- --------------------------------------------------------
 
 --
--- Table structure for table `horario_funcionarios`
+-- Estrutura da tabela `horario_funcionarios`
 --
 
-CREATE TABLE IF NOT EXISTS `horario_funcionarios` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `horario_funcionarios` (
+  `id` int(10) UNSIGNED NOT NULL,
   `adicionado_por` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `vinculo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `seg_m` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ter_m` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `qua_m` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -284,37 +276,93 @@ CREATE TABLE IF NOT EXISTS `horario_funcionarios` (
   `sex_c` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sab_c` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `dom_c` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `siem_id` int(10) unsigned DEFAULT NULL,
-  `pessoa_id` int(10) unsigned DEFAULT NULL,
+  `siem_id` int(10) UNSIGNED DEFAULT NULL,
+  `pessoa_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `horario_funcionarios_siem_id_foreign` (`siem_id`),
-  KEY `horario_funcionarios_pessoa_id_foreign` (`pessoa_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `horario_funcionarios`
+-- Extraindo dados da tabela `horario_funcionarios`
 --
 
-INSERT INTO `horario_funcionarios` (`id`, `adicionado_por`, `vinculo`, `seg_m`, `ter_m`, `qua_m`, `qui_m`, `sex_m`, `sab_m`, `dom_m`, `seg_t`, `ter_t`, `qua_t`, `qui_t`, `sex_t`, `sab_t`, `dom_t`, `seg_n`, `ter_n`, `qua_n`, `qui_n`, `sex_n`, `sab_n`, `dom_n`, `seg_c`, `ter_c`, `qua_c`, `qui_c`, `sex_c`, `sab_c`, `dom_c`, `siem_id`, `pessoa_id`, `created_at`, `updated_at`) VALUES
-(3, 'Admin', 'NÚCLEO DE TECNOLOGIA MUNICIPAL - NTM', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '07:30 às 13:30', '12:00 às 18:00', '12:00 às 18:00', '07:30 às 13:30', '07:30 às 13:30', '', '', 163, 2134, '2016-12-06 23:50:59', '2016-12-08 14:52:47');
+INSERT INTO `horario_funcionarios` (`id`, `adicionado_por`, `seg_m`, `ter_m`, `qua_m`, `qui_m`, `sex_m`, `sab_m`, `dom_m`, `seg_t`, `ter_t`, `qua_t`, `qui_t`, `sex_t`, `sab_t`, `dom_t`, `seg_n`, `ter_n`, `qua_n`, `qui_n`, `sex_n`, `sab_n`, `dom_n`, `seg_c`, `ter_c`, `qua_c`, `qui_c`, `sex_c`, `sab_c`, `dom_c`, `siem_id`, `pessoa_id`, `created_at`, `updated_at`) VALUES
+(10, 'EDUCANDÁRIO JOÃO XXIII', '07:30 às 11:30', '07:30 às 11:30', '07:30 às 11:30', '07:30 às 11:30', '07:30 às 11:30', '07:30 às 11:30', '', '13:30 às 17:00', '13:30 às 17:00', '13:30 às 17:00', '13:30 às 17:00', '13:30 às 17:00', '13:30 às 17:00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 76, 2134, '2016-12-20 23:49:21', '2016-12-20 23:54:12'),
+(11, 'Admin', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 163, 2163, '2016-12-20 23:52:07', '2016-12-20 23:52:07');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Estrutura da tabela `horario_turmas`
 --
 
-CREATE TABLE IF NOT EXISTS `migrations` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `horario_turmas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `seg1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ter1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qua1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qui1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sex1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sab1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `seg2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ter2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qua2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qui2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sex2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sab2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `seg3` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ter3` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qua3` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qui3` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sex3` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sab3` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `seg4` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ter4` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qua4` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qui4` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sex4` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sab4` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `seg5` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ter5` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qua5` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qui5` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sex5` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sab5` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `seg6` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ter6` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qua6` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qui6` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sex6` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sab6` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `adicionado_por` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `siem_id` int(10) UNSIGNED DEFAULT NULL,
+  `turma_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `horario_turmas`
+--
+
+INSERT INTO `horario_turmas` (`id`, `seg1`, `ter1`, `qua1`, `qui1`, `sex1`, `sab1`, `seg2`, `ter2`, `qua2`, `qui2`, `sex2`, `sab2`, `seg3`, `ter3`, `qua3`, `qui3`, `sex3`, `sab3`, `seg4`, `ter4`, `qua4`, `qui4`, `sex4`, `sab4`, `seg5`, `ter5`, `qua5`, `qui5`, `sex5`, `sab5`, `seg6`, `ter6`, `qua6`, `qui6`, `sex6`, `sab6`, `adicionado_por`, `siem_id`, `turma_id`, `created_at`, `updated_at`) VALUES
+(7, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'EDUCANDÁRIO JOÃO XXIII', 76, 22, '2016-12-19 16:39:24', '2016-12-19 16:39:24'),
+(12, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'EDUCANDÁRIO JOÃO XXIII', 76, 22, '2016-12-19 18:28:45', '2016-12-19 18:28:45');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Extraindo dados da tabela `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -327,27 +375,26 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (16, '2016_10_28_020211_pessoas', 5),
 (17, '2016_10_28_021347_funcionarios', 5),
 (18, '2016_10_28_021040_escolas', 0),
-(20, '2016_12_06_035703_horario_funcionarios', 6);
+(20, '2016_12_06_035703_horario_funcionarios', 6),
+(22, '2016_12_15_025007_turmas', 7),
+(23, '2016_12_19_114525_horario_turmas', 8);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ocupacaos`
+-- Estrutura da tabela `ocupacaos`
 --
 
-CREATE TABLE IF NOT EXISTS `ocupacaos` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ocupacaos` (
+  `id` int(10) UNSIGNED NOT NULL,
   `usuario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `nome` (`nome`),
-  UNIQUE KEY `nome_2` (`nome`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `ocupacaos`
+-- Extraindo dados da tabela `ocupacaos`
 --
 
 INSERT INTO `ocupacaos` (`id`, `usuario`, `nome`, `created_at`, `updated_at`) VALUES
@@ -358,19 +405,17 @@ INSERT INTO `ocupacaos` (`id`, `usuario`, `nome`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Estrutura da tabela `password_resets`
 --
 
-CREATE TABLE IF NOT EXISTS `password_resets` (
+CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  KEY `password_resets_email_index` (`email`),
-  KEY `password_resets_token_index` (`token`)
+  `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `password_resets`
+-- Extraindo dados da tabela `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
@@ -379,20 +424,18 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permissions`
+-- Estrutura da tabela `permissions`
 --
 
-CREATE TABLE IF NOT EXISTS `permissions` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `permissions` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `permissions_name_unique` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `permissions`
+-- Extraindo dados da tabela `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -401,11 +444,11 @@ INSERT INTO `permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pessoas`
+-- Estrutura da tabela `pessoas`
 --
 
-CREATE TABLE IF NOT EXISTS `pessoas` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pessoas` (
+  `id` int(10) UNSIGNED NOT NULL,
   `vinculo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cep` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -428,16 +471,13 @@ CREATE TABLE IF NOT EXISTS `pessoas` (
   `data_nascimento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nome_mae` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nome_pai` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(10) unsigned DEFAULT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `rg` (`rg`),
-  KEY `pessoas_user_id_foreign` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2177 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `pessoas`
+-- Extraindo dados da tabela `pessoas`
 --
 
 INSERT INTO `pessoas` (`id`, `vinculo`, `nome`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `cel1`, `cel2`, `email`, `cpf`, `rg`, `expedicao_rg`, `naturalidade`, `nascionalidade`, `nis`, `escolaridade`, `data_nascimento`, `nome_mae`, `nome_pai`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -661,10 +701,10 @@ INSERT INTO `pessoas` (`id`, `vinculo`, `nome`, `cep`, `distrito`, `bairro`, `lo
 (2033, 'Liberado', 'MARGARETE BARBOSA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 99883138', '', 'margarete.silva2009@hotmail.com', '', '218', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2034, 'Liberado', 'MARIA APARECIDA DIAS DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74-98829-7072', '', 'maria.dias71@hotmail.com.', '', '219', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2035, 'Liberado', 'MARIA APARECIDA MIRANDA DA SILVA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74988350082', '', 'cidinha-miranda@hotmail.com', '', '220', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2036, 'Liberado', 'MARIA AUXILIADORA DE MENESES KAWABE', '', 'ABÓBORA', '', '', '', '', '', '(74)98805-0119', '', 'mariadodora@gmail.com', '', '221', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `pessoas` (`id`, `vinculo`, `nome`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `cel1`, `cel2`, `email`, `cpf`, `rg`, `expedicao_rg`, `naturalidade`, `nascionalidade`, `nis`, `escolaridade`, `data_nascimento`, `nome_mae`, `nome_pai`, `user_id`, `created_at`, `updated_at`) VALUES
+(2036, 'Liberado', 'MARIA AUXILIADORA DE MENESES KAWABE', '', 'ABÓBORA', '', '', '', '', '', '(74)98805-0119', '', 'mariadodora@gmail.com', '', '221', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2037, 'Liberado', 'MARIA AUXILIADORA PEREIRA RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '(74) 98801-5010', '', 'diretoraauxiliadora@hotmail.com', '', '222', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2038, 'Liberado', 'MARIA AUXLIADORA DA C. FERNANDES', '', 'ABÓBORA', '', '', '', '', '', '74988135592', '', 'auxiliadora--conceicao@hotmail.com', '', '223', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2038, 'Liberado', 'MARIA AUXLIADORA DA C. FERNANDES', '', 'ABÓBORA', '', '', '', '', '', '74988135592', '', 'auxiliadora--conceicao@hotmail.com', '', '223', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `pessoas` (`id`, `vinculo`, `nome`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `cel1`, `cel2`, `email`, `cpf`, `rg`, `expedicao_rg`, `naturalidade`, `nascionalidade`, `nis`, `escolaridade`, `data_nascimento`, `nome_mae`, `nome_pai`, `user_id`, `created_at`, `updated_at`) VALUES
 (2039, 'Liberado', 'MARIA BETÂNIA PEREIRA BISPO', '', 'ABÓBORA', '', '', '', '', '', '87-98815-8500', '', 'betaniabispo@hotmail.com', '', '224', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2040, 'Liberado', 'MARIA CONCEIÇÃO FERNANDES PEREIRA DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)988151393', '', 'mceicaofps@hotmail.com', '', '225', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2041, 'Liberado', 'MARIA CONCEIÇÃO FERNANDES PEREIRA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)98815-1393', '', 'mceicaofps@hotmail.com', '', '226', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -807,20 +847,18 @@ INSERT INTO `pessoas` (`id`, `vinculo`, `nome`, `cep`, `distrito`, `bairro`, `lo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Estrutura da tabela `roles`
 --
 
-CREATE TABLE IF NOT EXISTS `roles` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `roles` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `roles_name_unique` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `roles`
+-- Extraindo dados da tabela `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -829,24 +867,22 @@ INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role_has_permissions`
+-- Estrutura da tabela `role_has_permissions`
 --
 
-CREATE TABLE IF NOT EXISTS `role_has_permissions` (
-  `permission_id` int(10) unsigned NOT NULL,
-  `role_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`permission_id`,`role_id`),
-  KEY `role_has_permissions_role_id_foreign` (`role_id`)
+CREATE TABLE `role_has_permissions` (
+  `permission_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scaffoldinterfaces`
+-- Estrutura da tabela `scaffoldinterfaces`
 --
 
-CREATE TABLE IF NOT EXISTS `scaffoldinterfaces` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `scaffoldinterfaces` (
+  `id` int(10) UNSIGNED NOT NULL,
   `package` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `model` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -854,12 +890,11 @@ CREATE TABLE IF NOT EXISTS `scaffoldinterfaces` (
   `views` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `tablename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `scaffoldinterfaces`
+-- Extraindo dados da tabela `scaffoldinterfaces`
 --
 
 INSERT INTO `scaffoldinterfaces` (`id`, `package`, `migration`, `model`, `controller`, `views`, `tablename`, `created_at`, `updated_at`) VALUES
@@ -868,29 +903,29 @@ INSERT INTO `scaffoldinterfaces` (`id`, `package`, `migration`, `model`, `contro
 (3, 'Laravel', '/var/www/html/sglab/database/migrations/2016_10_28_021040_escolas.php', '/var/www/html/sglab/app/Escola.php', '/var/www/html/sglab/app/Http/Controllers/EscolaController.php', '/var/www/html/sglab/resources/views/escola', 'escolas', '2016-10-28 05:10:40', '2016-10-28 05:10:40'),
 (4, 'Laravel', '/var/www/html/sglab/database/migrations/2016_10_28_021136_ocupacaos.php', '/var/www/html/sglab/app/Ocupacao.php', '/var/www/html/sglab/app/Http/Controllers/OcupacaoController.php', '/var/www/html/sglab/resources/views/ocupacao', 'ocupacaos', '2016-10-28 05:11:36', '2016-10-28 05:11:36'),
 (6, 'Laravel', '/var/www/html/sglab/database/migrations/2016_10_28_104008_funcionarios.php', '/var/www/html/sglab/app/Funcionario.php', '/var/www/html/sglab/app/Http/Controllers/FuncionarioController.php', '/var/www/html/sglab/resources/views/funcionario', 'funcionarios', '2016-10-29 01:40:08', '2016-10-29 01:40:08'),
-(8, 'Laravel', '/home/aetji649/sglab/database/migrations/2016_12_06_035703_horario_funcionarios.php', '/home/aetji649/sglab/app/Horario_funcionario.php', '/home/aetji649/sglab/app/Http/Controllers/Horario_funcionarioController.php', '/home/aetji649/sglab/resources/views/horario_funcionario', 'horario_funcionarios', '2016-12-06 18:57:03', '2016-12-06 18:57:03');
+(8, 'Laravel', '/home/aetji649/sglab/database/migrations/2016_12_06_035703_horario_funcionarios.php', '/home/aetji649/sglab/app/Horario_funcionario.php', '/home/aetji649/sglab/app/Http/Controllers/Horario_funcionarioController.php', '/home/aetji649/sglab/resources/views/horario_funcionario', 'horario_funcionarios', '2016-12-06 18:57:03', '2016-12-06 18:57:03'),
+(12, 'Laravel', '/home/aetji649/sglab/database/migrations/2016_12_15_025007_turmas.php', '/home/aetji649/sglab/app/Turma.php', '/home/aetji649/sglab/app/Http/Controllers/TurmaController.php', '/home/aetji649/sglab/resources/views/turma', 'turmas', '2016-12-15 17:50:07', '2016-12-15 17:50:07'),
+(13, 'Laravel', '/home/aetji649/sglab/database/migrations/2016_12_19_114525_horario_turmas.php', '/home/aetji649/sglab/app/Horario_turma.php', '/home/aetji649/sglab/app/Http/Controllers/Horario_turmaController.php', '/home/aetji649/sglab/resources/views/horario_turma', 'horario_turmas', '2016-12-19 14:45:26', '2016-12-19 14:45:26');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siems`
+-- Estrutura da tabela `siems`
 --
 
-CREATE TABLE IF NOT EXISTS `siems` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `siems` (
+  `id` int(10) UNSIGNED NOT NULL,
   `usuario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `siem` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `tipo_escola` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cod_ext` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `siem` (`siem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=164 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `siems`
+-- Extraindo dados da tabela `siems`
 --
 
 INSERT INTO `siems` (`id`, `usuario`, `siem`, `nome`, `tipo_escola`, `cod_ext`, `created_at`, `updated_at`) VALUES
@@ -1036,29 +1071,54 @@ INSERT INTO `siems` (`id`, `usuario`, `siem`, `nome`, `tipo_escola`, `cod_ext`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estrutura da tabela `turmas`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `turmas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `vinculo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `turno` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nivel` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `serie` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `turma` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `adicionado_por` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `siem_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `turmas`
+--
+
+INSERT INTO `turmas` (`id`, `vinculo`, `turno`, `nivel`, `serie`, `turma`, `adicionado_por`, `siem_id`, `created_at`, `updated_at`) VALUES
+(22, 'EDUCANDÁRIO JOÃO XXIII', 'Manhã', 'Fund I', '2º', 'A', 'EDUCANDÁRIO JOÃO XXIII', 76, '2016-12-19 15:20:51', '2016-12-19 15:20:51'),
+(23, 'EDUCANDÁRIO JOÃO XXIII', 'Manhã', 'Fund I', '3º', 'B', 'EDUCANDÁRIO JOÃO XXIII', 76, '2016-12-19 16:16:29', '2016-12-19 16:16:29');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=158 ;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Extraindo dados da tabela `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$8YnfsZ6N5NsXxDXYbYc/UOgb/xvux3B/hXv1x574bsISvxk1xsnO.', '1eYVfWUFRVV0Igv0jgKINrLmVnZ9EILx94IznvzdHWAELXuhd1lz0qyY3cE7', '2016-11-12 17:44:03', '2016-12-08 15:05:02'),
+(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$8YnfsZ6N5NsXxDXYbYc/UOgb/xvux3B/hXv1x574bsISvxk1xsnO.', 'sIv2IXpRqZs4EBbpUHDRQfO1NGn48RtgfUBAJO0K1od59ZIkpwYBAUvfkbV9', '2016-11-12 17:44:03', '2016-12-20 23:52:19'),
 (17, 'Liberado', 'liberado@gmail.com', '$2y$10$XjCrpeKNG0ilPkwHslBdouPEmr1i6wdxLkZ4ZmIcPbjHM9cyo7066', 'ov1yW2XtE7dXU8V2cY5vniZjVb6srButRuQcOQSCAPKEf3N6etGzgExNeVxo', '2016-11-15 05:35:44', '2016-11-22 19:09:42'),
-(21, '02 DE JULHO', 'doisdejulhojuazeiro@hotmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(21, '02 DE JULHO', 'doisdejulhojuazeiro@hotmail.com', '$2y$10$08rB4q7Bu5mBTINx.ab/GuOPEJwENhnOx3CpCpl.mnQKGAWn8vmGS', 'pNJ3v5Yeou5NSISeZmXg1XnaLOGFei4Z8WRDKFpMBjjrrWHvOaNd8gU3VlvU', '0000-00-00 00:00:00', '2016-12-12 15:53:39'),
 (22, '15 DE JULHO', '29teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (23, '25 DE JULHO', 'escola25.dejulho@outlook.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (24, 'AMERICO TANURI - JUNCO', '3teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1113,7 +1173,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 (73, 'E.M.E.I PRIMAVERA', '1teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (74, 'E.M.E.I SEMENTE DO AMANHA', '42teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (75, 'E.M.E.I. ARCENIO JOSE DA SILVA', '43teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(76, 'EDUCANDÁRIO JOÃO XXIII', 'educandariojoao23@gmail.com', '$2y$10$gkS9F8a7yQzh2rV/GKnWgu.IQVMzf3q0Ycyrojc3uBm1plhZsqiG2', 'aiDAKyWvQdt78ffm4wSxE0q5c768NShKV1MFykkAlV0R2IwWMiOnQgUCUCCm', '0000-00-00 00:00:00', '2016-12-08 14:37:26'),
+(76, 'EDUCANDÁRIO JOÃO XXIII', 'educandariojoao23@gmail.com', '$2y$10$gkS9F8a7yQzh2rV/GKnWgu.IQVMzf3q0Ycyrojc3uBm1plhZsqiG2', 'E8fNkXRnJIv6yuKjqz1F7gJPxv0YMBsbnYSQwWyea9DWj8sdFjFZsibQ7GIx', '0000-00-00 00:00:00', '2016-12-20 23:57:48'),
 (77, 'ELEOTÉRIO SOARES FONSÊCA', '44teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (78, 'ELISEU SANTOS', '24teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (79, 'ERUM - RURAL DA MASSAROCA', '25teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1199,18 +1259,16 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_has_permissions`
+-- Estrutura da tabela `user_has_permissions`
 --
 
-CREATE TABLE IF NOT EXISTS `user_has_permissions` (
-  `user_id` int(10) unsigned NOT NULL,
-  `permission_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`user_id`,`permission_id`),
-  KEY `user_has_permissions_permission_id_foreign` (`permission_id`)
+CREATE TABLE `user_has_permissions` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `permission_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user_has_permissions`
+-- Extraindo dados da tabela `user_has_permissions`
 --
 
 INSERT INTO `user_has_permissions` (`user_id`, `permission_id`) VALUES
@@ -1219,35 +1277,230 @@ INSERT INTO `user_has_permissions` (`user_id`, `permission_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_has_roles`
+-- Estrutura da tabela `user_has_roles`
 --
 
-CREATE TABLE IF NOT EXISTS `user_has_roles` (
-  `role_id` int(10) unsigned NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`role_id`,`user_id`),
-  KEY `user_has_roles_user_id_foreign` (`user_id`)
+CREATE TABLE `user_has_roles` (
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user_has_roles`
+-- Extraindo dados da tabela `user_has_roles`
 --
 
 INSERT INTO `user_has_roles` (`role_id`, `user_id`) VALUES
 (1, 12);
 
 --
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `escolas`
+--
+ALTER TABLE `escolas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `escolas_siem_id_foreign` (`siem_id`);
+
+--
+-- Indexes for table `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `funcionarios_siem_id_foreign` (`siem_id`),
+  ADD KEY `funcionarios_ocupacao_id_foreign` (`ocupacao_id`),
+  ADD KEY `funcionarios_pessoa_id_foreign` (`pessoa_id`),
+  ADD KEY `funcionarios_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `horario_funcionarios`
+--
+ALTER TABLE `horario_funcionarios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `horario_funcionarios_siem_id_foreign` (`siem_id`),
+  ADD KEY `horario_funcionarios_pessoa_id_foreign` (`pessoa_id`);
+
+--
+-- Indexes for table `horario_turmas`
+--
+ALTER TABLE `horario_turmas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `horario_turmas_siem_id_foreign` (`siem_id`),
+  ADD KEY `horario_turmas_turma_id_foreign` (`turma_id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ocupacaos`
+--
+ALTER TABLE `ocupacaos`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nome` (`nome`),
+  ADD UNIQUE KEY `nome_2` (`nome`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`),
+  ADD KEY `password_resets_token_index` (`token`);
+
+--
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `permissions_name_unique` (`name`);
+
+--
+-- Indexes for table `pessoas`
+--
+ALTER TABLE `pessoas`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `rg` (`rg`),
+  ADD KEY `pessoas_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `roles_name_unique` (`name`);
+
+--
+-- Indexes for table `role_has_permissions`
+--
+ALTER TABLE `role_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`role_id`),
+  ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
+
+--
+-- Indexes for table `scaffoldinterfaces`
+--
+ALTER TABLE `scaffoldinterfaces`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `siems`
+--
+ALTER TABLE `siems`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `siem` (`siem`);
+
+--
+-- Indexes for table `turmas`
+--
+ALTER TABLE `turmas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `turmas_siem_id_foreign` (`siem_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Indexes for table `user_has_permissions`
+--
+ALTER TABLE `user_has_permissions`
+  ADD PRIMARY KEY (`user_id`,`permission_id`),
+  ADD KEY `user_has_permissions_permission_id_foreign` (`permission_id`);
+
+--
+-- Indexes for table `user_has_roles`
+--
+ALTER TABLE `user_has_roles`
+  ADD PRIMARY KEY (`role_id`,`user_id`),
+  ADD KEY `user_has_roles_user_id_foreign` (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `escolas`
+--
+ALTER TABLE `escolas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1075;
+--
+-- AUTO_INCREMENT for table `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `horario_funcionarios`
+--
+ALTER TABLE `horario_funcionarios`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `horario_turmas`
+--
+ALTER TABLE `horario_turmas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT for table `ocupacaos`
+--
+ALTER TABLE `ocupacaos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `pessoas`
+--
+ALTER TABLE `pessoas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2177;
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `scaffoldinterfaces`
+--
+ALTER TABLE `scaffoldinterfaces`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `siems`
+--
+ALTER TABLE `siems`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+--
+-- AUTO_INCREMENT for table `turmas`
+--
+ALTER TABLE `turmas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+--
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `escolas`
+-- Limitadores para a tabela `escolas`
 --
 ALTER TABLE `escolas`
   ADD CONSTRAINT `escolas_siem_id_foreign` FOREIGN KEY (`siem_id`) REFERENCES `siems` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `funcionarios`
+-- Limitadores para a tabela `funcionarios`
 --
 ALTER TABLE `funcionarios`
   ADD CONSTRAINT `funcionarios_ocupacao_id_foreign` FOREIGN KEY (`ocupacao_id`) REFERENCES `ocupacaos` (`id`) ON DELETE CASCADE,
@@ -1256,34 +1509,47 @@ ALTER TABLE `funcionarios`
   ADD CONSTRAINT `funcionarios_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `horario_funcionarios`
+-- Limitadores para a tabela `horario_funcionarios`
 --
 ALTER TABLE `horario_funcionarios`
   ADD CONSTRAINT `horario_funcionarios_pessoa_id_foreign` FOREIGN KEY (`pessoa_id`) REFERENCES `pessoas` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `horario_funcionarios_siem_id_foreign` FOREIGN KEY (`siem_id`) REFERENCES `siems` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `pessoas`
+-- Limitadores para a tabela `horario_turmas`
+--
+ALTER TABLE `horario_turmas`
+  ADD CONSTRAINT `horario_turmas_siem_id_foreign` FOREIGN KEY (`siem_id`) REFERENCES `siems` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `horario_turmas_turma_id_foreign` FOREIGN KEY (`turma_id`) REFERENCES `turmas` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `pessoas`
 --
 ALTER TABLE `pessoas`
   ADD CONSTRAINT `pessoas_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `role_has_permissions`
+-- Limitadores para a tabela `role_has_permissions`
 --
 ALTER TABLE `role_has_permissions`
   ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `user_has_permissions`
+-- Limitadores para a tabela `turmas`
+--
+ALTER TABLE `turmas`
+  ADD CONSTRAINT `turmas_siem_id_foreign` FOREIGN KEY (`siem_id`) REFERENCES `siems` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `user_has_permissions`
 --
 ALTER TABLE `user_has_permissions`
   ADD CONSTRAINT `user_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `user_has_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `user_has_roles`
+-- Limitadores para a tabela `user_has_roles`
 --
 ALTER TABLE `user_has_roles`
   ADD CONSTRAINT `user_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
