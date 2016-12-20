@@ -63,7 +63,7 @@ if (Auth::user()->name == "Admin")
 }else
 
 {
-    $turmas = Turma::select(DB::raw("CONCAT(serie,' ANO ',turma) AS full_turma"),'id')->where('vinculo', Auth::user()->name)->pluck('full_turma', 'id');
+    $turmas = Turma::select(DB::raw("CONCAT(serie,' ANO ',turma) AS full_turma"),'id')->where('siem_id', Auth::user()->id)->pluck('full_turma', 'id');
 }
         
 
@@ -81,9 +81,7 @@ if (Auth::user()->name == "Admin")
         $horario_turma = new Horario_turma();
 
         
-        $horario_turma->vinculo = $request->vinculo;
-
-        
+ 
         $horario_turma->seg1 = $request->seg1;
 
         
@@ -273,7 +271,6 @@ if (Auth::user()->name == "Admin")
     {
         $horario_turma = Horario_turma::findOrfail($id);
     	
-        $horario_turma->vinculo = $request->vinculo;
         
         $horario_turma->seg1 = $request->seg1;
         

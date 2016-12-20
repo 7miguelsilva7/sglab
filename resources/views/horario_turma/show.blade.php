@@ -22,12 +22,7 @@
             <th>Value</th>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <b><i>vinculo : </i></b>
-                </td>
-                <td>{!!$horario_turma->vinculo!!}</td>
-            </tr>
+           
             <tr>
                 <td>
                     <b><i>seg1 : </i></b>
