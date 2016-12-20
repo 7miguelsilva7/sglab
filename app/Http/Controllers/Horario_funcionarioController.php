@@ -60,7 +60,7 @@ if($usuario_logado == "Admin") {
        $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
             $horario_funcionarios = Horario_funcionario::where('pessoa_id','like','%'.$search.'%')
-                ->where('vinculo',Auth::user()->name)
+                ->where('siem_id',Auth::user()->id)
                 ->orderBy('pessoa_id')
                 ->paginate(5);
 
@@ -97,7 +97,6 @@ if($usuario_logado == "Admin") {
         $horario_funcionario = new Horario_funcionario();
 
         
-        $horario_funcionario->vinculo = $request->vinculo;
         $horario_funcionario->adicionado_por = $request->adicionado_por;
 
 
@@ -262,7 +261,6 @@ if($usuario_logado == "Admin") {
     {
         $horario_funcionario = Horario_funcionario::findOrfail($id);
 
-        $horario_funcionario->vinculo = $request->vinculo;
         $horario_funcionario->adicionado_por = $request->adicionado_por;
     
     	
