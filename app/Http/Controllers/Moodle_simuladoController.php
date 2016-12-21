@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Moodle_simulado;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
+use Excel;
 
 /**
  * Class Moodle_simuladoController.
@@ -17,11 +18,80 @@ use URL;
  */
 class Moodle_simuladoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return  \Illuminate\Http\Response
-     */
+    public function importExport()
+    {
+        return view('importExport');
+    }
+
+    public function downloadExcel(Request $request, $type)
+    {
+        $data = Moodle_simulado::get()->toArray();
+        return Excel::create('moodle_simulados', function($excel) use ($data) {
+            $excel->sheet('mySheet', function($sheet) use ($data)
+            {
+                $sheet->fromArray($data);
+            });
+        })->download($type);
+    }
+
+    public function importExcel(Request $request)
+    {
+
+        if($request->hasFile('import_file')){
+            $path = $request->file('import_file')->getRealPath();
+
+            $data = Excel::load($path, function($reader) {})->get();
+
+            if(!empty($data) && $data->count()){
+
+                foreach ($data->toArray() as $key => $value) {
+                    if(!empty($value)){
+                        foreach ($value as $v) {
+                            $insert[] = [
+                                'siem_cod' => $v['siem_cod'],
+                                'aluno' => $v['aluno'],
+                                'escola' => $v['escola'],
+                                'serie' => $v['serie'],
+                                'simulado' => $v['simulado'],
+                                'cadastro' => $v['cadastro'],
+                                'nota1' => $v['nota1'],
+                                'nota2' => $v['nota2'],
+                                'nota3' => $v['nota3'],
+                                'nota4' => $v['nota4'],
+                                'nota5' => $v['nota5'],
+                                'nota6' => $v['nota6'],
+                                'nota7' => $v['nota7'],
+                                'nota8' => $v['nota8'],
+                                'nota9' => $v['nota9'],
+                                'nota10' => $v['nota10'],
+                                'nota11' => $v['nota11'],
+                                'nota12' => $v['nota12'],
+                                'nota13' => $v['nota13'],
+                                'nota14' => $v['nota14'],
+                                'nota15' => $v['nota15'],
+                                'nota16' => $v['nota16'],
+                                'nota17' => $v['nota17'],
+                                'nota18' => $v['nota18'],
+                                'nota19' => $v['nota19'],
+                                'nota20' => $v['nota20'],
+                                'situacao' => $v['situacao']
+                            ];
+                        }
+                    }
+                }
+
+                if(!empty($insert)){
+                    Moodle_simulado::insert($insert);
+                    return back()->with('success','Insert Record successfully.');
+                }
+
+            }
+
+        }
+
+        return back()->with('error','Please Check your file, Something is wrong there.');
+    }
+
     public function index()
     {
         $title = 'Index - moodle_simulado';

@@ -7,9 +7,44 @@
         Moodle_simulado Index
     </h1>
     <form class = 'col s3' method = 'get' action = '{!!url("moodle_simulado")!!}/create'>
-        <button class = 'btn btn-primary' type = 'submit'>Create New moodle_simulado</button>
+        <button class = 'btn btn-primary' type = 'submit'>Inserir dados</button>
     </form>
     <br>
+    <div class="panel-body">
+
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success" role="alert">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get('error') }}
+            </div>
+        @endif
+
+        <h3>Importar dados:</h3>
+        <form style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;" action="{{ URL::to('moodle_simulado/importExcel') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
+
+            <input type="file" name="import_file" />
+            {{ csrf_field() }}
+            <br/>
+
+            <button class="btn btn-primary">Enviar</button>
+
+        </form>
+        <br/>
+
+
+        <h3>Backup:</h3>
+        <div style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;">
+            <a href="{{ url('moodle_simulado/downloadExcel/xls') }}"><button class="btn btn-success btn-lg">Download Excel xls</button></a>
+            <a href="{{ url('moodle_simulado/downloadExcel/xlsx') }}"><button class="btn btn-success btn-lg">Download Excel xlsx</button></a>
+            <a href="{{ url('moodle_simulado/downloadExcel/csv') }}"><button class="btn btn-success btn-lg">Download CSV</button></a>
+        </div>
+
+    </div>
     <br>
     <table class = "table table-striped table-bordered table-hover" style = 'background:#fff'>
         <thead>
