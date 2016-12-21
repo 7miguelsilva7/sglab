@@ -47,7 +47,7 @@
             <!--<th>adicionado_por</th>
             <th>usuario</th>
             <th>siem</th>-->
-            <th>Escola</th>
+            <th>nome</th>
             <!--<th>tipo_escola</th>
             <th>cod_ext</th>
             <th>created_at</th>

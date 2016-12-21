@@ -113,7 +113,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                         <ul class="dropdown-menu">
                                         
                                         <li><a href="{{ url('/horario_funcionario') }}"><i class="fa glyphicon glyphicon-calendar"></i>Analistas</a></li>
-                                        <li><a href="{{ url('/horario_turma') }}" ><i class="glyphicon glyphicon-calendar"></i>Turmas</a></li>
+                                        <li><a href="{{ url('/turma') }}" ><i class="glyphicon glyphicon-calendar"></i>Turmas</a></li>
                                         </ul>
                                     </li>
                                     <!--submenu horário -->

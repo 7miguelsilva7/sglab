@@ -11,11 +11,11 @@ use URL;
 
 use App\Siem;
 
-
+use Session;
 /**
  * Class TurmaController.
  *
- * @author  The scaffold-interface created at 2016-12-21 02:15:45pm
+ * @author  The scaffold-interface created at 2016-12-15 02:50:07pm
  * @link  https://github.com/amranidev/scaffold-interface
  */
 class TurmaController extends Controller
@@ -28,7 +28,7 @@ class TurmaController extends Controller
     public function index()
     {
         $title = 'Index - turma';
-        $turmas = Turma::paginate(20);
+        $turmas = Turma::paginate(6);
         return view('turma.index',compact('turmas','title'));
     }
 
@@ -60,6 +60,7 @@ class TurmaController extends Controller
         //print_r($request->all());
         $this->validate($request,[
          'siem_id'=>'required|unique_with:turmas,nivel,serie,turma',
+         'vinculo'=>'required',
          'turno'=>'required',
          'nivel'=>'required',
          'serie'=>'required',
@@ -68,7 +69,11 @@ class TurmaController extends Controller
         ]);
 // Fim validação de campos de formulário
 
+
         $turma = new Turma();
+
+        
+        $turma->vinculo = $request->vinculo;
 
         
         $turma->turno = $request->turno;
@@ -81,114 +86,6 @@ class TurmaController extends Controller
 
         
         $turma->turma = $request->turma;
-
-        
-        $turma->seg1 = $request->seg1;
-
-        
-        $turma->ter1 = $request->ter1;
-
-        
-        $turma->qua1 = $request->qua1;
-
-        
-        $turma->qui1 = $request->qui1;
-
-        
-        $turma->sex1 = $request->sex1;
-
-        
-        $turma->sab1 = $request->sab1;
-
-        
-        $turma->seg2 = $request->seg2;
-
-        
-        $turma->ter2 = $request->ter2;
-
-        
-        $turma->qua2 = $request->qua2;
-
-        
-        $turma->qui2 = $request->qui2;
-
-        
-        $turma->sex2 = $request->sex2;
-
-        
-        $turma->sab2 = $request->sab2;
-
-        
-        $turma->seg3 = $request->seg3;
-
-        
-        $turma->ter3 = $request->ter3;
-
-        
-        $turma->qua3 = $request->qua3;
-
-        
-        $turma->qui3 = $request->qui3;
-
-        
-        $turma->sex3 = $request->sex3;
-
-        
-        $turma->sab3 = $request->sab3;
-
-        
-        $turma->seg4 = $request->seg4;
-
-        
-        $turma->ter4 = $request->ter4;
-
-        
-        $turma->qua4 = $request->qua4;
-
-        
-        $turma->qui4 = $request->qui4;
-
-        
-        $turma->sex4 = $request->sex4;
-
-        
-        $turma->sab4 = $request->sab4;
-
-        
-        $turma->seg5 = $request->seg5;
-
-        
-        $turma->ter5 = $request->ter5;
-
-        
-        $turma->qua5 = $request->qua5;
-
-        
-        $turma->qui5 = $request->qui5;
-
-        
-        $turma->sex5 = $request->sex5;
-
-        
-        $turma->sab5 = $request->sab5;
-
-        
-        $turma->seg6 = $request->seg6;
-
-        
-        $turma->ter6 = $request->ter6;
-
-        
-        $turma->qua6 = $request->qua6;
-
-        
-        $turma->qui6 = $request->qui6;
-
-        
-        $turma->sex6 = $request->sex6;
-
-        
-        $turma->sab6 = $request->sab6;
 
         
         $turma->adicionado_por = $request->adicionado_por;
@@ -210,7 +107,10 @@ class TurmaController extends Controller
                          'test-event',
                         ['message' => 'A new turma has been created !!']);
 
-        return redirect('turma');
+    session()->flash('msg', 'Adicionado com Sucesso!!!');
+    return redirect('turma/create');
+
+        // return redirect('turma/create');
     }
 
     /**
@@ -266,6 +166,8 @@ class TurmaController extends Controller
     {
         $turma = Turma::findOrfail($id);
     	
+        $turma->vinculo = $request->vinculo;
+        
         $turma->turno = $request->turno;
         
         $turma->nivel = $request->nivel;
@@ -273,78 +175,6 @@ class TurmaController extends Controller
         $turma->serie = $request->serie;
         
         $turma->turma = $request->turma;
-        
-        $turma->seg1 = $request->seg1;
-        
-        $turma->ter1 = $request->ter1;
-        
-        $turma->qua1 = $request->qua1;
-        
-        $turma->qui1 = $request->qui1;
-        
-        $turma->sex1 = $request->sex1;
-        
-        $turma->sab1 = $request->sab1;
-        
-        $turma->seg2 = $request->seg2;
-        
-        $turma->ter2 = $request->ter2;
-        
-        $turma->qua2 = $request->qua2;
-        
-        $turma->qui2 = $request->qui2;
-        
-        $turma->sex2 = $request->sex2;
-        
-        $turma->sab2 = $request->sab2;
-        
-        $turma->seg3 = $request->seg3;
-        
-        $turma->ter3 = $request->ter3;
-        
-        $turma->qua3 = $request->qua3;
-        
-        $turma->qui3 = $request->qui3;
-        
-        $turma->sex3 = $request->sex3;
-        
-        $turma->sab3 = $request->sab3;
-        
-        $turma->seg4 = $request->seg4;
-        
-        $turma->ter4 = $request->ter4;
-        
-        $turma->qua4 = $request->qua4;
-        
-        $turma->qui4 = $request->qui4;
-        
-        $turma->sex4 = $request->sex4;
-        
-        $turma->sab4 = $request->sab4;
-        
-        $turma->seg5 = $request->seg5;
-        
-        $turma->ter5 = $request->ter5;
-        
-        $turma->qua5 = $request->qua5;
-        
-        $turma->qui5 = $request->qui5;
-        
-        $turma->sex5 = $request->sex5;
-        
-        $turma->sab5 = $request->sab5;
-        
-        $turma->seg6 = $request->seg6;
-        
-        $turma->ter6 = $request->ter6;
-        
-        $turma->qua6 = $request->qua6;
-        
-        $turma->qui6 = $request->qui6;
-        
-        $turma->sex6 = $request->sex6;
-        
-        $turma->sab6 = $request->sab6;
         
         $turma->adicionado_por = $request->adicionado_por;
         

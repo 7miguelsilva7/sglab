@@ -33,6 +33,7 @@
         
 @else
 
+
         <div class="form-group">
             <!--<label for="siem_id">siem_id</label>-->
             <input type = 'hidden' id="siem_id" name = "siem_id" value="{{Auth::user()->id}}" type="text" class="form-control">

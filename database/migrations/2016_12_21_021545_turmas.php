@@ -4,12 +4,12 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class Horario_turmas.
+ * Class Turmas.
  *
- * @author  The scaffold-interface created at 2016-12-19 11:45:26am
+ * @author  The scaffold-interface created at 2016-12-21 02:15:45pm
  * @link  https://github.com/amranidev/scaffold-interface
  */
-class HorarioTurmas extends Migration
+class Turmas extends Migration
 {
     /**
      * Run the migrations.
@@ -18,11 +18,17 @@ class HorarioTurmas extends Migration
      */
     public function up()
     {
-        Schema::create('horario_turmas',function (Blueprint $table){
+        Schema::create('turmas',function (Blueprint $table){
 
         $table->increments('id');
         
-        $table->String('vinculo');
+        $table->String('turno');
+        
+        $table->String('nivel');
+        
+        $table->String('serie');
+        
+        $table->String('turma');
         
         $table->String('seg1');
         
@@ -105,9 +111,6 @@ class HorarioTurmas extends Migration
         $table->integer('siem_id')->unsigned()->nullable();
         $table->foreign('siem_id')->references('id')->on('siems')->onDelete('cascade');
         
-        $table->integer('turma_id')->unsigned()->nullable();
-        $table->foreign('turma_id')->references('id')->on('turmas')->onDelete('cascade');
-        
         
         $table->timestamps();
         
@@ -124,6 +127,6 @@ class HorarioTurmas extends Migration
      */
     public function down()
     {
-        Schema::drop('horario_turmas');
+        Schema::drop('turmas');
     }
 }

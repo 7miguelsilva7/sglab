@@ -69,20 +69,10 @@ Route::group(['middleware'=> 'web'],function(){
 });
 Route::group(['middleware'=> 'web'],function(){
 });
-//turma Routes
 Route::group(['middleware'=> 'web'],function(){
-  Route::resource('turma','\App\Http\Controllers\TurmaController');
-  Route::post('turma/{id}/update','\App\Http\Controllers\TurmaController@update');
-  Route::get('turma/{id}/delete','\App\Http\Controllers\TurmaController@destroy');
-  Route::get('turma/{id}/deleteMsg','\App\Http\Controllers\TurmaController@DeleteMsg');
 });
 
-//horario_turma Routes
 Route::group(['middleware'=> 'web'],function(){
-  Route::resource('horario_turma','\App\Http\Controllers\Horario_turmaController');
-  Route::post('horario_turma/{id}/update','\App\Http\Controllers\Horario_turmaController@update');
-  Route::get('horario_turma/{id}/delete','\App\Http\Controllers\Horario_turmaController@destroy');
-  Route::get('horario_turma/{id}/deleteMsg','\App\Http\Controllers\Horario_turmaController@DeleteMsg');
 });
 
 Route::group(['middleware'=> 'web'],function(){
@@ -93,4 +83,11 @@ Route::group(['middleware'=> 'web'],function(){
   Route::post('moodle_simulado/{id}/update','\App\Http\Controllers\Moodle_simuladoController@update');
   Route::get('moodle_simulado/{id}/delete','\App\Http\Controllers\Moodle_simuladoController@destroy');
   Route::get('moodle_simulado/{id}/deleteMsg','\App\Http\Controllers\Moodle_simuladoController@DeleteMsg');
+});
+//turma Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('turma','\App\Http\Controllers\TurmaController');
+  Route::post('turma/{id}/update','\App\Http\Controllers\TurmaController@update');
+  Route::get('turma/{id}/delete','\App\Http\Controllers\TurmaController@destroy');
+  Route::get('turma/{id}/deleteMsg','\App\Http\Controllers\TurmaController@DeleteMsg');
 });
