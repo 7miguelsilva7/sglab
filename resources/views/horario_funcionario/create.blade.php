@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Adicionar Horário Funcionário</div>
+                <div class="panel-heading">Adicionar Horário Analista</div>
                 <div class="panel-body">
                     <form method='get' action='{!!url("horario_funcionario")!!}'>
                         <button class='btn btn-danger'>Voltar</button>
@@ -17,41 +17,30 @@
 
 @if (Auth::user()->name == "Admin")
                         
-                   <div class="form-group">
-
-                            <label>Vincular à</label>
-                <select  name='vinculo' class='form-control' id="select1" required>
-                <option value="">Vincular a um Usuário</option>
-                @foreach($siems as $key => $value)
-                <option value="{{$value}}">{{$value}}</option>
-                @endforeach
-
-            </select>
-            </div>
+                <div align="center" class="form-group">
+                <label>Selecione a Escola</label>
+                <select name='siem_id' class='form-control' id="select2" required>
+                    <option value="">Selecione a Escola</option>
+                    @foreach($siems as $key => $value) 
+                    <option value="{{$key}}">{{$value}}</option>
+                    @endforeach
+                </select>
+                </div>
                         
 @else
-                        <input type='hidden' name='vinculo' value='{{Auth::user()->name}}'>
+            <input type = 'hidden' id="siem_id" name = "siem_id" value="{{Auth::user()->id}}" type="text" class="form-control">
+
 @endif
-
-                        <div class="form-group">
-                            <label>Selecione a Escola</label>
-                            <select name='siem_id' class='form-control' id="select2" required>
-                <option value="">Selecione a Escola</option>
-                @foreach($siems as $key => $value) 
-                <option value="{{$key}}">{{$value}}</option>
-                @endforeach
-
-            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Selecione o Analista</label>
-                            <select name='pessoa_id' class='form-control' id="select3" required>
-                <option value="">Selecione o Analista</option>
-                @foreach($pessoas as $key => $value) 
-                <option value="{{$key}}">{{$value}}</option>
-                @endforeach 
-            </select>
-                        </div>
+                   
+                <div align="center"  class="form-group">
+                <!--<label>Selecione o Analista</label>-->
+                <select name='pessoa_id' class='form-control' id="select3" required>
+                    <option value="">Selecione o Analista</option>
+                    @foreach($pessoas as $key => $value) 
+                    <option value="{{$key}}">{{$value}}</option>
+                    @endforeach 
+                </select>
+                </div>
                       
 <!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse-->
 <!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse-->

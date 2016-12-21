@@ -177,7 +177,7 @@
                         <input type='hidden' name='_token' value='{{Session::token()}}'>
                         <input type='hidden' name='adicionado_por' value='{{Auth::user()->name}}'>
                         
-
+<!--
 
 @if (Auth::user()->name == "Admin")
                         
@@ -216,7 +216,29 @@
                                     @endforeach
             </select>
                         </div>
+                      -->
                       
+
+                        <div align="center"  class="form-group">
+                            <label>Lotação</label>
+                            <input type="hidden" name='siem_id' class='form-control' value="{{$horario_funcionario->siem->id}}">
+                                             <h4 align="center">{{$horario_funcionario->siem->nome}}</h4>
+
+                        </div>
+   
+                        <div align="center"  class="form-group">
+                            <label>Analista</label>
+                      
+                        <input type="hidden" align="center" name='pessoa_id' class='form-control' value="{{$horario_funcionario->pessoa->id}}">
+                                             <h4 align="center">{{$horario_funcionario->pessoa->nome}}</h4>
+
+                        </div>
+
+
+
+
+
+
 <!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse-->
 <!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse-->
 

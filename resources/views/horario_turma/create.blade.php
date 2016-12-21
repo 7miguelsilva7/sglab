@@ -38,10 +38,6 @@
             <input type = 'hidden' id="siem_id" name = "siem_id" value="{{Auth::user()->id}}" type="text" class="form-control">
         </div>
 
-        <div class="form-group">
-            <!--<label for="vinculo">vinculo</label>-->
-            <input type = 'hidden' id="vinculo" name = "vinculo" value="{{Auth::user()->name}}" type="text" class="form-control">
-        </div>
 @endif
 
         <div class="form-group">

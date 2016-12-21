@@ -14,11 +14,7 @@
     <form method = 'POST' action = '{!! url("horario_turma")!!}/{!!$horario_turma->
         id!!}/update'> 
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
-        <div class="form-group">
-            <label for="vinculo">vinculo</label>
-            <input id="vinculo" name = "vinculo" type="text" class="form-control" value="{!!$horario_turma->
-            vinculo!!}"> 
-        </div>
+       
         <div class="form-group">
             <label for="seg1">seg1</label>
             <input id="seg1" name = "seg1" type="text" class="form-control" value="{!!$horario_turma->
