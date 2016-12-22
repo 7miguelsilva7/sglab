@@ -8,7 +8,7 @@
                 <div class="panel-heading">Editar Horário Funcionário</div>
                 <div class="panel-body">
     <form method = 'get' action = '{!!url("horario_funcionario")!!}'>
-        <button class = 'btn btn-danger'>Voltar</button>
+        <button class = 'btn btn-danger'>Cancelar</button>
     </form>
     <br>
     <form method = 'POST' action = '{!! url("horario_funcionario")!!}/{!!$horario_funcionario->
@@ -570,7 +570,7 @@
 
 </div> 
 
-                        <button class='btn btn-primary' type='submit'>Salvar</button>
+                        <button class='btn btn-primary' type='submit'>Atualizar</button>
                     </form>
 
 <!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse--><!--Colapse-->
