@@ -54,15 +54,21 @@ if(Auth::user()->name == "Admin") {
             return view('turma.index',compact('turmas','title'));  
 
             } else {
-
            
-            $turmas = Turma::where('serie','like','%'.$search.'%')
-                ->orwhere('turma','like','%'.$search.'%')
-                ->orwhere('nivel','like','%'.$search.'%')
-                ->orwhere('turno','like','%'.$search.'%')
-                
-                ->orderBy('siem_id')
-                ->paginate(20);
+            // $turmas = Turma::where('serie','like','%'.$search.'%')
+            //     ->orwhere('turma','like','%'.$search.'%')
+            //     ->orwhere('nivel','like','%'.$search.'%')
+            //     ->orwhere('turno','like','%'.$search.'%')
+
+            $turmas = Turma::whereHas('siem', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%');
+            })
+            ->orWhere('serie','LIKE','%'.$search.'%')
+            ->orwhere('turma','like','%'.$search.'%')
+            ->orwhere('nivel','like','%'.$search.'%')
+            ->orwhere('turno','like','%'.$search.'%')           
+            ->orderBy('turno')
+            ->paginate(20);
 
             return view('turma.index',compact('turmas','title'));            }
 
@@ -88,21 +94,24 @@ if(Auth::user()->name == "Admin") {
             {
             
 
-            $siems = Siem::find(1);
+            $turmas = Turma::whereHas('siem', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%');
+            })
+            ->where('siem_id',Auth::user()->id)
 
+            ->orWhere('serie','LIKE','%'.$search.'%')
+            ->where('siem_id',Auth::user()->id)
+            
+            ->orwhere('turma','like','%'.$search.'%')
+            ->where('siem_id',Auth::user()->id)
 
+            ->orwhere('nivel','like','%'.$search.'%')
+            ->where('siem_id',Auth::user()->id)
 
-            $turmas = Turma::where('serie','like','%'.$search.'%')
-                ->where('siem_id',Auth::user()->id)
-                ->orwhere('turma','like','%'.$search.'%')
-                ->where('siem_id',Auth::user()->id)
-                ->orwhere('nivel','like','%'.$search.'%')
-                ->where('siem_id',Auth::user()->id)                
-                ->orwhere('turno','like','%'.$search.'%')
-                ->where('siem_id',Auth::user()->id) 
+            ->orwhere('turno','like','%'.$search.'%')
+            ->where('siem_id',Auth::user()->id)
                
-                
-                ->orderBy('nivel')
+                ->orderBy('serie')
                 ->paginate(20);
 
             return view('turma.index',compact('turmas','title'));

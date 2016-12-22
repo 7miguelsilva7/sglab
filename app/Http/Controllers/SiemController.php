@@ -46,8 +46,11 @@ if(Auth::user()->name == "Admin")
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
             $siems = Siem::where('nome','like','%'.$search.'%')
+                ->orWhere('siem','LIKE','%'.$search.'%')
+                ->orWhere('tipo_escola','LIKE','%'.$search.'%')
+
                 ->orderBy('nome')
-                ->paginate(5);
+                ->paginate(30);
 
             return view('siem.index',compact('siems'));
 
