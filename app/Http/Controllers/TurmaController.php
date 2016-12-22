@@ -11,6 +11,10 @@ use URL;
 
 use App\Siem;
 
+use App\Escola;
+
+use Auth;
+
 
 /**
  * Class TurmaController.
@@ -26,11 +30,92 @@ class TurmaController extends Controller
      * @return  \Illuminate\Http\Response
      */
     public function index()
-    {
-        $title = 'Index - turma';
-        $turmas = Turma::paginate(20);
-        return view('turma.index',compact('turmas','title'));
-    }
+    // {
+    //     $title = 'Index - turma';
+    //     $turmas = Turma::paginate(20);
+    //     return view('turma.index',compact('turmas','title'));
+    // }
+{
+
+if(Auth::user()->name == "Admin") {
+
+            $title = 'Index - turma';
+
+            $escolas = Escola::all();
+
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            if ($search == "") {
+
+            $turmas = Turma::where('serie','like','%'.$search.'%')
+                ->orderBy('siem_id')
+                ->paginate(20);
+
+            return view('turma.index',compact('turmas','title'));  
+
+            } else {
+
+           
+            $turmas = Turma::where('serie','like','%'.$search.'%')
+                ->orwhere('turma','like','%'.$search.'%')
+                ->orwhere('nivel','like','%'.$search.'%')
+                ->orwhere('turno','like','%'.$search.'%')
+                
+                ->orderBy('siem_id')
+                ->paginate(20);
+
+            return view('turma.index',compact('turmas','title'));            }
+
+} else {
+
+
+            $siems = Siem::all();
+
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+            
+            if ($search == "") {
+
+            $turmas = Turma::where('serie','like','%'.$search.'%')
+                ->where('siem_id',Auth::user()->id)
+                ->orderBy('nivel')
+                ->paginate(20);
+
+            return view('turma.index',compact('turmas','title'));
+
+            } else  
+
+            {
+            
+
+            $siems = Siem::find(1);
+
+
+
+            $turmas = Turma::where('serie','like','%'.$search.'%')
+                ->where('siem_id',Auth::user()->id)
+                ->orwhere('turma','like','%'.$search.'%')
+                ->where('siem_id',Auth::user()->id)
+                ->orwhere('nivel','like','%'.$search.'%')
+                ->where('siem_id',Auth::user()->id)                
+                ->orwhere('turno','like','%'.$search.'%')
+                ->where('siem_id',Auth::user()->id) 
+               
+                
+                ->orderBy('nivel')
+                ->paginate(20);
+
+            return view('turma.index',compact('turmas','title'));
+
+            }
+                
+                  }
+            }
+
+
+
+   
+
 
     /**
      * Show the form for creating a new resource.
@@ -66,6 +151,8 @@ class TurmaController extends Controller
          'turma'=>'required',
          
         ]);
+
+
 // Fim validação de campos de formulário
 
         $turma = new Turma();
