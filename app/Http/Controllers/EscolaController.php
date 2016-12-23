@@ -66,15 +66,26 @@ if($usuario_logado == "Admin") {
 
             $escolas = Escola::where('siem_id','like','%'.$search.'%')
                 ->orderBy('siem_id')
-                ->paginate(5);
+                ->paginate(30);
 
             return view('escola.index',compact('escolas','siems'));
         
             } else {
 
-                 $escolas = Escola::where('siem_id','=',$search)
-                ->orderBy('siem_id')
-                ->paginate(5);
+                //  $escolas = Escola::where('siem_id','=',$search)
+                // ->orderBy('siem_id')
+                // ->paginate(5);
+
+
+            $escolas = Escola::whereHas('siem', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%')
+                  ->orwhere('siem','like','%'.$search.'%');
+            })
+            ->orWhere('distrito','LIKE','%'.$search.'%')
+            ->orwhere('bairro','like','%'.$search.'%')
+            ->orwhere('inep','like','%'.$search.'%')
+                       
+            ->paginate(200);                
 
             return view('escola.index',compact('escolas','siems'));
             }

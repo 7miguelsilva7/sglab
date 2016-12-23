@@ -25,18 +25,12 @@
 
 {!! Form::open(['method'=>'GET','url'=>'funcionario','class'=>'navbar-form navbar-right','role'=>'search'])  !!}
 
+
 <a href="{{ url('funcionario/create') }}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo</a>
 
 <div class="input-group custom-search-form">
-
-                                <select class="form-control" name="search" id="select1">
-                                
-                                <option value="">Mostrar Todos Funcionários Cadastrados</option>
-                                @foreach($pessoas as $key => $value)
-                                <option value="{{$value->id}}">{{$value->nome}}</option>
-                                @endforeach
-                                    
-                                </select>    <span class="input-group-btn">
+    <input type="text" class="form-control" name="search" placeholder="Busca...">
+    <span class="input-group-btn">
         <button class="btn btn-default-sm" type="submit">
             <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
         </button>

@@ -48,26 +48,80 @@ if($usuario_logado == "Admin") {
 
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
-            $funcionarios = Funcionario::where('pessoa_id','like','%'.$search.'%')
-                ->orderBy('pessoa_id')
-                ->paginate(5);
+            // $funcionarios = Funcionario::where('pessoa_id','like','%'.$search.'%')
+            //     ->orderBy('pessoa_id')
+            //     ->paginate(5);
 
-        return view('funcionario.index',compact('funcionarios','pessoas','escolas'));
+
+
+            $funcionarios = Funcionario::whereHas('pessoa', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%');
+            })
+            ->orwhereHas('siem', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%')
+                  ->orwhere('siem','like','%'.$search.'%');
+            
+            })
+            ->orwhereHas('ocupacao', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%');
+            })
+            // ->orWhere('distrito','LIKE','%'.$search.'%')
+            // ->orwhere('bairro','like','%'.$search.'%')
+            // ->orwhere('inep','like','%'.$search.'%')
+                       
+            ->paginate(200);
+
+            return view('funcionario.index',compact('funcionarios','pessoas','escolas'));
 
 } else {
 
-       $search = \Request::get('search'); //<-- we use global request to get the param of URI
+           $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+           if ($search == "") {
 
             $funcionarios = Funcionario::where('pessoa_id','like','%'.$search.'%')
-                ->where('user_id',Auth::user()->id)
+                ->where('siem_id',Auth::user()->id)
                 ->orderBy('pessoa_id')
                 ->paginate(5);
+
+            return view('funcionario.index',compact('funcionarios','pessoas','escolas'));
+
+            // $funcionarios = Funcionario::where('pessoa_id','like','%'.$search.'%')
+            //     ->where('user_id',Auth::user()->id)
+            //     ->orderBy('pessoa_id')
+            //     ->paginate(5);
+
+             } else 
+
+            {
+            
+            $funcionarios = Funcionario::whereHas('pessoa', function($query) use($search){
+            $query
+            ->where('siem_id',Auth::user()->id)
+            ->where('nome', 'like', '%'.$search.'%')
+                            ;
+            })
+            ->orwhereHas('siem', function($query) use($search){
+            $query
+            ->where('siem_id',Auth::user()->id)
+            ->where('nome', 'like', '%'.$search.'%')
+            ->orwhere('siem','like','%'.$search.'%');
+            })
+            ->orwhereHas('ocupacao', function($query) use($search){
+            $query
+            ->where('siem_id',Auth::user()->id)
+            ->where('nome', 'like', '%'.$search.'%');
+            })
+                     
+                      
+            ->paginate(200);
+
 
         return view('funcionario.index',compact('funcionarios','pessoas','escolas'));
 }
     }
 
-
+    }
     /**
      * Show the form for creating a new resource.
      *

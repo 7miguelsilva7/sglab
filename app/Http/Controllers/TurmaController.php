@@ -112,7 +112,7 @@ if(Auth::user()->name == "Admin") {
             ->where('siem_id',Auth::user()->id)
                
                 ->orderBy('serie')
-                ->paginate(20);
+                ->paginate(30);
 
             return view('turma.index',compact('turmas','title'));
 
