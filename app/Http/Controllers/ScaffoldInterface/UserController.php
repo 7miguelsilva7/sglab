@@ -28,11 +28,33 @@ class UserController extends Controller
 
         if(Auth::user()->name == "Admin")
   {
-
         
-        $users = \App\User::all();
+        // $users = \App\User::all();
 
-        return view('scaffold-interface.users.index', compact('users'));
+
+                    $search = \Request::get('search'); //<-- we use global request to get the param of URI
+                    
+                    if ($search == "") {
+
+                        $users = User::where('name','like','%'.$search.'%')
+                        ->orwhere('email','like','%'.$search.'%')
+                            ->orderBy('name')
+                            ->paginate(30);
+
+                    return view('scaffold-interface.users.index', compact('users'));
+
+                    } else {
+
+                    $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+                    $users = User::where('name','like','%'.$search.'%')
+                    ->orwhere('email','like','%'.$search.'%')
+                        ->orderBy('name')
+                        ->paginate(200);
+
+                    return view('scaffold-interface.users.index', compact('users'));
+                    }
+
     }
 }
     /**

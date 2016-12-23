@@ -50,7 +50,7 @@ if($usuario_logado == "Admin") {
 
             $pessoas = Pessoa::where('nome','like','%'.$search.'%')
                 ->orderBy('nome')
-                ->paginate(5);
+                ->paginate(30);
 
             return view('pessoa.index',compact('pessoas'));
             

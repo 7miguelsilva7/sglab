@@ -32,19 +32,11 @@
 
 		<a href="{{url('/register')}}" class = "btn btn-success"><i class="fa fa-plus fa-md" aria-hidden="true"></i> Novo</a>
 
-
 <?php } ?>
 
 <div class="input-group custom-search-form">
-
-                                <select class="form-control" name="search" id="select1">
-                                
-                                <option value="">Mostrar Todos os Usuários Cadastras</option>
-                                @foreach($users as $key => $value)
-                                <option value="{{$value->id}}">{{$value->name}}</option>
-                                @endforeach
-                                    
-                                </select>    <span class="input-group-btn">
+    <input type="text" class="form-control" name="search" placeholder="Busca...">
+    <span class="input-group-btn">
         <button class="btn btn-default-sm" type="submit">
             <i class="fa fa-search"><!--<span class="hiddenGrammarError" pre="" data-mce-bogus="1"--></i>
         </button>
@@ -92,6 +84,8 @@
 			@endforeach
 		</tbody>
 	</table>
+	                        {!! $users->render() !!}
+
         </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
