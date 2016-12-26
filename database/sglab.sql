@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 21, 2016 at 06:28 
+-- Generation Time: Dec 26, 2016 at 04:02 
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.24
 
@@ -1107,8 +1107,10 @@ CREATE TABLE `turmas` (
 
 INSERT INTO `turmas` (`id`, `turno`, `nivel`, `serie`, `turma`, `seg1`, `ter1`, `qua1`, `qui1`, `sex1`, `sab1`, `seg2`, `ter2`, `qua2`, `qui2`, `sex2`, `sab2`, `seg3`, `ter3`, `qua3`, `qui3`, `sex3`, `sab3`, `seg4`, `ter4`, `qua4`, `qui4`, `sex4`, `sab4`, `seg5`, `ter5`, `qua5`, `qui5`, `sex5`, `sab5`, `seg6`, `ter6`, `qua6`, `qui6`, `sex6`, `sab6`, `adicionado_por`, `siem_id`, `created_at`, `updated_at`) VALUES
 (1, 'Manhã', 'Infantil', 'INF I', 'A', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'LAB', 'Admin', 76, '2016-12-21 18:59:24', '2016-12-21 19:59:48'),
-(6, 'Manhã', 'Infantil', 'INF I', 'B', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Admin', 76, '2016-12-21 19:26:40', '2016-12-21 19:26:40'),
-(7, 'Manhã', 'Infantil', 'INF I', 'A', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Admin', 21, '2016-12-21 20:25:58', '2016-12-21 20:25:58');
+(6, 'Tarde', 'Fund I', '1º', 'B', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Admin', 76, '2016-12-21 19:26:40', '2016-12-22 21:37:13'),
+(7, 'Manhã', 'Infantil', 'INF I', 'A', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Admin', 21, '2016-12-21 20:25:58', '2016-12-21 20:25:58'),
+(8, 'Noite', 'Fund II', '9º', 'A', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Admin', 163, '2016-12-22 23:20:44', '2016-12-22 23:20:44'),
+(9, 'Noite', 'Fund II', '9º', 'A', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Admin', 21, '2016-12-22 23:27:40', '2016-12-22 23:27:40');
 
 -- --------------------------------------------------------
 
@@ -1131,7 +1133,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$8YnfsZ6N5NsXxDXYbYc/UOgb/xvux3B/hXv1x574bsISvxk1xsnO.', 's6urBKCFQkvh43ruer51LyDAFfl0xExezIOaNlvxKihoBDv1l4yUBbjvXH42', '2016-11-12 17:44:03', '2016-12-21 18:15:18'),
+(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$8YnfsZ6N5NsXxDXYbYc/UOgb/xvux3B/hXv1x574bsISvxk1xsnO.', '64TmBSD8yDjPAKjE3ye1sIOyaAS84fHJcjhqMW2TfZNw0KYUqhSnj4Mw7v9m', '2016-11-12 17:44:03', '2016-12-23 18:44:37'),
 (17, 'Liberado', 'liberado@gmail.com', '$2y$10$XjCrpeKNG0ilPkwHslBdouPEmr1i6wdxLkZ4ZmIcPbjHM9cyo7066', 'ov1yW2XtE7dXU8V2cY5vniZjVb6srButRuQcOQSCAPKEf3N6etGzgExNeVxo', '2016-11-15 05:35:44', '2016-11-22 19:09:42'),
 (21, '02 DE JULHO', 'doisdejulhojuazeiro@hotmail.com', '$2y$10$08rB4q7Bu5mBTINx.ab/GuOPEJwENhnOx3CpCpl.mnQKGAWn8vmGS', 'pNJ3v5Yeou5NSISeZmXg1XnaLOGFei4Z8WRDKFpMBjjrrWHvOaNd8gU3VlvU', '0000-00-00 00:00:00', '2016-12-12 15:53:39'),
 (22, '15 DE JULHO', '29teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1188,7 +1190,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 (73, 'E.M.E.I PRIMAVERA', '1teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (74, 'E.M.E.I SEMENTE DO AMANHA', '42teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (75, 'E.M.E.I. ARCENIO JOSE DA SILVA', '43teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(76, 'EDUCANDÁRIO JOÃO XXIII', 'educandariojoao23@gmail.com', '$2y$10$gkS9F8a7yQzh2rV/GKnWgu.IQVMzf3q0Ycyrojc3uBm1plhZsqiG2', 'p6a7tVa9Zvp6LcIIc7mhyw4XC95vLD5lCyDF7JWpPOWPYQpVWnINfzXYc4UQ', '0000-00-00 00:00:00', '2016-12-21 19:09:12'),
+(76, 'EDUCANDÁRIO JOÃO XXIII', 'educandariojoao23@gmail.com', '$2y$10$gkS9F8a7yQzh2rV/GKnWgu.IQVMzf3q0Ycyrojc3uBm1plhZsqiG2', 'qdCJ249BrCF07GB1LEHQDpwpEaMmzETQzqWU9NgJlYtVDxjJpu8saD2KuzsC', '0000-00-00 00:00:00', '2016-12-23 18:43:39'),
 (77, 'ELEOTÉRIO SOARES FONSÊCA', '44teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (78, 'ELISEU SANTOS', '24teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (79, 'ERUM - RURAL DA MASSAROCA', '25teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1496,7 +1498,7 @@ ALTER TABLE `siems`
 -- AUTO_INCREMENT for table `turmas`
 --
 ALTER TABLE `turmas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `users`
 --
