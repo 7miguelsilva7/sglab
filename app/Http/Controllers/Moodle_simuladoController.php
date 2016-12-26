@@ -26,70 +26,62 @@ class Moodle_simuladoController extends Controller
     public function downloadExcel(Request $request, $type)
     {
         $data = Moodle_simulado::get()->toArray();
-        return Excel::create('moodle_simulados', function($excel) use ($data) {
-            $excel->sheet('mySheet', function($sheet) use ($data)
-            {
+        return Excel::create('moodle_simulados', function ($excel) use ($data) {
+            $excel->sheet('mySheet', function ($sheet) use ($data) {
                 $sheet->fromArray($data);
             });
         })->download($type);
     }
 
-    public function importExcel(Request $request)
+    public function importExcel()
     {
+//        $ano = $_POST["ano"];
+//        $simu = $_POST["sim"];
+        foreach($_FILES["envsimulado"]["tmp_name"] as $nome_arquivo) {
 
-        if($request->hasFile('import_file')){
-            $path = $request->file('import_file')->getRealPath();
+            $objeto = fopen($nome_arquivo, 'r');
 
-            $data = Excel::load($path, function($reader) {})->get();
+            while(($dados = fgetcsv($objeto, 1000, ",")) !== FALSE){
+                $data = str_replace(",", ".", $dados, $count);
 
-            if(!empty($data) && $data->count()){
+                    $csv_data = new Moodle_simulado();
 
-                foreach ($data->toArray() as $key => $value) {
-                    if(!empty($value)){
-                        foreach ($value as $v) {
-                            $insert[] = [
-                                'siem_cod' => $v['siem_cod'],
-                                'aluno' => $v['aluno'],
-                                'escola' => $v['escola'],
-                                'serie' => $v['serie'],
-                                'simulado' => $v['simulado'],
-                                'cadastro' => $v['cadastro'],
-                                'nota1' => $v['nota1'],
-                                'nota2' => $v['nota2'],
-                                'nota3' => $v['nota3'],
-                                'nota4' => $v['nota4'],
-                                'nota5' => $v['nota5'],
-                                'nota6' => $v['nota6'],
-                                'nota7' => $v['nota7'],
-                                'nota8' => $v['nota8'],
-                                'nota9' => $v['nota9'],
-                                'nota10' => $v['nota10'],
-                                'nota11' => $v['nota11'],
-                                'nota12' => $v['nota12'],
-                                'nota13' => $v['nota13'],
-                                'nota14' => $v['nota14'],
-                                'nota15' => $v['nota15'],
-                                'nota16' => $v['nota16'],
-                                'nota17' => $v['nota17'],
-                                'nota18' => $v['nota18'],
-                                'nota19' => $v['nota19'],
-                                'nota20' => $v['nota20'],
-                                'situacao' => $v['situacao']
-                            ];
-                        }
-                    }
+                    $csv_data->siem_cod = $data [0];
+                    $csv_data->aluno = $data [1];
+                    $csv_data->escola = $data [2];
+                    $csv_data->serie = $data [3];
+                    $csv_data->simulado = $data [0];
+                    $csv_data->cadastro = $data[0];
+                    $csv_data->nota1 = $data[10];
+                    $csv_data->nota2 = $data[11];
+                    $csv_data->nota3 = $data[12];
+                    $csv_data->nota4 = $data[13];
+                    $csv_data->nota5 = $data[14];
+                    $csv_data->nota6 = $data[15];
+                    $csv_data->nota7 = $data[16];
+                    $csv_data->nota8 = $data[17];
+                    $csv_data->nota9 = $data[18];
+                    $csv_data->nota10 = $data[19];
+                    $csv_data->nota11 = $data[20];
+                    $csv_data->nota12 = $data[21];
+                    $csv_data->nota13 = $data[22];
+                    $csv_data->nota14 = $data[23];
+                    $csv_data->nota15 = $data[24];
+                    $csv_data->nota16 = $data[25];
+                    $csv_data->nota17 = $data[26];
+                    $csv_data->nota18 = $data[27];
+                    $csv_data->nota19 = $data[28];
+                    $csv_data->nota20 = $data[29];
+                    $csv_data->situacao = $data[5];
+                    $csv_data->save();
                 }
 
-                if(!empty($insert)){
-                    Moodle_simulado::insert($insert);
-                    return back()->with('success','Insert Record successfully.');
-                }
-
+                //fclose($objeto);
             }
-
+        if(!empty($csv_data)){
+            return back()->with('success','Dados inseridos com sucesso.');
         }
-
-        return back()->with('error','Please Check your file, Something is wrong there.');
+    return back()->with('error','Por favor verifique o arquivo, dados não inseridos.');
     }
 
     public function index()
