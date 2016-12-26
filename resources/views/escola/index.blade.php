@@ -40,7 +40,7 @@
 </div>
 {!! Form::close() !!}
 
-                              
+                             
            
             <table class = "table table-striped table-bordered">
                 <thead>

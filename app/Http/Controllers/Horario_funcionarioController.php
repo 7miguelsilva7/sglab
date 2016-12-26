@@ -49,22 +49,79 @@ if($usuario_logado == "Admin") {
 
             $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
-            $horario_funcionarios = Horario_funcionario::where('pessoa_id','like','%'.$search.'%')
-                ->orderBy('pessoa_id')
-                ->paginate(5);
+            // $horario_funcionarios = Horario_funcionario::where('pessoa_id','like','%'.$search.'%')
+            //     ->orderBy('pessoa_id')
+            //     ->paginate(5);
+           
+                      if ($search == "") {
+
+            $horario_funcionarios = Horario_funcionario::whereHas('pessoa', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%');
+            })
+            ->orwhereHas('siem', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%');
+            
+            })
+
+            // ->orwhereHas('ocupacao', function($query) use($search){
+            // $query->where('nome', 'like', '%'.$search.'%');
+            // })
+            // ->orWhere('distrito','LIKE','%'.$search.'%')
+            // ->orwhere('bairro','like','%'.$search.'%')
+            // ->orwhere('inep','like','%'.$search.'%')
+                       
+            ->paginate(200);             
 
         return view('horario_funcionario.index',compact('horario_funcionarios','pessoas','escolas'));
+
+                      } else {
+
+            $horario_funcionarios = Horario_funcionario::whereHas('pessoa', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%');
+            })
+            ->orwhereHas('siem', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%');
+            
+            })
+            // ->orwhereHas('ocupacao', function($query) use($search){
+            // $query->where('nome', 'like', '%'.$search.'%');
+            // })
+            // ->orWhere('distrito','LIKE','%'.$search.'%')
+            // ->orwhere('bairro','like','%'.$search.'%')
+            // ->orwhere('inep','like','%'.$search.'%')
+                       
+            ->paginate(200);             
+
+        return view('horario_funcionario.index',compact('horario_funcionarios','pessoas','escolas'));
+
+                      }
 
 } else {
+               
+               
+                $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
-       $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
-            $horario_funcionarios = Horario_funcionario::where('pessoa_id','like','%'.$search.'%')
-                ->where('siem_id',Auth::user()->id)
-                ->orderBy('pessoa_id')
-                ->paginate(5);
+       $horario_funcionarios = Horario_funcionario::whereHas('pessoa', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%')
+                  ->where('siem_id',Auth::user()->id);
+            })
+            ->orwhereHas('siem', function($query) use($search){
+            $query->where('nome', 'like', '%'.$search.'%')
+                  ->where('siem_id',Auth::user()->id);
+            
+            })
+            // ->orwhereHas('ocupacao', function($query) use($search){
+            // $query->where('nome', 'like', '%'.$search.'%');
+            // })
+            // ->orWhere('distrito','LIKE','%'.$search.'%')
+            // ->orwhere('bairro','like','%'.$search.'%')
+            // ->orwhere('inep','like','%'.$search.'%')
+                       
+            ->paginate(30);             
 
         return view('horario_funcionario.index',compact('horario_funcionarios','pessoas','escolas'));
+
 }
 
 
