@@ -74,6 +74,39 @@ return [
         'EMP' => "EMP",
         'REL' => "REL",
        
+    ],
+
+    // enums simulados
+
+    'ano' => [
+        '17' => "2017",
+        '16' => "2016",
+        '15' => "2016",
+       
+    ],
+
+    'simulado' => [
+        '01' => "Simuado em rede-1",
+        '02' => "Simuado em rede-2",
+        // '03' => "Simuado em rede-3",
+        // '04' => "Simuado em rede-4",
+        // '05' => "Simuado em rede-5",
+        // '06' => "Simuado em rede-6",
+        // '07' => "Simuado em rede-7",
+        // '08' => "Simuado em rede-8",
+        // '09' => "Simuado em rede-9",
+        // '10' => "Simuado em rede-10",
+       
+    ],
+
+    'nivelsim' => [
+        '3' => "3º Ano",
+        '4' => "4º Ano",
+        '5' => "5º Ano",
+        '8' => "8º Ano",
+        '9' => "9º Ano",
+       
     ]
+
 
 ];

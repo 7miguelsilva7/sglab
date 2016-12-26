@@ -131,3 +131,8 @@ Route::group(['middleware'=> 'web'],function(){
     Route::get('moodle_simulado/downloadExcel/{type}', '\App\Http\Controllers\Moodle_simuladoController@downloadExcel');
     Route::post('moodle_simulado/importExcel', '\App\Http\Controllers\Moodle_simuladoController@importExcel');
 });
+
+//moodle_simulado Routes
+
+Route::get('simulado_escola_report','Moodle_simulado_reportController@simulado_escola_report');
+Route::get('simulado_turma_report','Moodle_simulado_reportController@simulado_turma_report');
