@@ -27,7 +27,7 @@
         <h3>Importar dados:</h3>
         <form style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;" action="{{ URL::to('moodle_simulado/importExcel') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
 
-            <input type="file" name="import_file" />
+            <input type="file" name="envsimulado[]" />
             {{ csrf_field() }}
             <br/>
 
