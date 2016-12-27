@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relGeralEscola" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="060438fe-03f4-4a3e-8fdf-798d805442f4">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relGeralEscola" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="060438fe-03f4-4a3e-8fdf-798d805442f4">
 	<property name="ireport.zoom" value="1.4641000000000093"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="398"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -497,6 +497,15 @@ ORDER BY simulado desc, mediaGeral DESC]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{totalMediaPT}]]></textFieldExpression>
 			</textField>
+			<textField pattern="###0.00">
+				<reportElement style="&lt;Valores diferentes&gt;" x="362" y="213" width="75" height="36" uuid="e12de681-ea53-4c95-b9ae-b86c2a7a9eff">
+					<printWhenExpression><![CDATA[($F{totalMedia}>=5)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalMediaMT}]]></textFieldExpression>
+			</textField>
 			<rectangle>
 				<reportElement style="&lt;Valores diferentes&gt;" x="9" y="92" width="539" height="79" uuid="d7043338-0770-4369-82b5-c031059ecb1f"/>
 			</rectangle>
@@ -986,6 +995,15 @@ ORDER BY simulado desc, mediaGeral DESC]]>
 				<textFieldExpression><![CDATA[$F{totalMediaPT}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.00">
+				<reportElement style="&lt;Valores diferentes&gt;" x="362" y="216" width="75" height="33" forecolor="#FF0000" uuid="2578c2a5-26cb-4eb6-b532-20b662b8e080">
+					<printWhenExpression><![CDATA[($F{totalMediaMT}<5)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalMediaMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
 				<reportElement style="&lt;Valores diferentes&gt;" x="441" y="216" width="107" height="31" forecolor="#FF0000" uuid="7c40a9ee-b5bb-459e-91de-b5ea40e1ab49">
 					<printWhenExpression><![CDATA[($F{totalMedia}<5)]]></printWhenExpression>
 				</reportElement>
@@ -1217,24 +1235,6 @@ ORDER BY simulado desc, mediaGeral DESC]]>
 				</textElement>
 				<textFieldExpression><![CDATA[X]]></textFieldExpression>
 			</textField>
-			<textField pattern="###0.00">
-				<reportElement style="&lt;Valores diferentes&gt;" x="364" y="214" width="72" height="37" uuid="0e47ec7a-5a7a-4ad6-aaf2-c16be3711ca2">
-					<printWhenExpression><![CDATA[($F{totalMediaMT}>=5)]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="22" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{totalMediaMT}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.00">
-				<reportElement style="&lt;Valores diferentes&gt;" x="364" y="216" width="72" height="33" forecolor="#FF0000" uuid="4ff49ec2-2a80-4d61-9a50-8c641e4f6c69">
-					<printWhenExpression><![CDATA[($F{totalMediaMT}<5)]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="22" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{totalMediaMT}]]></textFieldExpression>
-			</textField>
 		</band>
 	</title>
 	<pageHeader>
@@ -1283,4 +1283,7 @@ ORDER BY simulado desc, mediaGeral DESC]]>
 	<summary>
 		<band height="42" splitType="Stretch"/>
 	</summary>
+	<noData>
+		<band height="50"/>
+	</noData>
 </jasperReport>

@@ -91,3 +91,11 @@ Route::group(['middleware'=> 'web'],function(){
   Route::get('turma/{id}/delete','\App\Http\Controllers\TurmaController@destroy');
   Route::get('turma/{id}/deleteMsg','\App\Http\Controllers\TurmaController@DeleteMsg');
 });
+
+//modal Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('modal','\App\Http\Controllers\ModalController');
+  Route::post('modal/{id}/update','\App\Http\Controllers\ModalController@update');
+  Route::get('modal/{id}/delete','\App\Http\Controllers\ModalController@destroy');
+  Route::get('modal/{id}/deleteMsg','\App\Http\Controllers\ModalController@DeleteMsg');
+});

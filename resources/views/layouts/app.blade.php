@@ -202,8 +202,10 @@ require_once '/home/aetji649/sglab/connect.php';
   <li class="dropdown-submenu">
     <a tabindex="-1" href="#">Simulados</a>
     <ul class="dropdown-menu">
-    
-        <li><a data-toggle="modal" href="#"><i class="fa glyphicon glyphicon-home"></i>Escolas</a></li>
+
+        <li><a href="{{ url('/modal') }}/modalSimuladoEscola" data-toggle="modal" data-target="#meuModal"><i class="fa glyphicon glyphicon-home"></i> Escolas</a> </li>                                       
+  
+        <!--<li><a data-toggle="modal" href="{{ url('/modal') }}/modalSimuladoEscola/#modalSimuladoEscola"><i class="fa glyphicon glyphicon-home"></i>Escolas</a></li>-->
 		<li><a data-toggle="modal" href="#"><i class="fa fa-users"></i>Turmas</a></li>
                                     
     </ul>
@@ -1011,8 +1013,20 @@ require_once '/home/aetji649/sglab/connect.php';
  </div>
 
 
-
-
+<!-- Modal -->
+    <div class="modal fade" id="meuModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Relatórios</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
