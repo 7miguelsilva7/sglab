@@ -32,7 +32,7 @@ class ModalController extends Controller
     public function modalSimuladoEscola()
 
     {
-        $siems = Siem::all()->pluck('nome','id');
+        $siems = Siem::all()->pluck('nome','siem');
 
         // $title = 'ModalSimuladoEscola - modal';
         return view('modal.modalSimuladoEscola',compact('siems'));

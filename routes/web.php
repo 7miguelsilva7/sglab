@@ -112,14 +112,6 @@ Route::group(['middleware'=> 'web'],function(){
   Route::get('turma/{id}/deleteMsg','\App\Http\Controllers\TurmaController@DeleteMsg');
 });
 
-//horario_turma Routes
-Route::group(['middleware'=> 'web'],function(){
-  Route::resource('horario_turma','\App\Http\Controllers\Horario_turmaController');
-  Route::post('horario_turma/{id}/update','\App\Http\Controllers\Horario_turmaController@update');
-  Route::get('horario_turma/{id}/delete','\App\Http\Controllers\Horario_turmaController@destroy');
-  Route::get('horario_turma/{id}/deleteMsg','\App\Http\Controllers\Horario_turmaController@DeleteMsg');
-});
-
 //moodle_simulado Routes
 Route::group(['middleware'=> 'web'],function(){
     Route::resource('moodle_simulado','\App\Http\Controllers\Moodle_simuladoController');
@@ -140,7 +132,7 @@ Route::get('simulado_turma_report','Moodle_simulado_reportController@simulado_tu
 
 //modal Routes
 Route::group(['middleware'=> 'web'],function(){
-  Route::get('modal/modalSimuladoEscola','ModalController@modalSimuladoEscola');
+  Route::resource('modal/modalSimuladoEscola','ModalController@modalSimuladoEscola');
   Route::get('modal/simulado_escola_report','\App\Http\Controllers\ModalController@simulado_escola_report');
   Route::get('modal/simulado_turma_report','\App\Http\Controllers\ModalController@simulado_turma_report');
 });

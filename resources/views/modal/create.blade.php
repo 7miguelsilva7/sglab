@@ -1,58 +1,65 @@
-@extends('scaffold-interface.layouts.app')
-@section('title','Create')
-@section('content')
 
-<section class="content">
-    <h1>
-        Create modal
-    </h1>
-    <form method = 'get' action = '{!!url("modal")!!}'>
-        <button class = 'btn btn-danger'>modal Index</button>
-    </form>
+<html lang="en">
+    <head>
+
+<script>
+   $('#meuModal').on('shown.bs.modal', function () {
+     $(this).removeData('bs.modal');
+   });
+</script>
+
+    </head>
+    <body>
+
     <br>
     <form method = 'POST' action = '{!!url("modal")!!}'>
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
-        <div class="form-group">
-            <label>anulada Select</label>
-            <select name = 'anulada_id' class = 'form-control'>
-                @foreach($anuladas as $key => $value) 
-                <option value="{{$key}}">{{$value}}</option>
-                @endforeach 
-            </select>
-        </div>
-        <div class="form-group">
-            <label>ocupacaos Select</label>
-            <select name = 'ocupacao_id' class = 'form-control'>
-                @foreach($ocupacaos as $key => $value) 
-                <option value="{{$key}}">{{$value}}</option>
-                @endforeach 
-            </select>
-        </div>
-        <div class="form-group">
-            <label>pessoas Select</label>
-            <select name = 'pessoa_id' class = 'form-control'>
-                @foreach($pessoas as $key => $value) 
-                <option value="{{$key}}">{{$value}}</option>
-                @endforeach 
-            </select>
-        </div>
-        <div class="form-group">
-            <label>siems Select</label>
-            <select name = 'siem_id' class = 'form-control'>
-                @foreach($siems as $key => $value) 
-                <option value="{{$key}}">{{$value}}</option>
-                @endforeach 
-            </select>
-        </div>
-        <div class="form-group">
-            <label>users Select</label>
-            <select name = 'user_id' class = 'form-control'>
-                @foreach($users as $key => $value) 
-                <option value="{{$key}}">{{$value}}</option>
-                @endforeach 
-            </select>
-        </div>
-        <button class = 'btn btn-primary' type ='submit'>Create</button>
-    </form>
-</section>
-@endsection
+        <table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
+
+<tr>
+<td align="center">
+<label >Selecione Ano:</label><br>
+{!! Form::select('ano',  Config::get('enums.ano')) !!}</p>
+</td>
+</tr>
+
+<tr>
+<td align="center">
+<label >Selecione Simulado:</label><br>
+{!! Form::select('simulado',  Config::get('enums.simulado')) !!}</p>
+</td>
+</tr>
+
+<tr>
+<td align="center">
+<label >Selecione Nível:</label><br>
+{!! Form::select('nivel',  Config::get('enums.nivelSim')) !!}</p>
+</td>
+</tr>
+
+<tr>
+<td align="center">
+ 
+<label >Selecione Escola:</label><br>
+<select name = 'codsiem' class = 'form-control' id = "select20" >
+          <option value="codsiem">Todas as Escolas</option>
+          @foreach($siems as $key => $value)
+          <option value="{{$key}}">{{$value}}</option>
+          @endforeach 
+</select></p>
+</td>
+</tr> 
+
+</table>
+<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" >Cancelar</button>
+			<button type="submit" class="btn btn-primary">Gerar Relatório</button>
+		</div>
+		</div>
+</form>
+
+</div>
+
+</body>
+<script> var baseURL = "{{URL::to('/')}}"</script>
+            <script src="http://aetj.info/sglab/js/select2.js"></script>

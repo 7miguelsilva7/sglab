@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relGeralEscola" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="060438fe-03f4-4a3e-8fdf-798d805442f4">
 	<property name="ireport.zoom" value="1.4641000000000093"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="398"/>
+	<property name="ireport.y" value="339"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -1004,7 +1004,7 @@ ORDER BY simulado desc, mediaGeral DESC]]>
 				<textFieldExpression><![CDATA[$F{totalMediaMT}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.00">
-				<reportElement style="&lt;Valores diferentes&gt;" x="441" y="216" width="107" height="31" forecolor="#FF0000" uuid="7c40a9ee-b5bb-459e-91de-b5ea40e1ab49">
+				<reportElement style="&lt;Valores diferentes&gt;" x="442" y="217" width="107" height="31" forecolor="#FF0000" uuid="7c40a9ee-b5bb-459e-91de-b5ea40e1ab49">
 					<printWhenExpression><![CDATA[($F{totalMedia}<5)]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -1278,10 +1278,10 @@ ORDER BY simulado desc, mediaGeral DESC]]>
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="34" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="27" splitType="Stretch"/>
 	</summary>
 	<noData>
 		<band height="50"/>

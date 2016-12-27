@@ -198,6 +198,7 @@ require_once '/home/aetji649/sglab/connect.php';
  </li>
  <!--submenu horário -->
 
+
  <!--submenu Simulados -->
   <li class="dropdown-submenu">
     <a tabindex="-1" href="#">Simulados</a>
@@ -792,8 +793,6 @@ require_once '/home/aetji649/sglab/connect.php';
 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS -->	<!-- FUNCIONARIOS -->
 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS -->	<!-- FUNCIONARIOS -->
 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS --> 	<!-- FUNCIONARIOS -->	<!-- FUNCIONARIOS -->
-
-
 
 
    	<div class="modal fade" id="perfilfuncionarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

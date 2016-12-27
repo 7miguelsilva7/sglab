@@ -17,9 +17,9 @@
 </div>
 <div class="modal-body">
 
-<form name="SimuladosEscola" method="get" action='{{url("modal/simulado_escola_report")}}'>
+<form method='get' action='{{url("modal/simulado_escola_report")}}'>
 
-      <!--<input type = 'hidden' name = '_token' value = '{{Session::token()}}'>-->
+      <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 
 <table align="center" width="500px" border="0" style="border-collapse:collapse" cellpadding="5">
 

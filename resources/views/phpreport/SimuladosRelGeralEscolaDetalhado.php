@@ -60,8 +60,6 @@ else
 
 $PHPJasperXML->arrayParameter=  ["ano"=>$ano,"codsiem"=>$codsiem,"nivel"=>$nivel,"simulado"=>$simulado];
 
-
-
 $PHPJasperXML->load_xml_file("/home/aetji649/sglab/jrxmlreport/SimuladosRelGeralEscolaDetalhado.jrxml");
 
 $PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);

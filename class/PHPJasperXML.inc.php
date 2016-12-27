@@ -3592,14 +3592,13 @@ foreach($this->arrayVariable as $name=>$value){
         
 					$this->global_pointer--;
         }else {
-            echo "No data found";
+            echo "Nenhum dado encontrado!!!";
+
+// return Redirect("http://facebook.com/");
+
             exit(0);
         }
  
- 
- 			
-
-      
                   
   if($this->totalgroup>0){
         $totalgroupheight=0;
@@ -4832,17 +4831,20 @@ foreach($this->arrayVariable as $name=>$value){
 
     }
 
-    public function print_expression($data) {
-        $expression=$data["printWhenExpression"];
+       public function print_expression($data) {
+        $expression=$data[printWhenExpression];
+        $expression=str_replace('$F{','$this->arraysqltable[$this->global_pointer][',$expression);
+        $expression=str_replace('$P{','$this->arraysqltable[$this->global_pointer][',$expression);
+        $expression=str_replace('$V{','$this->arraysqltable[$this->global_pointer][',$expression);
+        $expression=str_replace('}',']',$expression);
         $this->print_expression_result=false;
-        if($expression!=""){
-            $expression=$this->analyse_expression($expression);
+        if($expression!="") {
             eval('if('.$expression.'){$this->print_expression_result=true;}');
         }
-        else
+        elseif($expression=="") {
             $this->print_expression_result=true;
-        
-
+        }
+        //echo 'if('.$expression.'){return true;}'."<br>";
     }
 
     public function runSubReport($d,$current_y) {
