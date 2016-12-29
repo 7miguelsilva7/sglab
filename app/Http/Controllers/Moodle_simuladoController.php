@@ -35,14 +35,14 @@ class Moodle_simuladoController extends Controller
 
     public function importExcel()
     {
-//        $ano = $_POST["ano"];
-//        $simu = $_POST["sim"];
+        $ano = $_POST["ano"];
+        $simu = $_POST["sim"];
         foreach($_FILES["envsimulado"]["tmp_name"] as $nome_arquivo) {
 
             $objeto = fopen($nome_arquivo, 'r');
 
             while(($dados = fgetcsv($objeto, 1000, ",")) !== FALSE){
-                $data = str_replace(",", ".", $dados, $count);
+                $data  = str_replace(",", ".", $dados, $count);
 
                     $csv_data = new Moodle_simulado();
 
@@ -50,28 +50,28 @@ class Moodle_simuladoController extends Controller
                     $csv_data->aluno = $data [1];
                     $csv_data->escola = $data [2];
                     $csv_data->serie = $data [3];
-                    $csv_data->simulado = $data [0];
-                    $csv_data->cadastro = $data[0];
-                    $csv_data->nota1 = $data[10];
-                    $csv_data->nota2 = $data[11];
-                    $csv_data->nota3 = $data[12];
-                    $csv_data->nota4 = $data[13];
-                    $csv_data->nota5 = $data[14];
-                    $csv_data->nota6 = $data[15];
-                    $csv_data->nota7 = $data[16];
-                    $csv_data->nota8 = $data[17];
-                    $csv_data->nota9 = $data[18];
-                    $csv_data->nota10 = $data[19];
-                    $csv_data->nota11 = $data[20];
-                    $csv_data->nota12 = $data[21];
-                    $csv_data->nota13 = $data[22];
-                    $csv_data->nota14 = $data[23];
-                    $csv_data->nota15 = $data[24];
-                    $csv_data->nota16 = $data[25];
-                    $csv_data->nota17 = $data[26];
-                    $csv_data->nota18 = $data[27];
-                    $csv_data->nota19 = $data[28];
-                    $csv_data->nota20 = $data[29];
+                    $csv_data->simulado = (int) $simu;
+                    $csv_data->cadastro = (int) $ano;
+                    $csv_data->nota1 = (float) $data[10];
+                    $csv_data->nota2 = (float) $data[11];
+                    $csv_data->nota3 = (float) $data[12];
+                    $csv_data->nota4 = (float) $data[13];
+                    $csv_data->nota5 = (float) $data[14];
+                    $csv_data->nota6 = (float) $data[15];
+                    $csv_data->nota7 = (float) $data[16];
+                    $csv_data->nota8 = (float) $data[17];
+                    $csv_data->nota9 = (float) $data[18];
+                    $csv_data->nota10 = (float) $data[19];
+                    $csv_data->nota11 = (float) $data[20];
+                    $csv_data->nota12 = (float) $data[21];
+                    $csv_data->nota13 = (float) $data[22];
+                    $csv_data->nota14 = (float) $data[23];
+                    $csv_data->nota15 = (float) $data[24];
+                    $csv_data->nota16 = (float) $data[25];
+                    $csv_data->nota17 = (float) $data[26];
+                    $csv_data->nota18 = (float) $data[27];
+                    $csv_data->nota19 = (float) $data[28];
+                    $csv_data->nota20 = (float) $data[29];
                     $csv_data->situacao = $data[5];
                     $csv_data->save();
                 }

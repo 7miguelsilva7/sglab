@@ -21,11 +21,11 @@ class MoodleSimulados extends Migration
         Schema::create('moodle_simulados',function (Blueprint $table){
 
             $table->increments('id');
-            $table->integer('siem_cod');
+            $table->String('siem_cod', 100);
             $table->String('aluno', 100);
             $table->String('escola', 100);
-            $table->String('serie', 10);
-            $table->integer('simulado');
+            $table->String('serie', 20);
+            $table->integer('simulado', 100);
             $table->decimal('cadastro', 10,0);
             $table->decimal('nota1', 10,0)->nullable();
             $table->decimal('nota2', 10,0)->nullable();

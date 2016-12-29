@@ -26,7 +26,24 @@
 
         <h3>Importar dados:</h3>
         <form style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;" action="{{ URL::to('moodle_simulado/importExcel') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
-
+            <tr>
+                <td><b>Ano:</b></td>
+                <td>
+                    <select name="ano" style="width:70px">
+                        <option value="16">2016</option>
+                        <option value="15">2015</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Simulado:</b></td>
+                <td>
+                    <select name="sim" style="width:200px">
+                        <option value="01">Simulado em rede 01</option>
+                        <option value="02">Simulado em rede 02</option>
+                    </select>
+                </td>
+            </tr>
             <input type="file" name="envsimulado[]" />
             {{ csrf_field() }}
             <br/>
