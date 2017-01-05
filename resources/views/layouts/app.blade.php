@@ -205,9 +205,10 @@ require_once '/home/aetji649/sglab/connect.php';
     <ul class="dropdown-menu">
 
         <li><a href="{{ url('/modal') }}/modalSimuladoEscola" data-toggle="modal" data-target="#meuModal"><i class="fa glyphicon glyphicon-home"></i> Escolas</a> </li>                                       
+        <li><a href="{{ url('/modal') }}/modalSimuladoTurma" data-toggle="modal" data-target="#meuModal"><i class="fa fa-users"></i> Turmas</a> </li>                                       
   
         <!--<li><a data-toggle="modal" href="{{ url('/modal') }}/modalSimuladoEscola/#modalSimuladoEscola"><i class="fa glyphicon glyphicon-home"></i>Escolas</a></li>-->
-		<li><a data-toggle="modal" href="#"><i class="fa fa-users"></i>Turmas</a></li>
+		<!--<li><a data-toggle="modal" href="#"><i class="fa fa-users"></i>Turmas</a></li>-->
                                     
     </ul>
   </li>

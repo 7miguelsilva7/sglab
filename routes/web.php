@@ -133,6 +133,7 @@ Route::get('simulado_turma_report','Moodle_simulado_reportController@simulado_tu
 //modal Routes
 Route::group(['middleware'=> 'web'],function(){
   Route::resource('modal/modalSimuladoEscola','ModalController@modalSimuladoEscola');
+  Route::resource('modal/modalSimuladoTurma','ModalController@modalSimuladoTurma');
   Route::get('modal/simulado_escola_report','\App\Http\Controllers\ModalController@simulado_escola_report');
   Route::get('modal/simulado_turma_report','\App\Http\Controllers\ModalController@simulado_turma_report');
 });

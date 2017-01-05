@@ -38,8 +38,17 @@ class ModalController extends Controller
         return view('modal.modalSimuladoEscola',compact('siems'));
     }
 
+     public function modalSimuladoTurma()
 
-// Funções Relatórios Simulados
+    {
+        $siems = Siem::all()->pluck('nome','siem');
+
+        // $title = 'ModalSimuladoEscola - modal';
+        return view('modal.modalSimuladoTurma',compact('siems'));
+    }
+
+
+        // Funções Relatórios Simulados
     public function simulado_escola_report()
     {
         return view('phpreport.SimuladosRelGeralEscolaDetalhado');
@@ -47,7 +56,7 @@ class ModalController extends Controller
 
     public function simulado_turma_report()
     {
-       return ("olá turma");
+        return view("phpreport.SimuladosRelGeralAlunoDetalhado");
     }
 
 }

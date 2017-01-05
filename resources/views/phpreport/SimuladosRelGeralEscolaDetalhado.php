@@ -8,7 +8,7 @@ include_once ("/home/aetji649/sglab/class/PHPJasperXML.inc.php");
 include_once ('/home/aetji649/sglab/connect.php');
 
 $PHPJasperXML = new PHPJasperXML();
-// $PHPJasperXML->debugsql=true;
+//$PHPJasperXML->debugsql=true;
 
 //Verificao de campo
 if (empty($_REQUEST['ano']))  //verifica se o campo simulado é vazio

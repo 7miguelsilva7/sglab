@@ -3,12 +3,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-include_once('../class/tcpdf/tcpdf.php');
-include_once("../class/PHPJasperXML.inc.php");
-include_once ('setting.php');
+include_once ('/home/aetji649/sglab/class/tcpdf/tcpdf.php');
+include_once ("/home/aetji649/sglab/class/PHPJasperXML.inc.php");
+include_once ('/home/aetji649/sglab/connect.php');
 
 $PHPJasperXML = new PHPJasperXML();
-//$PHPJasperXML->debugsql=true;
+// $PHPJasperXML->debugsql=true;
 
 //Verificao de campo
 if (empty($_REQUEST['ano']))  //verifica se o campo simulado é vazio
@@ -68,7 +68,7 @@ $PHPJasperXML->arrayParameter=  ["ano"=>$ano,"codsiem"=>$codsiem,"simulado"=>$si
 
 
 
-$PHPJasperXML->load_xml_file("../jrxmlreport/relGeralAlunoDetalhado.jrxml");
+$PHPJasperXML->load_xml_file("/home/aetji649/sglab/jrxmlreport/SimuladosRelGeralAlunoDetalhado.jrxml");
 
 $PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);
-$PHPJasperXML->outpage("I");    //page output method I:standard output  D:Download file
+$PHPJasperXML->outpage("D");    //page output method I:standard output  D:Download file
