@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Moodle_simulado;
 use Amranidev\Ajaxis\Ajaxis;
+use Illuminate\Support\Facades\Auth;
 use URL;
 use Excel;
 
@@ -86,10 +87,26 @@ class Moodle_simuladoController extends Controller
 
     public function index()
     {
-        $title = 'Index - moodle_simulado';
-        $moodle_simulados = Moodle_simulado::paginate(6);
-        return view('moodle_simulado.index',compact('moodle_simulados','title'));
+        if(Auth::user()->name == "Admin")
+
+        {
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+            $moodle_simulados = Moodle_simulado::where('aluno','like','%'.$search.'%')
+                ->orderBy('aluno')
+                ->paginate(10);
+
+            return view('moodle_simulado.index',compact('moodle_simulados'));
+
+        }
     }
+
+
+
+//    {
+//        $title = 'Index - moodle_simulado';
+//        $moodle_simulados = Moodle_simulado::paginate(6);
+//        return view('moodle_simulado.index',compact('moodle_simulados','title'));
+//    }
 
     /**
      * Show the form for creating a new resource.

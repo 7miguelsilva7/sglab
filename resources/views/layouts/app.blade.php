@@ -105,7 +105,6 @@ require_once '/home/aetji649/sglab/connect.php';
                                     <li><a href="{{ url('/funcionario') }}"><i class="fa fa-users"></i>Analistas</a></li>
                                     <li><a href="{{ url('/pessoa') }}"><i class="fa glyphicon glyphicon-user"></i>Pessoas</a></li>
                                     <li><a href="{{ url('/turma') }}" ><i class="fa fa-users"></i>Turmas</a></li>
-                                    
 
                                     <!--submenu horário -->
                                     <li class="dropdown-submenu">
@@ -124,6 +123,7 @@ require_once '/home/aetji649/sglab/connect.php';
                         if ($usuario_logado == "Admin") { ?>
                                     <li><a href="{{ url('/siem') }}"><i class="fa glyphicon glyphicon-modal-window"></i>Siem</a></li>
                                     <li><a href="{{ url('/ocupacao') }}"><i class="fa glyphicon glyphicon-cog"></i>Ocupação</a></li>
+                                    <li><a href="{{ url('/moodle_simulado') }}" ><i class="glyphicon glyphicon-download-alt"></i>Simulado CSV</a></li>
                         <?php } ?>
 
                                     </li>
