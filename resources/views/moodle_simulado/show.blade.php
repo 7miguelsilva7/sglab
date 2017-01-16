@@ -1,181 +1,183 @@
-@extends('scaffold-interface.layouts.app')
-@section('title','Show')
+@extends('layouts.app')
 @section('content')
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div align="center" class="panel-heading">{{$moodle_simulado->nome}}  </br>
+                    </div>
+                    <div class="panel-body">
 <section class="content">
-    <h1>
-        Show moodle_simulado
-    </h1>
-    <br>
     <form method = 'get' action = '{!!url("moodle_simulado")!!}'>
-        <button class = 'btn btn-primary'>moodle_simulado Index</button>
+        <button class = 'btn btn-primary'>Voltar</button>
     </form>
     <br>
     <table class = 'table table-bordered'>
         <thead>
-            <th>Key</th>
-            <th>Value</th>
+            <th>Nome</th>
+            <th>Descrição</th>
         </thead>
         <tbody>
             <tr>
                 <td>
-                    <b><i>siem_cod : </i></b>
+                    <b><i>SIEM : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->siem_cod!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>aluno : </i></b>
+                    <b><i>Aluno : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->aluno!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>escola : </i></b>
+                    <b><i>Escola : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->escola!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>serie : </i></b>
+                    <b><i>Série : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->serie!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>simulado : </i></b>
+                    <b><i>Simulado : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->simulado!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>cadastro : </i></b>
+                    <b><i>Cadastro : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->cadastro!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota1 : </i></b>
+                    <b><i>Nota 1 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota1!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota2 : </i></b>
+                    <b><i>Nota 2 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota2!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota3 : </i></b>
+                    <b><i>Nota 3 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota3!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota4 : </i></b>
+                    <b><i>Nota 4 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota4!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota5 : </i></b>
+                    <b><i>Nota 5 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota5!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota6 : </i></b>
+                    <b><i>Nota 6 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota6!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota7 : </i></b>
+                    <b><i>Nota 7 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota7!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota8 : </i></b>
+                    <b><i>Nota 8 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota8!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota9 : </i></b>
+                    <b><i>Nota 9 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota9!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota10 : </i></b>
+                    <b><i>Nota 10 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota10!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota11 : </i></b>
+                    <b><i>Nota 11 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota11!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota12 : </i></b>
+                    <b><i>Nota 12 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota12!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota13 : </i></b>
+                    <b><i>Nota 13 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota13!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota14 : </i></b>
+                    <b><i>Nota 14 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota14!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota15 : </i></b>
+                    <b><i>Nota 15 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota15!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota16 : </i></b>
+                    <b><i>Nota 16 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota16!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota17 : </i></b>
+                    <b><i>Nota 17 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota17!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota18 : </i></b>
+                    <b><i>Nota 18 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota18!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota19 : </i></b>
+                    <b><i>Nota 19 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota19!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>nota20 : </i></b>
+                    <b><i>Nota 20 : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->nota20!!}</td>
             </tr>
             <tr>
                 <td>
-                    <b><i>situacao : </i></b>
+                    <b><i>Situação : </i></b>
                 </td>
                 <td>{!!$moodle_simulado->situacao!!}</td>
             </tr>
