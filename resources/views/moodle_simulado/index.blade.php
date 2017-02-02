@@ -58,7 +58,6 @@
                     </select>
                 </td>
             </tr>
-            <br>
             <tr>
                 <td><b>Simulado:</b></td>
                 <td>
@@ -67,6 +66,7 @@
                         <option value="02">Simulado em rede 02</option>
                     </select>
                 </td>
+              </p>
             </tr>
             <input type="file" name="envsimulado[]" />
             {{ csrf_field() }}
@@ -75,11 +75,10 @@
         </form>
         <br/>
 
-
         <h3>Backup:</h3>
         <div style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;">
             <a href="{{ url('moodle_simulado/downloadExcel/xls') }}"><button class="btn btn-success btn-lg">Download Excel xls</button></a>
-            <a href="{{ url('moodle_simulado/downloadExcel/xlsx') }}"><button class="btn btn-success btn-lg">Download Excel xlsx</button></a>
+            {{--<a href="{{ url('moodle_simulado/downloadExcel/xlsx') }}"><button class="btn btn-success btn-lg">Download Excel xlsx</button></a>--}}
             <a href="{{ url('moodle_simulado/downloadExcel/csv') }}"><button class="btn btn-success btn-lg">Download CSV</button></a>
         </div>
     <br>
