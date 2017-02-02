@@ -2,7 +2,7 @@
 $server="localhost";
 $db="sglab";
 $user="root";
-$pass="root";
+$pass="";
 $version="0.9d";
 $mysqlport=3306;
 $pchartfolder="class/pchart2";

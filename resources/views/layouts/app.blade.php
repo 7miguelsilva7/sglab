@@ -446,7 +446,7 @@ require_once '/home/aetji649/sglab/connect.php';
 
 <label >Possui Articulador?</label></p>
 <select name="articulador" id="articulador"> 
- 	<option value="possui_analistasAnalistas">SIM/NÃO</option>
+ 	<option value="possui_analista">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
 </select></p>
@@ -668,7 +668,7 @@ require_once '/home/aetji649/sglab/connect.php';
 
 <label >Possui Articulador?</label></p>
 <select name="articulador" id="articulador"> 
- 	<option value="possui_analistasAnalistas">SIM/NÃO</option>
+ 	<option value="possui_analista">SIM/NÃO</option>
  	<option value="'SIM'">SIM</option>
  	<option value="'NÃO'">NÃO</option>
 </select></p>
@@ -729,7 +729,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>   Perfil Escolas</h4>
+        <h4 class="modal-title" id="myModalLabel"> <i class="icon-th-list"></i>  Perfil Escolas</h4>
       </div>
       <div class="modal-body">
 <?php
@@ -747,7 +747,7 @@ require_once '/home/aetji649/sglab/connect.php';
 ?>
 
 
-<form name="perfilescola" method="get" action='{{url("escola/perfilescola")}}'>
+<form name="perfilescola" method="post" action='{{url("escola/perfilescola")}}'>
 
       <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 
