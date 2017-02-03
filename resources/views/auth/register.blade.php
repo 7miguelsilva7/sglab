@@ -45,7 +45,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                 <select class="form-control" name="name" id="select1" required>
                                 <option value=""></option>
                                 <option value="Admin">Administrador</option>
-                                <option value="Liberado">Liberado</option>
+                                <option value="Report">Report</option>
                                 <?php foreach($data2 as $row2) : ?> 
                                 <option value="<?php echo $row2['nome']; ?>"><?php echo $row2['nome']; ?></option> 
                                 <?php endforeach ?> 
