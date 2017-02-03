@@ -91,7 +91,10 @@ require_once '/home/aetji649/sglab/connect.php';
                     <ul class="nav navbar-nav ">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
+                           <!--//-->
                            
+                        @elseif (Auth::user()->name == "Report")
+                        <!---->
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -116,8 +119,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                         </ul>
                                     </li>
                                     <!--submenu horário -->
-
-
+                                  
                         <?php
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>
