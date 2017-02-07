@@ -47,12 +47,25 @@
             </div>
         @endif
 
+    
+@if (count($errors) > 0)
+         <div class = "alert alert-danger">
+            <ul>
+               @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+               @endforeach
+            </ul>
+         </div>
+@endif
+
+
         <h3>Importar dados:</h3>
         <form style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;" action="{{ URL::to('moodle_simulado/importExcel') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
             <tr>
                 <td><b>Ano:</b></td>
                 <td>
                     <select name="ano" style="width:70px">
+                        <option value="17">2017</option>
                         <option value="16">2016</option>
                         <option value="15">2015</option>
                     </select>

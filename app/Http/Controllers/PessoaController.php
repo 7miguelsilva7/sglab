@@ -101,7 +101,7 @@ if($usuario_logado == "Admin") {
 
 
 // validação de campos do formulário
-        print_r($request->all());
+        // print_r($request->all());
         $this->validate($request,[
          'vinculo'=>'required|max:50',
          'nome'=>'required|max:100',
