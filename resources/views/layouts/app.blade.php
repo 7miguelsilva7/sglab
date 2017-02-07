@@ -126,6 +126,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                     <li><a href="{{ url('/siem') }}"><i class="fa glyphicon glyphicon-modal-window"></i>Siem</a></li>
                                     <li><a href="{{ url('/ocupacao') }}"><i class="fa glyphicon glyphicon-cog"></i>Ocupação</a></li>
                                     <li><a href="{{ url('/moodle_simulado') }}" ><i class="glyphicon glyphicon-download-alt"></i>Simulado CSV</a></li>
+                                    <li><a href="{{ url('/upload_csv') }}" ><i class="glyphicon glyphicon-upload"></i>Upload</a></li>
                         <?php } ?>
 
                                     </li>

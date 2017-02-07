@@ -17,10 +17,10 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Importação SimuladoCSV</div>
+                <div class="panel-heading">Enviar CSV</div>
 
                 <div class="panel-body">
-                    <h2><i class="fa glyphicon glyphicon-th-list"></i> Importação SimuladoCSV</h2>
+                    <h2><i class="fa glyphicon glyphicon-th-list"></i> Enviar CSV</h2>
 
 
                     {!! Form::open(['method'=>'GET','url'=> 'moodle_simulado','class'=>'navbar-form navbar-right','role'=>'search'])  !!}

@@ -125,6 +125,18 @@ Route::group(['middleware'=> 'web'],function(){
 });
 
 //moodle_simulado Routes
+Route::group(['middleware'=> 'web'],function(){
+    Route::resource('upload_csv','\App\Http\Controllers\Moodle_simuladoController');
+    Route::post('moodle_simulado/{id}/update','\App\Http\Controllers\Moodle_simuladoController@update');
+    Route::get('moodle_simulado/{id}/delete','\App\Http\Controllers\Moodle_simuladoController@destroy');
+    Route::get('moodle_simulado/{id}/deleteMsg','\App\Http\Controllers\Moodle_simuladoController@DeleteMsg');
+
+    Route::get('moodle_simulado/importExport', '\App\Http\Controllers\Moodle_simuladoController@importExport');
+    Route::get('moodle_simulado/downloadExcel/{type}', '\App\Http\Controllers\Moodle_simuladoController@downloadExcel');
+    Route::post('moodle_simulado/importExcel', '\App\Http\Controllers\Moodle_simuladoController@importExcel');
+});
+
+//moodle_simulado Routes
 
 Route::get('simulado_escola_report','Moodle_simulado_reportController@simulado_escola_report');
 Route::get('simulado_turma_report','Moodle_simulado_reportController@simulado_turma_report');
