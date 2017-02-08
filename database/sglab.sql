@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 06-Fev-2017 às 21:20
+-- Generation Time: 08-Fev-2017 às 21:58
 -- Versão do servidor: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -476,7 +476,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2016_10_28_021040_escolas', 0),
 (20, '2016_12_06_035703_horario_funcionarios', 6),
 (24, '2016_12_20_041113_moodle_simulados', 7),
-(25, '2016_12_21_021545_turmas', 7);
+(25, '2016_12_21_021545_turmas', 7),
+(26, '2017_02_08_124832_upload_csvs', 8);
 
 -- --------------------------------------------------------
 
@@ -516,39 +517,6 @@ CREATE TABLE `moodle_simulados` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `moodle_simulados`
---
-
-INSERT INTO `moodle_simulados` (`id`, `siem_cod`, `aluno`, `escola`, `serie`, `simulado`, `cadastro`, `nota1`, `nota2`, `nota3`, `nota4`, `nota5`, `nota6`, `nota7`, `nota8`, `nota9`, `nota10`, `nota11`, `nota12`, `nota13`, `nota14`, `nota15`, `nota16`, `nota17`, `nota18`, `nota19`, `nota20`, `situacao`, `created_at`, `updated_at`) VALUES
-(1, 'Sobrenome', 'Nome', 'Instituição', 'Departamento', '1', '16', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'Estado', '2017-02-06 23:15:33', '2017-02-06 23:15:33'),
-(2, '178', 'AlíciaKemilly Ferreira Xavier', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '0', '1', '1', '1', '1', '1', '0', '0', '1', '0', '1', '1', '0', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:33', '2017-02-06 23:15:33'),
-(3, '178', 'Ana Karoline dos Santos Pinto', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '0', '1', '1', '1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '0', '1', '1', '0', '1', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(4, '178', 'Brunna Luiza Oliveira dos Santos', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '0', '1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(5, '178', 'Debora Soares dos Santos', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '0', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(6, '178', 'Deyvis Rodrigues Vieira', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', '0', '1', '1', '0', '1', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(7, '178', 'Hércules Filipe Souza Santos', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(8, '178', 'IvannaLaysa Galvão Santos', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(9, '178', 'José Renato Rodrigues Barbosa', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '0', '1', '1', '1', '1', '0', '1', '1', '0', '1', '1', '0', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(10, '178', 'Liandra Ribeiro dos Santos', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '0', '1', '0', '0', '0', '1', '1', '0', '1', '0', '0', '1', '0', '0', '1', '1', '0', '0', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(11, '178', 'Luiz Gabriel Silva da Mota', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(12, '178', 'Leandro Tedcastler Porfírio', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(13, '178', 'Matheus Costa Pereira Rocha', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '0', '1', '1', '1', '0', '1', '1', '1', '0', '0', '0', '1', '1', '0', '1', '1', '0', '1', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(14, '178', 'Miguel de Souza Santos', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(15, '178', 'Paulo Victor Martins Teixeira', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:34', '2017-02-06 23:15:34'),
-(16, '178', 'Rayna Pacheco Rosa', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:15:35'),
-(17, '178', 'Roberta Luiza Santos Gomes', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', '1', '1', '0', '0', '1', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:15:35'),
-(18, '178', 'Rhafick Wallace Freitas de Lira', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:15:35'),
-(19, '178', 'Ivinny Mikaelly de Santana Disthero', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:16:24'),
-(20, '178', 'Louise Fernanda FelixSantana', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '0', '0', '1', '0', '0', '1', '1', '0', '1', '1', '0', '1', '1', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:15:35'),
-(21, '178', 'Victor Gabriel da Silva Santos', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '1', '1', '1', '0', '0', '1', '0', '0', '0', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:15:35'),
-(22, '178', 'Paulo Ricardo Silva Nascimento', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:15:35'),
-(23, '178', 'Pablo Henrique Martins', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:15:35'),
-(24, '178', 'Welton Batista de Souza', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '0', '1', '1', '1', '0', '1', '1', '1', '0', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:15:35'),
-(25, '178', 'Iasmin Laviny da Silva Cardoso', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '0', '1', '1', '1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:15:35'),
-(26, '178', 'IannaThalyta Gomes Nascimento', 'PROFª CRENILDES LUIS BRANDÃO', '.3anoA', '1', '16', '1', '1', '1', '1', '0', '0', '1', '1', '1', '1', '0', '0', '1', '0', '0', '1', '1', '1', '0', '1', 'Finalizada', '2017-02-06 23:15:35', '2017-02-06 23:15:35'),
-(27, 'Média geral', '', '', '', '1', '16', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '', '2017-02-06 23:15:35', '2017-02-06 23:15:35');
 
 -- --------------------------------------------------------
 
@@ -1076,7 +1044,8 @@ INSERT INTO `scaffoldinterfaces` (`id`, `package`, `migration`, `model`, `contro
 (6, 'Laravel', '/var/www/html/sglab/database/migrations/2016_10_28_104008_funcionarios.php', '/var/www/html/sglab/app/Funcionario.php', '/var/www/html/sglab/app/Http/Controllers/FuncionarioController.php', '/var/www/html/sglab/resources/views/funcionario', 'funcionarios', '2016-10-29 01:40:08', '2016-10-29 01:40:08'),
 (8, 'Laravel', '/home/aetji649/sglab/database/migrations/2016_12_06_035703_horario_funcionarios.php', '/home/aetji649/sglab/app/Horario_funcionario.php', '/home/aetji649/sglab/app/Http/Controllers/Horario_funcionarioController.php', '/home/aetji649/sglab/resources/views/horario_funcionario', 'horario_funcionarios', '2016-12-06 18:57:03', '2016-12-06 18:57:03'),
 (14, 'Laravel', '/home/aetji649/sglab/database/migrations/2016_12_21_021545_turmas.php', '/home/aetji649/sglab/app/Turma.php', '/home/aetji649/sglab/app/Http/Controllers/TurmaController.php', '/home/aetji649/sglab/resources/views/turma', 'turmas', '2016-12-21 17:15:45', '2016-12-21 17:15:45'),
-(15, 'Laravel', '/home/aetji649/sglab/database/migrations/2016_12_26_092340_modals.php', '/home/aetji649/sglab/app/Modal.php', '/home/aetji649/sglab/app/Http/Controllers/ModalController.php', '/home/aetji649/sglab/resources/views/modal', 'modals', '2016-12-27 00:23:40', '2016-12-27 00:23:40');
+(15, 'Laravel', '/home/aetji649/sglab/database/migrations/2016_12_26_092340_modals.php', '/home/aetji649/sglab/app/Modal.php', '/home/aetji649/sglab/app/Http/Controllers/ModalController.php', '/home/aetji649/sglab/resources/views/modal', 'modals', '2016-12-27 00:23:40', '2016-12-27 00:23:40'),
+(16, 'Laravel', '/home/aetji649/sglab/database/migrations/2017_02_08_124832_upload_csvs.php', '/home/aetji649/sglab/app/Upload_csv.php', '/home/aetji649/sglab/app/Http/Controllers/Upload_csvController.php', '/home/aetji649/sglab/resources/views/upload_csv', 'upload_csvs', '2017-02-08 15:48:32', '2017-02-08 15:48:32');
 
 -- --------------------------------------------------------
 
@@ -8873,6 +8842,35 @@ INSERT INTO `turmas` (`id`, `turno`, `nivel`, `serie`, `turma`, `seg1`, `ter1`, 
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `upload_csvs`
+--
+
+CREATE TABLE `upload_csvs` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `ano` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `simulado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nivel` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `siem_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `upload_csvs`
+--
+
+INSERT INTO `upload_csvs` (`id`, `ano`, `simulado`, `nivel`, `siem_id`, `created_at`, `updated_at`) VALUES
+(8, '2017', '1', '3 ano', 100, '2017-02-08 23:42:43', '2017-02-08 23:42:43'),
+(9, '2017', '1', '4 ANO', 120, '2017-02-08 23:45:48', '2017-02-08 23:45:48'),
+(12, '2017', '1', '4/5 ANO', 110, '2017-02-08 23:47:03', '2017-02-08 23:47:03'),
+(13, '2017', '1', '8/9 ANO', 100, '2017-02-08 23:49:37', '2017-02-08 23:49:37'),
+(14, '', '2', '', 100, '2017-02-08 23:52:17', '2017-02-08 23:52:17'),
+(15, '2017', '', '', 100, '2017-02-08 23:55:06', '2017-02-08 23:55:06'),
+(16, '2017', '', '', 100, '2017-02-08 23:56:07', '2017-02-08 23:56:07');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `users`
 --
 
@@ -9240,6 +9238,13 @@ ALTER TABLE `turmas`
   ADD KEY `turmas_siem_id_foreign` (`siem_id`);
 
 --
+-- Indexes for table `upload_csvs`
+--
+ALTER TABLE `upload_csvs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `upload_csvs_siem_id_foreign` (`siem_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -9295,12 +9300,12 @@ ALTER TABLE `horario_funcionarios`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `moodle_simulados`
 --
 ALTER TABLE `moodle_simulados`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ocupacaos`
 --
@@ -9325,7 +9330,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `scaffoldinterfaces`
 --
 ALTER TABLE `scaffoldinterfaces`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `siems`
 --
@@ -9341,6 +9346,11 @@ ALTER TABLE `siem_simrede`
 --
 ALTER TABLE `turmas`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `upload_csvs`
+--
+ALTER TABLE `upload_csvs`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -9395,6 +9405,12 @@ ALTER TABLE `role_has_permissions`
 --
 ALTER TABLE `turmas`
   ADD CONSTRAINT `turmas_siem_id_foreign` FOREIGN KEY (`siem_id`) REFERENCES `siems` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `upload_csvs`
+--
+ALTER TABLE `upload_csvs`
+  ADD CONSTRAINT `upload_csvs_siem_id_foreign` FOREIGN KEY (`siem_id`) REFERENCES `siems` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `user_has_permissions`

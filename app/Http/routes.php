@@ -99,3 +99,11 @@ Route::group(['middleware'=> 'web'],function(){
   Route::get('modal/{id}/delete','\App\Http\Controllers\ModalController@destroy');
   Route::get('modal/{id}/deleteMsg','\App\Http\Controllers\ModalController@DeleteMsg');
 });
+
+//upload_csv Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('upload_csv','\App\Http\Controllers\Upload_csvController');
+  Route::post('upload_csv/{id}/update','\App\Http\Controllers\Upload_csvController@update');
+  Route::get('upload_csv/{id}/delete','\App\Http\Controllers\Upload_csvController@destroy');
+  Route::get('upload_csv/{id}/deleteMsg','\App\Http\Controllers\Upload_csvController@DeleteMsg');
+});

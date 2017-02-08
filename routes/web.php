@@ -124,17 +124,6 @@ Route::group(['middleware'=> 'web'],function(){
     Route::post('moodle_simulado/importExcel', '\App\Http\Controllers\Moodle_simuladoController@importExcel');
 });
 
-//moodle_simulado Routes
-Route::group(['middleware'=> 'web'],function(){
-    Route::resource('upload_csv','\App\Http\Controllers\Moodle_simuladoController');
-    Route::post('moodle_simulado/{id}/update','\App\Http\Controllers\Moodle_simuladoController@update');
-    Route::get('moodle_simulado/{id}/delete','\App\Http\Controllers\Moodle_simuladoController@destroy');
-    Route::get('moodle_simulado/{id}/deleteMsg','\App\Http\Controllers\Moodle_simuladoController@DeleteMsg');
-
-    Route::get('moodle_simulado/importExport', '\App\Http\Controllers\Moodle_simuladoController@importExport');
-    Route::get('moodle_simulado/downloadExcel/{type}', '\App\Http\Controllers\Moodle_simuladoController@downloadExcel');
-    Route::post('moodle_simulado/importExcel', '\App\Http\Controllers\Moodle_simuladoController@importExcel');
-});
 
 //moodle_simulado Routes
 
@@ -148,4 +137,13 @@ Route::group(['middleware'=> 'web'],function(){
   Route::resource('modal/modalSimuladoTurma','ModalController@modalSimuladoTurma');
   Route::get('modal/simulado_escola_report','\App\Http\Controllers\ModalController@simulado_escola_report');
   Route::get('modal/simulado_turma_report','\App\Http\Controllers\ModalController@simulado_turma_report');
+});
+
+
+//upload_csv Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('upload_csv','\App\Http\Controllers\Upload_csvController');
+  Route::post('upload_csv/{id}/update','\App\Http\Controllers\Upload_csvController@update');
+  Route::get('upload_csv/{id}/delete','\App\Http\Controllers\Upload_csvController@destroy');
+  Route::get('upload_csv/{id}/deleteMsg','\App\Http\Controllers\Upload_csvController@DeleteMsg');
 });
