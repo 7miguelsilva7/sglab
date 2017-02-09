@@ -17,6 +17,8 @@ use File;
 
 use App\Siem;
 
+use Auth;
+
 
 /**
  * Class Upload_csvController.
@@ -63,11 +65,11 @@ class Upload_csvController extends Controller
     {
 
 
-       
+        $usuario = Auth::user()->name;
 
         $upload_csv = new Upload_csv();
 
-        $request->csv->storeAs('csv',"$request->ano.csv");
+        $request->csv->storeAs("csv/ano_$request->ano/Simulado$request->simulado","$usuario-$request->nivel.csv");
 
         $upload_csv->ano = $request->ano;
 

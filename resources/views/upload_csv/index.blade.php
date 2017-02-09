@@ -15,24 +15,24 @@
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         <div class="form-group">
             <label for="ano">Ano</label>
-            <input id="ano" name = "ano" type="text" class="form-control">
+                {!! Form::select('ano',  Config::get('enums.ano')) !!}
         </div>
         <div class="form-group">
             <label for="simulado">Simulado</label>
-            <input id="simulado" name = "simulado" type="text" class="form-control">
+                {!! Form::select('simulado',  Config::get('enums.simulado')) !!}
         </div>
         <div class="form-group">
             <label for="nivel">Nivel</label>
-            <input id="nivel" name = "nivel" type="text" class="form-control">
+                {!! Form::select('nivel',  Config::get('enums.nivelSimCSV')) !!}
         </div>
         <div class="form-group">
             <label>Usuário</label>
             <!--<input id="siem_id" name = "siem_id" class="form-control" value="{!! Auth::user()->id !!}">-->
-            <input id="siem_id" name = "siem_id" class="form-control" value="100">
+            <input id="siem_id" name = "siem_id" class="form-control" value="{!! Auth::user()->id !!}">
         </div>
 
         <div>
-        <input type="file" name="csv" >
+        <input type="file" name="csv" required>
         </div>
         <br>
         <button class = 'btn btn-primary' type ='submit'>Enviar</button>

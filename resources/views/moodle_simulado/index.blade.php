@@ -64,24 +64,19 @@
             <tr>
                 <td><b>Ano:</b></td>
                 <td>
-                    <select name="ano" style="width:70px">
-                        <option value="17">2017</option>
-                        <option value="16">2016</option>
-                        <option value="15">2015</option>
-                    </select>
+                {!! Form::select('ano',  Config::get('enums.ano')) !!}
+
                 </td>
             </tr>
             <tr>
                 <td><b>Simulado:</b></td>
                 <td>
-                    <select name="sim" style="width:200px">
-                        <option value="01">Simulado em rede 01</option>
-                        <option value="02">Simulado em rede 02</option>
-                    </select>
+                {!! Form::select('simulado',  Config::get('enums.simulado')) !!}
+
                 </td>
               </p>
             </tr>
-            <input type="file" name="envsimulado[]" />
+            <input type="file" name="envsimulado[]" multiple required>
             {{ csrf_field() }}
             <br/>
             <button class="btn btn-primary">Enviar</button>

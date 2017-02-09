@@ -37,7 +37,7 @@ class Moodle_simuladoController extends Controller
     public function importExcel()
     {
         $ano = $_POST["ano"];
-        $simu = $_POST["sim"];
+        $simu = $_POST["simulado"];
         foreach($_FILES["envsimulado"]["tmp_name"] as $nome_arquivo) {
 
             $objeto = fopen($nome_arquivo, 'r');
