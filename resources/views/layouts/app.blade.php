@@ -247,28 +247,41 @@ require_once '/home/aetji649/sglab/connect.php';
 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="margin-bottom: 5px; *width: 180px;">
   
 
+
+
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="#">NTM</a>
+    <a tabindex="-1" href="#">Superintendência Pedagógica</a>
     <ul class="dropdown-menu">
-    
-    <li><a href="http://aetj.info/downloads/NTM/Lei_2335_13.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Criação do NTM</a></li>
-    <li><a href="http://aetj.info/downloads/NTM/Sala_de_recursos.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Sala de recursos</a></li>
-    <li><a href="http://aetj.info/downloads/NTM/PROINFO_urbano.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO urbano</a></li>
-    <li><a href="http://aetj.info/downloads/NTM/PROINFO_rural.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO rural</a></li>
-    <li><a href="http://aetj.info/downloads/NTM/TutorialGLPI.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Tutorial GLPI</a></li>
+        <li><a href="http://aetj.info/downloads/NTM/Calendário Escolar 2017- Atualizado 1.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Calendário Escolar 2017</a></li>
+        <li><a href="http://aetj.info/downloads/NTM/compressed-Caderno do Coordenador - 2017.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno do Coordenador - 2017</a></li>
+        <li><a href="http://aetj.info/downloads/NTM/Caderno do Professor - 2017-compressed.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno do Professor - 2017</a></li>
+        <li><a href="http://aetj.info/downloads/NTM/compressed-Caderno Ed. Infantil I - 2017.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno Ed. Infantil I - 2017</a></li>
+        <li><a href="http://aetj.info/downloads/NTM/compressed-Caderno Ed. Infantil II e III - 2017.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno Ed. Infantil II e III - 2017</a></li>
     </ul>
   </li>
 
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="#">Pedagógico</a>
-    <ul class="dropdown-menu">
-    
-      <li><a href="#" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno do coordenador</a></li>
-      <li><a href="#" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno do professor</a></li>
-                                    
-    </ul>
-        <li><a href="http://aetj.info/downloads/NTM/Lei_2605_16.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PCCR</a></li>
-  </li>
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">NTM</a>
+        <ul class="dropdown-menu">
+            <li><a href="http://aetj.info/downloads/NTM/Lei_2335_13.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Lei 2.335_13</a></li>
+            <li><a href="http://aetj.info/downloads/NTM/Cargos.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Atribuições do AETJ</a></li>
+            <li><a href="http://aetj.info/downloads/NTM/Sala_de_recursos.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Sala de recursos</a></li>
+            <li><a href="http://aetj.info/downloads/NTM/PROINFO_urbano.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO urbano</a></li>
+            <li><a href="http://aetj.info/downloads/NTM/PROINFO_rural.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO rural</a></li>
+            <li><a href="http://aetj.info/downloads/NTM/TutorialGLPI.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Tutorial GLPI</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">EFEP</a>
+        <ul class="dropdown-menu">
+            <li><a href="http://aetj.info/downloads/NTM/Lei_2.218_11.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Lei 2.218_11.pdf</a></li>
+            <li><a href="#" target="_blank"><i class="glyphicon glyphicon-file"></i>...</a></li>
+        </ul>
+    </li>
+
+    <li><a href="http://aetj.info/downloads/NTM/Lei_2605_16.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PCCR</a></li>
+
 </ul>
 
 
