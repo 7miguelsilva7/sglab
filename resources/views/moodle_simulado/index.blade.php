@@ -61,13 +61,14 @@
 
         <h3>Importar dados:</h3>
         <form style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;" action="{{ URL::to('moodle_simulado/importExcel') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
+           
             <tr>
                 <td><b>Ano:</b></td>
                 <td>
                 {!! Form::select('ano',  Config::get('enums.ano')) !!}
-
                 </td>
             </tr>
+
             <tr>
                 <td><b>Simulado:</b></td>
                 <td>
@@ -76,6 +77,7 @@
                 </td>
               </p>
             </tr>
+
             <input type="file" name="envsimulado[]" multiple required>
             {{ csrf_field() }}
             <br/>

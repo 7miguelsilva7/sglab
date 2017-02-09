@@ -116,17 +116,18 @@ require_once '/home/aetji649/sglab/connect.php';
                                         
                                         <li><a href="{{ url('/horario_funcionario') }}"><i class="fa glyphicon glyphicon-calendar"></i>Analistas</a></li>
                                         <li><a href="{{ url('/turma') }}" ><i class="glyphicon glyphicon-calendar"></i>Turmas</a></li>
+                                        
                                         </ul>
                                     </li>
                                     <!--submenu horário -->
-                                  
+                                    <li><a href="{{ url('/upload_csv') }}" ><i class="glyphicon glyphicon-upload"></i>Upload</a></li>
+
                         <?php
                         $usuario_logado = Auth::user()->name;
                         if ($usuario_logado == "Admin") { ?>
                                     <li><a href="{{ url('/siem') }}"><i class="fa glyphicon glyphicon-modal-window"></i>Siem</a></li>
                                     <li><a href="{{ url('/ocupacao') }}"><i class="fa glyphicon glyphicon-cog"></i>Ocupação</a></li>
                                     <li><a href="{{ url('/moodle_simulado') }}" ><i class="glyphicon glyphicon-download-alt"></i>Simulado CSV</a></li>
-                                    <li><a href="{{ url('/upload_csv') }}" ><i class="glyphicon glyphicon-upload"></i>Upload</a></li>
                         <?php } ?>
 
                                     </li>
