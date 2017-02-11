@@ -1,42 +1,60 @@
-@extends('scaffold-interface.layouts.app')
-@section('title','Edit')
-@section('content')
+@extends('layouts.app')
 
-<section class="content">
-    <h1>
-        Edit upload_csv
-    </h1>
-    <form method = 'get' action = '{!!url("upload_csv")!!}'>
-        <button class = 'btn btn-danger'>upload_csv Index</button>
+@section('content')
+        <!DOCTYPE html>
+       
+   <div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading"> Enviar CSV</div>
+                <div class="panel-body">
+   
+   
+    <form style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;" method = 'POST' action = '{!! url("upload_csv")!!}/{!!$upload_csv->
+        id!!}/update' class="form-horizontal" enctype="multipart/form-data">
+        <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+        
+            <tr>
+                <td><b>Ano:</b></td>
+                <td>
+                {!! Form::select('ano',  Config::get('enums.ano'), $upload_csv->ano) !!}
+            </td>
+            </tr>
+
+            <tr>
+                <td><b>Simulado:</b></td>
+                <td>
+                {!! Form::select('simulado',  Config::get('enums.simulado'), $upload_csv->simulado) !!}
+            </td>
+            </tr>
+
+           <tr>
+                <td><b>Nivel:</b></td>
+                <td> 
+                {!! Form::select('nivel',  Config::get('enums.nivelSimCSV'), $upload_csv->nivel) !!}
+            </td>
+            </tr>
+
+        <div class="form-group">
+            <!--<label>Usuário</label>-->
+            <!--<input id="siem_id" name = "siem_id" class="form-control" value="{!! Auth::user()->id !!}">-->
+            <input id="siem_id" type="hidden" name = "siem_id" class="form-control" value="{!! Auth::user()->id !!}">
+        </div>
+
+        <div>
+        <input type="file" name="csv" required>
+        </div>
+        <br>
+        <button class = 'btn btn-primary' type ='submit'>Enviar</button>
     </form>
     <br>
-    <form method = 'POST' action = '{!! url("upload_csv")!!}/{!!$upload_csv->
-        id!!}/update'> 
-        <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
-        <div class="form-group">
-            <label for="ano">ano</label>
-            <input id="ano" name = "ano" type="text" class="form-control" value="{!!$upload_csv->
-            ano!!}"> 
-        </div>
-        <div class="form-group">
-            <label for="simulado">simulado</label>
-            <input id="simulado" name = "simulado" type="text" class="form-control" value="{!!$upload_csv->
-            simulado!!}"> 
-        </div>
-        <div class="form-group">
-            <label for="nivel">nivel</label>
-            <input id="nivel" name = "nivel" type="text" class="form-control" value="{!!$upload_csv->
-            nivel!!}"> 
-        </div>
-        <div class="form-group">
-            <label>siems Select</label>
-            <select name = 'siem_id' class = "form-control">
-                @foreach($siems as $key => $value) 
-                <option value="{{$key}}">{{$value}}</option>
-                @endforeach 
-            </select>
-        </div>
-        <button class = 'btn btn-primary' type ='submit'>Update</button>
-    </form>
+   
+
 </section>
 @endsection
+
+
+
+
+

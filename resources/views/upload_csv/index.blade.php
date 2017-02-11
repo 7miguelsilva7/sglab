@@ -10,10 +10,7 @@
                 <div class="panel-heading"> Enviar CSV</div>
                 <div class="panel-body">
    
-<!--temp-->
 
-
-<!--temp-->
 
    
     <form style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;" method = 'POST' action = '{!!url("upload_csv")!!}' class="form-horizontal" enctype="multipart/form-data">
@@ -86,7 +83,7 @@
                 <td>
                     <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/upload_csv/{!!$upload_csv->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
                     <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/upload_csv/{!!$upload_csv->id!!}/edit'><i class = 'material-icons'>edit</i></a>
-                    <a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/upload_csv/{!!$upload_csv->id!!}'><i class = 'material-icons'>info</i></a>
+                    <!--<a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/upload_csv/{!!$upload_csv->id!!}'><i class = 'material-icons'>info</i></a>-->
                 </td>
             </tr>
             @endforeach 

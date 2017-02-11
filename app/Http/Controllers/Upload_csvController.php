@@ -36,9 +36,27 @@ class Upload_csvController extends Controller
     public function index()
     {
         
+
+        if (Auth::user()->name == "Admin")
+
+        {
         $title = 'Index - upload_csv';
         $upload_csvs = Upload_csv::paginate(6);
         return view('upload_csv.index',compact('upload_csvs','title'));
+        }
+
+        else
+
+        {
+
+        $title = 'Index - upload_csv';
+        $upload_csvs = Upload_csv::where('siem_id',Auth::user()->id)
+        ->paginate(6);
+        return view('upload_csv.index',compact('upload_csvs','title'));
+        
+        }
+    
+        
     }
 
     /**
