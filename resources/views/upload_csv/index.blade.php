@@ -12,7 +12,11 @@
    
 
 
-   
+
+                @if (Auth::user()->name == "Admin")
+
+                @else
+
     <form style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;" method = 'POST' action = '{!!url("upload_csv")!!}' class="form-horizontal" enctype="multipart/form-data">
         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
         
@@ -50,7 +54,8 @@
         <button class = 'btn btn-primary' type ='submit'>Enviar</button>
     </form>
     <br>
-   
+                   @endif
+
 
 
     <table class = "table table-striped table-bordered table-hover" style = 'background:#fff'>
@@ -81,9 +86,15 @@
                 <!--<td>{!!$upload_csv->siem->created_at!!}</td>
                 <td>{!!$upload_csv->siem->updated_at!!}</td>-->
                 <td>
-                    <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/upload_csv/{!!$upload_csv->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
+
+                @if (Auth::user()->name == "Admin")
+
+                @else
                     <a href = '#' class = 'viewEdit btn btn-primary btn-xs' data-link = '/upload_csv/{!!$upload_csv->id!!}/edit'><i class = 'material-icons'>edit</i></a>
                     <!--<a href = '#' class = 'viewShow btn btn-warning btn-xs' data-link = '/upload_csv/{!!$upload_csv->id!!}'><i class = 'material-icons'>info</i></a>-->
+                @endif
+                    <a data-toggle="modal" data-target="#myModal" class = 'delete btn btn-danger btn-xs' data-link = "/upload_csv/{!!$upload_csv->id!!}/deleteMsg" ><i class = 'material-icons'>delete</i></a>
+
                 </td>
             </tr>
             @endforeach 

@@ -46,7 +46,9 @@
         <input type="file" name="csv" required>
         </div>
         <br>
-        <button class = 'btn btn-primary' type ='submit'>Enviar</button>
+        <div align="center">
+        <button  class = 'btn btn-primary' type ='submit'>Atualizar</button>
+        </div>
     </form>
     <br>
    

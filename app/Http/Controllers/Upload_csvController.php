@@ -82,12 +82,12 @@ class Upload_csvController extends Controller
     public function store(Request $request)
     {
 
+        $upload_csv = new Upload_csv();
+
 
         $usuario = Auth::user()->name;
 
-        $upload_csv = new Upload_csv();
 
-        $request->csv->storeAs("csv/ano_$request->ano/Simulado$request->simulado","$usuario-$request->nivel.csv");
 
         $upload_csv->ano = $request->ano;
 
@@ -97,13 +97,13 @@ class Upload_csvController extends Controller
         
         $upload_csv->nivel = $request->nivel;
 
-        
-        
+                
         $upload_csv->siem_id = $request->siem_id;
 
-        
         $upload_csv->save();
 
+        $request->csv->storeAs("csv","$upload_csv->id.csv");
+    
         $pusher = App::make('pusher');
 
         //default pusher notification.
@@ -182,6 +182,8 @@ class Upload_csvController extends Controller
         
         $upload_csv->save();
 
+        $request->csv->storeAs("csv","$upload_csv->id.csv");
+
         return redirect('upload_csv');
     }
 
@@ -212,6 +214,7 @@ class Upload_csvController extends Controller
     {
      	$upload_csv = Upload_csv::findOrfail($id);
      	$upload_csv->delete();
+        File::delete('/home/aetji649/sglab/storage/app/csv/' . "$upload_csv->id.csv");
         return URL::to('upload_csv');
     }
 }
