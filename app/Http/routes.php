@@ -107,3 +107,21 @@ Route::group(['middleware'=> 'web'],function(){
   Route::get('upload_csv/{id}/delete','\App\Http\Controllers\Upload_csvController@destroy');
   Route::get('upload_csv/{id}/deleteMsg','\App\Http\Controllers\Upload_csvController@DeleteMsg');
 });
+
+Route::group(['middleware'=> 'web'],function(){
+});
+//disciplina Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('disciplina','\App\Http\Controllers\DisciplinaController');
+  Route::post('disciplina/{id}/update','\App\Http\Controllers\DisciplinaController@update');
+  Route::get('disciplina/{id}/delete','\App\Http\Controllers\DisciplinaController@destroy');
+  Route::get('disciplina/{id}/deleteMsg','\App\Http\Controllers\DisciplinaController@DeleteMsg');
+});
+
+//turno Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('turno','\App\Http\Controllers\TurnoController');
+  Route::post('turno/{id}/update','\App\Http\Controllers\TurnoController@update');
+  Route::get('turno/{id}/delete','\App\Http\Controllers\TurnoController@destroy');
+  Route::get('turno/{id}/deleteMsg','\App\Http\Controllers\TurnoController@DeleteMsg');
+});

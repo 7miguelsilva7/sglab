@@ -110,10 +110,49 @@
                     </div>
                     </div>
                     </div>
-           
-                
 
-                
+        <div class="row">
+        <div class="form-group">
+        <div class="col-md-6">
+    
+            <label for="cargaHoraria">Carga Horária</label></br>
+            {!! Form::select('cargaHoraria',  Config::get('enums.carga-horaria')) !!}
+        </div>
+
+        <div class="form-group">
+        <div class="col-md-6">
+        <label for="checkbox">Turno</label></br>
+            
+            <label class="checkbox-inline">
+            <input type="checkbox" style="display: none;" name="turno[]" checked value=" ">
+            </label>
+        </div>
+        </div>
+        </div>
+        </div>
+
+ </br>
+  <div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 align="center" class="panel-title">
+        <a  data-toggle="collapse" href="#collapse-disciplina">Disciplinas do Professor</a>
+      </h4>
+    </div>
+    <div id="collapse-disciplina" class="panel-collapse collapse">
+            <label >
+            <input style="display: none;" name="disciplina[]" checked value=" ">
+            </label>
+    
+               
+    </div>
+                   
+      <div class="panel-footer"></div>
+    </div>
+  </div>
+</div>
+           
+                                
                 <button class = 'btn btn-primary' type ='submit'>Salvar</button>
             </form>
         </div>
@@ -121,3 +160,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </html>
 @endsection
+

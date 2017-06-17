@@ -54,7 +54,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_12_20_033702_moodel_simulados.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/connect.php" />
+        <option value="$PROJECT_DIR$//opt/lampp/htdocs/sglab/connect.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_12_20_041113_moodle_simulados.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Moodle_simuladoController.php" />
         <option value="$PROJECT_DIR$/resources/views/ocupacao/show.blade.php" />
@@ -546,7 +546,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/connect.php">
+    <entry file="file://$PROJECT_DIR$//opt/lampp/htdocs/sglab/connect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />

@@ -69,6 +69,6 @@
 
 </body>
 <script> var baseURL = "{{URL::to('/')}}"</script>
-            <script src="http://aetj.info/sglab/js/select2.js"></script>
+            <script src="http://http://7miguelsilva7.000webhostapp.com/sglab/js/select2.js"></script>
 
 

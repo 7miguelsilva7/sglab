@@ -3,9 +3,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-include_once ('/home/aetji649/sglab/class/tcpdf/tcpdf.php');
-include_once ("/home/aetji649/sglab/class/PHPJasperXML.inc.php");
-include_once ('/home/aetji649/sglab/connect.php');
+include_once ('/opt/lampp/htdocs/sglab/class/tcpdf/tcpdf.php');
+include_once ("/opt/lampp/htdocs/sglab/class/PHPJasperXML.inc.php");
+include_once ('/opt/lampp/htdocs/sglab/connect.php');
 
 $PHPJasperXML = new PHPJasperXML();
 //$PHPJasperXML->debugsql=true;
@@ -19,7 +19,7 @@ $internet=$_POST["internet"]; //recebendo o parâmetro que vem do formulário
 $PHPJasperXML->arrayParameter=  ["distrito"=>$distrito,"articulador"=>$articulador,"lab"=>$lab,"internet"=>$internet];
 
 
-$PHPJasperXML->load_xml_file("/home/aetji649/sglab/jrxmlreport/ReportEscolas.jrxml");
+$PHPJasperXML->load_xml_file("http://7miguelsilva7.000webhostapp.com/sglab/jrxmlreport/ReportEscolas.jrxml");
 
 
 $PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);

@@ -30,7 +30,12 @@
                         <td>{{$pessoa->vinculo}}</td>
                     </tr>
                     
-
+                    <tr>
+                        <td>
+                            <b>Matrícula : </b>
+                        </td>
+                        <td>{{$pessoa->matricula}}</td>
+                    </tr>
                     <tr>
                         <td>
                             <b><i>Nome : </i></b>

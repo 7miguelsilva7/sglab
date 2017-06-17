@@ -12,7 +12,7 @@
 		<hr>
 
 		<footer>
-			<p>&copy; <?php echo date('Y'); ?> SGLAB</p>
+			<p>&copy; <?php echo date('Y'); ?> Minha Escola</p>
 		</footer>                </div>
             </div>
         </div>

@@ -4,10 +4,10 @@
 
 #chama o arquivo de configuração com o banco
 
-require_once '/home/aetji649/sglab/connect.php';
+require_once "/opt/lampp/htdocs/sglab/connect.php";
 @include ('flash::message');
 #modals dos relatórios
-// require_once '/home/aetji649/sglab/resources/views/modals/horario_funcionario.php';
+// require_once '/opt/lampp/htdocs/sglab/resources/views/modals/horario_funcionario.php';
 # FIM modals dos relatórios
 
 ?>
@@ -44,15 +44,15 @@ require_once '/home/aetji649/sglab/connect.php';
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'SGLAB') }}</title>
+    <title>{{ config('app.name', 'Minha Escola') }}</title>
 
     <!-- Styles -->
-    <link href="http://aetj.info/sglab/css/app.css" rel="stylesheet">
+    <link href="http://7miguelsilva7.000webhostapp.com/sglab/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
 
-<script type="text/javascript" src="http://aetj.info/sglab/js/jquery.js"></script>
-<script type="text/javascript" src="http://aetj.info/sglab/js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="http://7miguelsilva7.000webhostapp.com/sglab/js/jquery.js"></script>
+<script type="text/javascript" src="http://7miguelsilva7.000webhostapp.com/sglab/js/jquery.mask.min.js"></script>
 
 
 </head>
@@ -72,7 +72,7 @@ require_once '/home/aetji649/sglab/connect.php';
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Minha Escola') }}
                     </a>
 
 
@@ -105,7 +105,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                     <li>
                                     
                                     <li><a href="{{ url('/escola') }}"><i class="fa glyphicon glyphicon-home"></i>Escolas</a></li>
-                                    <li><a href="{{ url('/funcionario') }}"><i class="fa fa-users"></i>Analistas</a></li>
+                                    <li><a href="{{ url('/funcionario') }}"><i class="fa fa-users"></i>Colaboradores</a></li>
                                     <li><a href="{{ url('/pessoa') }}"><i class="fa glyphicon glyphicon-user"></i>Pessoas</a></li>
                                     <li><a href="{{ url('/turma') }}" ><i class="fa fa-users"></i>Turmas</a></li>
 
@@ -114,7 +114,7 @@ require_once '/home/aetji649/sglab/connect.php';
                                         <a tabindex="-1" href="#">Horários</a>
                                         <ul class="dropdown-menu">
                                         
-                                        <li><a href="{{ url('/horario_funcionario') }}"><i class="fa glyphicon glyphicon-calendar"></i>Analistas</a></li>
+                                        <li><a href="{{ url('/horario_funcionario') }}"><i class="fa glyphicon glyphicon-calendar"></i>Colaboradores</a></li>
                                         <li><a href="{{ url('/turma') }}" ><i class="glyphicon glyphicon-calendar"></i>Turmas</a></li>
                                         
                                         </ul>
@@ -150,7 +150,7 @@ require_once '/home/aetji649/sglab/connect.php';
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                   Relatórios <span class="caret"></span>
+                                   Listas | Relatórios <span class="caret"></span>
                                 </a>
 
                                 <!--<ul class="dropdown-menu" role="menu">
@@ -171,7 +171,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <ul class="dropdown-menu">
     
     <li><a tabindex="-1" data-toggle="modal" href="#escolas"><i class="fa glyphicon glyphicon-home"></i>Lista Escolas</a></li>
-	<li><a tabindex="-1" data-toggle="modal" href="#funcionario"><i class="fa fa-users"></i>Lista Analistas</a></li>
+	<li><a tabindex="-1" data-toggle="modal" href="#funcionario"><i class="fa fa-users"></i>Colaboradores</a></li>
 	<li><a tabindex="-1" data-toggle="modal" href="#laboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Lista Laboratórios</a></li>
                                    
     </ul>
@@ -182,7 +182,7 @@ require_once '/home/aetji649/sglab/connect.php';
     <ul class="dropdown-menu">
     
         <li><a data-toggle="modal" href="#perfilescolas"><i class="fa glyphicon glyphicon-home"></i>Perfil Escolas</a></li>
-		<li><a data-toggle="modal" href="#perfilfuncionarios"><i class="fa fa-users"></i>Perfil Analistas</a></li>
+		<li><a data-toggle="modal" href="#perfilfuncionarios"><i class="fa fa-users"></i>Perfil Colaboradores</a></li>
 		<li><a data-toggle="modal" href="#perfillaboratorios"><i class="fa glyphicon glyphicon-hdd"></i>Perfil Laboratórios</a></li>
                                     
     </ul>
@@ -195,7 +195,7 @@ require_once '/home/aetji649/sglab/connect.php';
  <a tabindex="-1" href="#">Horários</a>
  <ul class="dropdown-menu">
  
- <li><a data-toggle="modal" data-target="#horario_funcionario" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Analistas</a></li>
+ <li><a data-toggle="modal" data-target="#horario_funcionario" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Colaboradores</a></li>
  <li><a data-toggle="modal" data-target="#" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Turmas</a></li>
  <li><a data-toggle="modal" data-target="#" href="#"><i class="fa glyphicon glyphicon-calendar"></i>Horário Laboratórios</a></li>
  </ul>
@@ -253,35 +253,35 @@ require_once '/home/aetji649/sglab/connect.php';
   <li class="dropdown-submenu">
     <a tabindex="-1" href="#">Superintendência Pedagógica</a>
     <ul class="dropdown-menu">
-        <li><a href="http://aetj.info/downloads/NTM/Calendário Escolar 2017- Atualizado 1.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Calendário Escolar 2017</a></li>
-        <li><a href="http://aetj.info/downloads/NTM/compressed-Caderno do Coordenador - 2017.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno do Coordenador - 2017</a></li>
-        <li><a href="http://aetj.info/downloads/NTM/Caderno do Professor - 2017-compressed.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno do Professor - 2017</a></li>
-        <li><a href="http://aetj.info/downloads/NTM/compressed-Caderno Ed. Infantil I - 2017.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno Ed. Infantil I - 2017</a></li>
-        <li><a href="http://aetj.info/downloads/NTM/compressed-Caderno Ed. Infantil II e III - 2017.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno Ed. Infantil II e III - 2017</a></li>
+        <li><a href="/opt/lampp/htdocs/downloads/NTM/Calendário Escolar 2017- Atualizado 1.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Calendário Escolar 2017</a></li>
+        <li><a href="/opt/lampp/htdocs/downloads/NTM/compressed-Caderno do Coordenador - 2017.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno do Coordenador - 2017</a></li>
+        <li><a href="/opt/lampp/htdocs/downloads/NTM/Caderno do Professor - 2017-compressed.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno do Professor - 2017</a></li>
+        <li><a href="/opt/lampp/htdocs/downloads/NTM/compressed-Caderno Ed. Infantil I - 2017.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno Ed. Infantil I - 2017</a></li>
+        <li><a href="/opt/lampp/htdocs/downloads/NTM/compressed-Caderno Ed. Infantil II e III - 2017.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Caderno Ed. Infantil II e III - 2017</a></li>
     </ul>
   </li>
 
     <li class="dropdown-submenu">
         <a tabindex="-1" href="#">NTM</a>
         <ul class="dropdown-menu">
-            <li><a href="http://aetj.info/downloads/NTM/Lei_2335_13.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Lei 2.335_13</a></li>
-            <li><a href="http://aetj.info/downloads/NTM/Cargos.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Atribuições do AETJ</a></li>
-            <li><a href="http://aetj.info/downloads/NTM/Sala_de_recursos.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Sala de recursos</a></li>
-            <li><a href="http://aetj.info/downloads/NTM/PROINFO_urbano.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO urbano</a></li>
-            <li><a href="http://aetj.info/downloads/NTM/PROINFO_rural.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO rural</a></li>
-            <li><a href="http://aetj.info/downloads/NTM/TutorialGLPI.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Tutorial GLPI</a></li>
+            <li><a href="/opt/lampp/htdocs/downloads/NTM/Lei_2335_13.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Lei 2.335_13</a></li>
+            <li><a href="/opt/lampp/htdocs/downloads/NTM/Cargos.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Atribuições do AETJ</a></li>
+            <li><a href="/opt/lampp/htdocs/downloads/NTM/Sala_de_recursos.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Sala de recursos</a></li>
+            <li><a href="/opt/lampp/htdocs/downloads/NTM/PROINFO_urbano.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO urbano</a></li>
+            <li><a href="/opt/lampp/htdocs/downloads/NTM/PROINFO_rural.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PROINFO rural</a></li>
+            <li><a href="/opt/lampp/htdocs/downloads/NTM/TutorialGLPI.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Tutorial GLPI</a></li>
         </ul>
     </li>
 
     <li class="dropdown-submenu">
         <a tabindex="-1" href="#">EFEP</a>
         <ul class="dropdown-menu">
-            <li><a href="http://aetj.info/downloads/NTM/Lei_2.218_11.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Lei 2.218_11.pdf</a></li>
+            <li><a href="/opt/lampp/htdocs/downloads/NTM/Lei_2.218_11.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>Lei 2.218_11.pdf</a></li>
             <li><a href="#" target="_blank"><i class="glyphicon glyphicon-file"></i>...</a></li>
         </ul>
     </li>
 
-    <li><a href="http://aetj.info/downloads/NTM/Lei_2605_16.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PCCR</a></li>
+    <li><a href="/opt/lampp/htdocs/downloads/NTM/Lei_2605_16.pdf" target="_blank"><i class="glyphicon glyphicon-file"></i>PCCR</a></li>
 
 </ul>
 
@@ -1036,7 +1036,7 @@ require_once '/home/aetji649/sglab/connect.php';
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Relatórios</h4>
+            <h4 class="modal-title" id="myModalLabel">Sistema de Gerenciamento Escolar</h4>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -1060,5 +1060,4 @@ require_once '/home/aetji649/sglab/connect.php';
         <script> var baseURL = "{{URL::to('/')}}"</script>
         <script src = "{{ URL::asset('js/AjaxisBootstrap.js')}}"></script>
         <script src = "{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
-        <script src="http://aetj.info/sglab/js/app.js"></script>
-        
+        <script src="http://7miguelsilva7.000webhostapp.com/sglab/js/app.js"></script>

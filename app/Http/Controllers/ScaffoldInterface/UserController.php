@@ -220,12 +220,13 @@ class UserController extends Controller
     public function revokeRole($role, $user_id)
     {
          if(Auth::user()->name == "Admin")
-  {
+        {
         $user = \App\User::findorfail($user_id);
 
         $user->removeRole(str_slug($role, ' '));
 
         return redirect('users/edit/'.$user_id);
+        }
     }
 }
-}
+

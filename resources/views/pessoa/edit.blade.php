@@ -2,7 +2,7 @@
 <?php
 
 #chama o arquivo de configuração com o banco
-require_once '/home/aetji649/sglab/connect.php';
+require_once '/opt/lampp/htdocs/sglab/connect.php';
 ?>
 @extends('layouts.app')
 
@@ -107,17 +107,29 @@ require_once '/home/aetji649/sglab/connect.php';
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
 <!-- FIM de campo verifica usuário logado, identificando quem está inserindo registro FIM -->
 
+
+
                 <div class="form-group">
-               
+                <div class="row">
+                <div class="col-md-6">
+
+                    <label for="matricula">Matrícula</label>
+                    <input type="number"  id="matricula" name = "matricula" value= "{{$pessoa->matricula}}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                <div class="col-md-6">
+
                     <label for="nome">Nome</label>
                     <input  id="nome" name = "nome" type="text" value= "{{$pessoa->nome}}" class="form-control">
+                </div>
+                </div>
                 </div>
                 
                 <div class="form-group">
                 <div class="row">
                 <div class="col-md-6">
                     <label for="cep">Cep</label>
-                    <input id="cep" name = "cep" type="number" value= "{{$pessoa->cep}}" class="form-control">
+                    <input id="cep" name = "cep"  value= "{{$pessoa->cep}}" class="form-control">
                 
                 </div> 
                           

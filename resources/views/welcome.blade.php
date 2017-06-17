@@ -77,13 +77,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    SGLAB
+                    Minha Escola
                 </div>
-                <hr><h4>SISTEMA DE GERENCIAMENTO DE LABORATÓRIOS DE INFORMÁTICA</br><h6>NTM - NÚCLEO DE TECNOLOGIA MUNICIPAL DE JUAZEIRO BAHIA</h6></h4><hr>
+                <hr><h4>SISTEMA DE GERENCIAMENTO ESCOLAR</br><h6></h6></h4><hr>
                 <div class="links">
                     <a href="http://www.juazeiro.ba.gov.br/" target="_blank">[ Prefeitura de Juazeiro Bahia ]</a>
                     <a href="http://aetj.info" target="_blank">[ AETJ ]</a>
-                    <a href="http://aetj.info/simrede" target="_blank">[ SimRede ]</a>
+                    <a href="/opt/lampp/htdocs/simrede" target="_blank">[ SimRede ]</a>
                     <a href="http://ntmjuazeiro.blogspot.com.br/" target="_blank">[ NTM ]</a>
                     <a href="http://portaldoprofessor.mec.gov.br/index.html" target="_blank">[ Portal do Professor ]</a>
                 </div>

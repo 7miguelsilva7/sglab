@@ -3,9 +3,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-include_once ('/home/aetji649/sglab/class/tcpdf/tcpdf.php');
-include_once ("/home/aetji649/sglab/class/PHPJasperXML.inc.php");
-include_once ('/home/aetji649/sglab/connect.php');
+include_once ('/opt/lampp/htdocs/sglab/class/tcpdf/tcpdf.php');
+include_once ("/opt/lampp/htdocs/sglab/class/PHPJasperXML.inc.php");
+include_once ('/opt/lampp/htdocs/sglab/connect.php');
 
 
 $PHPJasperXML = new PHPJasperXML();
@@ -20,7 +20,7 @@ $PHPJasperXML->arrayParameter=  ["distrito"=>$distrito,"articulador"=>$articulad
 
 
 
-$PHPJasperXML->load_xml_file("/home/aetji649/sglab/jrxmlreport/ReportLaboratorios.jrxml");
+$PHPJasperXML->load_xml_file("http://7miguelsilva7.000webhostapp.com/sglab/jrxmlreport/ReportLaboratorios.jrxml");
 
 $PHPJasperXML->transferDBtoArray($server,$user,$pass,$db);
 $PHPJasperXML->outpage("D");    //page output method I:standard output  D:Download file

@@ -2,7 +2,7 @@
 <?php
 
 #chama o arquivo de configuração com o banco
-require_once '/home/aetji649/sglab/connect.php';
+require_once '/opt/lampp/htdocs/sglab/connect.php';
 ?>
 @extends('layouts.app')
 
@@ -118,9 +118,20 @@ require_once '/home/aetji649/sglab/connect.php';
 
 
                 <div class="form-group">
-               
+                <div class="row">
+                <div class="col-md-6">
+
+                    <label for="matricula">Matrícula</label>
+                    <input type="number"  id="matricula" name = "matricula" type="text" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                <div class="col-md-6">
+
                     <label for="nome">Nome</label>
                     <input  id="nome" name = "nome" type="text" class="form-control">
+                </div>
+                </div>
                 </div>
                 
                 <div class="form-group">

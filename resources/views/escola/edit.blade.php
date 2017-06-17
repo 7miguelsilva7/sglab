@@ -2,7 +2,7 @@
 
 #chama o arquivo de configuração com o banco
 
-require_once '/home/aetji649/sglab/connect.php';
+require_once '/opt/lampp/htdocs/sglab/connect.php';
 ?>
 @extends('layouts.app')
 

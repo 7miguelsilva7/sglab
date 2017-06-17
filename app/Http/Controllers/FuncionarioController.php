@@ -9,14 +9,19 @@ use App\Funcionario;
 use Amranidev\Ajaxis\Ajaxis;
 use URL;
 
+use App\Disciplina;
+
 use App\Siem;
 
 use App\Ocupacao;
 
+use App\Disciplina_funcionario;
 
 use App\Pessoa;
 
 use Auth;
+
+use App\Turno;
 
 /**
  * Class FuncionarioController.
@@ -82,7 +87,7 @@ if($usuario_logado == "Admin") {
             $funcionarios = Funcionario::where('pessoa_id','like','%'.$search.'%')
                 ->where('siem_id',Auth::user()->id)
                 ->orderBy('pessoa_id')
-                ->paginate(5);
+                ->paginate(50);
 
             return view('funcionario.index',compact('funcionarios','pessoas','escolas'));
 
@@ -154,14 +159,28 @@ if($usuario_logado == "Admin") {
 
     public function create()
     {
-        
+        $disciplinas = Disciplina::all();
+
         $siems = Siem::all()->pluck('nome','id');
         
         $ocupacaos = Ocupacao::all()->pluck('nome','id');
         
         $pessoas = Pessoa::all()->pluck('nome','id');
         
-        return view('funcionario.create',compact('siems' , 'ocupacaos' , 'pessoas'  ));
+        return view('funcionario.create',compact('siems' , 'ocupacaos' , 'pessoas', 'disciplinas'  ));
+    }
+
+    public function modaldisciplina()
+    {
+        $disciplinas = Disciplina::all();
+
+        $siems = Siem::all()->pluck('nome','id');
+        
+        $ocupacaos = Ocupacao::all()->pluck('nome','id');
+        
+        $pessoas = Pessoa::all()->pluck('nome','id');
+        
+        return view('modal.modaldisciplina',compact('siems' , 'ocupacaos' , 'pessoas', 'disciplinas'  ));
     }
 
     /**
@@ -170,6 +189,34 @@ if($usuario_logado == "Admin") {
      * @param    \Illuminate\Http\Request  $request
      * @return  \Illuminate\Http\Response
      */
+
+     public function assignDisciplina(Request $request)
+    {
+
+
+        $disciplinas = Disciplina::all();
+
+        $funcionario = Funcionario::findOrfail($request->funcionario_id);
+
+        $funcionario->disciplinas()->attach([$request->disciplina_id]);
+
+        return redirect('funcionario/'.$request->funcionario_id);
+
+
+        // return view('funcionario.edit',compact('funcionario', 'disciplinas'));
+    }
+
+    public function removeDisciplina(Request $request)
+
+    {
+       $funcionario = Funcionario::findOrfail($request->funcionario_id);
+    
+       $funcionario->disciplinas()->detach([$request->disciplina_id]);
+
+       return redirect('funcionario/'.$request->funcionario_id);
+
+    }
+
     public function store(Request $request)
     {
     
@@ -181,9 +228,13 @@ if($usuario_logado == "Admin") {
         ]);
 // Fim validação de campos de formulário
 
+        $disciplinas = Disciplina::all();
+
+
         $funcionario = new Funcionario();
 
         $funcionario->adicionado_por = $request->adicionado_por;
+
 
         $funcionario->user_id = $request->user_id;
 
@@ -192,8 +243,7 @@ if($usuario_logado == "Admin") {
 
         
         $funcionario->status_funcionario = $request->status_funcionario;
-
-        
+                
         
         $funcionario->siem_id = $request->siem_id;
 
@@ -203,8 +253,15 @@ if($usuario_logado == "Admin") {
         
         $funcionario->pessoa_id = $request->pessoa_id;
 
+        $funcionario->cargaHoraria = $request->cargaHoraria;
+
+        $funcionario->turno = implode(' - ', $request->turno);
+
+        $funcionario->disciplina = implode(' - ', $request->disciplina);       
+
         
         $funcionario->save();
+        
 
         $pusher = App::make('pusher');
 
@@ -228,13 +285,17 @@ if($usuario_logado == "Admin") {
      */
     public function show($id,Request $request)
     {
+        $disciplinas = Disciplina::all();
+        
+        $turnos = Turno::all();
+
         if($request->ajax())
         {
             return URL::to('funcionario/'.$id);
         }
 
         $funcionario = Funcionario::findOrfail($id);
-        return view('funcionario.show',compact('funcionario'));
+        return view('funcionario.show',compact('funcionario', 'disciplinas'));
     }
 
     /**
@@ -319,7 +380,14 @@ if($usuario_logado == "Admin")
         
         $funcionario->pessoa_id = $request->pessoa_id;
 
-        
+
+        $funcionario->cargaHoraria = $request->cargaHoraria;
+
+        $funcionario->turno = implode(' - ', $request->turno);
+
+        $funcionario->disciplina = implode(' - ', $request->disciplina); 
+
+
         $funcionario->save();
 
         return redirect('funcionario');

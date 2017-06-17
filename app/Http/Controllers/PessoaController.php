@@ -114,6 +114,8 @@ if($usuario_logado == "Admin") {
 
         $pessoa->vinculo = $request->vinculo;
 
+        $pessoa->matricula = $request->matricula;
+     
 
         $pessoa->user_id = $request->user_id;
 
@@ -275,8 +277,10 @@ if($usuario_logado == "Admin")
     {
         $pessoa = Pessoa::findOrfail($id);
 
-        $pessoa->vinculo = $request->vinculo;       
-    	
+        $pessoa->vinculo = $request->vinculo;   
+
+        $pessoa->matricula = $request->matricula;
+   	
         $pessoa->user_id = $request->user_id;
         
         $pessoa->nome = $request->nome;

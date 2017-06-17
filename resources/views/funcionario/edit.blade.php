@@ -107,6 +107,89 @@
                     </div>
                     </div>
                     </div>
+
+
+
+<!--editando-->
+       <div class="row">
+        <div class="form-group">
+        <div class="col-md-6">
+    
+            <label for="cargaHoraria">Carga Horária</label></br>
+            {!! Form::select('cargaHoraria',  Config::get('enums.carga-horaria')) !!}
+        </div>
+
+        <div class="form-group">
+        <div class="col-md-6">
+        <label for="checkbox">Turno</label></br>
+            <label class="checkbox-inline">
+            <input type="checkbox" style="display: none;" name="turno[]" checked value=" ">
+            </label>
+            <label class="checkbox-inline">
+            <input type="checkbox" name="turno[]" value="Manhã">Manhã
+            </label>
+            <label class="checkbox-inline">
+            <input type="checkbox" name="turno[]" value="Tarde">Tarde
+            </label>
+            <label class="checkbox-inline">
+            <input type="checkbox" name="turno[]" value="Noite">Noite
+            </label>
+        </div>
+        </div>
+        </div>
+        </div>
+
+ </br>
+  <div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 align="center" class="panel-title">
+        <a  data-toggle="collapse" href="#collapse-disciplina">Disciplinas do Professor</a>
+      </h4>
+    </div>
+    <div id="collapse-disciplina" class="panel-collapse collapse">
+
+            <div class="checkbox">
+            <input type="checkbox" style="display: none;" name="disciplina[]" checked value=" ">
+            </div>
+            <div class="checkbox">
+            <label><input type="checkbox" name="disciplina[]" value="POR"> Português</label>
+            </div>
+            <div class="checkbox">
+            <label><input type="checkbox" name="disciplina[]" value="MAT"> Matemática</label>
+            </div>
+            <div class="checkbox">
+            <label><input type="checkbox" name="disciplina[]" value="CIE"> Ciências</label>
+            </div>
+            <div class="checkbox">
+            <label><input type="checkbox" name="disciplina[]" value="HIS"> História</label>
+            </div>
+            <div class="checkbox">
+            <label><input type="checkbox" name="disciplina[]" value="GEO"> Geografia</label>
+            </div>
+            <div class="checkbox">
+            <label><input type="checkbox" name="disciplina[]" value="ART"> Artes</label>
+            </div>
+            <div class="checkbox">
+            <label><input type="checkbox" name="disciplina[]" value="EMP"> Empreededorismo</label>
+            </div>
+            <div class="checkbox">
+            <label><input type="checkbox" name="disciplina[]" value="ED. FIS"> Educação Física</label>
+            </div>
+            <div class="checkbox">
+            <label><input type="checkbox" name="disciplina[]" value="ING"> Inglês</label>
+            </div>
+            <div class="checkbox">
+            <label><input type="checkbox" name="disciplina[]" value="REL"> Ensino Religioso</label>
+            </div>
+                   
+      <div class="panel-footer"></div>
+    </div>
+  </div>
+</div> 
+<!--editando-->
+
+
                 
                 
                 <button class = 'btn btn-primary' type ='submit'>Atualizar</button>
@@ -115,5 +198,7 @@
     </body>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
+
 </html>
 @endsection
+

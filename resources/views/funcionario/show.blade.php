@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div align="center" class="panel-heading">{{$funcionario->pessoa->nome}}  </br>
-  Última Edição: {{$funcionario->pessoa->updated_at}}</div>
+                Última Edição: {{$funcionario->updated_at}}</div>
                 <div class="panel-body">
 
     
@@ -21,9 +21,64 @@
                 </thead>
           
                 <tbody>
+                <tr>
+                <td>
+            <form method = 'post' action = '{{url("assignDisciplina")}}'>
+            @if (count($errors) > 0)
+             <div class = "alert alert-danger">
+            <ul>
+               @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+               @endforeach
+            </ul>
+             </div>
+            @endif      
+                            <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 
-                    
-                    <tr>
+            <b><i>Disciplinas : </i></p>
+            <input  type="hidden" name="funcionario_id" value="{{$funcionario->id}}"></p>
+            
+            <select name="disciplina_id" required >
+            <option  value="">Escolha a Disciplina</option>
+            @foreach($disciplinas as $key => $value)
+            <!--<input   name="disciplina_id" value="{{$value->id}}">{{$value->nome}} </p>-->
+
+            <<option  type="checkbox" name="disciplina_id" value="{{$value->id}}">{{$value->nome}}</option>
+            @endforeach    
+
+            </select>
+            <button class = 'btn btn-primary btn-xs' type ='submit'><i class="glyphicon glyphicon-plus"></i></button>  
+                </form>                                         
+                </td>
+                   
+                        <td>
+                        <form action = '{{url("removeDisciplina")}}'>
+                        <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+
+                        @foreach($funcionario->disciplinas as $disciplina)
+                        {{$disciplina->nome}}
+                        <input  type="hidden" name="funcionario_id" value="{{$funcionario->id}}">
+                        <input  type="hidden" name="disciplina_id" value="{{$disciplina->id}}">
+
+                        <button type="submit" class = "btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        </p>
+
+                        @endforeach                        
+                        </td>
+                        </tr>
+
+                        <tr>
+                        <td>
+                        <b><i>Turno : </i></b>
+                        </td>
+
+                        <td>
+                        </td>
+                        </tr>
+
+
+
+                        <tr>
                         <td>
                             <b><i>Adicionado por : </i></b>
                         </td>
@@ -69,6 +124,22 @@
                         </td>
                         <td>{{$funcionario->ocupacao->nome}}</td>
                         </tr>
+
+                        <tr>
+                        <td>
+                            <b><i>Carga Horária : </i><b>
+                        </td>
+                        <td>{{$funcionario->cargaHoraria}}</td>
+                        </tr>
+
+                        <tr>
+                        <td>
+                            <b><i>Turno de Trabalho : </i><b>
+                        </td>
+                        <td>{{$funcionario->turno}}</td>
+                        </tr>
+
+                                         
                         
                     
 <!--                        
@@ -197,14 +268,14 @@
                         <td>
                             <b><i>Adicionado em : </i><b>
                         </td>
-                        <td>{{$funcionario->pessoa->created_at}}</td>
+                        <td>{{$funcionario->created_at}}</td>
                         </tr>
                         
                         <tr>
                         <td>
                             <b><i>Atualizado em : </i><b>
                         </td>
-                        <td>{{$funcionario->pessoa->updated_at}}</td>
+                        <td>{{$funcionario->updated_at}}</td>
                         </tr>
                         
                         
@@ -216,3 +287,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </html>
 @endsection
+
+
