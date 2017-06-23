@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 08-Fev-2017 às 21:58
--- Versão do servidor: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Jun 23, 2017 at 04:09 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `anulada`
+-- Table structure for table `anulada`
 --
 
 CREATE TABLE `anulada` (
@@ -54,7 +54,7 @@ CREATE TABLE `anulada` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `anulada`
+-- Dumping data for table `anulada`
 --
 
 INSERT INTO `anulada` (`id`, `ano`, `simulado`, `nivel`, `anuq1`, `anuq2`, `anuq3`, `anuq4`, `anuq5`, `anuq6`, `anuq7`, `anuq8`, `anuq9`, `anuq10`, `anuq11`, `anuq12`, `anuq13`, `anuq14`, `anuq15`, `anuq16`, `anuq17`, `anuq18`, `anuq19`, `anuq20`) VALUES
@@ -68,6 +68,7 @@ INSERT INTO `anulada` (`id`, `ano`, `simulado`, `nivel`, `anuq1`, `anuq2`, `anuq
 
 --
 -- Stand-in structure for view `cs_media_alunos`
+-- (See below for the actual view)
 --
 CREATE TABLE `cs_media_alunos` (
 `nivel` varchar(100)
@@ -108,6 +109,7 @@ CREATE TABLE `cs_media_alunos` (
 
 --
 -- Stand-in structure for view `cs_media_escolas`
+-- (See below for the actual view)
 --
 CREATE TABLE `cs_media_escolas` (
 `situacao` varchar(65)
@@ -144,6 +146,7 @@ CREATE TABLE `cs_media_escolas` (
 
 --
 -- Stand-in structure for view `cs_simrede_base`
+-- (See below for the actual view)
 --
 CREATE TABLE `cs_simrede_base` (
 `idescola` int(10) unsigned
@@ -181,7 +184,125 @@ CREATE TABLE `cs_simrede_base` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `escolas`
+-- Table structure for table `disciplinas`
+--
+
+CREATE TABLE `disciplinas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `disciplinas`
+--
+
+INSERT INTO `disciplinas` (`id`, `nome`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Português', NULL, NULL, NULL),
+(2, 'Matemática', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `disciplina_funcionario`
+--
+
+CREATE TABLE `disciplina_funcionario` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `disciplina_id` int(10) UNSIGNED NOT NULL,
+  `funcionario_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `disciplina_funcionario`
+--
+
+INSERT INTO `disciplina_funcionario` (`id`, `disciplina_id`, `funcionario_id`) VALUES
+(4, 2, 17),
+(6, 1, 17);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `educacaoinfantils`
+--
+
+CREATE TABLE `educacaoinfantils` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `educacaoinfantils_funcionarios`
+--
+
+CREATE TABLE `educacaoinfantils_funcionarios` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `educacaoinfantil_id` int(10) UNSIGNED NOT NULL,
+  `funcionario_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ejas`
+--
+
+CREATE TABLE `ejas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ejas_funcionarios`
+--
+
+CREATE TABLE `ejas_funcionarios` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `eja_id` int(10) UNSIGNED NOT NULL,
+  `funcionario_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ensinofundamentals`
+--
+
+CREATE TABLE `ensinofundamentals` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ensinofundamentals_funcionarios`
+--
+
+CREATE TABLE `ensinofundamentals_funcionarios` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `ensinofundamental_id` int(10) UNSIGNED NOT NULL,
+  `funcionario_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `escolas`
 --
 
 CREATE TABLE `escolas` (
@@ -231,7 +352,7 @@ CREATE TABLE `escolas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `escolas`
+-- Dumping data for table `escolas`
 --
 
 INSERT INTO `escolas` (`id`, `vinculo`, `inep`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `email`, `cel1`, `cel2`, `sigla`, `possui_internet_escola`, `tipo_internet_escola`, `status_escola`, `possui_lab`, `possui_analista`, `tipo_sala`, `pregao1`, `pregao2`, `pregao3`, `pregao4`, `possui_internet_lab`, `tipo_internet_lab`, `lab_montado`, `qt_computadores_lab`, `qt_monitores_lab`, `qt_projetores`, `qt_tablets`, `status_lab`, `ar_condicionado_lab`, `impressora_lab`, `qt_notebook_lab`, `roteador_lab`, `switch_lab`, `qt_cadeiras_lab`, `siem_id`, `pessoa_id`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -371,7 +492,7 @@ INSERT INTO `escolas` (`id`, `vinculo`, `inep`, `cep`, `distrito`, `bairro`, `lo
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `funcionarios`
+-- Table structure for table `funcionarios`
 --
 
 CREATE TABLE `funcionarios` (
@@ -383,24 +504,57 @@ CREATE TABLE `funcionarios` (
   `ocupacao_id` int(10) UNSIGNED DEFAULT NULL,
   `pessoa_id` int(10) UNSIGNED DEFAULT NULL,
   `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `turno` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `cargaHoraria` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `disciplina` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `funcionarios`
+-- Dumping data for table `funcionarios`
 --
 
-INSERT INTO `funcionarios` (`id`, `adicionado_por`, `vinculo`, `status_funcionario`, `siem_id`, `ocupacao_id`, `pessoa_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'EDUCANDÁRIO JOÃO XXIII', 'EFETIVO', 'ATIVO', 76, 1, 2134, 76, '2016-11-22 04:40:39', '2016-11-22 04:40:39'),
-(2, 'EDUCANDÁRIO JOÃO XXIII', 'EFETIVO', 'ATIVO', 76, 2, 1873, 76, '2016-11-22 04:41:09', '2016-11-22 04:41:09'),
-(4, 'EDUCANDÁRIO JOÃO XXIII', 'EFETIVO', 'ATIVO', 76, 3, 2030, 76, '2016-11-22 19:09:02', '2016-11-22 19:09:02'),
-(5, 'Admin', 'EFETIVO', 'ATIVO', 136, 1, 2163, 12, '2016-11-23 19:49:56', '2016-11-23 19:49:56');
+INSERT INTO `funcionarios` (`id`, `adicionado_por`, `vinculo`, `status_funcionario`, `siem_id`, `ocupacao_id`, `pessoa_id`, `user_id`, `turno`, `cargaHoraria`, `disciplina`, `created_at`, `updated_at`) VALUES
+(17, 'Admin', 'CONCURSADO', 'ATIVO', 22, 2, 1820, 12, '', '20', '', '2017-06-13 22:17:53', '2017-06-13 22:17:53'),
+(18, 'Admin', 'EFETIVO', 'ATIVO', 22, 3, 1819, 12, ' ', '20', ' ', '2017-06-13 22:58:40', '2017-06-13 22:58:40'),
+(19, 'Admin', 'EFETIVO', 'ATIVO', 76, 4, 2179, 12, ' ', '20', ' ', '2017-06-14 15:22:16', '2017-06-14 15:22:16');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `horario_funcionarios`
+-- Table structure for table `funcionarios_programas`
+--
+
+CREATE TABLE `funcionarios_programas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `funcionario_id` int(10) UNSIGNED NOT NULL,
+  `programa_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `funcionario_turno`
+--
+
+CREATE TABLE `funcionario_turno` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `funcionario_id` int(10) UNSIGNED NOT NULL,
+  `turno_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `funcionario_turno`
+--
+
+INSERT INTO `funcionario_turno` (`id`, `funcionario_id`, `turno_id`) VALUES
+(14, 17, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `horario_funcionarios`
 --
 
 CREATE TABLE `horario_funcionarios` (
@@ -441,7 +595,7 @@ CREATE TABLE `horario_funcionarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `horario_funcionarios`
+-- Dumping data for table `horario_funcionarios`
 --
 
 INSERT INTO `horario_funcionarios` (`id`, `adicionado_por`, `seg_m`, `ter_m`, `qua_m`, `qui_m`, `sex_m`, `sab_m`, `dom_m`, `seg_t`, `ter_t`, `qua_t`, `qui_t`, `sex_t`, `sab_t`, `dom_t`, `seg_n`, `ter_n`, `qua_n`, `qui_n`, `sex_n`, `sab_n`, `dom_n`, `seg_c`, `ter_c`, `qua_c`, `qui_c`, `sex_c`, `sab_c`, `dom_c`, `siem_id`, `pessoa_id`, `created_at`, `updated_at`) VALUES
@@ -451,7 +605,7 @@ INSERT INTO `horario_funcionarios` (`id`, `adicionado_por`, `seg_m`, `ter_m`, `q
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -461,7 +615,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -477,12 +631,30 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (20, '2016_12_06_035703_horario_funcionarios', 6),
 (24, '2016_12_20_041113_moodle_simulados', 7),
 (25, '2016_12_21_021545_turmas', 7),
-(26, '2017_02_08_124832_upload_csvs', 8);
+(34, '2017_02_08_124832_upload_csvs', 8),
+(35, '2017_06_13_070559_disciplinas', 9),
+(36, '2017_06_13_071216_DisciplinasFuncionarios', 10),
+(38, '2017_06_17_020650_turnos', 11),
+(39, '2017_06_17_021529_FuncionariosTurnos', 12),
+(46, '2017_06_20_121228_educacao_infatils', 13),
+(47, '2017_06_20_121247_programas', 13),
+(48, '2017_06_20_121327_eja_is', 13),
+(49, '2017_06_20_121343_eja_iis', 13),
+(50, '2017_06_20_121419_fudamental_is', 13),
+(51, '2017_06_20_121440_fudamental_iis', 13),
+(60, '2017_06_20_020712_educacaoinfantils', 14),
+(61, '2017_06_20_020733_programas', 14),
+(62, '2017_06_20_020813_ensinofundamentals', 14),
+(63, '2017_06_20_020903_EducacaoinfantilsFuncionarios', 15),
+(64, '2017_06_20_020913_FuncionariosProgramas', 15),
+(65, '2017_06_20_020958_ejas', 15),
+(66, '2017_06_20_021059_EjasFuncionarios', 16),
+(67, '2017_06_20_021121_EnsinofundamentalsFuncionarios', 16);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `moodle_simulados`
+-- Table structure for table `moodle_simulados`
 --
 
 CREATE TABLE `moodle_simulados` (
@@ -521,7 +693,7 @@ CREATE TABLE `moodle_simulados` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ocupacaos`
+-- Table structure for table `ocupacaos`
 --
 
 CREATE TABLE `ocupacaos` (
@@ -533,18 +705,28 @@ CREATE TABLE `ocupacaos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `ocupacaos`
+-- Dumping data for table `ocupacaos`
 --
 
 INSERT INTO `ocupacaos` (`id`, `usuario`, `nome`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'ANALISTA EM EDUCAÇÃO', '2016-10-28 17:08:42', '2016-10-28 17:08:42'),
 (2, 'Admin', 'GESTOR (A)', '2016-11-17 17:30:23', '2016-11-17 17:30:23'),
-(3, 'Admin', 'SECRETÁRIO', '2016-11-18 14:32:13', '2016-11-18 14:32:13');
+(3, 'Admin', 'SECRETÁRIO (A)', '2016-11-18 14:32:13', '2017-06-06 16:15:33'),
+(4, 'Admin', 'PROFESSOR (A)', '2017-06-06 14:37:03', '2017-06-06 14:37:03'),
+(5, 'Admin', 'AUXILIAR DE AEE', '2017-06-06 14:53:23', '2017-06-06 16:21:03'),
+(6, 'Admin', 'AGENTE DE PORTARIA', '2017-06-06 14:54:39', '2017-06-06 16:21:23'),
+(7, 'Admin', 'PROF. READAPTADA', '2017-06-06 16:15:00', '2017-06-06 16:15:00'),
+(8, 'Admin', 'ASG READAPTADA', '2017-06-06 16:16:08', '2017-06-06 16:16:08'),
+(9, 'Admin', 'ASG', '2017-06-06 16:20:16', '2017-06-06 16:20:16'),
+(10, 'Admin', 'PROF. AEE', '2017-06-06 16:20:47', '2017-06-06 16:20:47'),
+(11, 'Admin', 'MERENDEIRA', '2017-06-06 16:21:53', '2017-06-06 16:21:53'),
+(12, 'Admin', 'COORD. PEDAGÓGICO', '2017-06-06 16:22:55', '2017-06-06 16:22:55'),
+(13, 'Admin', 'RECREADOR', '2017-06-06 16:23:30', '2017-06-06 16:23:30');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -554,7 +736,7 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `password_resets`
+-- Dumping data for table `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
@@ -563,7 +745,7 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `permissions`
+-- Table structure for table `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -574,7 +756,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `permissions`
+-- Dumping data for table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -583,12 +765,13 @@ INSERT INTO `permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pessoas`
+-- Table structure for table `pessoas`
 --
 
 CREATE TABLE `pessoas` (
   `id` int(10) UNSIGNED NOT NULL,
   `vinculo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `matricula` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cep` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `distrito` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -616,377 +799,394 @@ CREATE TABLE `pessoas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `pessoas`
+-- Dumping data for table `pessoas`
 --
 
-INSERT INTO `pessoas` (`id`, `vinculo`, `nome`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `cel1`, `cel2`, `email`, `cpf`, `rg`, `expedicao_rg`, `naturalidade`, `nascionalidade`, `nis`, `escolaridade`, `data_nascimento`, `nome_mae`, `nome_pai`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'NÃO POSSUI', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL),
-(1817, '', 'ABIA LINOLOPES', '', 'ABÓBORA', '', '', '', '', '', '(74) 99925-4050', '', 'abialinolopes@gmail.com', '', '2', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '2016-11-21 22:36:14'),
-(1818, 'Liberado', 'ADALGISA MARIA COELHO CALDAS', '', 'ABÓBORA', '', '', '', '', '', '(87) 96491-101', '', 'adalgisamariacoelhocaldas@yahoo.com.br', '', '3', '', '', '', '', '', '', '', '', 76, '0000-00-00 00:00:00', '2016-11-24 19:35:03'),
-(1819, 'Liberado', 'ADNA LUCI GONÇALVES DE O CAMPINA', '', 'ABÓBORA', '', '', '', '', '', '(87) 96455-801', '', '', '', '4', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '2016-11-21 22:37:37'),
-(1820, 'Liberado', 'ADNA LUCI GONÇALVES DE OLIVEIRA CAMPINA', '', 'ABÓBORA', '', '', '', '', '(74) 3617-3166', '', '', 'adnaluci-21@hotmail.com', '', '5', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '2016-11-21 22:37:55'),
-(1821, 'Liberado', 'ADRIANA MAGNOLIA MARTINS', '', 'ABÓBORA', '', '', '', '', '', '74.9.8803.3587', '', 'magnolia_adriana@hotmail.com', '', '6', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1822, 'Liberado', 'ADRIANA MENEZES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98835-9843', '', 'babyadriane@hotmail.com', '', '7', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1823, 'Liberado', 'ADRIANO DA SILVA SOUSA', '', 'ABÓBORA', '', '', '', '', '', '74 9131-9481', '', 'adrianosssecret@gmail.com', '', '8', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1824, 'Liberado', 'ALESSANDRA CUNHA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98834-9170', '', '', '', '9', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1825, 'Liberado', 'ALESSANDRA GOMES DOS SNTOS OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74-98817-4405', '', 'alessandragso1@hotmail.com', '', '10', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1826, 'Liberado', 'ALESSANDRA TATIANE FEITOSA SANTOS ALVES', '', 'ABÓBORA', '', '', '', '', '', '(74)98826-6757', '', 'ale.tati88@gmail.com', '', '11', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1827, 'Liberado', 'ALEX FABIAN ALENCAR COSTA', '', 'ABÓBORA', '', '', '', '', '', '87999620145', '', 'fabian-costas@hotmail.com', '', '12', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1828, 'Liberado', 'ALEXSANDRO COSTA', '', 'ABÓBORA', '', '', '', '', '', '(74)988599284', '', 'acxandy74@gmail.com', '', '13', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1829, 'Liberado', 'ALFREIZA ALMEIDA DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 988061904', '', 'alfreiza.sereno@hotmail.com', '', '14', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1830, 'Liberado', 'ALINE DE FÁTIMA SOARES DO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '74 999215821', '', 'line__fatima@hotmail.com', '', '15', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1831, 'Liberado', 'ALINE DOS SANTOS ALMEIDA SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8803-6808', '', 'alinedalmeida@hotmail.com', '', '16', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1832, 'Liberado', 'ALINE MEDEIROS DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74)99973-8299', '', 'line.easy@hotmail.com', '', '17', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1833, 'Liberado', 'AMILTON DOS SANTOS GOMES', '', 'ABÓBORA', '', '', '', '', '', '87 98817-6172', '', 'amiltongomes2016@hotmail.com', '', '18', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1834, 'Liberado', 'ANA CARINE COELHO RODRIGUES QUEZADO', '', 'ABÓBORA', '', '', '', '', '', '(74) 3531-1136', '', 'anaccr2007@yahoo.com.br', '', '19', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1835, 'Liberado', 'ANA CATIA DOS SANTOS MARTINS', '', 'ABÓBORA', '', '', '', '', '', '743617 7066', '', 'anacatia.santos@hotmail.com', '', '20', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1836, 'Liberado', 'ANA CLÁUDIA OITAVEN SANTOS DIAS', '', 'ABÓBORA', '', '', '', '', '', '74 98811-8722', '', 'claudinha_oitaven@hotmail.com', '', '21', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1837, 'Liberado', 'ANA ELIZABETE DOS SANTOS OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '98805 4854', '', 'charmandos@hotmail.com', '', '22', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1838, 'Liberado', 'ANA LUIZA DANTAS MEDRADO', '', 'ABÓBORA', '', '', '', '', '', '(74)988327181', '', 'luiza42@hotmail.com.br', '', '23', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1839, 'Liberado', 'ANA MARIA CARVALHO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '', '', '', '', '24', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1840, 'Liberado', 'ANA MARIA SILVA GOMES', '', 'ABÓBORA', '', '', '', '', '', '7499983 1603', '', 'anamariasg@hotmail.com', '', '25', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1841, 'Liberado', 'ANA PATRÍCIA DO NASCIMENTO DE SOUSA', '', 'ABÓBORA', '', '', '', '', '', '87-98806-7789', '', 'anapatriciasouza27@gmail.com', '', '26', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1842, 'Liberado', 'ANA PAULA COSTA RIBEIRO QUEIROZ', '', 'ABÓBORA', '', '', '', '', '', '74991114921', '', '', '', '27', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1843, 'Liberado', 'ANA RÔSE SANTOS BARBOSA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98815-4703', '', 'roses-barbosa@hotmail.com', '', '28', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1844, 'Liberado', 'ANAIDE MOTA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74)98834-7567', '', 'anaide2020@hotmail.com', '', '29', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1845, 'Liberado', 'ANAILMA GOMES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74 98834-5523', '', '', '', '30', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1846, 'Liberado', 'ANAITE DOS SANTOS RIBEIRO', '', 'ABÓBORA', '', '', '', '', '', '(74) 98803-4229', '', 'anaiteribeiro@hotmail.com', '', '31', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1847, 'Liberado', 'ANDERSON GILVAN DE SOUZA SUBRINHO', '', 'ABÓBORA', '', '', '', '', '', '(87) 9608-3546', '', 'andersonsubrinho@gmail.com', '', '32', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1848, 'Liberado', 'ANDRÉA DOS SANTOS MORAES DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 98826-1336', '', 'dea6amanda@gmail.com', '', '33', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1849, 'Liberado', 'ANDREIA DA CUNHA MATTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)98813-0524', '', 'andreiacunha.mattos@hotmail.com', '', '34', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1850, 'Liberado', 'ANGÉLICA CAJUÍ BONFIM', '', 'ABÓBORA', '', '', '', '', '', '74 999451771', '', 'angelica_cajhui@hotmail.com', '', '35', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1851, 'Liberado', 'APARECIDA CAJARANA XAVIER', '', 'ABÓBORA', '', '', '', '', '', '7488016147', '', 'cajarana.xavier@hotmail.com', '', '36', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1852, 'Liberado', 'ARIONEIDE PASSOS GOMES NUNES', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8838-2144', '', 'arioneidepgomes@gmail.com', '', '37', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1853, 'Liberado', 'ARIVONALDA ALVES MATIAS', '', 'ABÓBORA', '', '', '', '', '', '74 98844-4160', '', 'arivonalda@hotmail.com', '', '38', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1854, 'Liberado', 'ATONIETA DUARTE DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '7488225671', '', '', '', '39', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1855, 'Liberado', 'BENEDITA FIDIEL GOMES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 3618 9018', '', 'beneditafidiel@hotmail.com', '', '40', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1856, 'Liberado', 'BERNADETE DE JESUS COELHO', '', 'ABÓBORA', '', '', '', '', '', '(87)98843-9287', '', 'bernadetejcoelho@hotmail.com', '', '41', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1857, 'Liberado', 'CARLA DOS SANTOS CUNHA', '', 'ABÓBORA', '', '', '', '', '', '74-98807-8809', '', 'brothersister@bol.com.br', '', '42', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1858, 'Liberado', 'CARLA SAMARA FERREIRA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74991415740', '', '', '', '43', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1859, 'Liberado', 'CARLA TAMIRES DE OLIVEIRA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74988441602', '', 'alracarievilo03@hotmail.com', '', '44', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1860, 'Liberado', 'CARLISNA GUIMARÃES DO CARMO', '', 'ABÓBORA', '', '', '', '', '', '74 98822-8979', '', 'carlisna@gmail.com', '', '45', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1861, 'Liberado', 'CELIA MARIA CAMPOS', '', 'ABÓBORA', '', '', '', '', '', '(74)988163065', '', '', '', '46', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1862, 'Liberado', 'CÉLIA MARIA CAMPOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 8816-3065', '', 'camposceli@oi.com.br', '', '47', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1863, 'Liberado', 'CLAUDIA ALVES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 988012845', '', 'claudiasilvajua@gmail.com', '', '48', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1864, 'Liberado', 'CLAUDIA FERREIRA DE SOUZA CUNHA', '', 'ABÓBORA', '', '', '', '', '', '74-99934-7444', '', '', '', '49', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1865, 'Liberado', 'CLAUDIANA DE PAULA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98847-4782', '', 'claudiana.prof@gmail.com ', '', '50', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1866, 'Liberado', 'CLAUDIANA DE PAULA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98847-4782', '', 'claudiana.prof@gmail.com', '', '51', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1867, 'Liberado', 'CLAUDILENE BARBOSA DO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '(74)98802.3987', '', 'claudinhabarbosa2@hotmail.com', '', '52', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1868, 'Liberado', 'CLEIA BARRETO DE FIGUEIREDO', '', 'ABÓBORA', '', '', '', '', '', '(74)98818-3453', '', 'cleiabarreto02@outlook.com', '', '53', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1869, 'Liberado', 'CLEIDEMAR DIAMANTINO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74)98807-0074', '', 'diamantino.silva@hotmail.com', '', '54', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1870, 'Liberado', 'CLEMILDA DA SILVA FERREIRA ', '', 'ABÓBORA', '', '', '', '', '', '087 988211702', '', 'cleinha.ferreira @gmail.com', '', '55', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1871, 'Liberado', 'CLEMILDA DIAS DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(87) 98813 - 8666', '', 'clemildapetrolina@gmail.com', '', '56', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1872, 'Liberado', 'CLEONEIDE RODRIGUES LEITE', '', 'ABÓBORA', '', '', '', '', '', '8796024625', '', 'cleoneiderodrigues@hotmail.com', '', '57', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1873, 'Liberado', 'CRISTIANA COELHO DE MACEDO ALENCAR', '', 'ABÓBORA', '', '', '', '', '', '8798812-1532', '', 'cristiane_katley@hotmail.com', '', '58', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1874, 'Liberado', 'CRISTIANA DOS SANTOS PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '999594230', '', '', '', '59', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1875, 'Liberado', 'CRISTIANA WILLIAM SOUZA PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '(74)8818-6967', '', 'wkristiana@hotmail.com', '', '60', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1876, 'Liberado', 'CRISTOCARMEN RABELO SANTANA', '', 'ABÓBORA', '', '', '', '', '', '7488043916', '', 'cristo.carmen@hotmail.com', '', '61', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1877, 'Liberado', 'DAIANE JANE DE ARAUJO PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '8788120224', '', 'daianejane@hotmail.com', '', '62', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1878, 'Liberado', 'DANIELA NASCIMENTO DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74 3617 8392', '', '', '', '63', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1879, 'Liberado', 'DEDILENE LEITE GUERRA', '', 'ABÓBORA', '', '', '', '', '', '74988287864', '', 'dedileneguerra@gmail.com', '', '64', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1880, 'Liberado', 'DENILDA SILVA DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74 988263448', '', 'denildasilva2010@hotmail.com', '', '65', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1881, 'Liberado', 'DERILEUSA ALVES MEDRADO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74) 8815-2404', '', '', '', '66', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1882, 'Liberado', 'DINAIR BRITO SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(74)988121058', '', 'rianidbrito@hotmail.com', '', '67', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1883, 'Liberado', 'DINAIR BRITO SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(74)988121058', '', 'rianidbrito@hotmail.com', '', '68', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1884, 'Liberado', 'DOLORES GOMES DE LIMA', '', 'ABÓBORA', '', '', '', '', '', '(74) 8815-1323', '', 'doloresgomeslima@gmail.com', '', '69', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1885, 'Liberado', 'DORACI DA SILVA FERREIRA RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '(74)98831-7560', '', 'doraci_sfr@hotmail.com', '', '70', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1886, 'Liberado', 'DORALUCIA SANTOS DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 9 8812 0216', '', 'doraluciacarlos@hotmail.com', '', '71', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1887, 'Liberado', 'DORALUCIA SANTOS DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 9 8812 0216', '', 'doraluciacarlos@hotmail.com', '', '72', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1888, 'Liberado', 'EDELZITA PEREIRA MARTINS', '', 'ABÓBORA', '', '', '', '', '', '(74) 988184824', '', 'edelzita.martins@bol.com.br', '', '73', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1889, 'Liberado', 'EDIANA DA SILVA FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 99134-4619', '', 'edy.elferreira@hotmail.com', '', '74', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1890, 'Liberado', 'EDINALVA LEMOS SOARES', '', 'ABÓBORA', '', '', '', '', '', '7499594902', '', 'edinalvalemossoares@hotmail.com', '', '75', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1891, 'Liberado', 'EDISON FERREIRA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(87)98864-4099', '', 'edison-ferreira@hotmail.com', '', '76', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1892, 'Liberado', 'EDNA MARIA LUCENA LOPES', '', 'ABÓBORA', '', '', '', '', '', '87 98813-0530', '', 'manoca9@hotmail.com', '', '77', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1893, 'Liberado', 'EDWILSON ABELARDO DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '7488473299', '', 'edwilson-ws@hotmail.com', '', '78', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1894, 'Liberado', 'EILÂNIA CRISTINA MEDRADO DE LIMA', '', 'ABÓBORA', '', '', '', '', '', '74 988164915', '', 'tina.medrado@yahoo.com.br', '', '79', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1895, 'Liberado', 'ELIANA DE SOUZA BONFIM', '', 'ABÓBORA', '', '', '', '', '', '74988336046', '', 'eliana.erickbonfim@hotmail.com', '', '80', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1896, 'Liberado', 'ELIANE DE MENEZES SIMÕES', '', 'ABÓBORA', '', '', '', '', '', '(87) 98832-2171', '', 'ellyannesimoes@gmail.com', '', '81', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1897, 'Liberado', 'ELIANE MARIA GOMES MAIA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98854 - 9979', '', 'elimaiagomes@gmail.com', '', '82', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1898, 'Liberado', 'ELIANE MATOS MARTINS DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '7488021060', '', 'elianemato1@hotmail.com', '', '83', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1899, 'Liberado', 'ELIANE PEREIRA DO CARMO LIMA', '', 'ABÓBORA', '', '', '', '', '', '(87)98806-2076', '', 'carmoliane@gmail.com', '', '84', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1900, 'Liberado', 'ELIAS TIAGO REIS DE CASTRO', '', 'ABÓBORA', '', '', '', '', '', '(74) 98821-8119', '', 'tiagoreisjua@gmail.com', '', '85', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1901, 'Liberado', 'ELIETE DE SOUSA RIBEIRO SÁ', '', 'ABÓBORA', '', '', '', '', '', '(74) 98824 4773', '', 'et-esa@hotmail.com', '', '86', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1902, 'Liberado', 'ELIETE ENELCINA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '7436176145', '', 'alyete@yahoo.com.br', '', '87', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1903, 'Liberado', 'ELIETE LEITE DA PAIXÃO', '', 'ABÓBORA', '', '', '', '', '', '74991001290', '', 'elietesalitre@hotmail.com', '', '88', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1904, 'Liberado', 'ELIS REGINA ALVES', '', 'ABÓBORA', '', '', '', '', '', '8788196072', '', 'era1172@hotmail.com', '', '89', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1905, 'Liberado', 'ELISANGELA DE MELO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '74-98832-8798', '', 'elisangela362010@hotmail.com', '', '90', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1906, 'Liberado', 'ELISÂNGELA SOARES REIS DA SILVA SOUSA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98828-2112', '', 'elis-reis1@hotmail.com', '', '91', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1907, 'Liberado', 'ELIZIA VANIA RODRIGUES RAMOS', '', 'ABÓBORA', '', '', '', '', '', '74 98814-5153', '', 'elizia.rrodrigues@hotmail.com', '', '92', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1908, 'Liberado', 'ELMA ROSE DOS SANTOS PAULA', '', 'ABÓBORA', '', '', '', '', '', '74 9 8826 9187', '', 'elma. paula 6@gmail.com', '', '93', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1909, 'Liberado', 'ELVIS LAION DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(87)996370942', '', 'l_ion_lima@hotmail.com', '', '94', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1910, 'Liberado', 'ELZA FREIRE DE CARVALHO MELO', '', 'ABÓBORA', '', '', '', '', '', '7488061127', '', 'elzacores@hotmail.com', '', '95', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1911, 'Liberado', 'EMANOEL FERREIRA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '', '', 'manolloferreira@bol.com.br', '', '96', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1912, 'Liberado', 'EMANUELA SOCORRO DE MATTOS DUARTE', '', 'ABÓBORA', '', '', '', '', '', '74 99148-2302', '', 'esmd_8@hotmail.com', '', '97', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1913, 'Liberado', 'ÉRIKA CANDEIAS DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '', '', 'erikandeias_425@yahoo.com', '', '98', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1914, 'Liberado', 'ERIVALDA CASTRO ARAUJO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '7488186050', '', 'ericastro13@hotmail.com', '', '99', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1915, 'Liberado', 'EURIDES LIMA DE JESUS QUEIROZ', '', 'ABÓBORA', '', '', '', '', '', '74 988152328', '', 'euridesljq@hotmail.com', '', '100', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1916, 'Liberado', 'EVANI JESUS DA SILVA MARTINS', '', 'ABÓBORA', '', '', '', '', '', '74 9 8815 4301', '', 'evani-silva@hotmail.com', '', '101', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1917, 'Liberado', 'EVILANIA MARIA DOS SANTOS DUARTE', '', 'ABÓBORA', '', '', '', '', '', '74 98838-6916', '', 'evilania-duarte@hotmail.com', '', '102', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1918, 'Liberado', 'FABIANA ALMEIDA LIMA MEDRADO', '', 'ABÓBORA', '', '', '', '', '', '(74)98834-2119', '', 'fab-analima@hotmail.com', '', '103', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1919, 'Liberado', 'FABIANA COSTA MARTINI', '', 'ABÓBORA', '', '', '', '', '', '74 999817049', '', 'fcmartini.2705@hotmail.com', '', '104', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1920, 'Liberado', 'FABIANA DA SILVA ROCHA', '', 'ABÓBORA', '', '', '', '', '', '74988075190', '', '', '', '105', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1921, 'Liberado', 'FABRICIO DANIEL DOMINGOS', '', 'ABÓBORA', '', '', '', '', '', '74-98847-1097', '', 'fabriciovasf2015@gmail.com', '', '106', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1922, 'Liberado', 'FÁTIMA CONCEIÇÃO MENDES DAMASCENO ', '', 'ABÓBORA', '', '', '', '', '', '74- 988275867', '', 'fatima.mendes2010@hotmail.com', '', '107', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1923, 'Liberado', 'FLÁVIA DIAS DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(87) 98853 - 5993', '', 'flavia.psicopedagoga@hotmail.com', '', '108', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1924, 'Liberado', 'FLORIZA SANTOS FELIX', '', 'ABÓBORA', '', '', '', '', '', '7488069499', '', 'florizasantos2008@hotmail.com', '', '109', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1925, 'Liberado', 'FRANCI DA SILVA CARDOSO MONTEIRO', '', 'ABÓBORA', '', '', '', '', '', '(74) 8813-0170', '', '', '', '110', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1926, 'Liberado', 'FRANCISCA DA SILVA FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 988434952', '', 'francisjua@hotmail.com', '', '111', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1927, 'Liberado', 'GEÍSE CALINE DA CONCEIÇÃO RIBEIRO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74-98819 - 3843', '', 'caline.rib@gmail.com', '', '112', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1928, 'Liberado', 'GEZIVANE CAJUHI DUARTE', '', 'ABÓBORA', '', '', '', '', '', '7436176309', '', 'vaniaduarte2008@hotmail.com', '', '113', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1929, 'Liberado', 'GILIANE ALVES LIMA', '', 'ABÓBORA', '', '', '', '', '', '87 88277031', '', 'giliannealves@hotmail.com', '', '114', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1930, 'Liberado', 'GILNETE DE SOUZA MENEZES SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7488021060', '', 'gilnetemenezes@yahoo.com.br', '', '115', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1931, 'Liberado', 'GILVANIA FREIRE', '', 'ABÓBORA', '', '', '', '', '', '87 988332977', '', 'gilvaniafreire@hotmail.com', '', '116', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1932, 'Liberado', 'GISELIA AMARAL ', '', 'ABÓBORA', '', '', '', '', '', '74-98806-5920', '', '', '', '117', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1933, 'Liberado', 'GISLENE MARIA PIRES BATISTA', '', 'ABÓBORA', '', '', '', '', '', '(74) 3611-9078', '', 'gec37@hotmail.com', '', '118', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1934, 'Liberado', 'GIVONILDE LEITE RODRIGUES DE JESUS', '', 'ABÓBORA', '', '', '', '', '', '7488177478', '', 'givonilderodrigues@gmail.com', '', '119', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1935, 'Liberado', 'GLAUCIO DE LIMA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 - 988499327', '', 'glauciolimasilva@gmail.com', '', '120', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1936, 'Liberado', 'GRACINETE VARJÃO DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74)98825-0401', '', 'gracyvarjao@hotmail.com', '', '121', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1937, 'Liberado', 'GRAZZIELLI BRITO CARDOSO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 988147891', '', 'grazzibrito@hotmail.com', '', '122', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1938, 'Liberado', 'HELENA DE MATTOS BRANDÃO', '', 'ABÓBORA', '', '', '', '', '', '74988149806', '', 'helena.mattos@outlook.com', '', '123', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1939, 'Liberado', 'HELENI LIMA BRASIL', '', 'ABÓBORA', '', '', '', '', '', '0', '', 'leninhabrasil@hotmail.com', '', '124', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1940, 'Liberado', 'HILDETH FRANCISCA DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74988021291', '', 'hildeth_oliveira@hotmail.com', '', '125', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1941, 'Liberado', 'HILZA GOMES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74-81111085', '', 'hilzags@hotmail.com', '', '126', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1942, 'Liberado', 'IASMIN TAINÃ DE SOUZA SANTANA', '', 'ABÓBORA', '', '', '', '', '', '(74)988156250', '', 'iasmin.pmj@gmail.com', '', '127', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1943, 'Liberado', 'IGOR LIBORIO PASSOS', '', 'ABÓBORA', '', '', '', '', '', '74 98814 4743', '', 'igorliborio@hotmail.com', '', '128', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1944, 'Liberado', 'IGOR LUCAS DE OLIVEIRA VARGAS', '', 'ABÓBORA', '', '', '', '', '', '(74) 9188-3450', '', 'igor-lucas@hotmailcom', '', '129', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1945, 'Liberado', 'ILEANE DAMASCENO IMOTO', '', 'ABÓBORA', '', '', '', '', '', '749.8809.0992', '', 'ileanedi@hotmail.com', '', '130', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1946, 'Liberado', 'IRACELMA PEREIRA DE MARINS', '', 'ABÓBORA', '', '', '', '', '', '74-98805-6163', '', 'iramarins@bol.com.br', '', '131', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1947, 'Liberado', 'IRACEMA DE OLIVEIRA SILVA', '', 'ABÓBORA', '', '', '', '', '', '7488071677', '', 'iracemacaxanga@gmail.com', '', '132', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1948, 'Liberado', 'IRAIDES VALADARES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7488216525', '', 'iraidesvadalares@hotmail.com', '', '133', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1949, 'Liberado', 'IRANEIDE LOPES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74 8815-6809', '', '', '', '134', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1950, 'Liberado', 'IRIS SANTOS MARTINS DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74-8833-7800', '', 'iris.menso@hotmail.com', '', '135', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1951, 'Liberado', 'ISABEL CRISTINA AMORIM A. DE ARAÚJO', '', 'ABÓBORA', '', '', '', '', '', '87.9.8808.0330', '', 'belamorim16@hotmail.com', '', '136', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1952, 'Liberado', 'ISABEL CRISTINA DE CARVALHO ROSA', '', 'ABÓBORA', '', '', '', '', '', '(74) 8855-5979', '', 'isabel.jua@hotmail.com', '', '137', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1953, 'Liberado', 'ITALO KLAYNER OLIVEIRA DO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8814-6359', '', 'italoklayner@hotmail.com', '', '138', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1954, 'Liberado', 'IURI HONÓRIO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98824-8118', '', 'iuri_honorio@gmail.com', '', '139', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1955, 'Liberado', 'IVANI MARIA DA SILVA ', '', 'ABÓBORA', '', '', '', '', '', '7488458189', '', 'ivanisilva2014@hotmail.com', '', '140', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1956, 'Liberado', 'IVANILDO GOMES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '7488067352', '', 'ivanildo-gomes123@hotmail.com', '', '141', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1957, 'Liberado', 'IZABEL CRISTINA MARTINS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98813-0094', '', 'ic.martins@hotmail.com', '', '142', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1958, 'Liberado', 'JACI CRISTINA PAIXÃO ', '', 'ABÓBORA', '', '', '', '', '', '87-988 348988', '', 'jaci.butterfly@hotmail.com', '', '143', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1959, 'Liberado', 'JACIARA DA CONCEIÇÃO SAMPAIO', '', 'ABÓBORA', '', '', '', '', '', '7488165400', '', 'jaciaracsampaio@gmail.com', '', '144', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1960, 'Liberado', 'JACKSON FIGUEIREDO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74) 8825-8322', '', 'jackson.silvaw@gmail.com', '', '145', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1961, 'Liberado', 'JAELTON DE OLIVEIRA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74-99955-2236', '', 'jaelton.oliveira@hotmail.com', '', '146', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1962, 'Liberado', 'JAILDE MAGALHÃES BRITO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74-98818-7754', '', 'jaildem.mbs@hotmail.com', '', '147', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1963, 'Liberado', 'JAILMA CARVALHO OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98818-3313', '', 'jailma.@oi.com.br', '', '148', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1964, 'Liberado', 'JAMMYS ZACARIAS RODRIGUES GUERRA', '', 'ABÓBORA', '', '', '', '', '', '74 9 8813 7786', '', 'jammys.guerra@gmail.com', '', '149', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1965, 'Liberado', 'JANETE CLEIA DE SANTANA', '', 'ABÓBORA', '', '', '', '', '', '7499980-6963', '', 'janete_cleia@yahoo.com.br', '', '150', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1966, 'Liberado', 'JANETE DOS SANTOS EMIDIO SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(87) 9605-8868', '', 'janete_emidio@outlook.com', '', '151', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1967, 'Liberado', 'JANICLEIDE BARBOSA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74) 8833-3869', '', '', '', '152', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1968, 'Liberado', 'JÂNIO FÁBIO ALCÂNTARA PINTO DE ARAÚJO', '', 'ABÓBORA', '', '', '', '', '', '(74)98822-6139', '', 'janiopsi@gmail.com', '', '153', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1969, 'Liberado', 'JAQUELLINE DO NASCIMENTO SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74)98855-3726', '', 'jaquellineassessoria27@gmail.com', '', '154', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1970, 'Liberado', 'JESSICA LUANNE DE SANTANA', '', 'ABÓBORA', '', '', '', '', '', '74 988371804', '', 'jessica_luanne@hotmail.com', '', '155', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1971, 'Liberado', 'JILDA CARVALHO SOUZA', '', 'ABÓBORA', '', '', '', '', '', '074 9880 54502', '', 'jilda_jua@hotmail.com', '', '156', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1972, 'Liberado', 'JILENE XAVIER DE SOUZA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 3618 9047', '', 'jilxavier1@hotmail.com', '', '157', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1973, 'Liberado', 'JOANA REGINA DIAS LIMA', '', 'ABÓBORA', '', '', '', '', '', '74-98816-9995', '', 'joanalima1933@hotmail.com', '', '158', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1974, 'Liberado', 'JOÃO CURSINO DE MELO JÚNIOR', '', 'ABÓBORA', '', '', '', '', '', '(74) 991332457', '', 'jotafubuia@hotmail.com', '', '159', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1975, 'Liberado', 'JOELICE FERREIRA BARROSO', '', 'ABÓBORA', '', '', '', '', '', '(74)36173137', '', 'joelice.vitoria@gmail.com', '', '160', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1976, 'Liberado', 'JOELMA RIBEIRO DE MATOS', '', 'ABÓBORA', '', '', '', '', '', '74-98854-5807', '', 'joelma.rmatos@bol.com.br', '', '161', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1977, 'Liberado', 'JOELSON CARVALHO DOS REIS', '', 'ABÓBORA', '', '', '', '', '', '87-88141856', '', 'joelsontyrant@yahoo.com.br', '', '162', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1978, 'Liberado', 'JOHN THAYLOR SANTANA DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 99967-0802', '', 'thaylor.john@hotmail.com', '', '163', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1979, 'Liberado', 'JOICE LIARA ROSA MOREIRA', '', 'ABÓBORA', '', '', '', '', '', '7488034007', '', 'joyceliara@gmail.com', '', '164', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1980, 'Liberado', 'JONAS LEITE DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '87-88652827', '', 'jonaseducacao@hotmail.com', '', '165', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1981, 'Liberado', 'JONILDE PEREIRA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74) 988110737', '', 'jonildepereiradasilva@gmail.com', '', '166', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1982, 'Liberado', 'JOSAIR FERREIRA GOMES', '', 'ABÓBORA', '', '', '', '', '', '7488548945', '', 'alguempediubolero@hotmail.com', '', '167', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1983, 'Liberado', 'JOSÉ CARLOS DE PAIVA NUNES', '', 'ABÓBORA', '', '', '', '', '', '74 988047320', '', 'carlin_paiva@hotmail.com', '', '168', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1984, 'Liberado', 'JOSE GILBERTO PASSOS', '', 'ABÓBORA', '', '', '', '', '', '8799567830', '', 'j.gilbertopassos@hotmail.com', '', '169', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1985, 'Liberado', 'JOSÉ INAILTON NUNES DA SILVA JUNIOR', '', 'ABÓBORA', '', '', '', '', '', '(74) 8861-7633', '', 'junior.jr100@hotmail.com', '', '170', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1986, 'Liberado', 'JOSÉ UELSON GONÇALVES ANDRADE', '', 'ABÓBORA', '', '', '', '', '', '(74) 98816-2837', '', 'professoruelsonandrade@hotmail.com', '', '171', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1987, 'Liberado', 'JOSEVALDO DAVI DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '748821-3003', '', 'david_127@hotmail.com', '', '172', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1988, 'Liberado', 'JOSIANY LEAL PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 988110653', '', 'josyleper@hotmail.com', '', '173', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1989, 'Liberado', 'JOSICLEA VARJÃO', '', 'ABÓBORA', '', '', '', '', '', '(74)98815-7100', '', 'varjao.silv@hotmail.com', '', '174', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1990, 'Liberado', 'JOSILDA DIAS DOS SANTOS ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '74 98833-6504', '', '', '', '175', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1991, 'Liberado', 'JOSILENE DANTAS ', '', 'ABÓBORA', '', '', '', '', '', '74 988038212', '', 'josigeografa@hotmail.com', '', '176', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1992, 'Liberado', 'JOSIMERE INÁCIO DA SILVA FIGUEIREDO', '', 'ABÓBORA', '', '', '', '', '', '74098832-3126', '', 'josimeref@hotmail.com', '', '177', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1993, 'Liberado', 'JOSIVAN DUARTE SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7499801-8678', '', 'joivan.duarte@hotmail.com', '', '178', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1994, 'Liberado', 'JUCÉLIA PEREIRA SILVA LINO', '', 'ABÓBORA', '', '', '', '', '', '74 999759179', '', 'alinedefatima92@gmail.com', '', '179', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1995, 'Liberado', 'JUCIARA MARTINS EVANGELISTA DA MOTA', '', 'ABÓBORA', '', '', '', '', '', '74 3618 1054', '', 'jiullia2011@hotmail.com', '', '180', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1996, 'Liberado', 'JULIANA FONSECA DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 - 98804 - 7314', '', 'jna_fonseca@outlook.com', '', '181', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1997, 'Liberado', 'JUSCÉLIA MARIA BELFORT ALMEIDA DUARTE', '', 'ABÓBORA', '', '', '', '', '', '(74) 98811 - 7714', '', 'jusceliabelfort@gmail.com', '', '182', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1998, 'Liberado', 'JUSSARA GLEUMA NERY DE O. SILVA', '', 'ABÓBORA', '', '', '', '', '', '317488626194', '', 'jussaragleuma@gmail.com', '', '183', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(1999, 'Liberado', 'KARLA CRISTINA', '', 'ABÓBORA', '', '', '', '', '', '(87)98855-5031', '', 'karla-cristina-lima@hotmail.com', '', '184', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2000, 'Liberado', 'KÁTIA MARIA PINHEIRO DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74988050142', '', 'katiamary2008@hotmail.com', '', '185', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2001, 'Liberado', 'KATIA SIMONI NUNES MARQUES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7498859-6941', '', 'kmarques17@yahoo.com.br', '', '186', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2002, 'Liberado', 'KATIANE SOARES DA SILVA ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98842-1586', '', 'katiane_soares.silva@hotmail.com', '', '187', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2003, 'Liberado', 'KELLY CRISTINE SOUZA GOMES REIS', '', 'ABÓBORA', '', '', '', '', '', '(74) 8804-8609', '', 'kellykristinesgr@gmail.com', '', '188', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2004, 'Liberado', 'KLERISSON GOMES SARMENTO', '', 'ABÓBORA', '', '', '', '', '', '087 98806 1120', '', 'klerisson@yahoo.com.br', '', '189', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2005, 'Liberado', 'LAÍSIA GONÇALVES DO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '74-99945-9713', '', 'laisia2009@yahoo.com.br', '', '190', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2006, 'Liberado', 'LARISSA DE SOUZA NOVAES E BARBOSA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98839-7949', '', 'larissarick@yahoo.com.br', '', '191', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2007, 'Liberado', 'LENI SILVA PRADO PIMENTEL', '', 'ABÓBORA', '', '', '', '', '', '7488031903', '', 'lenbarreto@hotmail.com', '', '192', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2008, 'Liberado', 'LEONICE TEONILIA DE CARVALHO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)98832-4551', '', 'leoniceteonilia@hotmail.com', '', '193', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2009, 'Liberado', 'LETICIA MARIA GONÇALVES PESSÔA VIEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74)98817-5914', '', 'leticia_pessoavieira@yahoo.com.br', '', '194', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2010, 'Liberado', 'LEUZA LANE PEREIRA CARNEIRO FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '74 988226041', '', 'leuza.lane@yahoo.com.br', '', '195', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2011, 'Liberado', 'LÍLIAN MARIA DOS SANTOS LEAL', '', 'ABÓBORA', '', '', '', '', '', '74 999049424', '', 'lia.leal@hotmail.com', '', '196', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2012, 'Liberado', 'LINDAURA DE SOUSA NASCIMNTO', '', 'ABÓBORA', '', '', '', '', '', '(74)8819-0929', '', 'lind-arai@hotmail.com', '', '197', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2013, 'Liberado', 'LINDIMAR CAVALCANTE DA SILVA MELLO', '', 'ABÓBORA', '', '', '', '', '', '74.9.8806.0044', '', 'lindy_cpc@hotmail.com', '', '198', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2014, 'Liberado', 'LIVIA PEREIRA DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 98849-5539', '', 'lyvynha2010@hotmail.com', '', '199', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2015, 'Liberado', 'LOURDES MARIA MARINONE DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74-99995-8743', '', 'lourdesmarinone@hotmail.com', '', '200', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2016, 'Liberado', 'LUCIA BRUNO DE ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '999257220', '', '', '', '201', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2017, 'Liberado', 'LUCIA SOARES CAIANA DE MOURA', '', 'ABÓBORA', '', '', '', '', '', '7488190973', '', '', '', '202', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2018, 'Liberado', 'LUCIANA GOMES DE JESUS FRAGA', '', 'ABÓBORA', '', '', '', '', '', '', '', 'lucianafragagomes@hotmail.com.br', '', '203', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2019, 'Liberado', 'LUCIANA SOARES DE LIMA', '', 'ABÓBORA', '', '', '', '', '', '74-98815-7916', '', '', '', '204', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2020, 'Liberado', 'LUCÍLIA LOPES MENDONÇA', '', 'ABÓBORA', '', '', '', '', '', '74 988084358', '', 'luccylya@hotmail.com', '', '205', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2021, 'Liberado', 'LUCIMAR CARVALHO DA SILVA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74 9 8822 3271', '', 'lucimar_co@hotmail.com', '', '206', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2022, 'Liberado', 'LUCIMARA DE SOUSA', '', 'ABÓBORA', '', '', '', '', '', '87 98821-6115', '', 'sousa_04@hotmail.com', '', '207', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2023, 'Liberado', 'LUCIMEIRE CAMPOS BARROS', '', 'ABÓBORA', '', '', '', '', '', '(74)98821-8202', '', 'meirejnbarros@hotmail.com', '', '208', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2024, 'Liberado', 'LUCINEIDE BARBOSA DA SILVA CARVALHO', '', 'ABÓBORA', '', '', '', '', '', '(74)98811-9762', '', 'luci.silvabarbosa89@yahoo.com.br', '', '209', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2025, 'Liberado', 'LUIS CLAUDIO O DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '8799751501', '', '', '', '210', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2026, 'Liberado', 'LUIS CLAUDIO OLIVEIRA DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '8799751501', '', 'luisclaudioelizangela@hotmail.com', '', '211', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2027, 'Liberado', 'LUZIA SOARES BARBOSA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98827-1909', '', 'soares_luzia@hotmail.com', '', '212', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2028, 'Liberado', 'MAIANE DO NASCIMENTO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7498823-8610', '', 'maianedonascimentosantos@gmail.com', '', '213', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2029, 'Liberado', 'MAILDE BONFIM DOS SANTOS ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98845 - 4891', '', 'mabonfimsantosuneb@hotmail.com', '', '214', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2030, 'Liberado', 'MAÍRLA CARLA SILVA GUEDES', '', 'SEDE', '', '', '', '', '', '(74) 98804-7914', '', 'mairlacarla@hotmail.com', '', '21.5', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '2017-01-05 18:40:42'),
-(2031, 'Liberado', 'MARCIA NASCIMENTO DE SÁ', '', 'ABÓBORA', '', '', '', '', '', '(74)98805-2611', '', 'marcia_de_s@hotmail.com', '', '216', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2032, 'Liberado', 'MARCIONÍLIA RIBEIRO SILVA MIRANDA', '', 'ABÓBORA', '', '', '', '', '', '(87)98821-7205', '', 'marcioniliaribeito76@gmail.com', '', '217', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2033, 'Liberado', 'MARGARETE BARBOSA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 99883138', '', 'margarete.silva2009@hotmail.com', '', '218', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2034, 'Liberado', 'MARIA APARECIDA DIAS DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74-98829-7072', '', 'maria.dias71@hotmail.com.', '', '219', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2035, 'Liberado', 'MARIA APARECIDA MIRANDA DA SILVA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74988350082', '', 'cidinha-miranda@hotmail.com', '', '220', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2036, 'Liberado', 'MARIA AUXILIADORA DE MENESES KAWABE', '', 'ABÓBORA', '', '', '', '', '', '(74)98805-0119', '', 'mariadodora@gmail.com', '', '221', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2037, 'Liberado', 'MARIA AUXILIADORA PEREIRA RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '(74) 98801-5010', '', 'diretoraauxiliadora@hotmail.com', '', '222', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2038, 'Liberado', 'MARIA AUXLIADORA DA C. FERNANDES', '', 'ABÓBORA', '', '', '', '', '', '74988135592', '', 'auxiliadora--conceicao@hotmail.com', '', '223', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-INSERT INTO `pessoas` (`id`, `vinculo`, `nome`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `cel1`, `cel2`, `email`, `cpf`, `rg`, `expedicao_rg`, `naturalidade`, `nascionalidade`, `nis`, `escolaridade`, `data_nascimento`, `nome_mae`, `nome_pai`, `user_id`, `created_at`, `updated_at`) VALUES
-(2039, 'Liberado', 'MARIA BETÂNIA PEREIRA BISPO', '', 'ABÓBORA', '', '', '', '', '', '87-98815-8500', '', 'betaniabispo@hotmail.com', '', '224', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2040, 'Liberado', 'MARIA CONCEIÇÃO FERNANDES PEREIRA DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)988151393', '', 'mceicaofps@hotmail.com', '', '225', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2041, 'Liberado', 'MARIA CONCEIÇÃO FERNANDES PEREIRA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)98815-1393', '', 'mceicaofps@hotmail.com', '', '226', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2042, 'Liberado', 'MARIA DA RESSURREIÇÃO DE SOUZA BARBOSA', '', 'ABÓBORA', '', '', '', '', '', '7498808-7053', '', 'ressubarbosa@gmail.com', '', '227', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2043, 'Liberado', 'MARIA DAS GROTAS PEREIRA GOMES MACEDO', '', 'ABÓBORA', '', '', '', '', '', '(74) 98805-1738', '', 'grotasmorena@hotmail.com', '', '228', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2044, 'Liberado', 'MARIA DE FATIMA MARTINS', '', 'ABÓBORA', '', '', '', '', '', '3617 7040', '', 'fatima.marthis@hotmail.com', '', '229', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2045, 'Liberado', 'MARIA DO CARMO DE JESUS NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '74-98816-5040', '', '', '', '230', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2046, 'Liberado', 'MARIA DO PERPETUO SOCORRO DA COSTA BRAGA', '', 'ABÓBORA', '', '', '', '', '', '74 988343612', '', 'ipc_jua@hotmail.com ', '', '231', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2047, 'Liberado', 'MARIA DULCE GOMES ONIAS DE SÁ', '', 'ABÓBORA', '', '', '', '', '', '74-98801-0052', '', '', '', '232', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2048, 'Liberado', 'MARIA EDVÂNIA DE SÁ', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8839-3619', '', 'edvaniamello@gmail.com', '', '233', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2049, 'Liberado', 'MARIA ERENITA DE AMORIM COELHO', '', 'ABÓBORA', '', '', '', '', '', '(87) 98823-1288', '', 'erenitaamorim@hotmail.com', '', '234', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2050, 'Liberado', 'MARIA HELENA DOS SANTOS SOARES', '', 'ABÓBORA', '', '', '', '', '', '(74) 8811-8387', '', '', '', '235', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2051, 'Liberado', 'MARIA JAILDA TEIXEIRA RODRIGUES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74988185183', '', 'mariajtrp@hotmail.com', '', '236', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2052, 'Liberado', 'MARIA MACIEL DE SENNA', '', 'ABÓBORA', '', '', '', '', '', '(74)98805-1738', '', '                                  niza.mms@hotmail.com', '', '237', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2053, 'Liberado', 'MARIA MONICA NERIS ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '748841-9086', '', 'monica_nerisalmeida@hotmail.com', '', '238', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2054, 'Liberado', 'MARIA OLÍVIA ANDRADE DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '7488381895', '', 'm.olivia.oliveira@bol.com.br', '', '239', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2055, 'Liberado', 'MARIA SISLÉIA DE OLIVEIRA ALVES', '', 'ABÓBORA', '', '', '', '', '', '(74) 988161883', '', 'sisleiadoisdejulho@hotmail.com', '', '240', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2056, 'Liberado', 'MARIA SUENI FERREIRA DOS S. RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '7436173009', '', 'sueni_santos@yahoo.com.br', '', '241', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2057, 'Liberado', 'MARIA SUENI FERREIRA DOS SANTOS RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '743617-3009', '', 'sueni_santos@yahoo.com.br', '', '242', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2058, 'Liberado', 'MARIANA FONSECA', '', 'ABÓBORA', '', '', '', '', '', '74 988320498', '', '', '', '243', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2059, 'Liberado', 'MARILENE GONÇALVES DE LIMA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 99947-7592', '', 'mari.goncalves@hotmail.com.br', '', '244', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2060, 'Liberado', 'MARINA DO NASCIMENTO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7491241674', '', 'marinamorena85@hotmail.com', '', '245', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2061, 'Liberado', 'MARISTELA PEREIRA DA SILVA (READAPTADA)', '', 'ABÓBORA', '', '', '', '', '', '(87)98838-2749', '', 'mari_stela_petro@hotmail.com', '', '246', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2062, 'Liberado', 'MARLENE BARBOSA DOS SANTOS ALVES', '', 'ABÓBORA', '', '', '', '', '', '074 98842 8592', '', 'marilenebarbosa2205@outlook.com', '', '247', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2063, 'Liberado', 'MARLENE MARIA DE SANTANA CRUZ ', '', 'ABÓBORA', '', '', '', '', '', '74 988191729', '', 'marlene_santanacruz@hotmail.com', '', '248', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2064, 'Liberado', 'MARLETE ALVES PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8852-3965', '', 'maravilhalete@hotmail.com', '', '249', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2065, 'Liberado', 'MARLI FERREIRA CASSIANO RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '74 3617-8342', '', '', '', '250', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2066, 'Liberado', 'MARLUCE DA SILVA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74 98834-2914', '', 'marlucewc1@gmail.com', '', '251', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2067, 'Liberado', 'MARY LUCIA BARROSO PESQUEIRA', '', 'ABÓBORA', '', '', '', '', '', '87 98834 1052', '', 'marypetro_10@hotmail.com', '', '252', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2068, 'Liberado', 'MARYCÉLIA MACEDO REGO', '', 'ABÓBORA', '', '', '', '', '', '74 9 8822-4912', '', 'maryceliamacedo@hotmail.com', '', '253', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2069, 'Liberado', 'MAZARETH SOARES OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74 988237856', '', 'maethjua@hotmail.com', '', '254', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2070, 'Liberado', 'MEIREZANE GONSALVES DOS SANTOS SOUZA', '', 'ABÓBORA', '', '', '', '', '', '7488567919', '', 'loane-souza@hotmail.com', '', '255', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2071, 'Liberado', 'MICHEL DE SOUZA CARVALHO', '', 'ABÓBORA', '', '', '', '', '', '8788215965', '', 'michel1405@gmail.com', '', '256', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2072, 'Liberado', 'MILENA MENEZES NASCIMENTO DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74 9 8812 10 81 ', '', 'millena2522@hotmail.com', '', '257', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2073, 'Liberado', 'MINEIA DOS SANTOS SUARES ', '', 'ABÓBORA', '', '', '', '', '', '74- 9881-6676', '', 'mineiasuares@hotmail.com', '', '258', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2074, 'Liberado', 'MIRAILDE DANTAS DA CRUZ', '', 'ABÓBORA', '', '', '', '', '', '(74)98838-0501', '', 'mira_morena@hotmail.com', '', '259', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2075, 'Liberado', 'NADJA DE SOUZA FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '8788395148', '', 'nadjasf@ig.com.br', '', '260', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2076, 'Liberado', 'NEIVA SORAIA CRUZ DE OLIVEIRA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)988039933', '', 'neiva.cruz@hotmail.com', '', '261', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2077, 'Liberado', 'NERCI SILVA DA CRUZ', '', 'ABÓBORA', '', '', '', '', '', '8798823-3851', '', 'liriacruzz@hotmail.com', '', '262', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2078, 'Liberado', 'NIDIA DE PAULA GONÇALVES LIMA', '', 'ABÓBORA', '', '', '', '', '', '74 98824-0515', '', 'nidia.lima@ig.com.br', '', '263', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2079, 'Liberado', 'NOEDI SOUZA DE CARVALHO FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '74 988333053', '', 'noedipinhoes@hotmail.com', '', '264', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2080, 'Liberado', 'NÚBIA PATRÍCIA SANTOS SILVA', '', 'ABÓBORA', '', '', '', '', '', '7498819-3114', '', 'nubiapatriciasilva@gmail', '', '265', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2081, 'Liberado', 'PATRÍCIA CARLA ROCHA  DUARTE PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '74988332875', '', 'patriciacarla01@hotmail.com', '', '266', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2082, 'Liberado', 'PATRICIA LOPES JACINTO MENDES', '', 'ABÓBORA', '', '', '', '', '', '(74) 8819-8016', '', 'pat_jacinto7@hotmail.com', '', '267', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2083, 'Liberado', 'PATROCINIA MARIA SANTOS REGES', '', 'ABÓBORA', '', '', '', '', '', '', '', 'patuleite@hotmail.com', '', '268', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2084, 'Liberado', 'PAULA CRISTINA SANTOS DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74-98855-5977', '', 'paulalcl@hotmail.com', '', '269', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2085, 'Liberado', 'PRISCILA VIRGINA RAMOS PIMETEL', '', 'ABÓBORA', '', '', '', '', '', '74 98807 2495', '', 'pripimantel1@hotmail.com', '', '270', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2086, 'Liberado', 'PRISCILA VIRGÍNIA RAMOS PIMENTEL', '', 'ABÓBORA', '', '', '', '', '', '317488072495', '', 'pripimentel1@hotmail.com', '', '271', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2087, 'Liberado', 'RAFAEL SANTANA ALVES ', '', 'ABÓBORA', '', '', '', '', '', '74 999563806', '', 'rafael_alvesantana@hotmail.com', '', '272', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2088, 'Liberado', 'RAMISON HONÓRIO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98851-1318', '', 'ramison.honorio@gmail.com', '', '273', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2089, 'Liberado', 'RANON DE ALMEIDA MOTA', '', 'ABÓBORA', '', '', '', '', '', '87-9639-0310', '', 'ramom16@hotmail.com', '', '274', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2090, 'Liberado', 'REGINA LUCIA RODRIGUES PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '7488363773', '', 'regina.rodrigues73@hotmail.com', '', '275', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2091, 'Liberado', 'RISEMARY CASTRO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '7488157279', '', 'marry.educ@gmail.com', '', '276', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2092, 'Liberado', 'RITA DE CÁSSIA CARDOSO PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '74 999511931', '', 'ritacasccp@hotmail.com', '', '277', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2093, 'Liberado', 'ROBERTO EVANGELISTA TELES', '', 'ABÓBORA', '', '', '', '', '', '8788284984', '', 'robertodecelia@hotmail.com', '', '278', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2094, 'Liberado', 'ROBERVANIA MARIANO CALAZANS', '', 'ABÓBORA', '', '', '', '', '', '(74) 8807-1560', '', '', '', '279', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2095, 'Liberado', 'ROSANA NUNES DA SILVA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '87 996592974', '', 'zananunes2015gmail.com', '', '280', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2096, 'Liberado', 'ROSANGELA LOURDES DA SILVA ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '74-98814-6110', '', 'rosangela.almeida35@hotmail.com', '', '281', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2097, 'Liberado', 'ROSEANE DA SILVA AMORIM', '', 'ABÓBORA', '', '', '', '', '', '87 98832-3625', '', 'roseane406@gmail.com', '', '282', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2098, 'Liberado', 'ROSEMEIRE NASCIMENTO COSTA', '', 'ABÓBORA', '', '', '', '', '', '74-88294002', '', '', '', '283', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2099, 'Liberado', 'ROSEMERY DIAS DOS SANTOS TORRES', '', 'ABÓBORA', '', '', '', '', '', '(74)361731000', '', 'rosemery_dias@hotmail.com', '', '284', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2100, 'Liberado', 'ROSILDA MARQUES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98143-4315', '', 'rosilda-marques@hotmail.com', '', '285', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2101, 'Liberado', 'ROSILENE RODRIGUES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98817-3799', '', 'lrose7@hotmail.com', '', '286', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2102, 'Liberado', 'ROSINEIDE DE CARVALHO ALVES', '', 'ABÓBORA', '', '', '', '', '', '7488599646', '', 'rose_alvescarvalho@hotmail.com', '', '287', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2103, 'Liberado', 'ROSINEIDE DIAS DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7488423708', '', 'neide-esor@hotmail.com', '', '288', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2104, 'Liberado', 'ROZÂNGELA DE LIMA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98828-6443', '', 'roza.educa@hotmail.com.br', '', '289', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2105, 'Liberado', 'RUI CELESTINO BABOSA ', '', 'ABÓBORA', '', '', '', '', '', '(74)988071291', '', 'barbosarui49@yahoo.com.br', '', '290', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2106, 'Liberado', 'RÚZIA DO NASCIMENTO LIMA', '', 'ABÓBORA', '', '', '', '', '', '87 8844-3703', '', 'ruziaestrela@hotmail.com', '', '291', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2107, 'Liberado', 'SANDRA MARIA BRANDÃO MARTINS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98825-3386', '', '', '', '292', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2108, 'Liberado', 'SANGELA DA CRUZ PAIXÃO', '', 'ABÓBORA', '', '', '', '', '', '74-99161-0554', '', 'sangelapaixao0412@gmail.com', '', '293', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2109, 'Liberado', 'SILVANA GOMES ALMEIDA BARBOSA VARJÃO', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8813 - 5910', '', 'silvanagomes2007@hotmail.com', '', '294', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2110, 'Liberado', 'SILVIA CAVALCANTE ALVES DA CRUZ', '', 'ABÓBORA', '', '', '', '', '', '(74) 88184379', '', 'silcantealcruz@hotmail.com', '', '295', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2111, 'Liberado', 'SIMONE MARIA GONÇALVES', '', 'ABÓBORA', '', '', '', '', '', '74 99906-1709', '', 'claricemony1@hotmail.com', '', '296', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2112, 'Liberado', 'SINEIDE DOS SANTOS DANTAS', '', 'ABÓBORA', '', '', '', '', '', '74 3617 3112', '', 'sineide.sabryne@hotmail.com', '', '297', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2113, 'Liberado', 'SIRLEIDE DANTAS DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '8799275914', '', 'leide1901@outlook.com', '', '298', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2114, 'Liberado', 'SIRLENE OLIVEIRA ALVES DOS REIS', '', 'ABÓBORA', '', '', '', '', '', '74 999430461', '', 'sir_reis@live.com', '', '299', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2115, 'Liberado', 'SOLANGE DE ALMEIDA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '0', '', 'solangetiasol@hotmail.com', '', '300', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2116, 'Liberado', 'SÔNIA GOMES DA SILVA SANTANA', '', 'ABÓBORA', '', '', '', '', '', '74-3617-2012', '', 'soniagsilva1@hotmail.com', '', '301', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2117, 'Liberado', 'TÂNIA ROSA DA PAIXÃO AQUINO', '', 'ABÓBORA', '', '', '', '', '', '(74)8841-9813', '', 'trpaquino@hotmail.com', '', '302', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2118, 'Liberado', 'TEREZINHA ALVES DE OLIVEIRA DUARTE ', '', 'ABÓBORA', '', '', '', '', '', '74 98861-4339', '', 'terezinhaalvesduarte@hotmail.com', '', '303', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2119, 'Liberado', 'UITALO LUAN ALVES SANTIAGO', '', 'ABÓBORA', '', '', '', '', '', '7488530402', '', 'uitaloluan32@gmail.com', '', '304', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2120, 'Liberado', 'UYARA CRISTINA BELFORT DA CRUZ COSTA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98806-1051', '', 'uyjuly@hotmail.com', '', '305', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2121, 'Liberado', 'VALDELICE ALVES MACHADO MARQUES', '', 'ABÓBORA', '', '', '', '', '', '(74) 98801-6517', '', 'valdatdb12@gmail.com', '', '306', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2122, 'Liberado', 'VALDELICE DOS SANTOS MEDRADO DIAS', '', 'ABÓBORA', '', '', '', '', '', '74 98827 0862', '', 'val.medrado3000@yahoo.com.br', '', '307', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2123, 'Liberado', 'VALDETE MOREIRA DA SILVA FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '7488158634', '', 'valdetemsf@gmail.com', '', '308', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2124, 'Liberado', 'VALÉRIA FEITOSA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '3611-0440 ', '', 'feitosa.valeria@yahoo.com.br', '', '309', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2125, 'Liberado', 'VANDERLEIA LOPES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '87999375520', '', 'vanderleia.lopes.advogada@hotmail.com', '', '310', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2126, 'Liberado', 'VANUSIA EVANGELISTA BONFIM DE ARAÚJO', '', 'ABÓBORA', '', '', '', '', '', '74 999761608', '', 'vanusia789@hotmail.com', '', '311', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2127, 'Liberado', 'VERA LUCIA OLIVEIRA GOMES', '', 'ABÓBORA', '', '', '', '', '', '(74) 98806 - 1028', '', 'vera.o.gomes07@hotmail.com', '', '312', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2128, 'Liberado', 'WALNINA DE OLIVEIRA CARVALHO', '', 'ABÓBORA', '', '', '', '', '', '(74) 8801-7903', '', 'wal-msn@hotmail.com', '', '313', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2129, 'Liberado', 'WELDES DO CARMO OLIVEIRA CHAGAS', '', 'ABÓBORA', '', '', '', '', '', '8788272878', '', 'weldeschagas@bol.com.br', '', '314', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2130, 'Liberado', 'WILMA DE OLIVEIRA SOBREIRA GUEDES', '', 'ABÓBORA', '', '', '', '', '', '(74)98819-4239', '', 'wilmasobreira@gmail.com', '', '315', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2131, 'Liberado', 'ZELÂNGIA ALVES TUPINÁ', '', 'ABÓBORA', '', '', '', '', '', '7488456875', '', '', '', '316', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2132, 'Liberado', 'ZENAIDE MIRANDA DOS S. CARDOSO', '', 'ABÓBORA', '', '', '', '', '', '(74) 98862-3416', '', 'zenaimiranda@gmail.com', '', '317', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2133, 'Liberado', 'ZENAIDE SOUSA MOTTA', '', 'ABÓBORA', '', '', '', '', '', '(74)98815-3032', '', 'zenaide.motta@yahoo.com.br', '', '318', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2134, 'EDUCANDÁRIO JOÃO XXIII', 'MIGUEL DOS SANTOS SILVA', '', 'SEDE', 'PIRANGA', 'RUA PACHECO DE CASTRO', '', 'A', '(74) 3612-9840', '(74) 98811-6127', '(74) 99107-7071', '7miguelsilva7@gmail.com', '', '31.9', '', '', '', '', '', '', '', '', 76, '0000-00-00 00:00:00', '2016-11-23 23:47:29'),
-(2135, 'Liberado', 'ETIENNE ALVES SANTANA DOS SANTOS', '48901-040', 'SEDE', 'PIRANGA', 'RUA PACHECO DE CASTRO', '', 'A', '(74) 3612-9840', '(74) 98803-5227', '', 'etienne.santana@hotmail.com', '', '320', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2136, 'Liberado', 'ADEMILSON MOREIRA MARTINS', '', 'SEDE', '', '', '', '', '(74) 3617-7165', '(74) 98845-1080', '', 'admormartins@hotmail.com', '', '321', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2137, 'Liberado', 'AILMA ROCHA SOARES', '', 'SEDE', '', '', '', '', '', '74 98839 1470', '', '', '', '322', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2138, 'Liberado', 'ALAN JONES SANTOS DE OLIVEIRA', '', 'SEDE', '', '', '', '', '', '74-8811-5410', '', 'njalped@hotmail.com', '', '323', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2139, 'Liberado', 'ALEX MOREIRA MACHADO', '', 'SEDE', '', '', '', '', '74-3640-1475', '', '', 'alexmoreiraartistaplastico@hotmail.com', '', '324', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2140, 'Liberado', 'ALEXANDRE GONÇALVES DA SILVA', '', 'SEDE', '', '', '', '', '', '74-9199-4770', '', 'alexandregsw@yahoo.com.br', '', '325', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2141, 'Liberado', 'ANTÔNIO GONÇALVES NETO', '', 'SEDE', '', '', '', '', '74-3617-6078', ' 74-8817-2583', '', 'antonio.economia@terra.com.br', '', '326', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2142, 'Liberado', 'ARMANDO PEREIRA LOPES', '', 'SEDE', '', '', '', '', '', '87 99622-9761', '', '', '', '327', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2143, 'Liberado', 'CHARLES ALEXANDRE DE JESUS SILVA', '', 'SEDE', '', '', '', '', '', '74 98807-8526', '', '', '', '328', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2144, 'Liberado', 'CLODOALDO DE ALMEIDA BORGES', '', 'SEDE', '', '', '', '', '', '74-8802-3917', '', 'clodoaldoperalva@hotmail.com', '', '329', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2145, 'Liberado', 'CRISTIANE PEREIRA DE SOUZA', '', 'SEDE', '', '', '', '', '(74)3618-3089', '', '', '', '', '330', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2146, 'Liberado', 'DANILLO MOURA GONÇALVES', '', 'SEDE', '', '', '', '', '743611-3060', '74-8801-0980', '', 'danilllo.moura@gmail.com', '', '331', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2147, 'Liberado', 'DIEGO ANTONIO ALVES DE SANTANA', '', 'SEDE', '', '', '', '', '', '(74) 988110737', '', '', '', '332', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2148, 'Liberado', 'DIEGO FABRICIO SANTOS DA SILVA', '', 'SEDE', '', '', '', '', '(74) 3613-0580', '', '', '', '', '333', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2149, 'Liberado', 'ELDER JAMES RIBEIRO DA COSTA SANTOS', '', 'SEDE', '', '', '', '', '', '(74) 98805-3822', '', '', '', '334', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2150, 'Liberado', 'ELIANE DE BARROS SANTOS', '', 'SEDE', '', '', '', '', '', '87 99933-6756', '', '', '', '335', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2151, 'Liberado', 'EMANOELMA BORGES DIAS', '', 'SEDE', '', '', '', '', '', '74-8805-9716', '', 'emanoelma.dias@yahoo.com.br', '', '336', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2152, 'Liberado', 'FABRICIO CAVALCANTI DOS SANTOS', '', 'SEDE', '', '', '', '', '', '', '', '', '', '337', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2153, 'Liberado', 'GEYSE ROSANEA DE SOUZA SANTOS', '', 'SEDE', '', '', '', '', '74 36189018', '87-9926-8504', '', 'Geyses22@gmail.com', '', '338', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2154, 'Liberado', 'GILMAR FERREIRA DA SILVA', '', 'SEDE', '', '', '', '', '', '74 99940-6252', '', '', '', '339', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2155, 'Liberado', 'ÍRIS CLÉA ARAÚJO DOS SANTOS', '', 'SEDE', '', '', '', '', '(74) 3611-2169', '(74) 88230-093', '', 'iriscleas@hotmail.com', '', '340', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2156, 'Liberado', 'ISAIAS PEREIRA FREIRE', '', 'SEDE', '', '', '', '', '(74) 3618-7055', '', '', '', '', '341', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2157, 'Liberado', 'JOEDSON SIDNEI DA SILVA', '', 'SEDE', '', '', '', '', '', '87 98801-3496', '', '', '', '342', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2158, 'Liberado', 'JONATHAS MARCELLO GUIMARÃES DE SOUZA', '', 'SEDE', '', '', '', '', '743613-743880', '74-9118-7797', '', 'marcellofx@live.com', '', '343', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2159, 'Liberado', 'JOSUÉ NUNES FERREIRA', '', 'SEDE', '', '', '', '', '743617-5117', '74-8827-0063', '', 'josuenferreira@bol.com.br', '', '344', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2160, 'Liberado', 'JOVENILSON DOS SANTOS SILVA', '', 'SEDE', '', '', '', '', '', '74 98812-8544', '', '', '', '345', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2161, 'Liberado', 'KAREN TAYLLA SANTOS CABRAL', '', 'SEDE', '', '', '', '', '', '74 98801-4784', '', '', '', '346', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2162, 'Liberado', 'LEANDRO GUIMARÃES RODRIGUES', '', 'SEDE', '', '', '', '', '74-3064-0401 ', '74-8803-3303', '', 'guimaraeslgr@gmail.com', '', '347', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2163, 'Liberado', 'MARCOS JOSE CHAGAS SOUZA', '', 'SEDE', '', '', '', '', '', '87 988015584', '', '', '', '348', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2164, 'Liberado', 'MARIANA DE OLIVEIRA ATHAYDE LYRA SILVA', '', 'SEDE', '', '', '', '', '', '87 988178188', '', '', '', '349', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2165, 'Liberado', 'MICAEL BENAIC HONÓRIO SANTOS', '', 'SEDE', '', '', '', '', '743617-8162', '74-8819-1916', '', 'benaic@gmail.com', '', '350', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2166, 'Liberado', 'NEILA DAIANE GOMES DOS SANTOS', '', 'SEDE', '', '', '', '', '', '74-8814-7026', '', 'cmgs@hotmail.com', '', '351', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2167, 'Liberado', 'NILMAR DE SOUZA SÁ', '', 'SEDE', '', '', '', '', '743861-1220', ' 87-9926-5123', '', 'nilmarsa@gmail.com', '', '352', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2168, 'Liberado', 'PALOMA BENEVIDES', '', 'SEDE', '', '', '', '', '743611-2778', '74-8818-2775', '', 'palominha_be@hotmail.com', '', '353', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2169, 'Liberado', 'PATRÍCIA DE AMORIM NORMANHA GOMES', '', 'SEDE', '', '', '', '', '', '74-8814-3607', '', 'pan5122@hotmail.com', '', '354', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2170, 'Liberado', 'POLYANNA CAVALCANTE LIMA', '', 'SEDE', '', '', '', '', '743861-3145', '87-8832-6809', '', 'poly_clima@yahoo.com.br', '', '355', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2171, 'Liberado', 'RAFAEL PASSOS FERNANDES', '', 'SEDE', '', '', '', '', '743613-5187', '74-8812-0671', '', 'rafaelpassus@hotmail.com', '', '356', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2172, 'Liberado', 'THIAGO OLIVEIRA SOUZA LEAL', '', 'SEDE', '', '', '', '', '', '74-8816-9668', '', 'Thiago.o.s.leal@hotmail.com', '', '357', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2173, 'Liberado', 'TÚLIO DE SOUZA NASCIMENTO', '', 'SEDE', '', '', '', '', '', '74-8801-2144', '', 'tuliobeat@hotmail.com', '', '358', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2174, 'Liberado', 'VAGNER UILLIAN CARDOSO DOS SANTOS', '', 'SEDE', '', '', '', '', '743612-8813', '74-8805-3275', '', 'vagnerdisabre@gmail.com', '', '359', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2175, 'Liberado', 'VERA LUCIA DA SILVA SANTANA', '', 'SEDE', '', '', '', '', '', '74 98852-6535', '', '', '', '360', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2176, 'Liberado', 'VICTOR TOMAZ MARQUES', '', 'SEDE', '', '', '', '', '743612-6044', '74-8801-1289', '', 'victortomazmarques@gmail.com', '', '361', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `pessoas` (`id`, `vinculo`, `matricula`, `nome`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `cel1`, `cel2`, `email`, `cpf`, `rg`, `expedicao_rg`, `naturalidade`, `nascionalidade`, `nis`, `escolaridade`, `data_nascimento`, `nome_mae`, `nome_pai`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', '', 'NÃO POSSUI', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL),
+(1817, '', '', 'ABIA LINOLOPES', '', 'ABÓBORA', '', '', '', '', '', '(74) 99925-4050', '', 'abialinolopes@gmail.com', '', '2', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '2016-11-21 22:36:14'),
+(1818, 'Liberado', '', 'ADALGISA MARIA COELHO CALDAS', '', 'ABÓBORA', '', '', '', '', '', '(87) 96491-101', '', 'adalgisamariacoelhocaldas@yahoo.com.br', '', '3', '', '', '', '', '', '', '', '', 76, '0000-00-00 00:00:00', '2016-11-24 19:35:03'),
+(1819, 'Liberado', '', 'ADNA LUCI GONÇALVES DE O CAMPINA', '', 'ABÓBORA', '', '', '', '', '', '(87) 96455-801', '', '', '', '4', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '2016-11-21 22:37:37'),
+(1820, 'Liberado', '', 'ADNA LUCI GONÇALVES DE OLIVEIRA CAMPINA', '', 'ABÓBORA', '', '', '', '', '(74) 3617-3166', '', '', 'adnaluci-21@hotmail.com', '', '5', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '2016-11-21 22:37:55'),
+(1821, 'Liberado', '', 'ADRIANA MAGNOLIA MARTINS', '', 'ABÓBORA', '', '', '', '', '', '74.9.8803.3587', '', 'magnolia_adriana@hotmail.com', '', '6', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1822, 'Liberado', '', 'ADRIANA MENEZES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98835-9843', '', 'babyadriane@hotmail.com', '', '7', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1823, 'Liberado', '', 'ADRIANO DA SILVA SOUSA', '', 'ABÓBORA', '', '', '', '', '', '74 9131-9481', '', 'adrianosssecret@gmail.com', '', '8', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1824, 'Liberado', '', 'ALESSANDRA CUNHA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98834-9170', '', '', '', '9', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1825, 'Liberado', '', 'ALESSANDRA GOMES DOS SNTOS OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74-98817-4405', '', 'alessandragso1@hotmail.com', '', '10', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1826, 'Liberado', '', 'ALESSANDRA TATIANE FEITOSA SANTOS ALVES', '', 'ABÓBORA', '', '', '', '', '', '(74)98826-6757', '', 'ale.tati88@gmail.com', '', '11', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1827, 'Liberado', '', 'ALEX FABIAN ALENCAR COSTA', '', 'ABÓBORA', '', '', '', '', '', '87999620145', '', 'fabian-costas@hotmail.com', '', '12', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1828, 'Liberado', '', 'ALEXSANDRO COSTA', '', 'ABÓBORA', '', '', '', '', '', '(74)988599284', '', 'acxandy74@gmail.com', '', '13', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1829, 'Liberado', '', 'ALFREIZA ALMEIDA DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 988061904', '', 'alfreiza.sereno@hotmail.com', '', '14', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1830, 'Liberado', '', 'ALINE DE FÁTIMA SOARES DO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '74 999215821', '', 'line__fatima@hotmail.com', '', '15', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1831, 'Liberado', '', 'ALINE DOS SANTOS ALMEIDA SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8803-6808', '', 'alinedalmeida@hotmail.com', '', '16', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1832, 'Liberado', '', 'ALINE MEDEIROS DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74)99973-8299', '', 'line.easy@hotmail.com', '', '17', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1833, 'Liberado', '', 'AMILTON DOS SANTOS GOMES', '', 'ABÓBORA', '', '', '', '', '', '87 98817-6172', '', 'amiltongomes2016@hotmail.com', '', '18', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1834, 'Liberado', '', 'ANA CARINE COELHO RODRIGUES QUEZADO', '', 'ABÓBORA', '', '', '', '', '', '(74) 3531-1136', '', 'anaccr2007@yahoo.com.br', '', '19', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1835, 'Liberado', '', 'ANA CATIA DOS SANTOS MARTINS', '', 'ABÓBORA', '', '', '', '', '', '743617 7066', '', 'anacatia.santos@hotmail.com', '', '20', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1836, 'Liberado', '', 'ANA CLÁUDIA OITAVEN SANTOS DIAS', '', 'ABÓBORA', '', '', '', '', '', '74 98811-8722', '', 'claudinha_oitaven@hotmail.com', '', '21', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1837, 'Liberado', '', 'ANA ELIZABETE DOS SANTOS OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '98805 4854', '', 'charmandos@hotmail.com', '', '22', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1838, 'Liberado', '', 'ANA LUIZA DANTAS MEDRADO', '', 'ABÓBORA', '', '', '', '', '', '(74)988327181', '', 'luiza42@hotmail.com.br', '', '23', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1839, 'Liberado', '', 'ANA MARIA CARVALHO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '', '', '', '', '24', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1840, 'Liberado', '', 'ANA MARIA SILVA GOMES', '', 'ABÓBORA', '', '', '', '', '', '7499983 1603', '', 'anamariasg@hotmail.com', '', '25', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1841, 'Liberado', '', 'ANA PATRÍCIA DO NASCIMENTO DE SOUSA', '', 'ABÓBORA', '', '', '', '', '', '87-98806-7789', '', 'anapatriciasouza27@gmail.com', '', '26', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1842, 'Liberado', '', 'ANA PAULA COSTA RIBEIRO QUEIROZ', '', 'ABÓBORA', '', '', '', '', '', '74991114921', '', '', '', '27', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1843, 'Liberado', '', 'ANA RÔSE SANTOS BARBOSA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98815-4703', '', 'roses-barbosa@hotmail.com', '', '28', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1844, 'Liberado', '', 'ANAIDE MOTA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74)98834-7567', '', 'anaide2020@hotmail.com', '', '29', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1845, 'Liberado', '', 'ANAILMA GOMES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74 98834-5523', '', '', '', '30', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1846, 'Liberado', '', 'ANAITE DOS SANTOS RIBEIRO', '', 'ABÓBORA', '', '', '', '', '', '(74) 98803-4229', '', 'anaiteribeiro@hotmail.com', '', '31', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1847, 'Liberado', '', 'ANDERSON GILVAN DE SOUZA SUBRINHO', '', 'ABÓBORA', '', '', '', '', '', '(87) 9608-3546', '', 'andersonsubrinho@gmail.com', '', '32', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1848, 'Liberado', '', 'ANDRÉA DOS SANTOS MORAES DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 98826-1336', '', 'dea6amanda@gmail.com', '', '33', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1849, 'Liberado', '', 'ANDREIA DA CUNHA MATTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)98813-0524', '', 'andreiacunha.mattos@hotmail.com', '', '34', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1850, 'Liberado', '', 'ANGÉLICA CAJUÍ BONFIM', '', 'ABÓBORA', '', '', '', '', '', '74 999451771', '', 'angelica_cajhui@hotmail.com', '', '35', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1851, 'Liberado', '', 'APARECIDA CAJARANA XAVIER', '', 'ABÓBORA', '', '', '', '', '', '7488016147', '', 'cajarana.xavier@hotmail.com', '', '36', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1852, 'Liberado', '', 'ARIONEIDE PASSOS GOMES NUNES', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8838-2144', '', 'arioneidepgomes@gmail.com', '', '37', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1853, 'Liberado', '', 'ARIVONALDA ALVES MATIAS', '', 'ABÓBORA', '', '', '', '', '', '74 98844-4160', '', 'arivonalda@hotmail.com', '', '38', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1854, 'Liberado', '', 'ATONIETA DUARTE DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '7488225671', '', '', '', '39', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1855, 'Liberado', '', 'BENEDITA FIDIEL GOMES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 3618 9018', '', 'beneditafidiel@hotmail.com', '', '40', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1856, 'Liberado', '', 'BERNADETE DE JESUS COELHO', '', 'ABÓBORA', '', '', '', '', '', '(87)98843-9287', '', 'bernadetejcoelho@hotmail.com', '', '41', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1857, 'Liberado', '', 'CARLA DOS SANTOS CUNHA', '', 'ABÓBORA', '', '', '', '', '', '74-98807-8809', '', 'brothersister@bol.com.br', '', '42', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1858, 'Liberado', '', 'CARLA SAMARA FERREIRA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74991415740', '', '', '', '43', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1859, 'Liberado', '', 'CARLA TAMIRES DE OLIVEIRA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74988441602', '', 'alracarievilo03@hotmail.com', '', '44', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1860, 'Liberado', '', 'CARLISNA GUIMARÃES DO CARMO', '', 'ABÓBORA', '', '', '', '', '', '74 98822-8979', '', 'carlisna@gmail.com', '', '45', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1861, 'Liberado', '', 'CELIA MARIA CAMPOS', '', 'ABÓBORA', '', '', '', '', '', '(74)988163065', '', '', '', '46', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1862, 'Liberado', '', 'CÉLIA MARIA CAMPOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 8816-3065', '', 'camposceli@oi.com.br', '', '47', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1863, 'Liberado', '', 'CLAUDIA ALVES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 988012845', '', 'claudiasilvajua@gmail.com', '', '48', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1864, 'Liberado', '', 'CLAUDIA FERREIRA DE SOUZA CUNHA', '', 'ABÓBORA', '', '', '', '', '', '74-99934-7444', '', '', '', '49', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1865, 'Liberado', '', 'CLAUDIANA DE PAULA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98847-4782', '', 'claudiana.prof@gmail.com ', '', '50', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1866, 'Liberado', '', 'CLAUDIANA DE PAULA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98847-4782', '', 'claudiana.prof@gmail.com', '', '51', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1867, 'Liberado', '', 'CLAUDILENE BARBOSA DO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '(74)98802.3987', '', 'claudinhabarbosa2@hotmail.com', '', '52', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1868, 'Liberado', '', 'CLEIA BARRETO DE FIGUEIREDO', '', 'ABÓBORA', '', '', '', '', '', '(74)98818-3453', '', 'cleiabarreto02@outlook.com', '', '53', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1869, 'Liberado', '', 'CLEIDEMAR DIAMANTINO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74)98807-0074', '', 'diamantino.silva@hotmail.com', '', '54', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1870, 'Liberado', '', 'CLEMILDA DA SILVA FERREIRA ', '', 'ABÓBORA', '', '', '', '', '', '087 988211702', '', 'cleinha.ferreira @gmail.com', '', '55', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1871, 'Liberado', '', 'CLEMILDA DIAS DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(87) 98813 - 8666', '', 'clemildapetrolina@gmail.com', '', '56', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1872, 'Liberado', '', 'CLEONEIDE RODRIGUES LEITE', '', 'ABÓBORA', '', '', '', '', '', '8796024625', '', 'cleoneiderodrigues@hotmail.com', '', '57', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1873, 'Liberado', '', 'CRISTIANA COELHO DE MACEDO ALENCAR', '', 'ABÓBORA', '', '', '', '', '', '8798812-1532', '', 'cristiane_katley@hotmail.com', '', '58', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1874, 'Liberado', '', 'CRISTIANA DOS SANTOS PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '999594230', '', '', '', '59', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1875, 'Liberado', '', 'CRISTIANA WILLIAM SOUZA PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '(74)8818-6967', '', 'wkristiana@hotmail.com', '', '60', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1876, 'Liberado', '', 'CRISTOCARMEN RABELO SANTANA', '', 'ABÓBORA', '', '', '', '', '', '7488043916', '', 'cristo.carmen@hotmail.com', '', '61', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1877, 'Liberado', '', 'DAIANE JANE DE ARAUJO PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '8788120224', '', 'daianejane@hotmail.com', '', '62', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1878, 'Liberado', '', 'DANIELA NASCIMENTO DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74 3617 8392', '', '', '', '63', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1879, 'Liberado', '', 'DEDILENE LEITE GUERRA', '', 'ABÓBORA', '', '', '', '', '', '74988287864', '', 'dedileneguerra@gmail.com', '', '64', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1880, 'Liberado', '', 'DENILDA SILVA DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74 988263448', '', 'denildasilva2010@hotmail.com', '', '65', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1881, 'Liberado', '', 'DERILEUSA ALVES MEDRADO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74) 8815-2404', '', '', '', '66', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1882, 'Liberado', '', 'DINAIR BRITO SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(74)988121058', '', 'rianidbrito@hotmail.com', '', '67', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1883, 'Liberado', '', 'DINAIR BRITO SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(74)988121058', '', 'rianidbrito@hotmail.com', '', '68', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1884, 'Liberado', '', 'DOLORES GOMES DE LIMA', '', 'ABÓBORA', '', '', '', '', '', '(74) 8815-1323', '', 'doloresgomeslima@gmail.com', '', '69', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1885, 'Liberado', '', 'DORACI DA SILVA FERREIRA RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '(74)98831-7560', '', 'doraci_sfr@hotmail.com', '', '70', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1886, 'Liberado', '', 'DORALUCIA SANTOS DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 9 8812 0216', '', 'doraluciacarlos@hotmail.com', '', '71', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1887, 'Liberado', '', 'DORALUCIA SANTOS DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 9 8812 0216', '', 'doraluciacarlos@hotmail.com', '', '72', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1888, 'Liberado', '', 'EDELZITA PEREIRA MARTINS', '', 'ABÓBORA', '', '', '', '', '', '(74) 988184824', '', 'edelzita.martins@bol.com.br', '', '73', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1889, 'Liberado', '', 'EDIANA DA SILVA FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 99134-4619', '', 'edy.elferreira@hotmail.com', '', '74', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1890, 'Liberado', '', 'EDINALVA LEMOS SOARES', '', 'ABÓBORA', '', '', '', '', '', '7499594902', '', 'edinalvalemossoares@hotmail.com', '', '75', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1891, 'Liberado', '', 'EDISON FERREIRA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(87)98864-4099', '', 'edison-ferreira@hotmail.com', '', '76', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1892, 'Liberado', '', 'EDNA MARIA LUCENA LOPES', '', 'ABÓBORA', '', '', '', '', '', '87 98813-0530', '', 'manoca9@hotmail.com', '', '77', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1893, 'Liberado', '', 'EDWILSON ABELARDO DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '7488473299', '', 'edwilson-ws@hotmail.com', '', '78', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1894, 'Liberado', '', 'EILÂNIA CRISTINA MEDRADO DE LIMA', '', 'ABÓBORA', '', '', '', '', '', '74 988164915', '', 'tina.medrado@yahoo.com.br', '', '79', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1895, 'Liberado', '', 'ELIANA DE SOUZA BONFIM', '', 'ABÓBORA', '', '', '', '', '', '74988336046', '', 'eliana.erickbonfim@hotmail.com', '', '80', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1896, 'Liberado', '', 'ELIANE DE MENEZES SIMÕES', '', 'ABÓBORA', '', '', '', '', '', '(87) 98832-2171', '', 'ellyannesimoes@gmail.com', '', '81', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1897, 'Liberado', '', 'ELIANE MARIA GOMES MAIA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98854 - 9979', '', 'elimaiagomes@gmail.com', '', '82', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1898, 'Liberado', '', 'ELIANE MATOS MARTINS DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '7488021060', '', 'elianemato1@hotmail.com', '', '83', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1899, 'Liberado', '', 'ELIANE PEREIRA DO CARMO LIMA', '', 'ABÓBORA', '', '', '', '', '', '(87)98806-2076', '', 'carmoliane@gmail.com', '', '84', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1900, 'Liberado', '', 'ELIAS TIAGO REIS DE CASTRO', '', 'ABÓBORA', '', '', '', '', '', '(74) 98821-8119', '', 'tiagoreisjua@gmail.com', '', '85', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1901, 'Liberado', '', 'ELIETE DE SOUSA RIBEIRO SÁ', '', 'ABÓBORA', '', '', '', '', '', '(74) 98824 4773', '', 'et-esa@hotmail.com', '', '86', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1902, 'Liberado', '', 'ELIETE ENELCINA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '7436176145', '', 'alyete@yahoo.com.br', '', '87', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1903, 'Liberado', '', 'ELIETE LEITE DA PAIXÃO', '', 'ABÓBORA', '', '', '', '', '', '74991001290', '', 'elietesalitre@hotmail.com', '', '88', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1904, 'Liberado', '', 'ELIS REGINA ALVES', '', 'ABÓBORA', '', '', '', '', '', '8788196072', '', 'era1172@hotmail.com', '', '89', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1905, 'Liberado', '', 'ELISANGELA DE MELO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '74-98832-8798', '', 'elisangela362010@hotmail.com', '', '90', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1906, 'Liberado', '', 'ELISÂNGELA SOARES REIS DA SILVA SOUSA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98828-2112', '', 'elis-reis1@hotmail.com', '', '91', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1907, 'Liberado', '', 'ELIZIA VANIA RODRIGUES RAMOS', '', 'ABÓBORA', '', '', '', '', '', '74 98814-5153', '', 'elizia.rrodrigues@hotmail.com', '', '92', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1908, 'Liberado', '', 'ELMA ROSE DOS SANTOS PAULA', '', 'ABÓBORA', '', '', '', '', '', '74 9 8826 9187', '', 'elma. paula 6@gmail.com', '', '93', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1909, 'Liberado', '', 'ELVIS LAION DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(87)996370942', '', 'l_ion_lima@hotmail.com', '', '94', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1910, 'Liberado', '', 'ELZA FREIRE DE CARVALHO MELO', '', 'ABÓBORA', '', '', '', '', '', '7488061127', '', 'elzacores@hotmail.com', '', '95', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1911, 'Liberado', '', 'EMANOEL FERREIRA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '', '', 'manolloferreira@bol.com.br', '', '96', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1912, 'Liberado', '', 'EMANUELA SOCORRO DE MATTOS DUARTE', '', 'ABÓBORA', '', '', '', '', '', '74 99148-2302', '', 'esmd_8@hotmail.com', '', '97', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1913, 'Liberado', '', 'ÉRIKA CANDEIAS DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '', '', 'erikandeias_425@yahoo.com', '', '98', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1914, 'Liberado', '', 'ERIVALDA CASTRO ARAUJO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '7488186050', '', 'ericastro13@hotmail.com', '', '99', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1915, 'Liberado', '', 'EURIDES LIMA DE JESUS QUEIROZ', '', 'ABÓBORA', '', '', '', '', '', '74 988152328', '', 'euridesljq@hotmail.com', '', '100', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1916, 'Liberado', '', 'EVANI JESUS DA SILVA MARTINS', '', 'ABÓBORA', '', '', '', '', '', '74 9 8815 4301', '', 'evani-silva@hotmail.com', '', '101', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1917, 'Liberado', '', 'EVILANIA MARIA DOS SANTOS DUARTE', '', 'ABÓBORA', '', '', '', '', '', '74 98838-6916', '', 'evilania-duarte@hotmail.com', '', '102', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1918, 'Liberado', '', 'FABIANA ALMEIDA LIMA MEDRADO', '', 'ABÓBORA', '', '', '', '', '', '(74)98834-2119', '', 'fab-analima@hotmail.com', '', '103', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1919, 'Liberado', '', 'FABIANA COSTA MARTINI', '', 'ABÓBORA', '', '', '', '', '', '74 999817049', '', 'fcmartini.2705@hotmail.com', '', '104', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1920, 'Liberado', '', 'FABIANA DA SILVA ROCHA', '', 'ABÓBORA', '', '', '', '', '', '74988075190', '', '', '', '105', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1921, 'Liberado', '', 'FABRICIO DANIEL DOMINGOS', '', 'ABÓBORA', '', '', '', '', '', '74-98847-1097', '', 'fabriciovasf2015@gmail.com', '', '106', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1922, 'Liberado', '', 'FÁTIMA CONCEIÇÃO MENDES DAMASCENO ', '', 'ABÓBORA', '', '', '', '', '', '74- 988275867', '', 'fatima.mendes2010@hotmail.com', '', '107', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1923, 'Liberado', '', 'FLÁVIA DIAS DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(87) 98853 - 5993', '', 'flavia.psicopedagoga@hotmail.com', '', '108', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1924, 'Liberado', '', 'FLORIZA SANTOS FELIX', '', 'ABÓBORA', '', '', '', '', '', '7488069499', '', 'florizasantos2008@hotmail.com', '', '109', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1925, 'Liberado', '', 'FRANCI DA SILVA CARDOSO MONTEIRO', '', 'ABÓBORA', '', '', '', '', '', '(74) 8813-0170', '', '', '', '110', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1926, 'Liberado', '', 'FRANCISCA DA SILVA FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 988434952', '', 'francisjua@hotmail.com', '', '111', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1927, 'Liberado', '', 'GEÍSE CALINE DA CONCEIÇÃO RIBEIRO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74-98819 - 3843', '', 'caline.rib@gmail.com', '', '112', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1928, 'Liberado', '', 'GEZIVANE CAJUHI DUARTE', '', 'ABÓBORA', '', '', '', '', '', '7436176309', '', 'vaniaduarte2008@hotmail.com', '', '113', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1929, 'Liberado', '', 'GILIANE ALVES LIMA', '', 'ABÓBORA', '', '', '', '', '', '87 88277031', '', 'giliannealves@hotmail.com', '', '114', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1930, 'Liberado', '', 'GILNETE DE SOUZA MENEZES SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7488021060', '', 'gilnetemenezes@yahoo.com.br', '', '115', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1931, 'Liberado', '', 'GILVANIA FREIRE', '', 'ABÓBORA', '', '', '', '', '', '87 988332977', '', 'gilvaniafreire@hotmail.com', '', '116', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1932, 'Liberado', '', 'GISELIA AMARAL ', '', 'ABÓBORA', '', '', '', '', '', '74-98806-5920', '', '', '', '117', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1933, 'Liberado', '', 'GISLENE MARIA PIRES BATISTA', '', 'ABÓBORA', '', '', '', '', '', '(74) 3611-9078', '', 'gec37@hotmail.com', '', '118', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1934, 'Liberado', '', 'GIVONILDE LEITE RODRIGUES DE JESUS', '', 'ABÓBORA', '', '', '', '', '', '7488177478', '', 'givonilderodrigues@gmail.com', '', '119', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1935, 'Liberado', '', 'GLAUCIO DE LIMA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 - 988499327', '', 'glauciolimasilva@gmail.com', '', '120', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1936, 'Liberado', '', 'GRACINETE VARJÃO DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74)98825-0401', '', 'gracyvarjao@hotmail.com', '', '121', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1937, 'Liberado', '', 'GRAZZIELLI BRITO CARDOSO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 988147891', '', 'grazzibrito@hotmail.com', '', '122', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1938, 'Liberado', '', 'HELENA DE MATTOS BRANDÃO', '', 'ABÓBORA', '', '', '', '', '', '74988149806', '', 'helena.mattos@outlook.com', '', '123', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1939, 'Liberado', '', 'HELENI LIMA BRASIL', '', 'ABÓBORA', '', '', '', '', '', '0', '', 'leninhabrasil@hotmail.com', '', '124', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1940, 'Liberado', '', 'HILDETH FRANCISCA DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74988021291', '', 'hildeth_oliveira@hotmail.com', '', '125', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1941, 'Liberado', '', 'HILZA GOMES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74-81111085', '', 'hilzags@hotmail.com', '', '126', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1942, 'Liberado', '', 'IASMIN TAINÃ DE SOUZA SANTANA', '', 'ABÓBORA', '', '', '', '', '', '(74)988156250', '', 'iasmin.pmj@gmail.com', '', '127', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1943, 'Liberado', '', 'IGOR LIBORIO PASSOS', '', 'ABÓBORA', '', '', '', '', '', '74 98814 4743', '', 'igorliborio@hotmail.com', '', '128', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1944, 'Liberado', '', 'IGOR LUCAS DE OLIVEIRA VARGAS', '', 'ABÓBORA', '', '', '', '', '', '(74) 9188-3450', '', 'igor-lucas@hotmailcom', '', '129', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1945, 'Liberado', '', 'ILEANE DAMASCENO IMOTO', '', 'ABÓBORA', '', '', '', '', '', '749.8809.0992', '', 'ileanedi@hotmail.com', '', '130', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1946, 'Liberado', '', 'IRACELMA PEREIRA DE MARINS', '', 'ABÓBORA', '', '', '', '', '', '74-98805-6163', '', 'iramarins@bol.com.br', '', '131', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1947, 'Liberado', '', 'IRACEMA DE OLIVEIRA SILVA', '', 'ABÓBORA', '', '', '', '', '', '7488071677', '', 'iracemacaxanga@gmail.com', '', '132', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1948, 'Liberado', '', 'IRAIDES VALADARES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7488216525', '', 'iraidesvadalares@hotmail.com', '', '133', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1949, 'Liberado', '', 'IRANEIDE LOPES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74 8815-6809', '', '', '', '134', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1950, 'Liberado', '', 'IRIS SANTOS MARTINS DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74-8833-7800', '', 'iris.menso@hotmail.com', '', '135', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1951, 'Liberado', '', 'ISABEL CRISTINA AMORIM A. DE ARAÚJO', '', 'ABÓBORA', '', '', '', '', '', '87.9.8808.0330', '', 'belamorim16@hotmail.com', '', '136', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1952, 'Liberado', '', 'ISABEL CRISTINA DE CARVALHO ROSA', '', 'ABÓBORA', '', '', '', '', '', '(74) 8855-5979', '', 'isabel.jua@hotmail.com', '', '137', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1953, 'Liberado', '', 'ITALO KLAYNER OLIVEIRA DO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8814-6359', '', 'italoklayner@hotmail.com', '', '138', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1954, 'Liberado', '', 'IURI HONÓRIO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98824-8118', '', 'iuri_honorio@gmail.com', '', '139', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1955, 'Liberado', '', 'IVANI MARIA DA SILVA ', '', 'ABÓBORA', '', '', '', '', '', '7488458189', '', 'ivanisilva2014@hotmail.com', '', '140', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1956, 'Liberado', '', 'IVANILDO GOMES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '7488067352', '', 'ivanildo-gomes123@hotmail.com', '', '141', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1957, 'Liberado', '', 'IZABEL CRISTINA MARTINS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98813-0094', '', 'ic.martins@hotmail.com', '', '142', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1958, 'Liberado', '', 'JACI CRISTINA PAIXÃO ', '', 'ABÓBORA', '', '', '', '', '', '87-988 348988', '', 'jaci.butterfly@hotmail.com', '', '143', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1959, 'Liberado', '', 'JACIARA DA CONCEIÇÃO SAMPAIO', '', 'ABÓBORA', '', '', '', '', '', '7488165400', '', 'jaciaracsampaio@gmail.com', '', '144', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1960, 'Liberado', '', 'JACKSON FIGUEIREDO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74) 8825-8322', '', 'jackson.silvaw@gmail.com', '', '145', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1961, 'Liberado', '', 'JAELTON DE OLIVEIRA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74-99955-2236', '', 'jaelton.oliveira@hotmail.com', '', '146', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1962, 'Liberado', '', 'JAILDE MAGALHÃES BRITO DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74-98818-7754', '', 'jaildem.mbs@hotmail.com', '', '147', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1963, 'Liberado', '', 'JAILMA CARVALHO OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98818-3313', '', 'jailma.@oi.com.br', '', '148', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1964, 'Liberado', '', 'JAMMYS ZACARIAS RODRIGUES GUERRA', '', 'ABÓBORA', '', '', '', '', '', '74 9 8813 7786', '', 'jammys.guerra@gmail.com', '', '149', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1965, 'Liberado', '', 'JANETE CLEIA DE SANTANA', '', 'ABÓBORA', '', '', '', '', '', '7499980-6963', '', 'janete_cleia@yahoo.com.br', '', '150', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1966, 'Liberado', '', 'JANETE DOS SANTOS EMIDIO SOUZA', '', 'ABÓBORA', '', '', '', '', '', '(87) 9605-8868', '', 'janete_emidio@outlook.com', '', '151', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1967, 'Liberado', '', 'JANICLEIDE BARBOSA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74) 8833-3869', '', '', '', '152', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1968, 'Liberado', '', 'JÂNIO FÁBIO ALCÂNTARA PINTO DE ARAÚJO', '', 'ABÓBORA', '', '', '', '', '', '(74)98822-6139', '', 'janiopsi@gmail.com', '', '153', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1969, 'Liberado', '', 'JAQUELLINE DO NASCIMENTO SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74)98855-3726', '', 'jaquellineassessoria27@gmail.com', '', '154', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1970, 'Liberado', '', 'JESSICA LUANNE DE SANTANA', '', 'ABÓBORA', '', '', '', '', '', '74 988371804', '', 'jessica_luanne@hotmail.com', '', '155', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1971, 'Liberado', '', 'JILDA CARVALHO SOUZA', '', 'ABÓBORA', '', '', '', '', '', '074 9880 54502', '', 'jilda_jua@hotmail.com', '', '156', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1972, 'Liberado', '', 'JILENE XAVIER DE SOUZA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 3618 9047', '', 'jilxavier1@hotmail.com', '', '157', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1973, 'Liberado', '', 'JOANA REGINA DIAS LIMA', '', 'ABÓBORA', '', '', '', '', '', '74-98816-9995', '', 'joanalima1933@hotmail.com', '', '158', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1974, 'Liberado', '', 'JOÃO CURSINO DE MELO JÚNIOR', '', 'ABÓBORA', '', '', '', '', '', '(74) 991332457', '', 'jotafubuia@hotmail.com', '', '159', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1975, 'Liberado', '', 'JOELICE FERREIRA BARROSO', '', 'ABÓBORA', '', '', '', '', '', '(74)36173137', '', 'joelice.vitoria@gmail.com', '', '160', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1976, 'Liberado', '', 'JOELMA RIBEIRO DE MATOS', '', 'ABÓBORA', '', '', '', '', '', '74-98854-5807', '', 'joelma.rmatos@bol.com.br', '', '161', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1977, 'Liberado', '', 'JOELSON CARVALHO DOS REIS', '', 'ABÓBORA', '', '', '', '', '', '87-88141856', '', 'joelsontyrant@yahoo.com.br', '', '162', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1978, 'Liberado', '', 'JOHN THAYLOR SANTANA DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 99967-0802', '', 'thaylor.john@hotmail.com', '', '163', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1979, 'Liberado', '', 'JOICE LIARA ROSA MOREIRA', '', 'ABÓBORA', '', '', '', '', '', '7488034007', '', 'joyceliara@gmail.com', '', '164', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1980, 'Liberado', '', 'JONAS LEITE DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '87-88652827', '', 'jonaseducacao@hotmail.com', '', '165', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1981, 'Liberado', '', 'JONILDE PEREIRA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74) 988110737', '', 'jonildepereiradasilva@gmail.com', '', '166', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1982, 'Liberado', '', 'JOSAIR FERREIRA GOMES', '', 'ABÓBORA', '', '', '', '', '', '7488548945', '', 'alguempediubolero@hotmail.com', '', '167', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1983, 'Liberado', '', 'JOSÉ CARLOS DE PAIVA NUNES', '', 'ABÓBORA', '', '', '', '', '', '74 988047320', '', 'carlin_paiva@hotmail.com', '', '168', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1984, 'Liberado', '', 'JOSE GILBERTO PASSOS', '', 'ABÓBORA', '', '', '', '', '', '8799567830', '', 'j.gilbertopassos@hotmail.com', '', '169', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1985, 'Liberado', '', 'JOSÉ INAILTON NUNES DA SILVA JUNIOR', '', 'ABÓBORA', '', '', '', '', '', '(74) 8861-7633', '', 'junior.jr100@hotmail.com', '', '170', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1986, 'Liberado', '', 'JOSÉ UELSON GONÇALVES ANDRADE', '', 'ABÓBORA', '', '', '', '', '', '(74) 98816-2837', '', 'professoruelsonandrade@hotmail.com', '', '171', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1987, 'Liberado', '', 'JOSEVALDO DAVI DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '748821-3003', '', 'david_127@hotmail.com', '', '172', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1988, 'Liberado', '', 'JOSIANY LEAL PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 988110653', '', 'josyleper@hotmail.com', '', '173', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1989, 'Liberado', '', 'JOSICLEA VARJÃO', '', 'ABÓBORA', '', '', '', '', '', '(74)98815-7100', '', 'varjao.silv@hotmail.com', '', '174', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1990, 'Liberado', '', 'JOSILDA DIAS DOS SANTOS ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '74 98833-6504', '', '', '', '175', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1991, 'Liberado', '', 'JOSILENE DANTAS ', '', 'ABÓBORA', '', '', '', '', '', '74 988038212', '', 'josigeografa@hotmail.com', '', '176', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1992, 'Liberado', '', 'JOSIMERE INÁCIO DA SILVA FIGUEIREDO', '', 'ABÓBORA', '', '', '', '', '', '74098832-3126', '', 'josimeref@hotmail.com', '', '177', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1993, 'Liberado', '', 'JOSIVAN DUARTE SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7499801-8678', '', 'joivan.duarte@hotmail.com', '', '178', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1994, 'Liberado', '', 'JUCÉLIA PEREIRA SILVA LINO', '', 'ABÓBORA', '', '', '', '', '', '74 999759179', '', 'alinedefatima92@gmail.com', '', '179', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1995, 'Liberado', '', 'JUCIARA MARTINS EVANGELISTA DA MOTA', '', 'ABÓBORA', '', '', '', '', '', '74 3618 1054', '', 'jiullia2011@hotmail.com', '', '180', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1996, 'Liberado', '', 'JULIANA FONSECA DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 - 98804 - 7314', '', 'jna_fonseca@outlook.com', '', '181', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1997, 'Liberado', '', 'JUSCÉLIA MARIA BELFORT ALMEIDA DUARTE', '', 'ABÓBORA', '', '', '', '', '', '(74) 98811 - 7714', '', 'jusceliabelfort@gmail.com', '', '182', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1998, 'Liberado', '', 'JUSSARA GLEUMA NERY DE O. SILVA', '', 'ABÓBORA', '', '', '', '', '', '317488626194', '', 'jussaragleuma@gmail.com', '', '183', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1999, 'Liberado', '', 'KARLA CRISTINA', '', 'ABÓBORA', '', '', '', '', '', '(87)98855-5031', '', 'karla-cristina-lima@hotmail.com', '', '184', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2000, 'Liberado', '', 'KÁTIA MARIA PINHEIRO DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74988050142', '', 'katiamary2008@hotmail.com', '', '185', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2001, 'Liberado', '', 'KATIA SIMONI NUNES MARQUES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7498859-6941', '', 'kmarques17@yahoo.com.br', '', '186', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2002, 'Liberado', '', 'KATIANE SOARES DA SILVA ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98842-1586', '', 'katiane_soares.silva@hotmail.com', '', '187', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2003, 'Liberado', '', 'KELLY CRISTINE SOUZA GOMES REIS', '', 'ABÓBORA', '', '', '', '', '', '(74) 8804-8609', '', 'kellykristinesgr@gmail.com', '', '188', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2004, 'Liberado', '', 'KLERISSON GOMES SARMENTO', '', 'ABÓBORA', '', '', '', '', '', '087 98806 1120', '', 'klerisson@yahoo.com.br', '', '189', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2005, 'Liberado', '', 'LAÍSIA GONÇALVES DO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '74-99945-9713', '', 'laisia2009@yahoo.com.br', '', '190', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2006, 'Liberado', '', 'LARISSA DE SOUZA NOVAES E BARBOSA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98839-7949', '', 'larissarick@yahoo.com.br', '', '191', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2007, 'Liberado', '', 'LENI SILVA PRADO PIMENTEL', '', 'ABÓBORA', '', '', '', '', '', '7488031903', '', 'lenbarreto@hotmail.com', '', '192', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2008, 'Liberado', '', 'LEONICE TEONILIA DE CARVALHO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)98832-4551', '', 'leoniceteonilia@hotmail.com', '', '193', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2009, 'Liberado', '', 'LETICIA MARIA GONÇALVES PESSÔA VIEIRA', '', 'ABÓBORA', '', '', '', '', '', '(74)98817-5914', '', 'leticia_pessoavieira@yahoo.com.br', '', '194', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2010, 'Liberado', '', 'LEUZA LANE PEREIRA CARNEIRO FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '74 988226041', '', 'leuza.lane@yahoo.com.br', '', '195', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2011, 'Liberado', '', 'LÍLIAN MARIA DOS SANTOS LEAL', '', 'ABÓBORA', '', '', '', '', '', '74 999049424', '', 'lia.leal@hotmail.com', '', '196', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2012, 'Liberado', '', 'LINDAURA DE SOUSA NASCIMNTO', '', 'ABÓBORA', '', '', '', '', '', '(74)8819-0929', '', 'lind-arai@hotmail.com', '', '197', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2013, 'Liberado', '', 'LINDIMAR CAVALCANTE DA SILVA MELLO', '', 'ABÓBORA', '', '', '', '', '', '74.9.8806.0044', '', 'lindy_cpc@hotmail.com', '', '198', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2014, 'Liberado', '', 'LIVIA PEREIRA DE SOUZA', '', 'ABÓBORA', '', '', '', '', '', '74 98849-5539', '', 'lyvynha2010@hotmail.com', '', '199', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2015, 'Liberado', '', 'LOURDES MARIA MARINONE DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74-99995-8743', '', 'lourdesmarinone@hotmail.com', '', '200', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2016, 'Liberado', '', 'LUCIA BRUNO DE ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '999257220', '', '', '', '201', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2017, 'Liberado', '', 'LUCIA SOARES CAIANA DE MOURA', '', 'ABÓBORA', '', '', '', '', '', '7488190973', '', '', '', '202', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2018, 'Liberado', '', 'LUCIANA GOMES DE JESUS FRAGA', '', 'ABÓBORA', '', '', '', '', '', '', '', 'lucianafragagomes@hotmail.com.br', '', '203', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2019, 'Liberado', '', 'LUCIANA SOARES DE LIMA', '', 'ABÓBORA', '', '', '', '', '', '74-98815-7916', '', '', '', '204', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2020, 'Liberado', '', 'LUCÍLIA LOPES MENDONÇA', '', 'ABÓBORA', '', '', '', '', '', '74 988084358', '', 'luccylya@hotmail.com', '', '205', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2021, 'Liberado', '', 'LUCIMAR CARVALHO DA SILVA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74 9 8822 3271', '', 'lucimar_co@hotmail.com', '', '206', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2022, 'Liberado', '', 'LUCIMARA DE SOUSA', '', 'ABÓBORA', '', '', '', '', '', '87 98821-6115', '', 'sousa_04@hotmail.com', '', '207', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2023, 'Liberado', '', 'LUCIMEIRE CAMPOS BARROS', '', 'ABÓBORA', '', '', '', '', '', '(74)98821-8202', '', 'meirejnbarros@hotmail.com', '', '208', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2024, 'Liberado', '', 'LUCINEIDE BARBOSA DA SILVA CARVALHO', '', 'ABÓBORA', '', '', '', '', '', '(74)98811-9762', '', 'luci.silvabarbosa89@yahoo.com.br', '', '209', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2025, 'Liberado', '', 'LUIS CLAUDIO O DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '8799751501', '', '', '', '210', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2026, 'Liberado', '', 'LUIS CLAUDIO OLIVEIRA DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '8799751501', '', 'luisclaudioelizangela@hotmail.com', '', '211', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2027, 'Liberado', '', 'LUZIA SOARES BARBOSA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98827-1909', '', 'soares_luzia@hotmail.com', '', '212', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2028, 'Liberado', '', 'MAIANE DO NASCIMENTO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7498823-8610', '', 'maianedonascimentosantos@gmail.com', '', '213', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2029, 'Liberado', '', 'MAILDE BONFIM DOS SANTOS ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98845 - 4891', '', 'mabonfimsantosuneb@hotmail.com', '', '214', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2030, 'Liberado', '', 'MAÍRLA CARLA SILVA GUEDES', '', 'SEDE', '', '', '', '', '', '(74) 98804-7914', '', 'mairlacarla@hotmail.com', '', '21.5', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '2017-01-05 18:40:42'),
+(2031, 'Liberado', '', 'MARCIA NASCIMENTO DE SÁ', '', 'ABÓBORA', '', '', '', '', '', '(74)98805-2611', '', 'marcia_de_s@hotmail.com', '', '216', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2032, 'Liberado', '', 'MARCIONÍLIA RIBEIRO SILVA MIRANDA', '', 'ABÓBORA', '', '', '', '', '', '(87)98821-7205', '', 'marcioniliaribeito76@gmail.com', '', '217', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2033, 'Liberado', '', 'MARGARETE BARBOSA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 99883138', '', 'margarete.silva2009@hotmail.com', '', '218', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2034, 'Liberado', '', 'MARIA APARECIDA DIAS DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74-98829-7072', '', 'maria.dias71@hotmail.com.', '', '219', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `pessoas` (`id`, `vinculo`, `matricula`, `nome`, `cep`, `distrito`, `bairro`, `logradouro`, `numero`, `complemento`, `fone`, `cel1`, `cel2`, `email`, `cpf`, `rg`, `expedicao_rg`, `naturalidade`, `nascionalidade`, `nis`, `escolaridade`, `data_nascimento`, `nome_mae`, `nome_pai`, `user_id`, `created_at`, `updated_at`) VALUES
+(2035, 'Liberado', '', 'MARIA APARECIDA MIRANDA DA SILVA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74988350082', '', 'cidinha-miranda@hotmail.com', '', '220', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2036, 'Liberado', '', 'MARIA AUXILIADORA DE MENESES KAWABE', '', 'ABÓBORA', '', '', '', '', '', '(74)98805-0119', '', 'mariadodora@gmail.com', '', '221', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2037, 'Liberado', '', 'MARIA AUXILIADORA PEREIRA RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '(74) 98801-5010', '', 'diretoraauxiliadora@hotmail.com', '', '222', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2038, 'Liberado', '', 'MARIA AUXLIADORA DA C. FERNANDES', '', 'ABÓBORA', '', '', '', '', '', '74988135592', '', 'auxiliadora--conceicao@hotmail.com', '', '223', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2039, 'Liberado', '', 'MARIA BETÂNIA PEREIRA BISPO', '', 'ABÓBORA', '', '', '', '', '', '87-98815-8500', '', 'betaniabispo@hotmail.com', '', '224', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2040, 'Liberado', '', 'MARIA CONCEIÇÃO FERNANDES PEREIRA DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)988151393', '', 'mceicaofps@hotmail.com', '', '225', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2041, 'Liberado', '', 'MARIA CONCEIÇÃO FERNANDES PEREIRA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)98815-1393', '', 'mceicaofps@hotmail.com', '', '226', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2042, 'Liberado', '', 'MARIA DA RESSURREIÇÃO DE SOUZA BARBOSA', '', 'ABÓBORA', '', '', '', '', '', '7498808-7053', '', 'ressubarbosa@gmail.com', '', '227', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2043, 'Liberado', '', 'MARIA DAS GROTAS PEREIRA GOMES MACEDO', '', 'ABÓBORA', '', '', '', '', '', '(74) 98805-1738', '', 'grotasmorena@hotmail.com', '', '228', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2044, 'Liberado', '', 'MARIA DE FATIMA MARTINS', '', 'ABÓBORA', '', '', '', '', '', '3617 7040', '', 'fatima.marthis@hotmail.com', '', '229', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2045, 'Liberado', '', 'MARIA DO CARMO DE JESUS NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '74-98816-5040', '', '', '', '230', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2046, 'Liberado', '', 'MARIA DO PERPETUO SOCORRO DA COSTA BRAGA', '', 'ABÓBORA', '', '', '', '', '', '74 988343612', '', 'ipc_jua@hotmail.com ', '', '231', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2047, 'Liberado', '', 'MARIA DULCE GOMES ONIAS DE SÁ', '', 'ABÓBORA', '', '', '', '', '', '74-98801-0052', '', '', '', '232', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2048, 'Liberado', '', 'MARIA EDVÂNIA DE SÁ', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8839-3619', '', 'edvaniamello@gmail.com', '', '233', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2049, 'Liberado', '', 'MARIA ERENITA DE AMORIM COELHO', '', 'ABÓBORA', '', '', '', '', '', '(87) 98823-1288', '', 'erenitaamorim@hotmail.com', '', '234', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2050, 'Liberado', '', 'MARIA HELENA DOS SANTOS SOARES', '', 'ABÓBORA', '', '', '', '', '', '(74) 8811-8387', '', '', '', '235', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2051, 'Liberado', '', 'MARIA JAILDA TEIXEIRA RODRIGUES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74988185183', '', 'mariajtrp@hotmail.com', '', '236', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2052, 'Liberado', '', 'MARIA MACIEL DE SENNA', '', 'ABÓBORA', '', '', '', '', '', '(74)98805-1738', '', '                                  niza.mms@hotmail.com', '', '237', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2053, 'Liberado', '', 'MARIA MONICA NERIS ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '748841-9086', '', 'monica_nerisalmeida@hotmail.com', '', '238', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2054, 'Liberado', '', 'MARIA OLÍVIA ANDRADE DE OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '7488381895', '', 'm.olivia.oliveira@bol.com.br', '', '239', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2055, 'Liberado', '', 'MARIA SISLÉIA DE OLIVEIRA ALVES', '', 'ABÓBORA', '', '', '', '', '', '(74) 988161883', '', 'sisleiadoisdejulho@hotmail.com', '', '240', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2056, 'Liberado', '', 'MARIA SUENI FERREIRA DOS S. RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '7436173009', '', 'sueni_santos@yahoo.com.br', '', '241', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2057, 'Liberado', '', 'MARIA SUENI FERREIRA DOS SANTOS RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '743617-3009', '', 'sueni_santos@yahoo.com.br', '', '242', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2058, 'Liberado', '', 'MARIANA FONSECA', '', 'ABÓBORA', '', '', '', '', '', '74 988320498', '', '', '', '243', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2059, 'Liberado', '', 'MARILENE GONÇALVES DE LIMA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74 99947-7592', '', 'mari.goncalves@hotmail.com.br', '', '244', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2060, 'Liberado', '', 'MARINA DO NASCIMENTO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7491241674', '', 'marinamorena85@hotmail.com', '', '245', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2061, 'Liberado', '', 'MARISTELA PEREIRA DA SILVA (READAPTADA)', '', 'ABÓBORA', '', '', '', '', '', '(87)98838-2749', '', 'mari_stela_petro@hotmail.com', '', '246', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2062, 'Liberado', '', 'MARLENE BARBOSA DOS SANTOS ALVES', '', 'ABÓBORA', '', '', '', '', '', '074 98842 8592', '', 'marilenebarbosa2205@outlook.com', '', '247', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2063, 'Liberado', '', 'MARLENE MARIA DE SANTANA CRUZ ', '', 'ABÓBORA', '', '', '', '', '', '74 988191729', '', 'marlene_santanacruz@hotmail.com', '', '248', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2064, 'Liberado', '', 'MARLETE ALVES PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8852-3965', '', 'maravilhalete@hotmail.com', '', '249', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2065, 'Liberado', '', 'MARLI FERREIRA CASSIANO RODRIGUES', '', 'ABÓBORA', '', '', '', '', '', '74 3617-8342', '', '', '', '250', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2066, 'Liberado', '', 'MARLUCE DA SILVA OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74 98834-2914', '', 'marlucewc1@gmail.com', '', '251', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2067, 'Liberado', '', 'MARY LUCIA BARROSO PESQUEIRA', '', 'ABÓBORA', '', '', '', '', '', '87 98834 1052', '', 'marypetro_10@hotmail.com', '', '252', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2068, 'Liberado', '', 'MARYCÉLIA MACEDO REGO', '', 'ABÓBORA', '', '', '', '', '', '74 9 8822-4912', '', 'maryceliamacedo@hotmail.com', '', '253', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2069, 'Liberado', '', 'MAZARETH SOARES OLIVEIRA', '', 'ABÓBORA', '', '', '', '', '', '74 988237856', '', 'maethjua@hotmail.com', '', '254', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2070, 'Liberado', '', 'MEIREZANE GONSALVES DOS SANTOS SOUZA', '', 'ABÓBORA', '', '', '', '', '', '7488567919', '', 'loane-souza@hotmail.com', '', '255', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2071, 'Liberado', '', 'MICHEL DE SOUZA CARVALHO', '', 'ABÓBORA', '', '', '', '', '', '8788215965', '', 'michel1405@gmail.com', '', '256', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2072, 'Liberado', '', 'MILENA MENEZES NASCIMENTO DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '74 9 8812 10 81 ', '', 'millena2522@hotmail.com', '', '257', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2073, 'Liberado', '', 'MINEIA DOS SANTOS SUARES ', '', 'ABÓBORA', '', '', '', '', '', '74- 9881-6676', '', 'mineiasuares@hotmail.com', '', '258', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2074, 'Liberado', '', 'MIRAILDE DANTAS DA CRUZ', '', 'ABÓBORA', '', '', '', '', '', '(74)98838-0501', '', 'mira_morena@hotmail.com', '', '259', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2075, 'Liberado', '', 'NADJA DE SOUZA FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '8788395148', '', 'nadjasf@ig.com.br', '', '260', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2076, 'Liberado', '', 'NEIVA SORAIA CRUZ DE OLIVEIRA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74)988039933', '', 'neiva.cruz@hotmail.com', '', '261', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2077, 'Liberado', '', 'NERCI SILVA DA CRUZ', '', 'ABÓBORA', '', '', '', '', '', '8798823-3851', '', 'liriacruzz@hotmail.com', '', '262', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2078, 'Liberado', '', 'NIDIA DE PAULA GONÇALVES LIMA', '', 'ABÓBORA', '', '', '', '', '', '74 98824-0515', '', 'nidia.lima@ig.com.br', '', '263', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2079, 'Liberado', '', 'NOEDI SOUZA DE CARVALHO FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '74 988333053', '', 'noedipinhoes@hotmail.com', '', '264', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2080, 'Liberado', '', 'NÚBIA PATRÍCIA SANTOS SILVA', '', 'ABÓBORA', '', '', '', '', '', '7498819-3114', '', 'nubiapatriciasilva@gmail', '', '265', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2081, 'Liberado', '', 'PATRÍCIA CARLA ROCHA  DUARTE PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '74988332875', '', 'patriciacarla01@hotmail.com', '', '266', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2082, 'Liberado', '', 'PATRICIA LOPES JACINTO MENDES', '', 'ABÓBORA', '', '', '', '', '', '(74) 8819-8016', '', 'pat_jacinto7@hotmail.com', '', '267', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2083, 'Liberado', '', 'PATROCINIA MARIA SANTOS REGES', '', 'ABÓBORA', '', '', '', '', '', '', '', 'patuleite@hotmail.com', '', '268', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2084, 'Liberado', '', 'PAULA CRISTINA SANTOS DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '74-98855-5977', '', 'paulalcl@hotmail.com', '', '269', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2085, 'Liberado', '', 'PRISCILA VIRGINA RAMOS PIMETEL', '', 'ABÓBORA', '', '', '', '', '', '74 98807 2495', '', 'pripimantel1@hotmail.com', '', '270', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2086, 'Liberado', '', 'PRISCILA VIRGÍNIA RAMOS PIMENTEL', '', 'ABÓBORA', '', '', '', '', '', '317488072495', '', 'pripimentel1@hotmail.com', '', '271', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2087, 'Liberado', '', 'RAFAEL SANTANA ALVES ', '', 'ABÓBORA', '', '', '', '', '', '74 999563806', '', 'rafael_alvesantana@hotmail.com', '', '272', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2088, 'Liberado', '', 'RAMISON HONÓRIO SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98851-1318', '', 'ramison.honorio@gmail.com', '', '273', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2089, 'Liberado', '', 'RANON DE ALMEIDA MOTA', '', 'ABÓBORA', '', '', '', '', '', '87-9639-0310', '', 'ramom16@hotmail.com', '', '274', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2090, 'Liberado', '', 'REGINA LUCIA RODRIGUES PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '7488363773', '', 'regina.rodrigues73@hotmail.com', '', '275', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2091, 'Liberado', '', 'RISEMARY CASTRO NASCIMENTO', '', 'ABÓBORA', '', '', '', '', '', '7488157279', '', 'marry.educ@gmail.com', '', '276', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2092, 'Liberado', '', 'RITA DE CÁSSIA CARDOSO PEREIRA', '', 'ABÓBORA', '', '', '', '', '', '74 999511931', '', 'ritacasccp@hotmail.com', '', '277', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2093, 'Liberado', '', 'ROBERTO EVANGELISTA TELES', '', 'ABÓBORA', '', '', '', '', '', '8788284984', '', 'robertodecelia@hotmail.com', '', '278', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2094, 'Liberado', '', 'ROBERVANIA MARIANO CALAZANS', '', 'ABÓBORA', '', '', '', '', '', '(74) 8807-1560', '', '', '', '279', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2095, 'Liberado', '', 'ROSANA NUNES DA SILVA SANTOS', '', 'ABÓBORA', '', '', '', '', '', '87 996592974', '', 'zananunes2015gmail.com', '', '280', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2096, 'Liberado', '', 'ROSANGELA LOURDES DA SILVA ALMEIDA', '', 'ABÓBORA', '', '', '', '', '', '74-98814-6110', '', 'rosangela.almeida35@hotmail.com', '', '281', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2097, 'Liberado', '', 'ROSEANE DA SILVA AMORIM', '', 'ABÓBORA', '', '', '', '', '', '87 98832-3625', '', 'roseane406@gmail.com', '', '282', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2098, 'Liberado', '', 'ROSEMEIRE NASCIMENTO COSTA', '', 'ABÓBORA', '', '', '', '', '', '74-88294002', '', '', '', '283', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2099, 'Liberado', '', 'ROSEMERY DIAS DOS SANTOS TORRES', '', 'ABÓBORA', '', '', '', '', '', '(74)361731000', '', 'rosemery_dias@hotmail.com', '', '284', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2100, 'Liberado', '', 'ROSILDA MARQUES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98143-4315', '', 'rosilda-marques@hotmail.com', '', '285', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2101, 'Liberado', '', 'ROSILENE RODRIGUES DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98817-3799', '', 'lrose7@hotmail.com', '', '286', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2102, 'Liberado', '', 'ROSINEIDE DE CARVALHO ALVES', '', 'ABÓBORA', '', '', '', '', '', '7488599646', '', 'rose_alvescarvalho@hotmail.com', '', '287', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2103, 'Liberado', '', 'ROSINEIDE DIAS DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '7488423708', '', 'neide-esor@hotmail.com', '', '288', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2104, 'Liberado', '', 'ROZÂNGELA DE LIMA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98828-6443', '', 'roza.educa@hotmail.com.br', '', '289', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2105, 'Liberado', '', 'RUI CELESTINO BABOSA ', '', 'ABÓBORA', '', '', '', '', '', '(74)988071291', '', 'barbosarui49@yahoo.com.br', '', '290', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2106, 'Liberado', '', 'RÚZIA DO NASCIMENTO LIMA', '', 'ABÓBORA', '', '', '', '', '', '87 8844-3703', '', 'ruziaestrela@hotmail.com', '', '291', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2107, 'Liberado', '', 'SANDRA MARIA BRANDÃO MARTINS', '', 'ABÓBORA', '', '', '', '', '', '(74) 98825-3386', '', '', '', '292', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2108, 'Liberado', '', 'SANGELA DA CRUZ PAIXÃO', '', 'ABÓBORA', '', '', '', '', '', '74-99161-0554', '', 'sangelapaixao0412@gmail.com', '', '293', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2109, 'Liberado', '', 'SILVANA GOMES ALMEIDA BARBOSA VARJÃO', '', 'ABÓBORA', '', '', '', '', '', '(74) 9 8813 - 5910', '', 'silvanagomes2007@hotmail.com', '', '294', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2110, 'Liberado', '', 'SILVIA CAVALCANTE ALVES DA CRUZ', '', 'ABÓBORA', '', '', '', '', '', '(74) 88184379', '', 'silcantealcruz@hotmail.com', '', '295', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2111, 'Liberado', '', 'SIMONE MARIA GONÇALVES', '', 'ABÓBORA', '', '', '', '', '', '74 99906-1709', '', 'claricemony1@hotmail.com', '', '296', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2112, 'Liberado', '', 'SINEIDE DOS SANTOS DANTAS', '', 'ABÓBORA', '', '', '', '', '', '74 3617 3112', '', 'sineide.sabryne@hotmail.com', '', '297', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2113, 'Liberado', '', 'SIRLEIDE DANTAS DOS SANTOS', '', 'ABÓBORA', '', '', '', '', '', '8799275914', '', 'leide1901@outlook.com', '', '298', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2114, 'Liberado', '', 'SIRLENE OLIVEIRA ALVES DOS REIS', '', 'ABÓBORA', '', '', '', '', '', '74 999430461', '', 'sir_reis@live.com', '', '299', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2115, 'Liberado', '', 'SOLANGE DE ALMEIDA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '0', '', 'solangetiasol@hotmail.com', '', '300', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2116, 'Liberado', '', 'SÔNIA GOMES DA SILVA SANTANA', '', 'ABÓBORA', '', '', '', '', '', '74-3617-2012', '', 'soniagsilva1@hotmail.com', '', '301', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2117, 'Liberado', '', 'TÂNIA ROSA DA PAIXÃO AQUINO', '', 'ABÓBORA', '', '', '', '', '', '(74)8841-9813', '', 'trpaquino@hotmail.com', '', '302', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2118, 'Liberado', '', 'TEREZINHA ALVES DE OLIVEIRA DUARTE ', '', 'ABÓBORA', '', '', '', '', '', '74 98861-4339', '', 'terezinhaalvesduarte@hotmail.com', '', '303', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2119, 'Liberado', '', 'UITALO LUAN ALVES SANTIAGO', '', 'ABÓBORA', '', '', '', '', '', '7488530402', '', 'uitaloluan32@gmail.com', '', '304', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2120, 'Liberado', '', 'UYARA CRISTINA BELFORT DA CRUZ COSTA', '', 'ABÓBORA', '', '', '', '', '', '(74) 98806-1051', '', 'uyjuly@hotmail.com', '', '305', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2121, 'Liberado', '', 'VALDELICE ALVES MACHADO MARQUES', '', 'ABÓBORA', '', '', '', '', '', '(74) 98801-6517', '', 'valdatdb12@gmail.com', '', '306', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2122, 'Liberado', '', 'VALDELICE DOS SANTOS MEDRADO DIAS', '', 'ABÓBORA', '', '', '', '', '', '74 98827 0862', '', 'val.medrado3000@yahoo.com.br', '', '307', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2123, 'Liberado', '', 'VALDETE MOREIRA DA SILVA FERREIRA', '', 'ABÓBORA', '', '', '', '', '', '7488158634', '', 'valdetemsf@gmail.com', '', '308', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2124, 'Liberado', '', 'VALÉRIA FEITOSA DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '3611-0440 ', '', 'feitosa.valeria@yahoo.com.br', '', '309', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2125, 'Liberado', '', 'VANDERLEIA LOPES DA SILVA', '', 'ABÓBORA', '', '', '', '', '', '87999375520', '', 'vanderleia.lopes.advogada@hotmail.com', '', '310', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2126, 'Liberado', '', 'VANUSIA EVANGELISTA BONFIM DE ARAÚJO', '', 'ABÓBORA', '', '', '', '', '', '74 999761608', '', 'vanusia789@hotmail.com', '', '311', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2127, 'Liberado', '', 'VERA LUCIA OLIVEIRA GOMES', '', 'ABÓBORA', '', '', '', '', '', '(74) 98806 - 1028', '', 'vera.o.gomes07@hotmail.com', '', '312', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2128, 'Liberado', '', 'WALNINA DE OLIVEIRA CARVALHO', '', 'ABÓBORA', '', '', '', '', '', '(74) 8801-7903', '', 'wal-msn@hotmail.com', '', '313', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2129, 'Liberado', '', 'WELDES DO CARMO OLIVEIRA CHAGAS', '', 'ABÓBORA', '', '', '', '', '', '8788272878', '', 'weldeschagas@bol.com.br', '', '314', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2130, 'Liberado', '', 'WILMA DE OLIVEIRA SOBREIRA GUEDES', '', 'ABÓBORA', '', '', '', '', '', '(74)98819-4239', '', 'wilmasobreira@gmail.com', '', '315', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2131, 'Liberado', '', 'ZELÂNGIA ALVES TUPINÁ', '', 'ABÓBORA', '', '', '', '', '', '7488456875', '', '', '', '316', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2132, 'Liberado', '', 'ZENAIDE MIRANDA DOS S. CARDOSO', '', 'ABÓBORA', '', '', '', '', '', '(74) 98862-3416', '', 'zenaimiranda@gmail.com', '', '317', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2133, 'Liberado', '', 'ZENAIDE SOUSA MOTTA', '', 'ABÓBORA', '', '', '', '', '', '(74)98815-3032', '', 'zenaide.motta@yahoo.com.br', '', '318', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2134, 'EDUCANDÁRIO JOÃO XXIII', '', 'MIGUEL DOS SANTOS SILVA', '', 'SEDE', 'PIRANGA', 'RUA PACHECO DE CASTRO', '', 'A', '(74) 3612-9840', '(74) 98811-6127', '(74) 99107-7071', '7miguelsilva7@gmail.com', '', '31.9', '', '', '', '', '', '', '', '', 76, '0000-00-00 00:00:00', '2016-11-23 23:47:29'),
+(2135, 'Liberado', '', 'ETIENNE ALVES SANTANA DOS SANTOS', '48901-040', 'SEDE', 'PIRANGA', 'RUA PACHECO DE CASTRO', '', 'A', '(74) 3612-9840', '(74) 98803-5227', '', 'etienne.santana@hotmail.com', '', '320', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2136, 'Liberado', '', 'ADEMILSON MOREIRA MARTINS', '', 'SEDE', '', '', '', '', '(74) 3617-7165', '(74) 98845-1080', '', 'admormartins@hotmail.com', '', '321', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2137, 'Liberado', '', 'AILMA ROCHA SOARES', '', 'SEDE', '', '', '', '', '', '74 98839 1470', '', '', '', '322', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2138, 'Liberado', '', 'ALAN JONES SANTOS DE OLIVEIRA', '', 'SEDE', '', '', '', '', '', '74-8811-5410', '', 'njalped@hotmail.com', '', '323', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2139, 'Liberado', '', 'ALEX MOREIRA MACHADO', '', 'SEDE', '', '', '', '', '74-3640-1475', '', '', 'alexmoreiraartistaplastico@hotmail.com', '', '324', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2140, 'Liberado', '', 'ALEXANDRE GONÇALVES DA SILVA', '', 'SEDE', '', '', '', '', '', '74-9199-4770', '', 'alexandregsw@yahoo.com.br', '', '325', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2141, 'Liberado', '', 'ANTÔNIO GONÇALVES NETO', '', 'SEDE', '', '', '', '', '74-3617-6078', ' 74-8817-2583', '', 'antonio.economia@terra.com.br', '', '326', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2142, 'Liberado', '', 'ARMANDO PEREIRA LOPES', '', 'SEDE', '', '', '', '', '', '87 99622-9761', '', '', '', '327', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2143, 'Liberado', '', 'CHARLES ALEXANDRE DE JESUS SILVA', '', 'SEDE', '', '', '', '', '', '74 98807-8526', '', '', '', '328', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2144, 'Liberado', '', 'CLODOALDO DE ALMEIDA BORGES', '', 'SEDE', '', '', '', '', '', '74-8802-3917', '', 'clodoaldoperalva@hotmail.com', '', '329', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2145, 'Liberado', '', 'CRISTIANE PEREIRA DE SOUZA', '', 'SEDE', '', '', '', '', '(74)3618-3089', '', '', '', '', '330', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2146, 'Liberado', '', 'DANILLO MOURA GONÇALVES', '', 'SEDE', '', '', '', '', '743611-3060', '74-8801-0980', '', 'danilllo.moura@gmail.com', '', '331', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2147, 'Liberado', '', 'DIEGO ANTONIO ALVES DE SANTANA', '', 'SEDE', '', '', '', '', '', '(74) 988110737', '', '', '', '332', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2148, 'Liberado', '', 'DIEGO FABRICIO SANTOS DA SILVA', '', 'SEDE', '', '', '', '', '(74) 3613-0580', '', '', '', '', '333', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2149, 'Liberado', '', 'ELDER JAMES RIBEIRO DA COSTA SANTOS', '', 'SEDE', '', '', '', '', '', '(74) 98805-3822', '', '', '', '334', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2150, 'Liberado', '', 'ELIANE DE BARROS SANTOS', '', 'SEDE', '', '', '', '', '', '87 99933-6756', '', '', '', '335', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2151, 'Liberado', '', 'EMANOELMA BORGES DIAS', '', 'SEDE', '', '', '', '', '', '74-8805-9716', '', 'emanoelma.dias@yahoo.com.br', '', '336', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2152, 'Liberado', '', 'FABRICIO CAVALCANTI DOS SANTOS', '', 'SEDE', '', '', '', '', '', '', '', '', '', '337', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2153, 'Liberado', '', 'GEYSE ROSANEA DE SOUZA SANTOS', '', 'SEDE', '', '', '', '', '74 36189018', '87-9926-8504', '', 'Geyses22@gmail.com', '', '338', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2154, 'Liberado', '', 'GILMAR FERREIRA DA SILVA', '', 'SEDE', '', '', '', '', '', '74 99940-6252', '', '', '', '339', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2155, 'Liberado', '', 'ÍRIS CLÉA ARAÚJO DOS SANTOS', '', 'SEDE', '', '', '', '', '(74) 3611-2169', '(74) 88230-093', '', 'iriscleas@hotmail.com', '', '340', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2156, 'Liberado', '', 'ISAIAS PEREIRA FREIRE', '', 'SEDE', '', '', '', '', '(74) 3618-7055', '', '', '', '', '341', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2157, 'Liberado', '', 'JOEDSON SIDNEI DA SILVA', '', 'SEDE', '', '', '', '', '', '87 98801-3496', '', '', '', '342', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2158, 'Liberado', '', 'JONATHAS MARCELLO GUIMARÃES DE SOUZA', '', 'SEDE', '', '', '', '', '743613-743880', '74-9118-7797', '', 'marcellofx@live.com', '', '343', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2159, 'Liberado', '', 'JOSUÉ NUNES FERREIRA', '', 'SEDE', '', '', '', '', '743617-5117', '74-8827-0063', '', 'josuenferreira@bol.com.br', '', '344', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2160, 'Liberado', '', 'JOVENILSON DOS SANTOS SILVA', '', 'SEDE', '', '', '', '', '', '74 98812-8544', '', '', '', '345', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2161, 'Liberado', '', 'KAREN TAYLLA SANTOS CABRAL', '', 'SEDE', '', '', '', '', '', '74 98801-4784', '', '', '', '346', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2162, 'Liberado', '', 'LEANDRO GUIMARÃES RODRIGUES', '', 'SEDE', '', '', '', '', '74-3064-0401 ', '74-8803-3303', '', 'guimaraeslgr@gmail.com', '', '347', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2163, 'Liberado', '', 'MARCOS JOSE CHAGAS SOUZA', '', 'SEDE', '', '', '', '', '', '87 988015584', '', '', '', '348', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2164, 'Liberado', '', 'MARIANA DE OLIVEIRA ATHAYDE LYRA SILVA', '', 'SEDE', '', '', '', '', '', '87 988178188', '', '', '', '349', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2165, 'Liberado', '', 'MICAEL BENAIC HONÓRIO SANTOS', '', 'SEDE', '', '', '', '', '743617-8162', '74-8819-1916', '', 'benaic@gmail.com', '', '350', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2166, 'Liberado', '', 'NEILA DAIANE GOMES DOS SANTOS', '', 'SEDE', '', '', '', '', '', '74-8814-7026', '', 'cmgs@hotmail.com', '', '351', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2167, 'Liberado', '', 'NILMAR DE SOUZA SÁ', '', 'SEDE', '', '', '', '', '743861-1220', ' 87-9926-5123', '', 'nilmarsa@gmail.com', '', '352', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2168, 'Liberado', '', 'PALOMA BENEVIDES', '', 'SEDE', '', '', '', '', '743611-2778', '74-8818-2775', '', 'palominha_be@hotmail.com', '', '353', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2169, 'Liberado', '', 'PATRÍCIA DE AMORIM NORMANHA GOMES', '', 'SEDE', '', '', '', '', '', '74-8814-3607', '', 'pan5122@hotmail.com', '', '354', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2170, 'Liberado', '', 'POLYANNA CAVALCANTE LIMA', '', 'SEDE', '', '', '', '', '743861-3145', '87-8832-6809', '', 'poly_clima@yahoo.com.br', '', '355', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2171, 'Liberado', '', 'RAFAEL PASSOS FERNANDES', '', 'SEDE', '', '', '', '', '743613-5187', '74-8812-0671', '', 'rafaelpassus@hotmail.com', '', '356', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2172, 'Liberado', '', 'THIAGO OLIVEIRA SOUZA LEAL', '', 'SEDE', '', '', '', '', '', '74-8816-9668', '', 'Thiago.o.s.leal@hotmail.com', '', '357', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2173, 'Liberado', '', 'TÚLIO DE SOUZA NASCIMENTO', '', 'SEDE', '', '', '', '', '', '74-8801-2144', '', 'tuliobeat@hotmail.com', '', '358', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2174, 'Liberado', '', 'VAGNER UILLIAN CARDOSO DOS SANTOS', '', 'SEDE', '', '', '', '', '743612-8813', '74-8805-3275', '', 'vagnerdisabre@gmail.com', '', '359', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2175, 'Liberado', '', 'VERA LUCIA DA SILVA SANTANA', '', 'SEDE', '', '', '', '', '', '74 98852-6535', '', '', '', '360', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2176, 'Liberado', '', 'VICTOR TOMAZ MARQUES', '', 'SEDE', '', '', '', '', '743612-6044', '74-8801-1289', '', 'victortomazmarques@gmail.com', '', '361', '', '', '', '', '', '', '', '', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2177, 'Liberado', '', 'ANA SHEILA DE SENA PIRES', '', '', '', '', '', '', '', '', '', '', '', '00.000.000-00', '', '', '', '', '', '', '', '', 12, '2017-06-12 16:18:50', '2017-06-12 16:18:50'),
+(2178, 'Liberado', '', 'ANA CECÍLIA FERREIRA DANTAS NASCIMENTO', '', '', '', '', '', '', '', '', '', '', '', '11.111.111-11', '', '', '', '', '', '', '', '', 12, '2017-06-12 16:24:11', '2017-06-12 16:24:11'),
+(2179, 'EDUCANDÁRIO JOÃO XXIII', '14679', 'MARÍLIA CRISTINA PARENTE', '', 'SEDE', '', '', '', '', '', '', '', '', '', '00.000.000-01', '', '', '', '', '', '', '', '', 12, '2017-06-12 17:07:02', '2017-06-12 17:10:08');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `roles`
+-- Table structure for table `programas`
+--
+
+CREATE TABLE `programas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -997,7 +1197,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -1006,7 +1206,7 @@ INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `role_has_permissions`
+-- Table structure for table `role_has_permissions`
 --
 
 CREATE TABLE `role_has_permissions` (
@@ -1017,7 +1217,7 @@ CREATE TABLE `role_has_permissions` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `scaffoldinterfaces`
+-- Table structure for table `scaffoldinterfaces`
 --
 
 CREATE TABLE `scaffoldinterfaces` (
@@ -1033,7 +1233,7 @@ CREATE TABLE `scaffoldinterfaces` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `scaffoldinterfaces`
+-- Dumping data for table `scaffoldinterfaces`
 --
 
 INSERT INTO `scaffoldinterfaces` (`id`, `package`, `migration`, `model`, `controller`, `views`, `tablename`, `created_at`, `updated_at`) VALUES
@@ -1042,15 +1242,20 @@ INSERT INTO `scaffoldinterfaces` (`id`, `package`, `migration`, `model`, `contro
 (3, 'Laravel', '/var/www/html/sglab/database/migrations/2016_10_28_021040_escolas.php', '/var/www/html/sglab/app/Escola.php', '/var/www/html/sglab/app/Http/Controllers/EscolaController.php', '/var/www/html/sglab/resources/views/escola', 'escolas', '2016-10-28 05:10:40', '2016-10-28 05:10:40'),
 (4, 'Laravel', '/var/www/html/sglab/database/migrations/2016_10_28_021136_ocupacaos.php', '/var/www/html/sglab/app/Ocupacao.php', '/var/www/html/sglab/app/Http/Controllers/OcupacaoController.php', '/var/www/html/sglab/resources/views/ocupacao', 'ocupacaos', '2016-10-28 05:11:36', '2016-10-28 05:11:36'),
 (6, 'Laravel', '/var/www/html/sglab/database/migrations/2016_10_28_104008_funcionarios.php', '/var/www/html/sglab/app/Funcionario.php', '/var/www/html/sglab/app/Http/Controllers/FuncionarioController.php', '/var/www/html/sglab/resources/views/funcionario', 'funcionarios', '2016-10-29 01:40:08', '2016-10-29 01:40:08'),
-(8, 'Laravel', 'http://7miguelsilva7.000webhostapp.com/sglab/database/migrations/2016_12_06_035703_horario_funcionarios.php', 'http://7miguelsilva7.000webhostapp.com/sglab/app/Horario_funcionario.php', 'http://7miguelsilva7.000webhostapp.com/sglab/app/Http/Controllers/Horario_funcionarioController.php', 'http://7miguelsilva7.000webhostapp.com/sglab/resources/views/horario_funcionario', 'horario_funcionarios', '2016-12-06 18:57:03', '2016-12-06 18:57:03'),
-(14, 'Laravel', 'http://7miguelsilva7.000webhostapp.com/sglab/database/migrations/2016_12_21_021545_turmas.php', 'http://7miguelsilva7.000webhostapp.com/sglab/app/Turma.php', 'http://7miguelsilva7.000webhostapp.com/sglab/app/Http/Controllers/TurmaController.php', 'http://7miguelsilva7.000webhostapp.com/sglab/resources/views/turma', 'turmas', '2016-12-21 17:15:45', '2016-12-21 17:15:45'),
-(15, 'Laravel', 'http://7miguelsilva7.000webhostapp.com/sglab/database/migrations/2016_12_26_092340_modals.php', 'http://7miguelsilva7.000webhostapp.com/sglab/app/Modal.php', 'http://7miguelsilva7.000webhostapp.com/sglab/app/Http/Controllers/ModalController.php', 'http://7miguelsilva7.000webhostapp.com/sglab/resources/views/modal', 'modals', '2016-12-27 00:23:40', '2016-12-27 00:23:40'),
-(16, 'Laravel', 'http://7miguelsilva7.000webhostapp.com/sglab/database/migrations/2017_02_08_124832_upload_csvs.php', 'http://7miguelsilva7.000webhostapp.com/sglab/app/Upload_csv.php', 'http://7miguelsilva7.000webhostapp.com/sglab/app/Http/Controllers/Upload_csvController.php', 'http://7miguelsilva7.000webhostapp.com/sglab/resources/views/upload_csv', 'upload_csvs', '2017-02-08 15:48:32', '2017-02-08 15:48:32');
+(8, 'Laravel', '/home/aetji649/sglab/database/migrations/2016_12_06_035703_horario_funcionarios.php', '/home/aetji649/sglab/app/Horario_funcionario.php', '/home/aetji649/sglab/app/Http/Controllers/Horario_funcionarioController.php', '/home/aetji649/sglab/resources/views/horario_funcionario', 'horario_funcionarios', '2016-12-06 18:57:03', '2016-12-06 18:57:03'),
+(14, 'Laravel', '/home/aetji649/sglab/database/migrations/2016_12_21_021545_turmas.php', '/home/aetji649/sglab/app/Turma.php', '/home/aetji649/sglab/app/Http/Controllers/TurmaController.php', '/home/aetji649/sglab/resources/views/turma', 'turmas', '2016-12-21 17:15:45', '2016-12-21 17:15:45'),
+(16, 'Laravel', '/home/aetji649/sglab/database/migrations/2017_02_08_124832_upload_csvs.php', '/home/aetji649/sglab/app/Upload_csv.php', '/home/aetji649/sglab/app/Http/Controllers/Upload_csvController.php', '/home/aetji649/sglab/resources/views/upload_csv', 'upload_csvs', '2017-02-08 15:48:32', '2017-02-08 15:48:32'),
+(18, 'Laravel', '/opt/lampp/htdocs/sglab/database/migrations/2017_06_13_070559_disciplinas.php', '/opt/lampp/htdocs/sglab/app/Disciplina.php', '/opt/lampp/htdocs/sglab/app/Http/Controllers/DisciplinaController.php', '/opt/lampp/htdocs/sglab/resources/views/disciplina', 'disciplinas', '2017-06-13 22:06:00', '2017-06-13 22:06:00'),
+(19, 'Laravel', '/opt/lampp/htdocs/sglab/database/migrations/2017_06_17_020650_turnos.php', '/opt/lampp/htdocs/sglab/app/Turno.php', '/opt/lampp/htdocs/sglab/app/Http/Controllers/TurnoController.php', '/opt/lampp/htdocs/sglab/resources/views/turno', 'turnos', '2017-06-17 17:06:50', '2017-06-17 17:06:50'),
+(40, 'Laravel', '/opt/lampp/htdocs/sglab/database/migrations/2017_06_20_020712_educacaoinfantils.php', '/opt/lampp/htdocs/sglab/app/Educacaoinfantil.php', '/opt/lampp/htdocs/sglab/app/Http/Controllers/EducacaoinfantilController.php', '/opt/lampp/htdocs/sglab/resources/views/educacaoinfantil', 'educacaoinfantils', '2017-06-20 17:07:12', '2017-06-20 17:07:12'),
+(41, 'Laravel', '/opt/lampp/htdocs/sglab/database/migrations/2017_06_20_020733_programas.php', '/opt/lampp/htdocs/sglab/app/Programa.php', '/opt/lampp/htdocs/sglab/app/Http/Controllers/ProgramaController.php', '/opt/lampp/htdocs/sglab/resources/views/programa', 'programas', '2017-06-20 17:07:33', '2017-06-20 17:07:33'),
+(42, 'Laravel', '/opt/lampp/htdocs/sglab/database/migrations/2017_06_20_020813_ensinofundamentals.php', '/opt/lampp/htdocs/sglab/app/Ensinofundamental.php', '/opt/lampp/htdocs/sglab/app/Http/Controllers/EnsinofundamentalController.php', '/opt/lampp/htdocs/sglab/resources/views/ensinofundamental', 'ensinofundamentals', '2017-06-20 17:08:13', '2017-06-20 17:08:13'),
+(43, 'Laravel', '/opt/lampp/htdocs/sglab/database/migrations/2017_06_20_020958_ejas.php', '/opt/lampp/htdocs/sglab/app/Eja.php', '/opt/lampp/htdocs/sglab/app/Http/Controllers/EjaController.php', '/opt/lampp/htdocs/sglab/resources/views/eja', 'ejas', '2017-06-20 17:09:58', '2017-06-20 17:09:58');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `siems`
+-- Table structure for table `siems`
 --
 
 CREATE TABLE `siems` (
@@ -1065,7 +1270,7 @@ CREATE TABLE `siems` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `siems`
+-- Dumping data for table `siems`
 --
 
 INSERT INTO `siems` (`id`, `usuario`, `siem`, `nome`, `tipo_escola`, `cod_ext`, `created_at`, `updated_at`) VALUES
@@ -1211,7 +1416,7 @@ INSERT INTO `siems` (`id`, `usuario`, `siem`, `nome`, `tipo_escola`, `cod_ext`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `siem_escolas`
+-- Table structure for table `siem_escolas`
 --
 
 CREATE TABLE `siem_escolas` (
@@ -1221,7 +1426,7 @@ CREATE TABLE `siem_escolas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `siem_escolas`
+-- Dumping data for table `siem_escolas`
 --
 
 INSERT INTO `siem_escolas` (`IdEscola`, `nmEscola`, `nmArticulador`) VALUES
@@ -1233,7 +1438,7 @@ INSERT INTO `siem_escolas` (`IdEscola`, `nmEscola`, `nmArticulador`) VALUES
 (105, 'AMÉRICO TANURY - ABÓBORA', ''),
 (106, 'ANÁLIA BARBOSA DE SOUZA', 'Thiago santos'),
 (107, 'ANTONIO FRANCISCO DE OLIVEIRA', 'Alex Moreira'),
-(108, 'BOLIVAR SANT''ANNA', ''),
+(108, 'BOLIVAR SANT\'ANNA', ''),
 (109, 'BOM JESUS - BARAUNA', ''),
 (110, 'BOM JESUS - NH1', ''),
 (111, 'CAIC - MISAEL AGUILAR', 'Rafael Passos'),
@@ -1358,7 +1563,7 @@ INSERT INTO `siem_escolas` (`IdEscola`, `nmEscola`, `nmArticulador`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `siem_simrede`
+-- Table structure for table `siem_simrede`
 --
 
 CREATE TABLE `siem_simrede` (
@@ -1393,7 +1598,7 @@ CREATE TABLE `siem_simrede` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `siem_simrede`
+-- Dumping data for table `siem_simrede`
 --
 
 INSERT INTO `siem_simrede` (`idescola`, `codsiem`, `nmaluno`, `nmescola`, `serie`, `simulado`, `datacad`, `nota1`, `nota2`, `nota3`, `nota4`, `nota5`, `nota6`, `nota7`, `nota8`, `nota9`, `nota10`, `nota11`, `nota12`, `nota13`, `nota14`, `nota15`, `nota16`, `nota17`, `nota18`, `nota19`, `nota20`, `situacao`) VALUES
@@ -8777,7 +8982,7 @@ INSERT INTO `siem_simrede` (`idescola`, `codsiem`, `nmaluno`, `nmescola`, `serie
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `turmas`
+-- Table structure for table `turmas`
 --
 
 CREATE TABLE `turmas` (
@@ -8829,7 +9034,7 @@ CREATE TABLE `turmas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `turmas`
+-- Dumping data for table `turmas`
 --
 
 INSERT INTO `turmas` (`id`, `turno`, `nivel`, `serie`, `turma`, `seg1`, `ter1`, `qua1`, `qui1`, `sex1`, `sab1`, `seg2`, `ter2`, `qua2`, `qui2`, `sex2`, `sab2`, `seg3`, `ter3`, `qua3`, `qui3`, `sex3`, `sab3`, `seg4`, `ter4`, `qua4`, `qui4`, `sex4`, `sab4`, `seg5`, `ter5`, `qua5`, `qui5`, `sex5`, `sab5`, `seg6`, `ter6`, `qua6`, `qui6`, `sex6`, `sab6`, `adicionado_por`, `siem_id`, `created_at`, `updated_at`) VALUES
@@ -8842,7 +9047,33 @@ INSERT INTO `turmas` (`id`, `turno`, `nivel`, `serie`, `turma`, `seg1`, `ter1`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `upload_csvs`
+-- Table structure for table `turnos`
+--
+
+CREATE TABLE `turnos` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `turnos`
+--
+
+INSERT INTO `turnos` (`id`, `nome`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Manhã', '2017-06-17 17:21:55', '2017-06-17 17:21:55', NULL),
+(2, 'Tarde', '2017-06-17 17:22:01', '2017-06-17 17:22:01', NULL),
+(3, 'Noite', '2017-06-17 17:22:11', '2017-06-17 17:22:11', NULL),
+(4, 'Corrido-Mat', '2017-06-17 17:22:40', '2017-06-17 17:22:40', NULL),
+(5, 'Corrido-Ves', '2017-06-17 17:23:17', '2017-06-17 17:23:17', NULL),
+(6, 'Corrido-Not', '2017-06-17 17:23:27', '2017-06-17 17:23:27', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `upload_csvs`
 --
 
 CREATE TABLE `upload_csvs` (
@@ -8855,23 +9086,10 @@ CREATE TABLE `upload_csvs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Extraindo dados da tabela `upload_csvs`
---
-
-INSERT INTO `upload_csvs` (`id`, `ano`, `simulado`, `nivel`, `siem_id`, `created_at`, `updated_at`) VALUES
-(8, '2017', '1', '3 ano', 100, '2017-02-08 23:42:43', '2017-02-08 23:42:43'),
-(9, '2017', '1', '4 ANO', 120, '2017-02-08 23:45:48', '2017-02-08 23:45:48'),
-(12, '2017', '1', '4/5 ANO', 110, '2017-02-08 23:47:03', '2017-02-08 23:47:03'),
-(13, '2017', '1', '8/9 ANO', 100, '2017-02-08 23:49:37', '2017-02-08 23:49:37'),
-(14, '', '2', '', 100, '2017-02-08 23:52:17', '2017-02-08 23:52:17'),
-(15, '2017', '', '', 100, '2017-02-08 23:55:06', '2017-02-08 23:55:06'),
-(16, '2017', '', '', 100, '2017-02-08 23:56:07', '2017-02-08 23:56:07');
-
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -8885,11 +9103,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$8YnfsZ6N5NsXxDXYbYc/UOgb/xvux3B/hXv1x574bsISvxk1xsnO.', 'WrVpvjMeRqU8Xfe3pE0pou6xCwE5qYgiRuRbbEQ0zdOJet2Ke20MDdk5Y7MA', '2016-11-12 17:44:03', '2017-02-03 20:41:18'),
+(12, 'Admin', '7miguelsilva7@gmail.com', '$2y$10$8YnfsZ6N5NsXxDXYbYc/UOgb/xvux3B/hXv1x574bsISvxk1xsnO.', 'ZmoGvKi0fyxs8PQ0N7PYxA3zywtORZDWCMk4Pdjtjc1CUMI7nsIx7irjdKNN', '2016-11-12 17:44:03', '2017-06-16 14:32:53'),
 (17, 'Liberado', 'liberado@gmail.com', '$2y$10$XjCrpeKNG0ilPkwHslBdouPEmr1i6wdxLkZ4ZmIcPbjHM9cyo7066', 'ov1yW2XtE7dXU8V2cY5vniZjVb6srButRuQcOQSCAPKEf3N6etGzgExNeVxo', '2016-11-15 05:35:44', '2016-11-22 19:09:42'),
 (22, '15 DE JULHO', '29teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (23, '25 DE JULHO', 'escola25.dejulho@outlook.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -8945,7 +9163,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 (73, 'E.M.E.I PRIMAVERA', '1teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (74, 'E.M.E.I SEMENTE DO AMANHA', '42teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (75, 'E.M.E.I. ARCENIO JOSE DA SILVA', '43teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(76, 'EDUCANDÁRIO JOÃO XXIII', 'educandariojoao23@gmail.com', '$2y$10$gkS9F8a7yQzh2rV/GKnWgu.IQVMzf3q0Ycyrojc3uBm1plhZsqiG2', 'qdCJ249BrCF07GB1LEHQDpwpEaMmzETQzqWU9NgJlYtVDxjJpu8saD2KuzsC', '0000-00-00 00:00:00', '2016-12-23 18:43:39'),
+(76, 'EDUCANDÁRIO JOÃO XXIII', 'educandariojoao23@gmail.com', '$2y$10$gkS9F8a7yQzh2rV/GKnWgu.IQVMzf3q0Ycyrojc3uBm1plhZsqiG2', '5xE7zrF5xZJwzCuAOmDSu0wt8KSXzwPGgPRBXwJO4jPImEwLqYxWzstEFLpQ', '0000-00-00 00:00:00', '2017-06-13 21:56:39'),
 (77, 'ELEOTÉRIO SOARES FONSÊCA', '44teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (78, 'ELISEU SANTOS', '24teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (79, 'ERUM - RURAL DA MASSAROCA', '25teste@gmail.com', '123456', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -9034,7 +9252,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `user_has_permissions`
+-- Table structure for table `user_has_permissions`
 --
 
 CREATE TABLE `user_has_permissions` (
@@ -9043,7 +9261,7 @@ CREATE TABLE `user_has_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `user_has_permissions`
+-- Dumping data for table `user_has_permissions`
 --
 
 INSERT INTO `user_has_permissions` (`user_id`, `permission_id`) VALUES
@@ -9052,7 +9270,7 @@ INSERT INTO `user_has_permissions` (`user_id`, `permission_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `user_has_roles`
+-- Table structure for table `user_has_roles`
 --
 
 CREATE TABLE `user_has_roles` (
@@ -9061,7 +9279,7 @@ CREATE TABLE `user_has_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `user_has_roles`
+-- Dumping data for table `user_has_roles`
 --
 
 INSERT INTO `user_has_roles` (`role_id`, `user_id`) VALUES
@@ -9070,7 +9288,7 @@ INSERT INTO `user_has_roles` (`role_id`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -9081,7 +9299,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha`) VALUES
@@ -9125,6 +9343,66 @@ ALTER TABLE `anulada`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `disciplinas`
+--
+ALTER TABLE `disciplinas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `disciplina_funcionario`
+--
+ALTER TABLE `disciplina_funcionario`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `disciplinas_funcionarios_id_unique` (`id`),
+  ADD KEY `disciplinas_funcionarios_disciplina_id_index` (`disciplina_id`),
+  ADD KEY `disciplinas_funcionarios_funcionario_id_index` (`funcionario_id`);
+
+--
+-- Indexes for table `educacaoinfantils`
+--
+ALTER TABLE `educacaoinfantils`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `educacaoinfantils_funcionarios`
+--
+ALTER TABLE `educacaoinfantils_funcionarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `educacaoinfantils_funcionarios_id_unique` (`id`),
+  ADD KEY `educacaoinfantils_funcionarios_educacaoinfantil_id_index` (`educacaoinfantil_id`),
+  ADD KEY `educacaoinfantils_funcionarios_funcionario_id_index` (`funcionario_id`);
+
+--
+-- Indexes for table `ejas`
+--
+ALTER TABLE `ejas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ejas_funcionarios`
+--
+ALTER TABLE `ejas_funcionarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ejas_funcionarios_id_unique` (`id`),
+  ADD KEY `ejas_funcionarios_eja_id_index` (`eja_id`),
+  ADD KEY `ejas_funcionarios_funcionario_id_index` (`funcionario_id`);
+
+--
+-- Indexes for table `ensinofundamentals`
+--
+ALTER TABLE `ensinofundamentals`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ensinofundamentals_funcionarios`
+--
+ALTER TABLE `ensinofundamentals_funcionarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ensinofundamentals_funcionarios_id_unique` (`id`),
+  ADD KEY `ensinofundamentals_funcionarios_ensinofundamental_id_index` (`ensinofundamental_id`),
+  ADD KEY `ensinofundamentals_funcionarios_funcionario_id_index` (`funcionario_id`);
+
+--
 -- Indexes for table `escolas`
 --
 ALTER TABLE `escolas`
@@ -9140,6 +9418,24 @@ ALTER TABLE `funcionarios`
   ADD KEY `funcionarios_ocupacao_id_foreign` (`ocupacao_id`),
   ADD KEY `funcionarios_pessoa_id_foreign` (`pessoa_id`),
   ADD KEY `funcionarios_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `funcionarios_programas`
+--
+ALTER TABLE `funcionarios_programas`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `funcionarios_programas_id_unique` (`id`),
+  ADD KEY `funcionarios_programas_funcionario_id_index` (`funcionario_id`),
+  ADD KEY `funcionarios_programas_programa_id_index` (`programa_id`);
+
+--
+-- Indexes for table `funcionario_turno`
+--
+ALTER TABLE `funcionario_turno`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `funcionarios_turnos_id_unique` (`id`),
+  ADD KEY `funcionarios_turnos_funcionario_id_index` (`funcionario_id`),
+  ADD KEY `funcionarios_turnos_turno_id_index` (`turno_id`);
 
 --
 -- Indexes for table `horario_funcionarios`
@@ -9192,6 +9488,12 @@ ALTER TABLE `pessoas`
   ADD KEY `pessoas_user_id_foreign` (`user_id`);
 
 --
+-- Indexes for table `programas`
+--
+ALTER TABLE `programas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -9238,6 +9540,12 @@ ALTER TABLE `turmas`
   ADD KEY `turmas_siem_id_foreign` (`siem_id`);
 
 --
+-- Indexes for table `turnos`
+--
+ALTER TABLE `turnos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `upload_csvs`
 --
 ALTER TABLE `upload_csvs`
@@ -9282,6 +9590,46 @@ ALTER TABLE `usuarios`
 ALTER TABLE `anulada`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `disciplinas`
+--
+ALTER TABLE `disciplinas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `disciplina_funcionario`
+--
+ALTER TABLE `disciplina_funcionario`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `educacaoinfantils`
+--
+ALTER TABLE `educacaoinfantils`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `educacaoinfantils_funcionarios`
+--
+ALTER TABLE `educacaoinfantils_funcionarios`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `ejas`
+--
+ALTER TABLE `ejas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `ejas_funcionarios`
+--
+ALTER TABLE `ejas_funcionarios`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `ensinofundamentals`
+--
+ALTER TABLE `ensinofundamentals`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `ensinofundamentals_funcionarios`
+--
+ALTER TABLE `ensinofundamentals_funcionarios`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `escolas`
 --
 ALTER TABLE `escolas`
@@ -9290,7 +9638,17 @@ ALTER TABLE `escolas`
 -- AUTO_INCREMENT for table `funcionarios`
 --
 ALTER TABLE `funcionarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `funcionarios_programas`
+--
+ALTER TABLE `funcionarios_programas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `funcionario_turno`
+--
+ALTER TABLE `funcionario_turno`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `horario_funcionarios`
 --
@@ -9300,7 +9658,7 @@ ALTER TABLE `horario_funcionarios`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT for table `moodle_simulados`
 --
@@ -9310,7 +9668,7 @@ ALTER TABLE `moodle_simulados`
 -- AUTO_INCREMENT for table `ocupacaos`
 --
 ALTER TABLE `ocupacaos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
@@ -9320,7 +9678,12 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `pessoas`
 --
 ALTER TABLE `pessoas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2177;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2180;
+--
+-- AUTO_INCREMENT for table `programas`
+--
+ALTER TABLE `programas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -9330,7 +9693,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `scaffoldinterfaces`
 --
 ALTER TABLE `scaffoldinterfaces`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `siems`
 --
@@ -9347,10 +9710,15 @@ ALTER TABLE `siem_simrede`
 ALTER TABLE `turmas`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
+-- AUTO_INCREMENT for table `turnos`
+--
+ALTER TABLE `turnos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `upload_csvs`
 --
 ALTER TABLE `upload_csvs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -9366,13 +9734,41 @@ ALTER TABLE `usuarios`
 --
 
 --
--- Limitadores para a tabela `escolas`
+-- Constraints for table `disciplina_funcionario`
+--
+ALTER TABLE `disciplina_funcionario`
+  ADD CONSTRAINT `disciplinas_funcionarios_disciplina_id_foreign` FOREIGN KEY (`disciplina_id`) REFERENCES `disciplinas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `disciplinas_funcionarios_funcionario_id_foreign` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionarios` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `educacaoinfantils_funcionarios`
+--
+ALTER TABLE `educacaoinfantils_funcionarios`
+  ADD CONSTRAINT `educacaoinfantils_funcionarios_educacaoinfantil_id_foreign` FOREIGN KEY (`educacaoinfantil_id`) REFERENCES `educacaoinfantils` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `educacaoinfantils_funcionarios_funcionario_id_foreign` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionarios` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `ejas_funcionarios`
+--
+ALTER TABLE `ejas_funcionarios`
+  ADD CONSTRAINT `ejas_funcionarios_eja_id_foreign` FOREIGN KEY (`eja_id`) REFERENCES `ejas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `ejas_funcionarios_funcionario_id_foreign` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionarios` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `ensinofundamentals_funcionarios`
+--
+ALTER TABLE `ensinofundamentals_funcionarios`
+  ADD CONSTRAINT `ensinofundamentals_funcionarios_ensinofundamental_id_foreign` FOREIGN KEY (`ensinofundamental_id`) REFERENCES `ensinofundamentals` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `ensinofundamentals_funcionarios_funcionario_id_foreign` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionarios` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `escolas`
 --
 ALTER TABLE `escolas`
   ADD CONSTRAINT `escolas_siem_id_foreign` FOREIGN KEY (`siem_id`) REFERENCES `siems` (`id`) ON DELETE CASCADE;
 
 --
--- Limitadores para a tabela `funcionarios`
+-- Constraints for table `funcionarios`
 --
 ALTER TABLE `funcionarios`
   ADD CONSTRAINT `funcionarios_ocupacao_id_foreign` FOREIGN KEY (`ocupacao_id`) REFERENCES `ocupacaos` (`id`) ON DELETE CASCADE,
@@ -9381,46 +9777,60 @@ ALTER TABLE `funcionarios`
   ADD CONSTRAINT `funcionarios_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Limitadores para a tabela `horario_funcionarios`
+-- Constraints for table `funcionarios_programas`
+--
+ALTER TABLE `funcionarios_programas`
+  ADD CONSTRAINT `funcionarios_programas_funcionario_id_foreign` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionarios` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `funcionarios_programas_programa_id_foreign` FOREIGN KEY (`programa_id`) REFERENCES `programas` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `funcionario_turno`
+--
+ALTER TABLE `funcionario_turno`
+  ADD CONSTRAINT `funcionarios_turnos_funcionario_id_foreign` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionarios` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `funcionarios_turnos_turno_id_foreign` FOREIGN KEY (`turno_id`) REFERENCES `turnos` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `horario_funcionarios`
 --
 ALTER TABLE `horario_funcionarios`
   ADD CONSTRAINT `horario_funcionarios_pessoa_id_foreign` FOREIGN KEY (`pessoa_id`) REFERENCES `pessoas` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `horario_funcionarios_siem_id_foreign` FOREIGN KEY (`siem_id`) REFERENCES `siems` (`id`) ON DELETE CASCADE;
 
 --
--- Limitadores para a tabela `pessoas`
+-- Constraints for table `pessoas`
 --
 ALTER TABLE `pessoas`
   ADD CONSTRAINT `pessoas_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Limitadores para a tabela `role_has_permissions`
+-- Constraints for table `role_has_permissions`
 --
 ALTER TABLE `role_has_permissions`
   ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Limitadores para a tabela `turmas`
+-- Constraints for table `turmas`
 --
 ALTER TABLE `turmas`
   ADD CONSTRAINT `turmas_siem_id_foreign` FOREIGN KEY (`siem_id`) REFERENCES `siems` (`id`) ON DELETE CASCADE;
 
 --
--- Limitadores para a tabela `upload_csvs`
+-- Constraints for table `upload_csvs`
 --
 ALTER TABLE `upload_csvs`
   ADD CONSTRAINT `upload_csvs_siem_id_foreign` FOREIGN KEY (`siem_id`) REFERENCES `siems` (`id`) ON DELETE CASCADE;
 
 --
--- Limitadores para a tabela `user_has_permissions`
+-- Constraints for table `user_has_permissions`
 --
 ALTER TABLE `user_has_permissions`
   ADD CONSTRAINT `user_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `user_has_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Limitadores para a tabela `user_has_roles`
+-- Constraints for table `user_has_roles`
 --
 ALTER TABLE `user_has_roles`
   ADD CONSTRAINT `user_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
