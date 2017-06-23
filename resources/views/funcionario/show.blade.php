@@ -22,6 +22,8 @@
           
                 <tbody>
                 <tr>
+
+                <!--ADIÇÃO DE DISCIPLINAS-->
                 <td>
             <form method = 'post' action = '{{url("assignDisciplina")}}'>
             @if (count($errors) > 0)
@@ -41,16 +43,18 @@
             <select name="disciplina_id" required >
             <option  value="">Escolha a Disciplina</option>
             @foreach($disciplinas as $key => $value)
-            <!--<input   name="disciplina_id" value="{{$value->id}}">{{$value->nome}} </p>-->
 
-            <<option  type="checkbox" name="disciplina_id" value="{{$value->id}}">{{$value->nome}}</option>
+            <<option name="disciplina_id" value="{{$value->id}}">{{$value->nome}}</option>
             @endforeach    
 
             </select>
             <button class = 'btn btn-primary btn-xs' type ='submit'><i class="glyphicon glyphicon-plus"></i></button>  
                 </form>                                         
                 </td>
-                   
+                <!--FIM ADIÇÃO DE DISCIPLINAS-->
+
+
+                   <!--Remover disciplina-->
                         <td>
                         <form action = '{{url("removeDisciplina")}}'>
                         <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
@@ -63,19 +67,62 @@
                         <button type="submit" class = "btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                         </p>
 
-                        @endforeach                        
+                        @endforeach        
+                        </form>                
                         </td>
                         </tr>
+                    <!--fim Remover disciplina-->
+
 
                         <tr>
-                        <td>
-                        <b><i>Turno : </i></b>
-                        </td>
+                         <!--ADIÇÃO DE TURNO-->
+                <td>
+            <form method = 'post' id="turno" action = '{{url("assignTurno")}}'>
+                            <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
 
+            @if (count($errors) > 0)
+             <div class = "alert alert-danger">
+            <ul>
+               @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+               @endforeach
+            </ul>
+             </div>
+            @endif      
+
+            <b><i>Turno: </i></p>
+            <input  type="hidden" name="funcionario_id" value="{{$funcionario->id}}"></p>
+            
+            <select name="turno_id" required >
+            <option  value="">Escolha o Turno</option>
+            @foreach($turnos as $key => $value)
+            <option value="{{$value->id}}">{{$value->nome}}</option>
+            @endforeach    
+            </select>
+            
+            <button id="turno" class = 'btn btn-primary btn-xs' type ='submit'><i class="glyphicon glyphicon-plus"></i></button>  
+                </form>                                         
+                </td>
+                <!--FIM ADIÇÃO DE TURNO-->
+
+
+                        <!--REMOVER TURNO-->
                         <td>
+                        <form action = '{{url("removeTurno")}}'>
+                        <input type = 'hidden' name = '_token' value = '{{Session::token()}}'>
+
+                        @foreach($funcionario->turnos as $turno)
+                        {{$turno->nome}}
+                        <input  type="hidden" name="funcionario_id" value="{{$funcionario->id}}">
+                        <input  type="hidden" name="turno_id" value="{{$turno->id}}">
+
+                        <button type="submit" class = "btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        </p>
+                        @endforeach
+                        </form>
                         </td>
                         </tr>
-
+                        <!--REMOVER TURNO-->
 
 
                         <tr>

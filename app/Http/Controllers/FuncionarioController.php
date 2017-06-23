@@ -192,8 +192,6 @@ if($usuario_logado == "Admin") {
 
      public function assignDisciplina(Request $request)
     {
-
-
         $disciplinas = Disciplina::all();
 
         $funcionario = Funcionario::findOrfail($request->funcionario_id);
@@ -202,8 +200,6 @@ if($usuario_logado == "Admin") {
 
         return redirect('funcionario/'.$request->funcionario_id);
 
-
-        // return view('funcionario.edit',compact('funcionario', 'disciplinas'));
     }
 
     public function removeDisciplina(Request $request)
@@ -212,6 +208,30 @@ if($usuario_logado == "Admin") {
        $funcionario = Funcionario::findOrfail($request->funcionario_id);
     
        $funcionario->disciplinas()->detach([$request->disciplina_id]);
+
+       return redirect('funcionario/'.$request->funcionario_id);
+
+    }
+
+
+     public function assignTurno(Request $request)
+    {
+        $turno = Turno::all();
+
+        $funcionario = Funcionario::findOrfail($request->funcionario_id);
+
+        $funcionario->turnos()->attach([$request->turno_id]);
+
+        return redirect('funcionario/'.$request->funcionario_id);
+
+    }
+
+    public function removeTurno(Request $request)
+
+    {
+       $funcionario = Funcionario::findOrfail($request->funcionario_id);
+    
+       $funcionario->turnos()->detach([$request->turno_id]);
 
        return redirect('funcionario/'.$request->funcionario_id);
 
@@ -295,7 +315,8 @@ if($usuario_logado == "Admin") {
         }
 
         $funcionario = Funcionario::findOrfail($id);
-        return view('funcionario.show',compact('funcionario', 'disciplinas'));
+
+        return view('funcionario.show',compact('funcionario', 'disciplinas', 'turnos'));
     }
 
     /**

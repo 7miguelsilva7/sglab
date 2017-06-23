@@ -62,8 +62,12 @@ Route::resource('funcionario','\App\Http\Controllers\FuncionarioController');
 Route::post('funcionario/{id}/update','\App\Http\Controllers\FuncionarioController@update');
 Route::get('funcionario/{id}/delete','\App\Http\Controllers\FuncionarioController@destroy');
 Route::get('funcionario/{id}/deleteMsg','\App\Http\Controllers\FuncionarioController@DeleteMsg');
+//disciplinas
 Route::post('assignDisciplina','\App\Http\Controllers\FuncionarioController@assignDisciplina');
 Route::get('removeDisciplina','\App\Http\Controllers\FuncionarioController@removeDisciplina');
+//turno
+Route::post('assignTurno','\App\Http\Controllers\FuncionarioController@assignTurno');
+Route::get('removeTurno','\App\Http\Controllers\FuncionarioController@removeTurno');
 /********************* funcionario ***********************************************/
 
 //Vinculos
@@ -167,4 +171,56 @@ Route::group(['middleware'=> 'web'],function(){
   Route::post('turno/{id}/update','\App\Http\Controllers\TurnoController@update');
   Route::get('turno/{id}/delete','\App\Http\Controllers\TurnoController@destroy');
   Route::get('turno/{id}/deleteMsg','\App\Http\Controllers\TurnoController@DeleteMsg');
+});
+
+Route::group(['middleware'=> 'web'],function(){
+});
+
+
+//educacao_infatil Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('educacao_infatil','\App\Http\Controllers\Educacao_infatilController');
+  Route::post('educacao_infatil/{id}/update','\App\Http\Controllers\Educacao_infatilController@update');
+  Route::get('educacao_infatil/{id}/delete','\App\Http\Controllers\Educacao_infatilController@destroy');
+  Route::get('educacao_infatil/{id}/deleteMsg','\App\Http\Controllers\Educacao_infatilController@DeleteMsg');
+});
+
+//programa Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('programa','\App\Http\Controllers\ProgramaController');
+  Route::post('programa/{id}/update','\App\Http\Controllers\ProgramaController@update');
+  Route::get('programa/{id}/delete','\App\Http\Controllers\ProgramaController@destroy');
+  Route::get('programa/{id}/deleteMsg','\App\Http\Controllers\ProgramaController@DeleteMsg');
+});
+
+//eja_i Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('eja_i','\App\Http\Controllers\Eja_iController');
+  Route::post('eja_i/{id}/update','\App\Http\Controllers\Eja_iController@update');
+  Route::get('eja_i/{id}/delete','\App\Http\Controllers\Eja_iController@destroy');
+  Route::get('eja_i/{id}/deleteMsg','\App\Http\Controllers\Eja_iController@DeleteMsg');
+});
+
+//eja_ii Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('eja_ii','\App\Http\Controllers\Eja_iiController');
+  Route::post('eja_ii/{id}/update','\App\Http\Controllers\Eja_iiController@update');
+  Route::get('eja_ii/{id}/delete','\App\Http\Controllers\Eja_iiController@destroy');
+  Route::get('eja_ii/{id}/deleteMsg','\App\Http\Controllers\Eja_iiController@DeleteMsg');
+});
+
+//fudamental_i Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('fudamental_i','\App\Http\Controllers\Fudamental_iController');
+  Route::post('fudamental_i/{id}/update','\App\Http\Controllers\Fudamental_iController@update');
+  Route::get('fudamental_i/{id}/delete','\App\Http\Controllers\Fudamental_iController@destroy');
+  Route::get('fudamental_i/{id}/deleteMsg','\App\Http\Controllers\Fudamental_iController@DeleteMsg');
+});
+
+//fudamental_ii Routes
+Route::group(['middleware'=> 'web'],function(){
+  Route::resource('fudamental_ii','\App\Http\Controllers\Fudamental_iiController');
+  Route::post('fudamental_ii/{id}/update','\App\Http\Controllers\Fudamental_iiController@update');
+  Route::get('fudamental_ii/{id}/delete','\App\Http\Controllers\Fudamental_iiController@destroy');
+  Route::get('fudamental_ii/{id}/deleteMsg','\App\Http\Controllers\Fudamental_iiController@DeleteMsg');
 });
